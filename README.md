@@ -1,8 +1,26 @@
 # dojo2-bootstrap
 
-Based on dojo2 widget-core and bootstrap
+本项目存储响应式的小部件，基于 dojo 2 的 [widget-core](https://github.com/dojo/widget-core) 和 [bootstrap 4](https://getbootstrap.com/) 构建。
 
 This project was generated with the [Dojo CLI](https://github.com/dojo/cli) & [Dojo CLI create app command](https://github.com/dojo/cli-create-app).
+
+## 如何创建部件模板
+
+安装创建部件组件 [`@dojo/cli-create-widget`](https://github.com/dojo/cli-create-widget)：
+
+```bash
+npm install -g @dojo/cli-create-widget
+```
+
+进入 src 文件夹，执行以下命令：
+
+```bash
+dojo create widget --name <widget name> --component true
+```
+
+完成。
+
+
 
 ## Build
 

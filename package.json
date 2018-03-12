@@ -9,7 +9,13 @@
     "@dojo/widget-core": "~0.9.6",
     "@dojo/routing": "~0.5.0",
     "@dojo/widgets": "~0.6.1",
-    "tslib": "~1.8.1"
+    "@types/jquery": "3.3.0",
+    "@types/popper.js": "1.11.0",
+    "@types/bootstrap": "3.3.37",
+    "tslib": "~1.8.1",
+    "jquery": "3.3.1",
+    "popper.js": "1.12.9",
+    "bootstrap": "4.0.0"
   },
   "devDependencies": {
     "@dojo/cli-build-app": "~0.3.4",

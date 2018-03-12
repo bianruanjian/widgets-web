@@ -14,7 +14,10 @@
 </script>
 <% } %>
 
+<!--
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+-->
+<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <% if (theme.fancybox){ %>
   <%- css('fancybox/jquery.fancybox') %>
@@ -23,3 +26,6 @@
 
 <%- js('js/script') %>
 <%- partial('gauges-analytics') %>
+
+<%- js('js/runtime.d41d8cd98f00b204e980.bundle') %>
+<%- js('js/main.74b4d13be2c351537cb9.bundle') %>
