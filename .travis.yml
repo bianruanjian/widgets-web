@@ -9,11 +9,8 @@ before_install:
 script: 
 
 jobs:
-  include:
-    stage: Test site
-    script:
-      - grunt test
-      - grunt ci
+
+
 deploy:
   provider: script
   script: grunt publish
