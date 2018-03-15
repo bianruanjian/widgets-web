@@ -10,7 +10,11 @@ import { hexo, hexoClean } from '../../commands/hexo';
  */
 export = function (grunt: IGrunt) {
 	async function buildTask(this: IMultiTask<any>) {
-		const { src: [ siteDirectory ] } = this.files[0];
+		const { src } = this.files[0];
+		let siteDirectory;
+		if (src) {
+			siteDirectory = src[0];
+		}
 		const configs = [ '_config.yml' ];
 		const options = this.options<any>({});
 		const overrideRoot = env.hexoRootOverride();
