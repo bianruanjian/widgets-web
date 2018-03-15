@@ -25,9 +25,9 @@ export function middleware(): Handler[] {
 	return [
 		new LogRequest(),
 		route(/./).filter(incomingMessage => {
-			const path = join(rootDirectory, incomingMessage.url);
+			const path = join(rootDirectory, incomingMessage.url||'');
 
-			return isDirectory(path) && incomingMessage.url.lastIndexOf('/') !== incomingMessage.url.length - 1;
+			return isDirectory(path) &&incomingMessage.url!=null&& incomingMessage.url.lastIndexOf('/') !== incomingMessage.url.length - 1;
 		}).wrap(
 			(request, response) => {
 				response.writeHead(301, { Location: request.url + '/'});
