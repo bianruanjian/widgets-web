@@ -11,7 +11,7 @@ import { hexo, hexoClean } from '../../commands/hexo';
 export = function (grunt: IGrunt) {
 	async function buildTask(this: IMultiTask<any>) {
 		const { src } = this.files[0];
-		let siteDirectory;
+		let siteDirectory:string = "";
 		if (src) {
 			siteDirectory = src[0];
 		}
