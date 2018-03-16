@@ -123,12 +123,6 @@ export const tslint = {
 	site: [ 'site/**/*.ts', '!site/node_modules/**' ]
 };
 
-export const tutorials = {
-	'dojo2-tutorials': {
-		src: 'site/source/tutorials',
-		dest: '<%= distDirectory %>/tutorials/assets'
-	}
-};
 
 /**
  * Host a local development server

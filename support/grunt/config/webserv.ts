@@ -35,10 +35,10 @@ export function middleware(): Handler[] {
 				return Promise.resolve();
 			}
 		),
-		route(/./).transform(relativeUrl('/dojo.io')).wrap([
+		route(/./).transform(relativeUrl('/dojo2-bootstrap')).wrap([
 			new ServeFile(rootDirectory),
 			new ServeDirectory(rootDirectory)
 		]),
-		new WebProxy('http://dojo.github.io')
+		new WebProxy('http://bianruanjian.github.io/dojo2-bootstrap')
 	];
 }
