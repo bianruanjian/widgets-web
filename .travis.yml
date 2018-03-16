@@ -6,11 +6,12 @@ before_install:
 - npm install @dojo/cli grunt-cli typings -g
 
 
-script: 
-
 jobs:
-
-
+  include:
+    stage: Test site
+    script:
+      - grunt test
+      - grunt ci
 deploy:
   provider: script
   script: grunt publish
