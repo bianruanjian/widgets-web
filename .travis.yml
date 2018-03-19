@@ -12,6 +12,7 @@ jobs:
     script:
       - grunt test
       - grunt ci
+
 deploy:
   provider: script
   script: grunt publish
