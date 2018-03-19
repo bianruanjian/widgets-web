@@ -19,13 +19,16 @@ permalink_defaults:
 
 # Directory
 source_dir: source
-public_dir: public
+public_dir: ../_dist
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - "**/node_modules/**"
+exclude:
+  - "**/node_modules/**"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -77,4 +80,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:bianruanjian/dojo2-bootstrap.git
+  branch: gh-pages
