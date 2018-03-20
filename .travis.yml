@@ -3,19 +3,24 @@ language: node_js
 node_js:
 - 6
 before_install:
+- openssl aes-256-cbc -K $encrypted_6ad29057b824_key -iv $encrypted_6ad29057b824_iv
+  -in deploy_key.enc -out deploy_key -d
 - npm install @dojo/cli grunt-cli typings -g
-
-
+- cp deploy_key ~/.ssh/id_rsa
+- chmod 600 ~/.ssh/id_rsa
 jobs:
   include:
     stage: Test site
     script:
-      - grunt test
-      - grunt ci
-
+    - grunt test
+    - grunt ci
+    
 deploy:
   provider: script
-  script: grunt publish
+  script: grunt publish && cd _dist && git add . && git commit -m 'travis push' && git push
   skip_cleanup: true
   on:
     branch: master
+cache:
+  directories:
+  - node_modules
