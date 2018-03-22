@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-TextInput" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/dojo2-bootstrap/2018/03/20/hello-world/" class="article-date">
-  <time datetime="2018-03-20T07:38:44.565Z" itemprop="datePublished">2018-03-20</time>
+    <a href="/dojo2-bootstrap/2018/03/22/TextInput/" class="article-date">
+  <time datetime="2018-03-22T20:10:52.000Z" itemprop="datePublished">2018-03-22</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/dojo2-bootstrap/2018/03/20/hello-world/">Hello World</a>
+      <a class="article-title" href="/dojo2-bootstrap/2018/03/22/TextInput/">TextInput</a>
     </h1>
   
 
@@ -85,20 +85,117 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>用于创建文本输入框，支持输入普通文本或限定范围的字符，如数字、密码和邮箱等。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>默认值</th>
+<th>可选值</th>
+<th>值类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>标识</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>名称</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>type</td>
+<td>类型</td>
+<td>text</td>
+<td>text、password、email、number</td>
+<td>string</td>
+</tr>
+<tr>
+<td>value</td>
+<td>值</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>label</td>
+<td>文本</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>占位符</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>required</td>
+<td>必填</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>失效</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>只读</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>size</td>
+<td>尺寸</td>
+<td></td>
+<td>sm, lg</td>
+<td>string</td>
+</tr>
+<tr>
+<td>state</td>
+<td>状态</td>
+<td></td>
+<td>valid, invalid</td>
+<td>string</td>
+</tr>
+<tr>
+<td>plainText</td>
+<td>纯文本</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<p>输入框有4种状态</p>
+<ol>
+<li>默认状态</li>
+<li>获取焦点</li>
+<li>数值有效</li>
+<li>数值无效</li>
+</ol>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bianruanjian.github.io/2018/03/20/hello-world/" data-id="cjezcpzhk00017fe53r5afvy4" class="article-share-link">Teilen</a>
+      <a data-url="https://bianruanjian.github.io/2018/03/22/TextInput/" data-id="cjf2j1xkr00017xdwxo4xrxiy" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -163,7 +260,52 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bianruanjian.github.io/2018/03/12/Container/" data-id="cjezcpzha00007fe5ybm9nbx1" class="article-share-link">Teilen</a>
+      <a data-url="https://bianruanjian.github.io/2018/03/12/Container/" data-id="cjf2j1xkd00007xdw4474tezc" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/dojo2-bootstrap/2018/03/11/hello-world/" class="article-date">
+  <time datetime="2018-03-11T08:44:17.000Z" itemprop="datePublished">2018-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/dojo2-bootstrap/2018/03/11/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bianruanjian.github.io/2018/03/11/hello-world/" data-id="cjf2j1xl100027xdws8jsrb16" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -204,11 +346,15 @@
       <ul>
         
           <li>
-            <a href="/dojo2-bootstrap/2018/03/20/hello-world/">Hello World</a>
+            <a href="/dojo2-bootstrap/2018/03/22/TextInput/">TextInput</a>
           </li>
         
           <li>
             <a href="/dojo2-bootstrap/2018/03/12/Container/">Container</a>
+          </li>
+        
+          <li>
+            <a href="/dojo2-bootstrap/2018/03/11/hello-world/">Hello World</a>
           </li>
         
       </ul>
