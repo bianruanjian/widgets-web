@@ -19,7 +19,7 @@ export interface ContainerProperties {
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement({
-	tag: 'dojo-Container',
+	tag: 'brj-container',
 	attributes: [],
 	properties: ['fluidWidth'],
 	events: []

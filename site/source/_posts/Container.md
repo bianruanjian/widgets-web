@@ -19,7 +19,7 @@ tags:
 
 固定宽度
 
-<dojo-Container>水平居中</dojo-Container>
+<dojo-container>水平居中</dojo-container>
 
 ```html
 <dojo-Container>

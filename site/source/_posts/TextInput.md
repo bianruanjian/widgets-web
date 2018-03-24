@@ -8,8 +8,12 @@ tags:
 
 ## 基本用法
 
-```html
+示例
 
+<brj-text-input></brj-text-input>
+
+```html
+<brj-text-input></brj-text-input>
 ```
 
 
@@ -29,6 +33,9 @@ tags:
 | size | 尺寸     |       |   sm, lg       | string     |
 | state | 状态     |       |   valid, invalid       | string     |
 | plainText | 纯文本   | false  | true, false    | boolean     |
+| maxLength | 最大字符个数   |    |               | number     |
+| minLength | 最小字符个数   |    |               | number     |
+
 
 
 输入框有4种状态
