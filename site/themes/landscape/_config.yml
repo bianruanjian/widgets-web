@@ -2,14 +2,15 @@
 menu:
   Home: /
   Archives: /archives
+  Components: /components
 rss: /atom.xml
 
 # Content
 excerpt_link: Read More
-fancybox: true
+fancybox: false
 
 # Sidebar
-sidebar: right
+sidebar: false
 widgets:
 - category
 - tag
