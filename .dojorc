@@ -1,5 +1,11 @@
 {
 	"build-app": {},
 	"test-intern": {},
-	"create-app": {}
+	"create-app": {},
+	"build-widget": {
+		"elements": [
+			"src/widgets/Button",
+			"src/widgets/Container"
+		]
+	}
 }

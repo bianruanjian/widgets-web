@@ -4,3 +4,7 @@
 @import '_util/bulma_variables';
 @import 'bulma';
 @import '_views/home';
+
+.tag:not(body) {
+    background-color: #2d2d2d;
+}

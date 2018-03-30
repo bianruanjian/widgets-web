@@ -1,3 +1,5 @@
+[![加入QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-631036800-blue.svg)](http://shang.qq.com/wpa/qunwpa?idkey=12359372e3c79a93895f53a95b844fd146a45d143ec20d7496bfe138c17354aa)
+
 # dojo2-bootstrap
 
 本项目存储响应式的小部件，基于 dojo 2 的 [widget-core](https://github.com/dojo/widget-core) 和 [bootstrap 4](https://getbootstrap.com/) 构建。
