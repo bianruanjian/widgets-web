@@ -1,0 +1,12 @@
+<section class="section">
+	<div class="container-fluid">
+		<div class="columns">
+			<div class="column is-2 menu-sidebar">
+				<%- partial('_partial/components-nav') %>
+			</div>
+			<div class="column is-10 article">
+				<%- partial('_partial/article', {post: page, index: false, showDate: false}) %>
+			</div>
+		</div>
+	</div>
+</section>

@@ -30,6 +30,8 @@ skip_render:
 exclude:
   - "**/node_modules/**"
 
+components_dir: components
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -54,7 +56,16 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
+# Sass
+node_sass:
+	outputStyle: nested
+	precision: 5
+	sourceComments: false
+	includePaths:
+		- node_modules/bulma
+		- node_modules/
+
 # Category & Tag
 default_category: uncategorized
 category_map:
