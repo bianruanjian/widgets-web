@@ -12,10 +12,8 @@ tags:
 ### 填充
 
 {% raw %}
-<div class="btn-group" role="group" aria-label="Basic example">
 <brj-button appearance="primary" value="primary"></brj-button>
 <brj-button appearance="secondary" value="secondary"></brj-button>
-</div>
 <brj-button appearance="danger" value="danger"></brj-button>
 <brj-button appearance="warning" value="warning"></brj-button>
 <brj-button appearance="info" value="info"></brj-button>

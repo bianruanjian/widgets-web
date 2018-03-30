@@ -2,6 +2,8 @@
 
 # dojo2-bootstrap
 
+[![Build Status](https://api.travis-ci.org/bianruanjian/dojo2-bootstrap.svg?branch=master)](https://travis-ci.org/bianruanjian/dojo2-bootstrap)
+
 本项目存储响应式的小部件，基于 dojo 2 的 [widget-core](https://github.com/dojo/widget-core) 和 [bootstrap 4](https://getbootstrap.com/) 构建。
 
 This project was generated with the [Dojo CLI](https://github.com/dojo/cli) & [Dojo CLI create app command](https://github.com/dojo/cli-create-app).

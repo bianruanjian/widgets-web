@@ -43,7 +43,6 @@
     "load-grunt-tasks": "^3.5.2",
     "ts-node": "^3.3.0",
     "typescript": "~2.6.1",
-    "shx": "^0.2.2",
     "webserv": "^0.6.1"
   }
 }
