@@ -2,6 +2,8 @@
   "name": "dojo2-bootstrap",
   "version": "1.0.0",
   "scripts": {
+    "build-widgets": "dojo build widget",
+    "build": "npm run build-widgets",
     "install": "cd site && npm i",
     "serve": "grunt webserv"
   },
@@ -22,7 +24,7 @@
     "bootstrap": "4.0.0"
   },
   "devDependencies": {
-    "@dojo/cli-build-app": "~0.3.4",
+    "@dojo/cli-build-widget": "~0.2.2",
     "@dojo/cli-test-intern": "~0.5.1",
     "@dojo/test-extras": "~0.6.0",
     "@types/glob": "~5.0.0",

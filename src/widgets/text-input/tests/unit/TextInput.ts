@@ -1,4 +1,4 @@
-const { describe, it, beforeEach, afterEach } = intern.getInterface('bdd');
+const { describe, it } = intern.getInterface('bdd');
 
 import { w } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
