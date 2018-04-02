@@ -3,7 +3,9 @@ menu:
   Home: /
   Archives: /archives
   Components: /components
-rss: /atom.xml
+#rss: /atom.xml
+github: https://github.com/bianruanjian/dojo2-bootstrap
+
 
 # Content
 excerpt_link: Read More

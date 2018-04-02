@@ -19,14 +19,14 @@
         <% } %>
       </nav>
       <nav id="sub-nav">
-        <% if (theme.rss){ %>
-          <a id="nav-rss-link" class="nav-icon" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>"></a>
+        <% if (theme.github){ %>
+          <a id="nav-github-link" target="_blank" class="nav-icon" href="<%- url_for(theme.github) %>" ></a>
         <% } %>
         <a id="nav-search-btn" class="nav-icon" title="<%= __('search') %>"></a>
       </nav>
-      <div id="search-form-wrap">
+      <!-- <div id="search-form-wrap">
         <%- search_form({button: '&#xF002;'}) %>
-      </div>
+      </div> -->
     </div>
   </div>
 </header>

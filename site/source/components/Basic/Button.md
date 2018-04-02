@@ -1,6 +1,7 @@
 ---
 title: Button
 layout: components
+footer: false
 date: 2018-03-26 10:14:52
 tags:
 ---

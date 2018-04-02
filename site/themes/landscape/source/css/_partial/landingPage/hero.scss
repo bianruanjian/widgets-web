@@ -82,7 +82,8 @@ section.hero {
 	.shapes {
 		position: absolute;
 		left: 0; right: 0; top: 0; bottom: 0;
-		background: #fff url(/images/header-bg.jpg);
+		// background: #fff url(/images/header-bg.jpg);
+		background: #fff;
 		background-size: 100vw 100vh;
 		background-position: top -25vh center;
 		background-repeat: no-repeat;
