@@ -50,8 +50,7 @@ body {
     text-indent: -3px;
     background: whitesmoke; }
   .menu-list li {
-    list-style-type: none;
-    margin-left: -.75em; }
+    list-style-type: none; }
 
 .menu-sidebar {
   border-right: 1px solid rgba(0, 0, 0, 0.1); }
@@ -6338,7 +6337,7 @@ label.panel-block {
         right: 0;
         top: 0;
         bottom: 0;
-        background: #fff url(/images/header-bg.jpg);
+        background: #fff;
         background-size: 100vw 100vh;
         background-position: top -25vh center;
         background-repeat: no-repeat;

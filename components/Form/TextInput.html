@@ -5,19 +5,19 @@
   
 
   
-  <title>Components | Dojo2-bootstrap</title>
+  <title>TextInput | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于 dojo2 和 bootstrap 编写的一套组件。">
+  <meta name="description" content="用于创建文本输入框，支持输入普通文本或限定范围的字符，如数字、密码和邮箱等。 基本用法示例  1&amp;lt;brj-text-input&amp;gt;&amp;lt;/brj-text-input&amp;gt; 属性   名称 说明 默认值 可选值 值类型     id 标识   string   name 名称   string   type 类型 text text、password、email、number str">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Components">
-<meta property="og:url" content="https://bianruanjian.github.io/components/index.html">
+<meta property="og:title" content="TextInput">
+<meta property="og:url" content="https://bianruanjian.github.io/components/Form/TextInput.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="基于 dojo2 和 bootstrap 编写的一套组件。">
+<meta property="og:description" content="用于创建文本输入框，支持输入普通文本或限定范围的字符，如数字、密码和邮箱等。 基本用法示例  1&amp;lt;brj-text-input&amp;gt;&amp;lt;/brj-text-input&amp;gt; 属性   名称 说明 默认值 可选值 值类型     id 标识   string   name 名称   string   type 类型 text text、password、email、number str">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-02T02:47:34.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Components">
-<meta name="twitter:description" content="基于 dojo2 和 bootstrap 编写的一套组件。">
+<meta name="twitter:title" content="TextInput">
+<meta name="twitter:description" content="用于创建文本输入框，支持输入普通文本或限定范围的字符，如数字、密码和邮箱等。 基本用法示例  1&amp;lt;brj-text-input&amp;gt;&amp;lt;/brj-text-input&amp;gt; 属性   名称 说明 默认值 可选值 值类型     id 标识   string   name 名称   string   type 类型 text text、password、email、number str">
   
   
     <link rel="icon" href="/favicon.png">
@@ -97,7 +97,7 @@
     <ul class="menu-list">
         
             <li
-                
+                class="active" 
             >
                 <a href="/dojo2-bootstrap/components/Form/TextInput.html">
                     TextInput
@@ -123,7 +123,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Components
+      TextInput
     </h1>
   
 
@@ -131,8 +131,129 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基于 dojo2 和 bootstrap 编写的一套组件。</p>
-
+        <p>用于创建文本输入框，支持输入普通文本或限定范围的字符，如数字、密码和邮箱等。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>示例</p>
+<p><brj-text-input></brj-text-input></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">brj-text-input</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-text-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>默认值</th>
+<th>可选值</th>
+<th>值类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>标识</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>名称</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>type</td>
+<td>类型</td>
+<td>text</td>
+<td>text、password、email、number</td>
+<td>string</td>
+</tr>
+<tr>
+<td>value</td>
+<td>值</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>label</td>
+<td>文本</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>占位符</td>
+<td></td>
+<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>required</td>
+<td>必填</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>失效</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>只读</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>size</td>
+<td>尺寸</td>
+<td></td>
+<td>sm, lg</td>
+<td>string</td>
+</tr>
+<tr>
+<td>state</td>
+<td>状态</td>
+<td></td>
+<td>valid, invalid</td>
+<td>string</td>
+</tr>
+<tr>
+<td>plainText</td>
+<td>纯文本</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>maxLength</td>
+<td>最大字符个数</td>
+<td></td>
+<td></td>
+<td>number</td>
+</tr>
+<tr>
+<td>minLength</td>
+<td>最小字符个数</td>
+<td></td>
+<td></td>
+<td>number</td>
+</tr>
+</tbody>
+</table>
+<p>输入框有4种状态</p>
+<ol>
+<li>默认状态</li>
+<li>获取焦点</li>
+<li>数值有效</li>
+<li>数值无效</li>
+</ol>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2>
       
     </div>
     <footer class="article-footer">

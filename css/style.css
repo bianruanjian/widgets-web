@@ -353,7 +353,7 @@ body {
 .nav-icon {
   font-family: FontAwesome;
   text-align: center;
-  font-size: 14px;
+  font-size: 20px;
   width: 14px;
   height: 14px;
   padding: 20px 15px;
@@ -387,6 +387,9 @@ body {
 }
 #nav-rss-link:before {
   content: "\f09e";
+}
+#nav-github-link:before {
+  content: "\f09b";
 }
 #nav-search-btn:before {
   content: "\f002";
@@ -451,11 +454,10 @@ body {
 .search-form-submit:focus {
   color: #777;
 }
-.article {
-  margin: 50px 0;
-}
 .article-inner {
   overflow: hidden;
+  -webkit-box-shadow: none;
+  border: 0;
 }
 .article-meta:before,
 .article-meta:after {
