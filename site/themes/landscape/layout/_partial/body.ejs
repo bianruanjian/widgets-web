@@ -1,6 +1,11 @@
 <%- getBodyClass() %>
 <%
 	function getBodyClass() {
+
+		if(page.bodyClass){
+			return page.bodyClass;
+		}
+
 		if(is_home()){
 			return "body-front-page";
 		}
