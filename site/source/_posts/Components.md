@@ -58,6 +58,7 @@ tags:
 * Card 卡片
 * Calendar 日历
 * Collapse 折叠面板
+* Image 图片
 * List 列表
 * Tree 树
 * Timeline 时间轴
