@@ -10,4 +10,4 @@ tags:
 
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| float | 浮动方向 | none | none, left, right | string |
+| float | 浮动方向 | default | none, left, right, default | string |
