@@ -8,13 +8,13 @@ tags:
 
 ## 属性
 
-| 名称  | 说明 | 默认值 | 可选值 |值类型 |
+| 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| marginTop | 顶外边距 | 0 |    0,1,2,3,4,5,auto      | string |
-| marginBottom | 底外边距 | 0 |     0,1,2,3,4,5,auto     | string |
-| marginLeft | 左外边距 | 0 |      0,1,2,3,4,5,auto    | string |
-| marginRight | 右外边距 | 0 |    0,1,2,3,4,5,auto      | string |
-| paddingTop | 顶内边距 | 0 |    0,1,2,3,4,5,auto      | string |
-| paddingBottom | 底内边距 | 0 |     0,1,2,3,4,5,auto     | string |
-| paddingLeft | 左内边距 | 0 |      0,1,2,3,4,5,auto    | string |
-| paddingRight | 右内边距 | 0 |    0,1,2,3,4,5,auto      | string |
+| marginTop | 顶外边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
+| marginBottom | 底外边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
+| marginLeft | 左外边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
+| marginRight | 右外边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
+| paddingTop | 顶内边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
+| paddingBottom | 底内边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
+| paddingLeft | 左内边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
+| paddingRight | 右内边距 | 0 | 0, 1, 2, 3, 4, 5, auto | string |
