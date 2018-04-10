@@ -7,17 +7,17 @@
   
   <title>Text | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="属性   名称 说明 默认值 可选值 值类型     fontWeight 粗细 normal light, normal, bold string   fontItalic 斜体 false true, false boolean   underLine 下划线 false true, false boolean   strikeThrough 删除线 false true, false boo">
+  <meta name="description" content="属性   名称 说明 默认值 可选值 值类型     fontWeight 粗细 default light, normal, bold, default string   fontItalic 斜体 false true, false boolean   underLine 下划线 false true, false boolean   strikeThrough 删除线 false true,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Text">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Utilities/Text.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="属性   名称 说明 默认值 可选值 值类型     fontWeight 粗细 normal light, normal, bold string   fontItalic 斜体 false true, false boolean   underLine 下划线 false true, false boolean   strikeThrough 删除线 false true, false boo">
+<meta property="og:description" content="属性   名称 说明 默认值 可选值 值类型     fontWeight 粗细 default light, normal, bold, default string   fontItalic 斜体 false true, false boolean   underLine 下划线 false true, false boolean   strikeThrough 删除线 false true,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-10T07:49:16.591Z">
+<meta property="og:updated_time" content="2018-04-10T09:48:50.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Text">
-<meta name="twitter:description" content="属性   名称 说明 默认值 可选值 值类型     fontWeight 粗细 normal light, normal, bold string   fontItalic 斜体 false true, false boolean   underLine 下划线 false true, false boolean   strikeThrough 删除线 false true, false boo">
+<meta name="twitter:description" content="属性   名称 说明 默认值 可选值 值类型     fontWeight 粗细 default light, normal, bold, default string   fontItalic 斜体 false true, false boolean   underLine 下划线 false true, false boolean   strikeThrough 删除线 false true,">
   
   
     <link rel="icon" href="/favicon.png">
@@ -225,8 +225,8 @@
 <tr>
 <td>fontWeight</td>
 <td>粗细</td>
-<td>normal</td>
-<td>light, normal, bold</td>
+<td>default</td>
+<td>light, normal, bold, default</td>
 <td>string</td>
 </tr>
 <tr>
@@ -253,8 +253,8 @@
 <tr>
 <td>alignment</td>
 <td>对齐方式</td>
-<td>left</td>
-<td>left, center, right</td>
+<td>default</td>
+<td>left, center, right, default</td>
 <td>string</td>
 </tr>
 <tr>
@@ -267,9 +267,9 @@
 <tr>
 <td>truncate</td>
 <td>截取长度</td>
-<td>0</td>
-<td></td>
-<td>number</td>
+<td>default</td>
+<td>default, 数字, 百分数</td>
+<td>number/string</td>
 </tr>
 <tr>
 <td>wrap</td>
@@ -280,6 +280,16 @@
 </tr>
 </tbody>
 </table>
+<p>truncate</p>
+<ol>
+<li><code>truncate</code>的值为<code>0</code>时，表示超过父容器宽度时截取;</li>
+<li><code>truncate</code>的值可有<code>default</code>, 表示不设置该样式;</li>
+<li><code>truncate</code>的值为数字时单位是<code>px</code>.</li>
+</ol>
+<p>wrap</p>
+<ol>
+<li><code>wrap</code>的值为数字时单位是<code>rem</code>.</li>
+</ol>
 
       
     </div>
