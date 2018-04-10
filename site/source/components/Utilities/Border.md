@@ -15,4 +15,4 @@ tags:
 | borderRight | 右边框 | false | true, false | boolean |
 | borderBottom | 下边框 | false | true, false | boolean |
 | borderColor | 颜色 | default | primary, secondary, success, danger, warning, info, light, dark, white, default | string |
-| borderRadius | 圆角 | default | top, left, right, bottom, circle, default | string |
+| borderRound | 圆角 | default | top, left, right, bottom, circle, default | string |
