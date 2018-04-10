@@ -1,37 +1,38 @@
 ---
 title: Container
-date: 2018-03-12 08:44:17
+date: 2018-04-09 14:23:33
+layout: components
+footer: false
 tags:
 ---
 
-# Container
-
-1. 名称：dojo-Container
-1. 是否容器：true
+页面布局容器
 
 ## 属性
 
 | 名称  | 说明 | 默认值 | 可选值 |值类型 |
 | ----- | ------ | ----- | ----- | --------- |
+| widgetId| 标识 |  |  | string |
 | fluidWidth | 水平铺满 | false |          | boolean |
+| maxWidth | 宽度 |  |          | number/undefined |
 
 ## 示例
 
 固定宽度
 
-<dojo-container>水平居中</dojo-container>
+<db-container>水平居中</db-container>
 
 ```html
-<dojo-Container>
+<db-Container>
 水平居中
-</dojo-Container>
+</db-Container>
 ```
 
 铺满全屏
 
 ```html
-<dojo-Container fluidWidth="true">
+<db-Container fluidWidth="true">
 铺满全屏
-</dojo-Container>
+</db-Container>
 ```
 
