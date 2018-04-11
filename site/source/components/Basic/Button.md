@@ -104,8 +104,8 @@ tags:
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" disabled="true" value="Block level button"></brj-button>
-<brj-button appearance="secondary" value="Block level button"></brj-button>
+<brj-button appearance="primary" fluidWidth="true" value="Block level button"></brj-button>
+<brj-button appearance="secondary" fluidWidth="true" value="Block level button"></brj-button>
 ```
 
 ### 激活

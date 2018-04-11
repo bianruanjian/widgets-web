@@ -25,12 +25,24 @@ tags:
 
 ## 示例
 
-固定宽度
+铺满全屏
 
-<db-view>水平居中</db-view>
+{% raw %}
+<db-view widgetId="id">铺满全屏</db-view>
+{% endraw %}
 
 ```html
-<db-view>
-水平居中
-</db-view>
+<db-view widgetId="id">铺满全屏</db-view>
+```
+
+半屏显示
+
+{% raw %}
+<db-container fluidWidth='true'>
+    <db-view maxWidth="250">半屏显示</db-view>
+</db-container>
+{% endraw %}
+
+```html
+<db-view maxWidth="250">半屏显示</db-view>
 ```
