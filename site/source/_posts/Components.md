@@ -9,7 +9,7 @@ tags:
 
 * Button 按钮
 * Icon 图标
-* Text 文本部件
+* Text 文本
 
 ## Layout
 
