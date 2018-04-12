@@ -6,7 +6,6 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/container.m.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 /**
  * @type ContainerProperties

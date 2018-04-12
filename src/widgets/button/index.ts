@@ -3,7 +3,6 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import * as css from './styles/button.m.css';
 

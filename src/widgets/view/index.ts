@@ -6,7 +6,6 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/view.m.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {BorderProperties, SpacingProperties, TextProperties} from '../common/interfaces';
 /**
  * @type viewProperties
@@ -15,11 +14,10 @@ import {BorderProperties, SpacingProperties, TextProperties} from '../common/int
  */
 export interface ViewProperties extends BorderProperties, SpacingProperties, TextProperties { 
 	widgetId?: string;
-	maxWidth?: number;
+	maxWidth?: number | string;
 };
 
 export const ThemedBase = ThemedMixin(WidgetBase);
-
 
 @customElement<ViewProperties>({
 	tag: 'db-view',
@@ -78,115 +76,153 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			transform,
 			truncate,
 			wrap
-		}=this.properties;
+		} = this.properties;
 		
-		let cssClass = [];
-		let cssStyle :any= {};
-		let borderPropertyExist:boolean = false;
+		let cssClasses: any[] = [];
+		let cssStyles: any = {};
 
 		if(maxWidth){
-			cssStyle.maxWidth = `${maxWidth}px`;
+			if(typeof maxWidth == "number"){
+				cssStyles.maxWidth = `${maxWidth}px`;
+			}else{
+				cssStyles.maxWidth = `${maxWidth}`;
+			}
 		}
 
+		let borderClasses = [];
+
 		if(borderLeft){
-			cssClass.push('border-left');
-			borderPropertyExist = true;
+			borderClasses.push('border-left');
 		}
 
 		if(borderTop){
-			cssClass.push('border-top');
-			borderPropertyExist = true;
+			borderClasses.push('border-top');
 		}
 
 		if(borderRight){
-			cssClass.push('border-right');
-			borderPropertyExist = true;
+			borderClasses.push('border-right');
 		}
 
 		if(borderBottom){
-			cssClass.push('border-bottom');
-			borderPropertyExist = true;
+			borderClasses.push('border-bottom');
 		}
 
+		if(borderClasses.length === 4){
+			borderClasses = ['border'];
+		}
+
+		cssClasses = cssClasses.concat(borderClasses);
+
 		if(borderColor && borderColor != "default"){
-			if(!borderPropertyExist){
-				cssClass.push('border');
-			}
-			cssClass.push(`border-${borderColor}`);
+			cssClasses.push(`border-${borderColor}`);
 		}
 
 		if(borderRadius && borderRadius != "default"){
-			cssClass.push(`rounded-${borderRadius}`);
+			cssClasses.push(`rounded-${borderRadius}`);
 		}
 
-		if(marginTop && marginTop != "default"){
-			cssClass.push(`mt-${marginTop}`);
+		if (
+			marginTop && marginTop != "default" && 
+			marginTop === marginBottom &&
+			marginTop === marginLeft &&
+			marginTop === marginRight
+		) {
+			cssClasses.push(`m-${marginTop}`);
+		} else {
+			if (marginTop && marginTop != "default" && marginTop === marginBottom) {
+				cssClasses.push(`my-${marginTop}`);
+			} else {
+				if(marginTop && marginTop != "default"){
+					cssClasses.push(`my-${marginTop}`);
+				}
+
+				if(marginBottom && marginBottom != "default"){
+					cssClasses.push(`mb-${marginBottom}`);
+				}
+			}
+
+			if ( marginLeft && marginLeft != "default" && marginLeft === marginRight ) {
+				cssClasses.push(`mx-${marginLeft}`);
+			} else {
+				if(marginLeft && marginLeft != "default"){
+					cssClasses.push(`ml-${marginLeft}`);
+				}
+
+				if(marginRight && marginRight != "default"){
+					cssClasses.push(`mr-${marginRight}`);
+				}
+			}
 		}
 
-		if(marginBottom && marginBottom != "default"){
-			cssClass.push(`mb-${marginBottom}`);
-		}
+		if (
+			paddingTop && paddingTop != "default" && 
+			paddingTop === paddingBottom &&
+			paddingTop === paddingLeft &&
+			paddingTop === paddingRight
+		) {
+			cssClasses.push(`p-${paddingTop}`);
+		} else {
+			if (paddingTop && paddingTop != "default" && paddingTop === paddingBottom) {
+				cssClasses.push(`py-${paddingTop}`);
+			} else {
+				if(paddingTop && paddingTop != "default"){
+					cssClasses.push(`py-${paddingTop}`);
+				}
 
-		if(marginLeft && marginLeft != "default"){
-			cssClass.push(`ml-${marginLeft}`);
-		}
+				if(paddingBottom && paddingBottom != "default"){
+					cssClasses.push(`pb-${paddingBottom}`);
+				}
+			}
 
-		if(marginRight && marginRight != "default"){
-			cssClass.push(`mr-${marginRight}`);
-		}
+			if ( paddingLeft && paddingLeft != "default" && paddingLeft === paddingRight ) {
+				cssClasses.push(`px-${paddingLeft}`);
+			} else {
+				if(paddingLeft && paddingLeft != "default"){
+					cssClasses.push(`pl-${paddingLeft}`);
+				}
 
-		if(paddingTop && paddingTop != "default"){
-			cssClass.push(`pt-${paddingTop}`);
-		}
-
-		if(paddingBottom && paddingBottom != "default"){
-			cssClass.push(`pb-${paddingBottom}`);
-		}
-
-		if(paddingLeft && paddingLeft != "default"){
-			cssClass.push(`pl-${paddingLeft}`);
-		}
-
-		if(paddingRight && paddingRight != "default"){
-			cssClass.push(`pr-${paddingRight}`);
+				if(paddingRight && paddingRight != "default"){
+					cssClasses.push(`pr-${paddingRight}`);
+				}
+			}
 		}
 
 		if(fontWeight && fontWeight != "default"){
-			cssClass.push(`font-weight-${fontWeight}`);
+			cssClasses.push(`font-weight-${fontWeight}`);
 		}
 
 		if(fontItalic){
-			cssClass.push('font-italic');
+			cssClasses.push('font-italic');
 		}
 
 		if(alignment && alignment != "default"){
-			cssClass.push(`text-${alignment}`);
+			cssClasses.push(`text-${alignment}`);
 		}
 
 		if(transform && transform != "default"){
-			cssClass.push(`text-${transform}`);
+			cssClasses.push(`text-${transform}`);
 		}
 
 		if(truncate && truncate != "default"){
-			cssClass.push('text-truncate');
+			cssClasses.push('text-truncate');
 			if(typeof truncate == "number"){
-				cssStyle.maxWidth = `${truncate}px`;
+				cssStyles.maxWidth = `${truncate}px`;
 			}else{
-				cssStyle.maxWidth = `${truncate}`;
+				cssStyles.maxWidth = `${truncate}`;
 			}
 		}
 
 		if(wrap){
-			cssClass.push('text-nowrap');
-			cssStyle.width = `${wrap}px`;
+			cssClasses.push('text-nowrap');
+			cssStyles.width = `${wrap}rem`;
 		}
 
 		return v(
 			'div',
 			{
 				id: widgetId,
-				classes: cssClass,
-				styles: cssStyle
+				classes: cssClasses,
+				styles: cssStyles
 			},
 			this.children			
 		);

@@ -28,21 +28,28 @@ tags:
 铺满全屏
 
 {% raw %}
-<db-view widgetId="id">铺满全屏</db-view>
+<div style="background-color:white;height:100px; border: 1px solid;" class="container-fluid">
+    <div id="id" style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="mt-1">
+        铺满全屏
+    </div>
+</div>
+
 {% endraw %}
 
 ```html
 <db-view widgetId="id">铺满全屏</db-view>
 ```
 
-半屏显示
+限定宽度
 
 {% raw %}
-<db-container fluidWidth='true'>
-    <db-view maxWidth="250">半屏显示</db-view>
-</db-container>
+<div style="background-color:white;height:100px; border: 1px solid; " class="container-fluid">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue; max-width:75%;" class="mt-1">
+        限定宽度
+    </div>
+</div>
 {% endraw %}
 
 ```html
-<db-view maxWidth="250">半屏显示</db-view>
+<db-view maxWidth="250">限定宽度</db-view>
 ```

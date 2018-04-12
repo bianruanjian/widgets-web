@@ -3,11 +3,11 @@ const { describe, it} = intern.getInterface('bdd');
 import { w,v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
-import View from './../../index';
+import { View , ViewProperties} from './../../index';
 
 describe('view', () => {
 
-	let defaultAttributes:any = {
+	let defaultAttributes: ViewProperties = {
 		borderLeft: false,
 		borderTop: false,
 		borderRight: false,
@@ -30,37 +30,191 @@ describe('view', () => {
 		truncate: "default",
 		wrap: 0
 	};
+
+	let allProperties: ViewProperties = {
+		widgetId: "random-id",
+		maxWidth: 50,
+		borderLeft: true,
+		borderTop: true,
+		borderRight: true,
+		borderBottom: true,
+		borderColor: "primary",
+		borderRadius: "top",
+		marginTop: "0",
+		marginBottom: "0",
+		marginLeft: "1",
+		marginRight: "1",
+		paddingTop: "0",
+		paddingBottom: "0",
+		paddingLeft: "1",
+		paddingRight: "1",
+		fontWeight: "light",
+		fontItalic: true,
+		textDecoration: "underline",
+		alignment: "left",
+		transform: "lowerCase",
+		truncate: "50%",
+		wrap: 1
+	}
 	
-	it('no attributes', () => {
+	it('should construct view', () => {
 		const h = harness(() => w(View, {}));
 		h.expect(() => v('div',{ id: undefined, classes: [], styles: {} },[]));
 	});
 
-	it('self attributes', () => {
-		const h = harness(() => w(View, { widgetId: "random-id", maxWidth: 100}));
-		h.expect(() => v('div', { id: "random-id", classes: [], 
-		styles: {
-			"maxWidth": "100px"
-			}
-		}, []));
-	});
-
-	it('default attributes', () => {
+	it('default properties', () => {
 		const h = harness(() => w(View, defaultAttributes));
 		h.expect(() => v('div', { id: undefined, classes: [], styles: {}}));
 	});
 
-	it('custom truncate and wrap attribute', () => {
-		const h = harness(() => w(View, {truncate: 101, wrap: 101}));
+	it('custom properties', () => {
+		const h = harness(() => w(View, allProperties));
+		h.expect(() => v('div', { 
+			id: "random-id", 
+			classes: [
+				'border',
+				'border-primary',
+				'rounded-top',
+				'my-0',
+				'mx-1',
+				'py-0',
+				'px-1',
+				'font-weight-light',
+				'font-italic',
+				'text-left',
+				'text-lowerCase',
+				'text-truncate',
+				'text-nowrap'
+			], 
+			styles: {
+				"maxWidth": "50%",
+				"width": "1rem"
+			}
+		}));
+	})
+
+	it('border', () => {
+		const h = harness(() => w(View, { borderTop: true, borderLeft: true }));
 		h.expect(() => v('div',{
 			id: undefined,
 			classes: [
-				'text-truncate',
+				'border-left',
+				'border-top'
+			],
+			styles: {
+			}
+		}));
+		const h2 = harness(() => w(View, { borderTop: true, borderLeft: true, borderBottom:true, borderRight:true }));
+		h2.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'border'
+			],
+			styles: {
+			}
+		}));
+	});
+
+	it('margin x y blank', () => {
+		const h = harness(() => w(View, { marginTop: "1", marginBottom: "1" }));
+		h.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'my-1'
+			],
+			styles: {
+			}
+		}));
+		const h2 = harness(() => w(View, { marginRight: "1", marginLeft: "1" }));
+		h2.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'mx-1'
+			],
+			styles: {
+			}
+		}));
+		const h3 = harness(() => w(View, { marginTop: "1", marginBottom: "1", marginRight: "1", marginLeft: "1" }));
+		h3.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'm-1'
+			],
+			styles: {
+			}
+		}));
+	});
+
+	it('padding x y blank', () => {
+		const h = harness(() => w(View, { paddingTop: "1", paddingBottom: "1" }));
+		h.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'py-1'
+			],
+			styles: {
+			}
+		}));
+		const h2 = harness(() => w(View, { paddingRight: "1", paddingLeft: "1" }));
+		h2.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'px-1'
+			],
+			styles: {
+			}
+		}));
+		const h3 = harness(() => w(View, { paddingTop: "1", paddingBottom: "1", paddingRight: "1", paddingLeft: "1" }));
+		h3.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'p-1'
+			],
+			styles: {
+			}
+		}));
+	});
+
+	it('truncate', () => {
+		const h = harness(() => w(View, { truncate: 50 }));
+		h.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'text-truncate'
+			],
+			styles: {
+				"maxWidth": "50px"
+			}
+		}));
+		const h2 = harness(() => w(View, { truncate: "50%" }));
+		h2.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'text-truncate'
+			],
+			styles: {
+				"maxWidth": "50%"
+			}
+		}));
+	});
+
+	it('wrap', () => {
+		const h = harness(() => w(View, { wrap: 0 }));
+		h.expect(() => v('div',{
+			id: undefined,
+			classes: [
+			],
+			styles: {
+			}
+		}));
+		const h2 = harness(() => w(View, { wrap: 5 }));
+		h2.expect(() => v('div',{
+			id: undefined,
+			classes: [
 				'text-nowrap'
 			],
 			styles: {
-				"maxWidth": "101px",
-		       	"width": "101px"
+				"width": "5rem"
 			}
 		}));
 	});

@@ -20,8 +20,8 @@ tags:
 固定宽度
 
 {% raw %}
-<div style="background-color:white;height:100px;">
-    <div style="background-color:#957bbe;height:100%;" class="container">水平居中</div>
+<div style="background-color:white;height:100px;border: 1px solid;">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="container mt-1">水平居中</div>
 </div>
 {% endraw %}
 
@@ -31,9 +31,11 @@ tags:
 </db-container>
 ```
 
+铺满全屏
+
 {% raw %}
 <div style="background-color:white;height:100px;">
-    <div style="background-color:#80bdff;height:100%;" class="container-fluid">铺满全屏</div>
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="container-fluid">铺满全屏</div>
 </div>
 {% endraw %}
 
