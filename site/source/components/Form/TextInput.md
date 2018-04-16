@@ -12,10 +12,10 @@ tags:
 
 示例
 
-<brj-text-input id="text-input" name="brjTextInput" type="text" value="text" label="text" placeholder="default value" required="true" size="sm" maxLength="8"></brj-text-input>
+<brj-text-input></brj-text-input>
 
 ```html
-<brj-text-input id="text-input" name="brjTextInput" type="text" value="text" label="text" placeholder="default value" required="true" size="sm" maxLength="8"></brj-text-input>
+<brj-text-input></brj-text-input>
 ```
 
 
