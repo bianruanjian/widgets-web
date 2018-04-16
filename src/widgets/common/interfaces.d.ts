@@ -49,8 +49,8 @@ export interface SpacingProperties{
  *
  * Text(文本)属性
  *
- * @property fontWeight         粗细
- * @property fontItalic         斜体
+ * @property fontWeight        粗细
+ * @property fontItalic        斜体
  * @property textDecoration    文本修饰
  * @property alignment         对齐方式
  * @property transform         转化
