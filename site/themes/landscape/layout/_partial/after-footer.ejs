@@ -1,31 +1,33 @@
 <% if (config.disqus_shortname){ %>
-<script>
-  var disqus_shortname = '<%= config.disqus_shortname %>';
-  <% if (page.permalink){ %>
-  var disqus_url = '<%= page.permalink %>';
+  <script>
+    var disqus_shortname = '<%= config.disqus_shortname %>';
+    <% if (page.permalink){ %>
+    var disqus_url = '<%= page.permalink %>';
+    <% } %>
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
   <% } %>
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-<% } %>
-
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
--->
-<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<% if (theme.fancybox){ %>
-  <%- css('fancybox/jquery.fancybox') %>
-  <%- js('fancybox/jquery.fancybox.pack') %>
-<% } %>
-
-<%- js('js/script') %>
-<%- partial('gauges-analytics') %>
-
-
-<%- js('js/components/button/button-1.0.0') %>
+  
+  <!--
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  -->
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  
+  <% if (theme.fancybox){ %>
+    <%- css('fancybox/jquery.fancybox') %>
+    <%- js('fancybox/jquery.fancybox.pack') %>
+  <% } %>
+  
+  <%- js('js/script') %>
+  <%- partial('gauges-analytics') %>
+  
+  
+  <%- js('js/components/button/button-1.0.0') %>
+  <%- js('js/components/container/container-1.0.0') %>
+  <%- js('js/components/view/view-1.0.0') %>

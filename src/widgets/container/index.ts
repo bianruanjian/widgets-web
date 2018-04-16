@@ -4,36 +4,45 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/container.m.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 /**
  * @type ContainerProperties
  *
  * Properties that can be set on Container components
  */
-export interface ContainerProperties { 
+export interface ContainerProperties {
+	widgetId?: string;
 	fluidWidth?: boolean;
 };
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
-@customElement({
-	tag: 'brj-container',
-	attributes: [],
-	properties: ['fluidWidth'],
+@customElement<ContainerProperties>({
+	tag: 'db-container',
+	childType: CustomElementChildType.TEXT,
+	attributes: [
+		'widgetId',
+		"fluidWidth"
+	],
+	properties: [],
 	events: []
 })
 @theme(css)
 export class ContainerBase<P extends ContainerProperties = ContainerProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { fluidWidth } = this.properties;
-
+		let {
+			widgetId, 
+			fluidWidth
+		} = this.properties;
+		
 		const cssClass = fluidWidth ? 'container-fluid' : 'container';
 
 		return v(
 			'div',
 			{
+				id: widgetId,
 				key: 'root',
 				classes: [cssClass]
 			},

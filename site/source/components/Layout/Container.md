@@ -19,15 +19,27 @@ tags:
 
 固定宽度
 
-<db-container>水平居中</db-container>
+{% raw %}
+<div style="background-color:white;height:100px;border: 1px solid;">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="container mt-1">水平居中</div>
+</div>
+{% endraw %}
 
 ```html
 <db-container>
-水平居中
+    水平居中
 </db-container>
 ```
 
 铺满全屏
+
+{% raw %}
+<div style="background-color:white;height:100px; border: 1px solid;" class="container-fluid">
+    <div id="id" style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="mt-1">
+        铺满全屏
+    </div>
+</div>
+{% endraw %}
 
 ```html
 <db-container fluidWidth="true">

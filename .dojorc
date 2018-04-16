@@ -5,7 +5,8 @@
 	"build-widget": {
 		"elements": [
 			"src/widgets/Button",
-			"src/widgets/Container"
+			"src/widgets/Container",
+			"src/widgets/View"
 		]
 	}
 }

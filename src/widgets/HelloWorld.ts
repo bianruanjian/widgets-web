@@ -20,3 +20,4 @@ export class HelloWorld extends WidgetBase {
 }
 
 export default HelloWorld;
+

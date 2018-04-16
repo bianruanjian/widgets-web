@@ -25,12 +25,31 @@ tags:
 
 ## 示例
 
-固定宽度
+铺满全屏
 
-<db-view>水平居中</db-view>
+{% raw %}
+<div style="background-color:white;height:100px; border: 1px solid;" class="container-fluid">
+    <div id="id" style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="mt-1">
+        铺满全屏
+    </div>
+</div>
+
+{% endraw %}
 
 ```html
-<db-view>
-水平居中
-</db-view>
+<db-view widgetId="id">铺满全屏</db-view>
+```
+
+限定宽度
+
+{% raw %}
+<div style="background-color:white;height:100px; border: 1px solid; " class="container-fluid">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue; max-width:75%;" class="mt-1">
+        限定宽度
+    </div>
+</div>
+{% endraw %}
+
+```html
+<db-view maxWidth="250">限定宽度</db-view>
 ```
