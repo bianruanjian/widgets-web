@@ -64,7 +64,7 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			borderRadius
 		} = this.properties;
 
-		let borderClasses = [];
+		let borderClasses: string[] = [];
 
 		if(borderLeft){
 			borderClasses.push('border-left');
@@ -109,7 +109,7 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			paddingRight
 		} = this.properties;
 
-		let spacingClasses: any[] = [];
+		const spacingClasses: string[] = [];
 
 		if (
 			marginTop && marginTop != "default" && 
@@ -178,7 +178,6 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 		}
 
 		return spacingClasses;
-
 	}
 
 	private _getTextClasses() {
@@ -191,7 +190,7 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			wrap
 		} = this.properties;
 
-		let textClasses: any[] = [];
+		const textClasses: string[] = [];
 
 		if(fontWeight && fontWeight != "default"){
 			textClasses.push(`font-weight-${fontWeight}`);
@@ -243,38 +242,36 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 		return textStyles;
 	}
 
-	protected render(): DNode | DNode[] {
-		
+	private _getMaxWidthStyles() {
 		let{
-			widgetId,
-			maxWidth,
+			maxWidth
 		} = this.properties;
 
-		let cssClasses: any[] = [];
-		let cssStyles: any = {};
-
+		let maxWidthStyles: any = {};
+		
 		if(maxWidth){
 			if(typeof maxWidth == "number"){
-				cssStyles.maxWidth = `${maxWidth}px`;
+				maxWidthStyles.maxWidth = `${maxWidth}px`;
 			}else{
-				cssStyles.maxWidth = `${maxWidth}`;
+				maxWidthStyles.maxWidth = `${maxWidth}`;
 			}
 		}
 
-		cssClasses = cssClasses.concat(this._getBorderClasses());
+		return maxWidthStyles;
+	}
 
-		cssClasses = cssClasses.concat(this._getSpacingClasses());
-
-		cssClasses = cssClasses.concat(this._getTextClasses());
-
-		mixin(cssStyles, this._getTextStyles());
+	protected render(): DNode | DNode[] {
+		
+		let{
+			widgetId
+		} = this.properties;
 		
 		return v(
 			'div',
 			{
 				id: widgetId,
-				classes: cssClasses,
-				styles: cssStyles
+				classes: [...this._getBorderClasses(), ...this._getSpacingClasses(), ...this._getTextClasses()],
+				styles: {...this._getTextStyles(), ...this._getMaxWidthStyles()}
 			},
 			this.children			
 		);

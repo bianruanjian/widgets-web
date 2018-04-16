@@ -33,7 +33,7 @@ describe('view', () => {
 
 	let customProperties: ViewProperties = {
 		widgetId: "random-id",
-		maxWidth: 50,
+		maxWidth: 40,
 		borderLeft: true,
 		borderTop: true,
 		borderRight: true,
@@ -87,7 +87,7 @@ describe('view', () => {
 				'text-nowrap'
 			], 
 			styles: {
-				"maxWidth": "50%",
+				"maxWidth": "40px",
 				"width": "1rem"
 			}
 		}));
