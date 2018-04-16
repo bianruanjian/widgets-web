@@ -5,19 +5,19 @@
   
 
   
-  <title>Border | Dojo2-bootstrap</title>
+  <title>Flex | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="属性   名称 说明 默认值 可选值 值类型     borderLeft 左边框 false true, false boolean   borderTop 上边框 false true, false boolean   borderRight 右边框 false true, false boolean   borderBottom 下边框 false true, false boolean">
+  <meta name="description" content="公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, false boolean">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Border">
-<meta property="og:url" content="https://bianruanjian.github.io/components/Utilities/Border.html">
+<meta property="og:title" content="Flex">
+<meta property="og:url" content="https://bianruanjian.github.io/components/Utilities/Flex.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="属性   名称 说明 默认值 可选值 值类型     borderLeft 左边框 false true, false boolean   borderTop 上边框 false true, false boolean   borderRight 右边框 false true, false boolean   borderBottom 下边框 false true, false boolean">
+<meta property="og:description" content="公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, false boolean">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-16T03:50:29.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Border">
-<meta name="twitter:description" content="属性   名称 说明 默认值 可选值 值类型     borderLeft 左边框 false true, false boolean   borderTop 上边框 false true, false boolean   borderRight 右边框 false true, false boolean   borderBottom 下边框 false true, false boolean">
+<meta name="twitter:title" content="Flex">
+<meta name="twitter:description" content="公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, false boolean">
   
   
     <link rel="icon" href="/favicon.png">
@@ -185,7 +185,7 @@
     <ul class="menu-list">
         
             <li
-                class="active" 
+                
             >
                 <a href="/dojo2-bootstrap/components/Utilities/Border.html">
                     Border
@@ -201,7 +201,7 @@
             </li>
         
             <li
-                
+                class="active" 
             >
                 <a href="/dojo2-bootstrap/components/Utilities/Flex.html">
                     Flex
@@ -251,7 +251,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Border
+      Flex
     </h1>
   
 
@@ -259,7 +259,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+        <h2 id="公共属性"><a href="#公共属性" class="headerlink" title="公共属性"></a>公共属性</h2><ol>
+<li>将 <a href="../Utilities/Display.html">Display</a> 中的<code>display</code>属性值设置为<code>flex</code>或<code>flexInline</code>时可以使用 flex 相关功能。</li>
+</ol>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="Flex-container"><a href="#Flex-container" class="headerlink" title="Flex container"></a>Flex container</h3><table>
 <thead>
 <tr>
 <th>名称</th>
@@ -271,49 +274,77 @@
 </thead>
 <tbody>
 <tr>
-<td>borderLeft</td>
-<td>左边框</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>borderTop</td>
-<td>上边框</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>borderRight</td>
-<td>右边框</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>borderBottom</td>
-<td>下边框</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>borderColor</td>
-<td>颜色</td>
+<td>flexDirection</td>
+<td>主轴方向</td>
 <td>default</td>
-<td>primary, secondary, success, danger, warning, info, light, dark, white, default</td>
+<td>row, column, default</td>
 <td>string</td>
 </tr>
 <tr>
-<td>borderRound</td>
-<td>圆角</td>
+<td>reverse</td>
+<td>翻转</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>justifyItems</td>
+<td>主轴排列方式</td>
 <td>default</td>
-<td>top, left, right, bottom, circle, default</td>
+<td>start, end, center, between, around, default</td>
+<td>string</td>
+</tr>
+<tr>
+<td>alignItems</td>
+<td>侧轴排列方式</td>
+<td>default</td>
+<td>start, end, center, baseline, stretch, default</td>
+<td>string</td>
+</tr>
+<tr>
+<td>flexWrap</td>
+<td>换行</td>
+<td>default</td>
+<td>nowrap, wrap, reverseWrap, default</td>
+<td>string</td>
+</tr>
+<tr>
+<td>alignContent</td>
+<td>多轴排列方式</td>
+<td>default</td>
+<td>start, end, center, around, stretch, default</td>
 <td>string</td>
 </tr>
 </tbody>
 </table>
+<h3 id="Flex-item"><a href="#Flex-item" class="headerlink" title="Flex item"></a>Flex item</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>默认值</th>
+<th>可选值</th>
+<th>值类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alignSelf</td>
+<td>侧轴排列方式</td>
+<td>default</td>
+<td>start, end, center, baseline, stretch, default</td>
+<td>string</td>
+</tr>
+<tr>
+<td>order</td>
+<td>排序</td>
+<td>default</td>
+<td>0~12, default</td>
+<td>number/string</td>
+</tr>
+</tbody>
+</table>
+<p>当前部件是容器时可以使用 Flex container 相关属性，否则只能使用 Flex item 相关属性。</p>
 
       
     </div>
