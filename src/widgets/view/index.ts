@@ -6,7 +6,8 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/view.m.css';
-import {BorderProperties, SpacingProperties, TextProperties} from '../common/interfaces';
+import { BorderProperties, SpacingProperties, TextProperties } from '../common/interfaces';
+import { mixin } from '@dojo/core/lang';
 /**
  * @type viewProperties
  *
@@ -52,42 +53,16 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<P> {
-	protected render(): DNode | DNode[] {
+
+	private _getBorderClasses(){
 		let{
-			widgetId,
-			maxWidth,
 			borderLeft,
 			borderTop,
 			borderRight,
 			borderBottom,
 			borderColor,
-			borderRadius,
-			marginTop,
-			marginBottom,
-			marginLeft,
-			marginRight,
-			paddingTop,
-			paddingBottom,
-			paddingLeft,
-			paddingRight,
-			fontWeight,
-			fontItalic,
-			alignment,
-			transform,
-			truncate,
-			wrap
+			borderRadius
 		} = this.properties;
-		
-		let cssClasses: any[] = [];
-		let cssStyles: any = {};
-
-		if(maxWidth){
-			if(typeof maxWidth == "number"){
-				cssStyles.maxWidth = `${maxWidth}px`;
-			}else{
-				cssStyles.maxWidth = `${maxWidth}`;
-			}
-		}
 
 		let borderClasses = [];
 
@@ -111,15 +86,30 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			borderClasses = ['border'];
 		}
 
-		cssClasses = cssClasses.concat(borderClasses);
-
 		if(borderColor && borderColor != "default"){
-			cssClasses.push(`border-${borderColor}`);
+			borderClasses.push(`border-${borderColor}`);
 		}
 
 		if(borderRadius && borderRadius != "default"){
-			cssClasses.push(`rounded-${borderRadius}`);
+			borderClasses.push(`rounded-${borderRadius}`);
 		}
+
+		return borderClasses;
+	}
+
+	private _getSpacingClasses() {
+		let{
+			marginTop,
+			marginBottom,
+			marginLeft,
+			marginRight,
+			paddingTop,
+			paddingBottom,
+			paddingLeft,
+			paddingRight
+		} = this.properties;
+
+		let spacingClasses: any[] = [];
 
 		if (
 			marginTop && marginTop != "default" && 
@@ -127,29 +117,29 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			marginTop === marginLeft &&
 			marginTop === marginRight
 		) {
-			cssClasses.push(`m-${marginTop}`);
+			spacingClasses.push(`m-${marginTop}`);
 		} else {
 			if (marginTop && marginTop != "default" && marginTop === marginBottom) {
-				cssClasses.push(`my-${marginTop}`);
+				spacingClasses.push(`my-${marginTop}`);
 			} else {
 				if(marginTop && marginTop != "default"){
-					cssClasses.push(`my-${marginTop}`);
+					spacingClasses.push(`mt-${marginTop}`);
 				}
 
 				if(marginBottom && marginBottom != "default"){
-					cssClasses.push(`mb-${marginBottom}`);
+					spacingClasses.push(`mb-${marginBottom}`);
 				}
 			}
 
 			if ( marginLeft && marginLeft != "default" && marginLeft === marginRight ) {
-				cssClasses.push(`mx-${marginLeft}`);
+				spacingClasses.push(`mx-${marginLeft}`);
 			} else {
 				if(marginLeft && marginLeft != "default"){
-					cssClasses.push(`ml-${marginLeft}`);
+					spacingClasses.push(`ml-${marginLeft}`);
 				}
 
 				if(marginRight && marginRight != "default"){
-					cssClasses.push(`mr-${marginRight}`);
+					spacingClasses.push(`mr-${marginRight}`);
 				}
 			}
 		}
@@ -160,63 +150,125 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			paddingTop === paddingLeft &&
 			paddingTop === paddingRight
 		) {
-			cssClasses.push(`p-${paddingTop}`);
+			spacingClasses.push(`p-${paddingTop}`);
 		} else {
 			if (paddingTop && paddingTop != "default" && paddingTop === paddingBottom) {
-				cssClasses.push(`py-${paddingTop}`);
+				spacingClasses.push(`py-${paddingTop}`);
 			} else {
 				if(paddingTop && paddingTop != "default"){
-					cssClasses.push(`py-${paddingTop}`);
+					spacingClasses.push(`pt-${paddingTop}`);
 				}
 
 				if(paddingBottom && paddingBottom != "default"){
-					cssClasses.push(`pb-${paddingBottom}`);
+					spacingClasses.push(`pb-${paddingBottom}`);
 				}
 			}
 
 			if ( paddingLeft && paddingLeft != "default" && paddingLeft === paddingRight ) {
-				cssClasses.push(`px-${paddingLeft}`);
+				spacingClasses.push(`px-${paddingLeft}`);
 			} else {
 				if(paddingLeft && paddingLeft != "default"){
-					cssClasses.push(`pl-${paddingLeft}`);
+					spacingClasses.push(`pl-${paddingLeft}`);
 				}
 
 				if(paddingRight && paddingRight != "default"){
-					cssClasses.push(`pr-${paddingRight}`);
+					spacingClasses.push(`pr-${paddingRight}`);
 				}
 			}
 		}
 
+		return spacingClasses;
+
+	}
+
+	private _getTextClasses() {
+		let{
+			fontWeight,
+			fontItalic,
+			alignment,
+			transform,
+			truncate,
+			wrap
+		} = this.properties;
+
+		let textClasses: any[] = [];
+
 		if(fontWeight && fontWeight != "default"){
-			cssClasses.push(`font-weight-${fontWeight}`);
+			textClasses.push(`font-weight-${fontWeight}`);
 		}
 
 		if(fontItalic){
-			cssClasses.push('font-italic');
+			textClasses.push('font-italic');
 		}
 
 		if(alignment && alignment != "default"){
-			cssClasses.push(`text-${alignment}`);
+			textClasses.push(`text-${alignment}`);
 		}
 
 		if(transform && transform != "default"){
-			cssClasses.push(`text-${transform}`);
+			textClasses.push(`text-${transform}`);
 		}
 
 		if(truncate && truncate != "default"){
-			cssClasses.push('text-truncate');
+			textClasses.push('text-truncate');
+		}
+
+		if(wrap){
+			textClasses.push('text-nowrap');
+		}
+
+		return textClasses;
+	}
+
+	private _getTextStyles() {
+		let{
+			truncate,
+			wrap
+		} = this.properties;
+
+		let textStyles: any = {};
+
+		if(truncate && truncate != "default"){
 			if(typeof truncate == "number"){
-				cssStyles.maxWidth = `${truncate}px`;
+				textStyles.maxWidth = `${truncate}px`;
 			}else{
-				cssStyles.maxWidth = `${truncate}`;
+				textStyles.maxWidth = `${truncate}`;
 			}
 		}
 
 		if(wrap){
-			cssClasses.push('text-nowrap');
-			cssStyles.width = `${wrap}rem`;
+			textStyles.width = `${wrap}rem`;
 		}
 
+		return textStyles;
+	}
+
+	protected render(): DNode | DNode[] {
+		
+		let{
+			widgetId,
+			maxWidth,
+		} = this.properties;
+
+		let cssClasses: any[] = [];
+		let cssStyles: any = {};
+
+		if(maxWidth){
+			if(typeof maxWidth == "number"){
+				cssStyles.maxWidth = `${maxWidth}px`;
+			}else{
+				cssStyles.maxWidth = `${maxWidth}`;
+			}
+		}
+
+		cssClasses = cssClasses.concat(this._getBorderClasses());
+
+		cssClasses = cssClasses.concat(this._getSpacingClasses());
+
+		cssClasses = cssClasses.concat(this._getTextClasses());
+
+		mixin(cssStyles, this._getTextStyles());
+		
 		return v(
 			'div',
 			{

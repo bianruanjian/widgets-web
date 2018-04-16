@@ -31,7 +31,7 @@ describe('view', () => {
 		wrap: 0
 	};
 
-	let allProperties: ViewProperties = {
+	let customProperties: ViewProperties = {
 		widgetId: "random-id",
 		maxWidth: 50,
 		borderLeft: true,
@@ -68,7 +68,7 @@ describe('view', () => {
 	});
 
 	it('custom properties', () => {
-		const h = harness(() => w(View, allProperties));
+		const h = harness(() => w(View, customProperties));
 		h.expect(() => v('div', { 
 			id: "random-id", 
 			classes: [
@@ -116,8 +116,20 @@ describe('view', () => {
 	});
 
 	it('margin x y blank', () => {
-		const h = harness(() => w(View, { marginTop: "1", marginBottom: "1" }));
+		const h = harness(() => w(View, { marginTop: "1", marginBottom: "2", marginRight: "3", marginLeft: "4" }));
 		h.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'mt-1',
+				'mb-2',
+				'ml-4',
+				'mr-3'
+			],
+			styles: {
+			}
+		}));
+		const h1 = harness(() => w(View, { marginTop: "1", marginBottom: "1" }));
+		h1.expect(() => v('div',{
 			id: undefined,
 			classes: [
 				'my-1'
@@ -146,8 +158,20 @@ describe('view', () => {
 	});
 
 	it('padding x y blank', () => {
-		const h = harness(() => w(View, { paddingTop: "1", paddingBottom: "1" }));
+		const h = harness(() => w(View, { paddingTop: "1", paddingBottom: "2", paddingRight: "3", paddingLeft: "4" }));
 		h.expect(() => v('div',{
+			id: undefined,
+			classes: [
+				'pt-1',
+				'pb-2',
+				'pl-4',
+				'pr-3'
+			],
+			styles: {
+			}
+		}));
+		const h1 = harness(() => w(View, { paddingTop: "1", paddingBottom: "1" }));
+		h1.expect(() => v('div',{
 			id: undefined,
 			classes: [
 				'py-1'

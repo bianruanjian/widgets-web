@@ -34,8 +34,10 @@ tags:
 铺满全屏
 
 {% raw %}
-<div style="background-color:white;height:100px;">
-    <div style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="container-fluid">铺满全屏</div>
+<div style="background-color:white;height:100px; border: 1px solid;" class="container-fluid">
+    <div id="id" style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="mt-1">
+        铺满全屏
+    </div>
 </div>
 {% endraw %}
 
