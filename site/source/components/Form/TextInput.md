@@ -10,41 +10,52 @@ tags:
 
 ## 基本用法
 
-示例
+## 通用属性
 
-<brj-text-input></brj-text-input>
-
-```html
-<brj-text-input></brj-text-input>
-```
-
+1. [Spacing](../Utilities/Spacing.html)
+1. [Flex](../Utilities/Flex.html) 中的 Flex item 相关属性
+1. [Float](../Utilities/Float.html)
 
 ## 属性
 
 | 名称  | 说明 | 默认值 | 可选值 |值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| id    | 标识   |       |       | string |
-| name  | 名称   |       |       | string |
-| type  | 类型   | text  | text、password、email、number         | string |
-| value | 值     |       |          | string     |
-| label | 文本     |       |          | string     |
-| placeholder | 占位符   |       |          | string     |
-| required | 必填   | false  | true, false    | boolean     |
-| disabled | 失效   | false  | true, false    | boolean     |
-| readOnly | 只读   | false  | true, false    | boolean     |
-| size | 尺寸     |       |   sm, lg       | string     |
-| state | 状态     |       |   valid, invalid       | string     |
-| plainText | 纯文本   | false  | true, false    | boolean     |
-| maxLength | 最大字符个数   |    |               | number     |
-| minLength | 最小字符个数   |    |               | number     |
-
-
-
-输入框有4种状态
-1. 默认状态
-2. 获取焦点
-3. 数值有效
-4. 数值无效
+| widgetId | 标识 | | | string |
+| name | 名称 | | | string |
+| type | 类型 | default | text, email, number, idCard, digit(必须带小数点), default | string |
+| password | 密码 | false | true, false | boolean |
+| value | 值 | | | string |
+| label | 文本 | | | string |
+| placeholder | 占位符 | | | string |
+| placeholderAppearance | 占位符外观 | default | default | string |
+| required | 必填 | false | true, false | boolean |
+| disabled | 失效 | false | true, false | boolean |
+| readOnly | 只读 | false | true, false | boolean |
+| size | 尺寸 | default | small, large, default | string |
+| focus | 获取焦点 | false | true, false | boolean |
+| plainText | 纯文本(无边框文本) | false | true, false | boolean |
+| maxLength | 最大字符个数 | | | number |
+| minLength | 最小字符个数 | | | number |
+| invalidMessage | 无效提示 | | | string |
+| validMessage | 有效提示 | | | string |
 
 ## 事件
 
+| 名称  | 参数 | 描述 |
+| ----- | ------ | ----- |
+| onInput | | 输入时触发 |
+| onChange | | 修改后触发 |
+
+## 待讨论
+
+密码强度：低、中、高
+
+## 注意事项
+
+textInput 有四个状态
+1. 获取焦点 focus,
+1. 输入有效 valid,
+1. 输入无效 invalid,
+1. 默认状态 default。
+
+focus 属性包含页面加载完后自动获取焦点(`autoFocus`)、手动调用获取焦点(`focus()`)两个情况
