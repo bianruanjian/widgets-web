@@ -14,7 +14,7 @@ tags:
 
 1. [Spacing](../Utilities/Spacing.html)
 1. [Text](../Utilities/Text.html)
-1. [Color](../Utilities/Color.html)
+1. [Colors](../Utilities/Colors.html)
 
 ## 属性
 

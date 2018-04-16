@@ -1,5 +1,5 @@
 ---
-title: Color
+title: Colors
 date: 2018-04-10 14:23:53
 layout: components
 footer: false
