@@ -5,7 +5,9 @@
     "build-widgets": "dojo build widget",
     "build": "npm run build-widgets",
     "install": "cd site && npm i",
-    "serve": "grunt webserv"
+    "serve": "grunt webserv",
+    "precommit": "lint-staged",
+    "prettier": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'"
   },
   "dependencies": {
     "@dojo/core": "~0.4.0",
@@ -43,6 +45,22 @@
     "load-grunt-tasks": "^3.5.2",
     "ts-node": "^3.3.0",
     "typescript": "~2.6.1",
-    "webserv": "^0.6.1"
+    "webserv": "^0.6.1",
+    "lint-staged": "6.0.0",
+    "prettier": "1.9.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": true,
+    "parser": "typescript",
+    "printWidth": 120,
+    "arrowParens": "always"
   }
 }

@@ -24,35 +24,31 @@ tags:
 
 ## 示例
 
-存在间隔
+### gutters
 
 {% raw %}
-<div class="container bg-primary text-dark">
-    <db-grid-row widgetId="row">存在间隔</db-grid-row>
+<div class="container">
+    <div id="row" class="bg-primary border" >
+        <div class="bg-success text-light m-2" style="height:30px">存在间隔</div>
+    </div>
+</div>
+{% endraw %}
+{% raw %}
+<div class="container">
+    <div id="row" class="bg-primary border">
+        <div class="bg-success text-light my-2" style="height:30px">不存在间隔</div>
+    </div>
 </div>
 {% endraw %}
 
 ```html
 <db-container>
-    <db-view maxWidth="90%">
-        <db-grid-row widgetId="row">存在间隔</db-grid-row>
-    </db-view>
+    <db-grid-row widgetId="row">存在间隔</db-grid-row>
 </db-container>
 ```
-
-不存在间隔
-
-{% raw %}
-<div class="container bg-primary text-dark">
-    <db-grid-row widgetId="row" gutters="false">不存在间隔</db-grid-row>
-</div>
-{% endraw %}
-
 ```html
 <db-container>
-    <db-view maxWidth="90%">
-        <db-grid-row widgetId="row" gutters="false">不存在间隔</db-grid-row>
-    </db-view>
+    <db-grid-row widgetId="row" gutters="false">不存在间隔</db-grid-row>
 </db-container>
 ```
 

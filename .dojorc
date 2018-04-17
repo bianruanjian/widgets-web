@@ -4,10 +4,10 @@
 	"create-app": {},
 	"build-widget": {
 		"elements": [
-			"src/Button",
-			"src/Container",
-			"src/View",
-			"src/GridRow"
+			"src/button",
+			"src/container",
+			"src/view",
+			"src/grid-row"
 		]
 	}
 }
