@@ -66,3 +66,37 @@ export interface TextProperties{
     truncate?: number | string;
     wrap?: number;
 }
+
+/**
+ * @type FlexContainerProperties
+ * 
+ * Flex Container(容器弹性)属性
+ * 
+ * @property flexDirection     主轴方向
+ * @property reverse           翻转
+ * @property justifyItems      主轴排列方式
+ * @property alignItems        侧轴排列方式
+ * @property flexWrap          换行
+ * @property alignContent      多轴排列方式
+ */
+export interface FlexContainerProperties{
+    flexDirection?: string;
+    reverse?: boolean;
+    justifyItems?: string;
+    alignItems?: string;
+    flexWrap?: string;
+    alignContent?: string;
+}
+
+/**
+ * @type FlexItemProperties
+ * 
+ * Flex Item(非容器弹性)属性
+ * 
+ * @property alignSelf         侧轴排列方式
+ * @property order             排序
+ */
+export interface FlexItemProperties{
+    alignSelf?: string;
+    order?: number | string;
+}

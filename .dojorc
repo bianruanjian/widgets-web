@@ -4,9 +4,9 @@
 	"create-app": {},
 	"build-widget": {
 		"elements": [
-			"src/widgets/Button",
-			"src/widgets/Container",
-			"src/widgets/View"
+			"src/Button",
+			"src/Container",
+			"src/View"
 		]
 	}
 }
