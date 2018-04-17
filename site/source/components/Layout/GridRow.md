@@ -21,3 +21,38 @@ tags:
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
 | gutters | 间隔 | true | true, false| boolean |
+
+## 示例
+
+存在间隔
+
+{% raw %}
+<div class="container bg-primary text-dark">
+    <db-grid-row widgetId="row">存在间隔</db-grid-row>
+</div>
+{% endraw %}
+
+```html
+<db-container>
+    <db-view maxWidth="90%">
+        <db-grid-row widgetId="row">存在间隔</db-grid-row>
+    </db-view>
+</db-container>
+```
+
+不存在间隔
+
+{% raw %}
+<div class="container bg-primary text-dark">
+    <db-grid-row widgetId="row" gutters="false">不存在间隔</db-grid-row>
+</div>
+{% endraw %}
+
+```html
+<db-container>
+    <db-view maxWidth="90%">
+        <db-grid-row widgetId="row" gutters="false">不存在间隔</db-grid-row>
+    </db-view>
+</db-container>
+```
+

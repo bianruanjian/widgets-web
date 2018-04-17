@@ -6,7 +6,8 @@
 		"elements": [
 			"src/Button",
 			"src/Container",
-			"src/View"
+			"src/View",
+			"src/GridRow"
 		]
 	}
 }

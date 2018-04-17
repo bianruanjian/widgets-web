@@ -125,11 +125,11 @@ tags:
 ### 超链接
 
 {% raw %}
-<brj-button appearance="primary" active="true" value="超链接" href="#"></brj-button>
+<brj-button appearance="link" active="true" value="超链接" href="#"></brj-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" active="true" value="超链接" href="#"></brj-button>
+<brj-button appearance="link" active="true" value="超链接" href="#"></brj-button>
 ```
 
 

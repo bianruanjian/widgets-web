@@ -7,7 +7,8 @@ import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/view.m.css';
 import { BorderProperties, SpacingProperties, TextProperties } from '../common/interfaces';
-import { mixin } from '@dojo/core/lang';
+import { getSpacingClasses } from '../common/util';
+
 /**
  * @type viewProperties
  *
@@ -95,89 +96,6 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 		}
 
 		return borderClasses;
-	}
-
-	private _getSpacingClasses() {
-		let{
-			marginTop,
-			marginBottom,
-			marginLeft,
-			marginRight,
-			paddingTop,
-			paddingBottom,
-			paddingLeft,
-			paddingRight
-		} = this.properties;
-
-		const spacingClasses: string[] = [];
-
-		if (
-			marginTop && marginTop != "default" && 
-			marginTop === marginBottom &&
-			marginTop === marginLeft &&
-			marginTop === marginRight
-		) {
-			spacingClasses.push(`m-${marginTop}`);
-		} else {
-			if (marginTop && marginTop != "default" && marginTop === marginBottom) {
-				spacingClasses.push(`my-${marginTop}`);
-			} else {
-				if(marginTop && marginTop != "default"){
-					spacingClasses.push(`mt-${marginTop}`);
-				}
-
-				if(marginBottom && marginBottom != "default"){
-					spacingClasses.push(`mb-${marginBottom}`);
-				}
-			}
-
-			if ( marginLeft && marginLeft != "default" && marginLeft === marginRight ) {
-				spacingClasses.push(`mx-${marginLeft}`);
-			} else {
-				if(marginLeft && marginLeft != "default"){
-					spacingClasses.push(`ml-${marginLeft}`);
-				}
-
-				if(marginRight && marginRight != "default"){
-					spacingClasses.push(`mr-${marginRight}`);
-				}
-			}
-		}
-
-		if (
-			paddingTop && paddingTop != "default" && 
-			paddingTop === paddingBottom &&
-			paddingTop === paddingLeft &&
-			paddingTop === paddingRight
-		) {
-			spacingClasses.push(`p-${paddingTop}`);
-		} else {
-			if (paddingTop && paddingTop != "default" && paddingTop === paddingBottom) {
-				spacingClasses.push(`py-${paddingTop}`);
-			} else {
-				if(paddingTop && paddingTop != "default"){
-					spacingClasses.push(`pt-${paddingTop}`);
-				}
-
-				if(paddingBottom && paddingBottom != "default"){
-					spacingClasses.push(`pb-${paddingBottom}`);
-				}
-			}
-
-			if ( paddingLeft && paddingLeft != "default" && paddingLeft === paddingRight ) {
-				spacingClasses.push(`px-${paddingLeft}`);
-			} else {
-				if(paddingLeft && paddingLeft != "default"){
-					spacingClasses.push(`pl-${paddingLeft}`);
-				}
-
-				if(paddingRight && paddingRight != "default"){
-					spacingClasses.push(`pr-${paddingRight}`);
-				}
-			}
-		}
-
-		return spacingClasses;
 	}
 
 	private _getTextClasses() {
@@ -270,7 +188,7 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			'div',
 			{
 				id: widgetId,
-				classes: [...this._getBorderClasses(), ...this._getSpacingClasses(), ...this._getTextClasses()],
+				classes: [...this._getBorderClasses(), ...getSpacingClasses(this.properties), ...this._getTextClasses()],
 				styles: {...this._getTextStyles(), ...this._getMaxWidthStyles()}
 			},
 			this.children			
