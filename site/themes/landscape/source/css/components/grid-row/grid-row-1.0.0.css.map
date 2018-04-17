@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack:///./src/GridRow/styles/gridrow.m.css"],"names":[],"mappings":";;;;;;;;AAAA,cAAS","file":"grid-row-1.0.0.css","sourcesContent":[".root { }\n\n\n\n// WEBPACK FOOTER //\n// ./src/GridRow/styles/gridrow.m.css"],"sourceRoot":""}
+{"version":3,"sources":["webpack:///./src/grid-row/styles/grid-row.m.css"],"names":[],"mappings":";;;;;;;;AAAA,cAAS","file":"grid-row-1.0.0.css","sourcesContent":[".root { }\n\n\n\n// WEBPACK FOOTER //\n// ./src/grid-row/styles/grid-row.m.css"],"sourceRoot":""}

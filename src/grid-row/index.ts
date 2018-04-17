@@ -75,7 +75,7 @@ export class GridRow<P extends GridRowProperties = GridRowProperties> extends Th
 				classes: ['row', 
 					...this._getGuttersClasses(),
 					...getSpacingClasses(this.properties),
-...getFlexContainerClasses(this.properties),
+					...getFlexContainerClasses(this.properties),
 					...getFlexItemClasses(this.properties)
 				]
 			},

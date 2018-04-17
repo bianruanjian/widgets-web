@@ -140,7 +140,7 @@ export function getFlexItemClasses( properties: FlexItemProperties ): string[] {
         flexItemClasses.push(`align-self-${alignSelf}`);
     }
 
-    if(order && order != "default" || order === 0){
+    if((order && order != "default") || order === 0){
         flexItemClasses.push(`order-${order}`);
     }
 
