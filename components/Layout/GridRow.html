@@ -7,17 +7,17 @@
   
   <title>GridRow | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例存在间隔       存在间隔   12345&amp;lt;db-container&amp;gt;    &amp;lt;db-view maxWidth=&quot;90%&quot;&amp;gt;">
+  <meta name="description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例gutters               存在间隔                       不存在间隔        123&amp;lt;db-container">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GridRow">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Layout/GridRow.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例存在间隔       存在间隔   12345&amp;lt;db-container&amp;gt;    &amp;lt;db-view maxWidth=&quot;90%&quot;&amp;gt;">
+<meta property="og:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例gutters               存在间隔                       不存在间隔        123&amp;lt;db-container">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T07:41:44.132Z">
+<meta property="og:updated_time" content="2018-04-17T09:52:25.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GridRow">
-<meta name="twitter:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例存在间隔       存在间隔   12345&amp;lt;db-container&amp;gt;    &amp;lt;db-view maxWidth=&quot;90%&quot;&amp;gt;">
+<meta name="twitter:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例gutters               存在间隔                       不存在间隔        123&amp;lt;db-container">
   
   
     <link rel="icon" href="/favicon.png">
@@ -95,14 +95,6 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Basic/Button.html">
-                    Button
-                </a>
-            </li>
-        
-            <li
-                
-            >
                 <a href="/dojo2-bootstrap/components/Basic/Label.html">
                     Label
                 </a>
@@ -113,6 +105,14 @@
             >
                 <a href="/dojo2-bootstrap/components/Basic/Text.html">
                     Text
+                </a>
+            </li>
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Basic/Button.html">
+                    Button
                 </a>
             </li>
         
@@ -181,18 +181,18 @@
             </li>
         
             <li
-                
-            >
-                <a href="/dojo2-bootstrap/components/Layout/GridColumn.html">
-                    GridColumn
-                </a>
-            </li>
-        
-            <li
                 class="active" 
             >
                 <a href="/dojo2-bootstrap/components/Layout/GridRow.html">
                     GridRow
+                </a>
+            </li>
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Layout/GridColumn.html">
+                    GridColumn
                 </a>
             </li>
         
@@ -247,16 +247,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
+                    Text
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
-                    Text
+                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
@@ -319,20 +319,22 @@
 </tr>
 </tbody>
 </table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>存在间隔</p>
-
-<div class="container bg-primary text-dark">
-    <db-grid-row widgetid="row">存在间隔</db-grid-row>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="gutters"><a href="#gutters" class="headerlink" title="gutters"></a>gutters</h3>
+<div class="container">
+    <div id="row" class="bg-primary border">
+        <div class="bg-success text-light m-2" style="height:30px">存在间隔</div>
+    </div>
 </div>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-view</span> <span class="attr">maxWidth</span>=<span class="string">"90%"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span>存在间隔<span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>不存在间隔</p>
 
-<div class="container bg-primary text-dark">
-    <db-grid-row widgetid="row" gutters="false">不存在间隔</db-grid-row>
+<div class="container">
+    <div id="row" class="bg-primary border">
+        <div class="bg-success text-light my-2" style="height:30px">不存在间隔</div>
+    </div>
 </div>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-view</span> <span class="attr">maxWidth</span>=<span class="string">"90%"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span> <span class="attr">gutters</span>=<span class="string">"false"</span>&gt;</span>不存在间隔<span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span>存在间隔<span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span> <span class="attr">gutters</span>=<span class="string">"false"</span>&gt;</span>不存在间隔<span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
