@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Dojo2-bootstrap">
 <meta property="og:description" content="用于对表单，对话框等的操作，支持设置外观、大小和状态等属性。 基本用法填充          12345678&amp;lt;brj-button appearance=&quot;primary&quot; value=&quot;primary&quot;&amp;gt;&amp;lt;/brj-button&amp;gt;&amp;lt;brj-button appearance=&quot;secondary&quot; value=&quot;secondary&quot;&amp;gt;&amp;lt;/brj-but">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-16T03:50:29.192Z">
+<meta property="og:updated_time" content="2018-04-17T07:23:37.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Button">
 <meta name="twitter:description" content="用于对表单，对话框等的操作，支持设置外观、大小和状态等属性。 基本用法填充          12345678&amp;lt;brj-button appearance=&quot;primary&quot; value=&quot;primary&quot;&amp;gt;&amp;lt;/brj-button&amp;gt;&amp;lt;brj-button appearance=&quot;secondary&quot; value=&quot;secondary&quot;&amp;gt;&amp;lt;/brj-but">
@@ -26,7 +26,11 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
+  <link href="//cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/button/button-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/container/container-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/view/view-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/grid-row/grid-row-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/main.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/style.css">
 </head>
@@ -81,6 +85,14 @@
     <ul class="menu-list">
         
             <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Basic/Addon.html">
+                    Addon
+                </a>
+            </li>
+        
+            <li
                 class="active" 
             >
                 <a href="/dojo2-bootstrap/components/Basic/Button.html">
@@ -127,6 +139,22 @@
     </p>
 
     <ul class="menu-list">
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Form/InputGroup.html">
+                    InputGroup
+                </a>
+            </li>
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Form/Select.html">
+                    Select
+                </a>
+            </li>
         
             <li
                 
@@ -303,7 +331,7 @@
 <brj-button appearance="primary" fluidwidth="true" value="Block level button"></brj-button>
 <brj-button appearance="secondary" fluidwidth="true" value="Block level button"></brj-button>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"primary"</span> <span class="attr">disabled</span>=<span class="string">"true"</span> <span class="attr">value</span>=<span class="string">"Block level button"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"secondary"</span> <span class="attr">value</span>=<span class="string">"Block level button"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"primary"</span> <span class="attr">fluidWidth</span>=<span class="string">"true"</span> <span class="attr">value</span>=<span class="string">"Block level button"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"secondary"</span> <span class="attr">fluidWidth</span>=<span class="string">"true"</span> <span class="attr">value</span>=<span class="string">"Block level button"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><p>设置<code>active</code>状态为<code>true</code>按钮即可激活</p>
 
 <brj-button appearance="primary" active="true" value="active button"></brj-button>
@@ -311,9 +339,9 @@
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"primary"</span> <span class="attr">active</span>=<span class="string">"true"</span> <span class="attr">value</span>=<span class="string">"active button"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"primary"</span> <span class="attr">value</span>=<span class="string">"Notactive button"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3>
-<brj-button appearance="primary" active="true" value="超链接" href="#"></brj-button>
+<brj-button appearance="link" active="true" value="超链接" href="#"></brj-button>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"primary"</span> <span class="attr">active</span>=<span class="string">"true"</span> <span class="attr">value</span>=<span class="string">"超链接"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">brj-button</span> <span class="attr">appearance</span>=<span class="string">"link"</span> <span class="attr">active</span>=<span class="string">"true"</span> <span class="attr">value</span>=<span class="string">"超链接"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">brj-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
 <thead>
 <tr>
@@ -448,20 +476,23 @@
   
 </nav>
     
+  
+  <!--
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  -->
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  
+  
+  
+  <script src="/dojo2-bootstrap/js/script.js"></script>
+  
 
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
--->
-<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-
-
-<script src="/dojo2-bootstrap/js/script.js"></script>
-
-
-
-
-<script src="/dojo2-bootstrap/js/components/button/button-1.0.0.js"></script>
+  
+  
+  <script src="/dojo2-bootstrap/js/components/button/button-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/container/container-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/view/view-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/grid-row/grid-row-1.0.0.js"></script>
   </div>
 </body>
 </html>

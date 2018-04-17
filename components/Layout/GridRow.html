@@ -7,17 +7,17 @@
   
   <title>GridRow | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean">
+  <meta name="description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例存在间隔       存在间隔   12345&amp;lt;db-container&amp;gt;    &amp;lt;db-view maxWidth=&quot;90%&quot;&amp;gt;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GridRow">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Layout/GridRow.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean">
+<meta property="og:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例存在间隔       存在间隔   12345&amp;lt;db-container&amp;gt;    &amp;lt;db-view maxWidth=&quot;90%&quot;&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-16T03:50:29.192Z">
+<meta property="og:updated_time" content="2018-04-17T07:23:37.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GridRow">
-<meta name="twitter:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean">
+<meta name="twitter:description" content="网格行 基本用法通用属性 Spacing Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   gutters 间隔 true true, false boolean    示例存在间隔       存在间隔   12345&amp;lt;db-container&amp;gt;    &amp;lt;db-view maxWidth=&quot;90%&quot;&amp;gt;">
   
   
     <link rel="icon" href="/favicon.png">
@@ -26,7 +26,11 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
+  <link href="//cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/button/button-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/container/container-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/view/view-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/grid-row/grid-row-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/main.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/style.css">
 </head>
@@ -83,6 +87,14 @@
             <li
                 
             >
+                <a href="/dojo2-bootstrap/components/Basic/Addon.html">
+                    Addon
+                </a>
+            </li>
+        
+            <li
+                
+            >
                 <a href="/dojo2-bootstrap/components/Basic/Button.html">
                     Button
                 </a>
@@ -127,6 +139,22 @@
     </p>
 
     <ul class="menu-list">
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Form/InputGroup.html">
+                    InputGroup
+                </a>
+            </li>
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Form/Select.html">
+                    Select
+                </a>
+            </li>
         
             <li
                 
@@ -291,6 +319,20 @@
 </tr>
 </tbody>
 </table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>存在间隔</p>
+
+<div class="container bg-primary text-dark">
+    <db-grid-row widgetid="row">存在间隔</db-grid-row>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-view</span> <span class="attr">maxWidth</span>=<span class="string">"90%"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span>存在间隔<span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不存在间隔</p>
+
+<div class="container bg-primary text-dark">
+    <db-grid-row widgetid="row" gutters="false">不存在间隔</db-grid-row>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-view</span> <span class="attr">maxWidth</span>=<span class="string">"90%"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span> <span class="attr">gutters</span>=<span class="string">"false"</span>&gt;</span>不存在间隔<span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -326,20 +368,23 @@
   
 </nav>
     
+  
+  <!--
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  -->
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  
+  
+  
+  <script src="/dojo2-bootstrap/js/script.js"></script>
+  
 
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
--->
-<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-
-
-<script src="/dojo2-bootstrap/js/script.js"></script>
-
-
-
-
-<script src="/dojo2-bootstrap/js/components/button/button-1.0.0.js"></script>
+  
+  
+  <script src="/dojo2-bootstrap/js/components/button/button-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/container/container-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/view/view-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/grid-row/grid-row-1.0.0.js"></script>
   </div>
 </body>
 </html>

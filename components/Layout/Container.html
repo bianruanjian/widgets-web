@@ -7,17 +7,17 @@
   
   <title>Container | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluidWidth 水平铺满 false true, false boolean    示例固定宽度 水平居中 123&amp;lt;db-container&amp;gt;水平居中&amp;lt;/db-container&amp;gt; 铺满全屏 123&amp;lt;db-con">
+  <meta name="description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluidWidth 水平铺满 false true, false boolean    示例固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Container">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Layout/Container.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluidWidth 水平铺满 false true, false boolean    示例固定宽度 水平居中 123&amp;lt;db-container&amp;gt;水平居中&amp;lt;/db-container&amp;gt; 铺满全屏 123&amp;lt;db-con">
+<meta property="og:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluidWidth 水平铺满 false true, false boolean    示例固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-16T03:50:29.192Z">
+<meta property="og:updated_time" content="2018-04-17T07:23:37.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Container">
-<meta name="twitter:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluidWidth 水平铺满 false true, false boolean    示例固定宽度 水平居中 123&amp;lt;db-container&amp;gt;水平居中&amp;lt;/db-container&amp;gt; 铺满全屏 123&amp;lt;db-con">
+<meta name="twitter:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluidWidth 水平铺满 false true, false boolean    示例固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏">
   
   
     <link rel="icon" href="/favicon.png">
@@ -26,7 +26,11 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
+  <link href="//cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/button/button-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/container/container-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/view/view-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/grid-row/grid-row-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/main.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/style.css">
 </head>
@@ -83,6 +87,14 @@
             <li
                 
             >
+                <a href="/dojo2-bootstrap/components/Basic/Addon.html">
+                    Addon
+                </a>
+            </li>
+        
+            <li
+                
+            >
                 <a href="/dojo2-bootstrap/components/Basic/Button.html">
                     Button
                 </a>
@@ -127,6 +139,22 @@
     </p>
 
     <ul class="menu-list">
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Form/InputGroup.html">
+                    InputGroup
+                </a>
+            </li>
+        
+            <li
+                
+            >
+                <a href="/dojo2-bootstrap/components/Form/Select.html">
+                    Select
+                </a>
+            </li>
         
             <li
                 
@@ -288,9 +316,20 @@
 </tbody>
 </table>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>固定宽度</p>
-<p><db-container>水平居中</db-container></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">水平居中</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div style="background-color:white;height:100px;border: 1px solid;">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="container mt-1">水平居中</div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    水平居中</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>铺满全屏</p>
+
+<div style="background-color:white;height:100px; border: 1px solid;" class="container-fluid">
+    <div id="id" style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="mt-1">
+        铺满全屏
+    </div>
+</div>
+
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span> <span class="attr">fluidWidth</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">铺满全屏</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
@@ -327,20 +366,23 @@
   
 </nav>
     
+  
+  <!--
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  -->
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  
+  
+  
+  <script src="/dojo2-bootstrap/js/script.js"></script>
+  
 
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
--->
-<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-
-
-<script src="/dojo2-bootstrap/js/script.js"></script>
-
-
-
-
-<script src="/dojo2-bootstrap/js/components/button/button-1.0.0.js"></script>
+  
+  
+  <script src="/dojo2-bootstrap/js/components/button/button-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/container/container-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/view/view-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/grid-row/grid-row-1.0.0.js"></script>
   </div>
 </body>
 </html>
