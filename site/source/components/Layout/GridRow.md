@@ -24,19 +24,19 @@ tags:
 
 ## 示例
 
-#间隔
+### gutters
 
 {% raw %}
 <div class="container">
-    <div id="row" class="row bg-primary text-dark border">
-        <div class="col">存在间隔</div>
+    <div id="row" class="bg-primary border" >
+        <div class="bg-success text-light m-2" style="height:30px">存在间隔</div>
     </div>
 </div>
 {% endraw %}
 {% raw %}
-<div class="container text-dark">
-    <div id="row" class="row no-gutters bg-primary text-dark border">
-        <div class="col">不存在间隔</div>
+<div class="container">
+    <div id="row" class="bg-primary border">
+        <div class="bg-success text-light my-2" style="height:30px">不存在间隔</div>
     </div>
 </div>
 {% endraw %}
