@@ -5,19 +5,19 @@
   
 
   
-  <title>Flex | Dojo2-bootstrap</title>
+  <title>ListGroup | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, false boolean">
+  <meta name="description" content="列表 基本用法通用属性 Spacing  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   flush 无边框 false true, false boolean     ListGroup下支持放Button、Link和ListItem部件">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Flex">
-<meta property="og:url" content="https://bianruanjian.github.io/components/Utilities/Flex.html">
+<meta property="og:title" content="ListGroup">
+<meta property="og:url" content="https://bianruanjian.github.io/components/Layout/ListGroup.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, false boolean">
+<meta property="og:description" content="列表 基本用法通用属性 Spacing  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   flush 无边框 false true, false boolean     ListGroup下支持放Button、Link和ListItem部件">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-18T02:25:35.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flex">
-<meta name="twitter:description" content="公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, false boolean">
+<meta name="twitter:title" content="ListGroup">
+<meta name="twitter:description" content="列表 基本用法通用属性 Spacing  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   flush 无边框 false true, false boolean     ListGroup下支持放Button、Link和ListItem部件">
   
   
     <link rel="icon" href="/favicon.png">
@@ -197,7 +197,7 @@
             </li>
         
             <li
-                
+                class="active" 
             >
                 <a href="/dojo2-bootstrap/components/Layout/ListGroup.html">
                     ListGroup
@@ -245,7 +245,7 @@
             </li>
         
             <li
-                class="active" 
+                
             >
                 <a href="/dojo2-bootstrap/components/Utilities/Flex.html">
                     Flex
@@ -295,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Flex
+      ListGroup
     </h1>
   
 
@@ -303,14 +303,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="公共属性"><a href="#公共属性" class="headerlink" title="公共属性"></a>公共属性</h2><ol>
-<li>将 <a href="../Utilities/Display.html">Display</a> 中的<code>display</code>属性值设置为<code>flex</code>或<code>flexInline</code>时可以使用 flex 相关功能。</li>
+        <p>列表</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
+<li><a href="../Utilities/Spacing.html">Spacing</a></li>
 </ol>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="Flex-container"><a href="#Flex-container" class="headerlink" title="Flex container"></a>Flex container</h3><table>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
 <thead>
 <tr>
 <th>名称</th>
-<th>说明</th>
+<th>显示名</th>
 <th>默认值</th>
 <th>可选值</th>
 <th>值类型</th>
@@ -318,77 +319,24 @@
 </thead>
 <tbody>
 <tr>
-<td>flexDirection</td>
-<td>主轴方向</td>
-<td>default</td>
-<td>row, column, default</td>
+<td>widgetId</td>
+<td>标识</td>
+<td></td>
+<td></td>
 <td>string</td>
 </tr>
 <tr>
-<td>reverse</td>
-<td>翻转</td>
+<td>flush</td>
+<td>无边框</td>
 <td>false</td>
 <td>true, false</td>
 <td>boolean</td>
 </tr>
-<tr>
-<td>justifyItems</td>
-<td>主轴排列方式</td>
-<td>default</td>
-<td>start, end, center, between, around, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>alignItems</td>
-<td>侧轴排列方式</td>
-<td>default</td>
-<td>start, end, center, baseline, stretch, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>flexWrap</td>
-<td>换行</td>
-<td>default</td>
-<td>nowrap, wrap, reverseWrap, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>alignContent</td>
-<td>多轴排列方式</td>
-<td>default</td>
-<td>start, end, center, around, stretch, default</td>
-<td>string</td>
-</tr>
 </tbody>
 </table>
-<h3 id="Flex-item"><a href="#Flex-item" class="headerlink" title="Flex item"></a>Flex item</h3><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>说明</th>
-<th>默认值</th>
-<th>可选值</th>
-<th>值类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alignSelf</td>
-<td>侧轴排列方式</td>
-<td>default</td>
-<td>start, end, center, baseline, stretch, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>order</td>
-<td>排序</td>
-<td>default</td>
-<td>0~12, default</td>
-<td>number/string</td>
-</tr>
-</tbody>
-</table>
-<p>当前部件是容器时可以使用 Flex container 相关属性，否则只能使用 Flex item 相关属性。</p>
+<ol>
+<li><code>ListGroup</code>下支持放<code>Button</code>、<code>Link</code>和<code>ListItem</code>部件</li>
+</ol>
 
       
     </div>
