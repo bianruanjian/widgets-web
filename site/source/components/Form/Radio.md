@@ -1,12 +1,12 @@
 ---
-title: Select
+title: Radio
 layout: components
 footer: false
-date: 2018-03-22 20:10:52
+date: 2018-04-18 10:48:06
 tags:
 ---
 
-下拉框部件
+单选框部件
 
 ## 基本用法
 
@@ -22,21 +22,15 @@ tags:
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
 | name | 名称 | | | string |
-| value | 值 | | | string |
+| value | 值 | false | true, false | boolean |
+| checked | 是否选中 | false | true, false | boolean |
 | label | 文本 | | | string |
+| labelAfter | 文本后置 | true | true, false | boolean |
 | disabled | 失效 | false | true, false | boolean |
-| required | 必填 | false | true, false | boolean |
 | readOnly | 只读 | false | true, false | boolean |
-| plainText | 纯文本(无边框文本) | false | true, false | boolean |
-| options | 选项 | | | json array |
-| labelField | 显示字段 | label | | string |
-| valueField | 隐藏字段 | value | | string |
-| dataPath | 数据路径 | | | string |
+| fluid | 水平铺满 | false | true, false | boolean |
 | size | 尺寸 | default | small, large, default | string |
 | invalidMessage | 无效提示 | | | string |
 | validMessage | 有效提示 | | | string |
 
-1. options 格式
-```json
-[{"value": "value1", "label": "label1"}]
-```
+1. `fluid` 为 `false` 时对应 bootstrap 中的 `.form-check-inline`
