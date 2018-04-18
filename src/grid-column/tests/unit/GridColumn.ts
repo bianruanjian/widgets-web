@@ -5,6 +5,7 @@ import harness from '@dojo/test-extras/harness';
 
 import { GridColumn, GridColumnProperties}  from './../../index';
 import * as css from '../../../common/base.m.css';
+import { textDecorationMap } from '../../../common/util';
 
 describe('GridColumn', () => {
 
@@ -76,12 +77,6 @@ describe('GridColumn', () => {
 	};
 
 	type baseCssType = keyof typeof css;
-	const textDecorationMap: {[key: string]: string} = {
-		'underline': 'textDecorationUnderline',
-		'overline': 'textDecorationOverline',
-		'lineThrough': 'textDecorationLineThrough',
-		'default': ''
-	};
 
 	it('should construct GridColumn', () => {
 		const h = harness(() => w(GridColumn, {}));
@@ -144,6 +139,15 @@ describe('GridColumn', () => {
 		h1.expect(() => v('div',{ id: undefined, classes: [
 			'col',
 			css[textDecorationClass as baseCssType]
+		], styles: {
+		}}, []));
+	});
+
+	it('offset', () => {
+		const h = harness(() => w(GridColumn, {offset: 0}));
+		h.expect(() => v('div',{ id: undefined, classes: [
+			'col',
+			'offset-0'
 		], styles: {
 		}}, []));
 	});

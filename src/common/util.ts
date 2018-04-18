@@ -255,7 +255,7 @@ export function getTextStyles( properties: TextProperties) {
 
 type baseCssType = keyof typeof css;
 
-const textDecorationMap: {[key: string]: string} = {
+export const textDecorationMap: {[key: string]: string} = {
     'underline': 'textDecorationUnderline',
     'overline': 'textDecorationOverline',
     'lineThrough': 'textDecorationLineThrough',
