@@ -251,3 +251,17 @@ export function getTextStyles( properties: TextProperties) {
 
     return textStyles;
 }
+
+export function getTextDecorationClass( properties: TextProperties ): string[] {
+    let {
+        textDecoration
+    } = properties;
+
+    let textClasses: string[] = [];
+
+    if(textDecoration && textDecoration !== "default"){
+        textClasses.push(`text-decoration-${textDecoration}`);
+    }
+
+    return textClasses;
+}

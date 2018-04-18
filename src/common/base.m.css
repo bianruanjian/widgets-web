@@ -1,0 +1,11 @@
+.text-decoration-underline {
+    text-decoration: underline;
+}
+
+.text-decoration-lineThrough {
+    text-decoration: line-through;
+}
+
+.text-decoration-overline {
+    text-decoration: overline;
+}

@@ -112,24 +112,26 @@ describe('GridColumn', () => {
 			'flex-nowrap',
 			'align-content-start',
 			'align-self-start',
-			'order-0'
+			'order-0',
+			'text-decoration-underline'
 		], styles: {
 			"maxWidth": "40px",
 			"width": "1rem"
-		}}, [v('u', {}, [])]));
+		}}, []));
 	});
 
 	it('textDecoration', () => {
 		const h = harness(() => w(GridColumn, {textDecoration: "overline"}));
 		h.expect(() => v('div',{ id: undefined, classes: [
-			'col'
+			'col',
+			'text-decoration-overline'
 		], styles: {
-			"textDecoration": "overline"
 		}}, []));
 		const h1 = harness(() => w(GridColumn, {textDecoration: "lineThrough"}));
 		h1.expect(() => v('div',{ id: undefined, classes: [
-			'col'
+			'col',
+			'text-decoration-lineThrough'
 		], styles: {
-		}}, [v('del', {}, [])]));
+		}}, []));
 	});
 });

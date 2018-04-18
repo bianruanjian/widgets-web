@@ -7,7 +7,8 @@ import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/grid-column.m.css';
 import { BorderProperties, SpacingProperties, TextProperties, FlexContainerProperties, FlexItemProperties } from '../common/interfaces';
-import { getBorderClasses, getSpacingClasses, getTextClasses, getFlexContainerClasses, getFlexItemClasses, getTextStyles } from '../common/util';
+import { getBorderClasses, getSpacingClasses, getTextClasses, getFlexContainerClasses, getFlexItemClasses, getTextStyles, getTextDecorationClass } from '../common/util';
+import * as cssText from '../common/base.m.css';
 
 /**
  * 
@@ -64,6 +65,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
+@theme(cssText)
 export class GridColumn<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
 	
 	private _getOffsetClasses(): string[] {
@@ -78,40 +80,6 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 		}
 
 		return offsetClasses;
-	}
-
-	private _generateChildrenByTextProperties(): any[] {
-		let {
-			textDecoration
-		} = this.properties;
-
-		if(!textDecoration){
-			return this.children;
-		}
-
-		if(textDecoration === "underline") {
-			return [v('u', {}, this.children)];
-		}
-
-		if(textDecoration === "lineThrough") {
-			return [v('del', {}, this.children)];
-		}
-
-		return this.children;
-	}
-
-	private _getOverlineTextStyles() {
-		let {
-			textDecoration
-		} = this.properties;
-
-		let textStyles: any = {};
-
-		if(textDecoration && textDecoration === "overline") {
-			textStyles.textDecoration = "overline";
-		}
-
-		return textStyles;
 	}
 
 	protected render(): DNode | DNode[] {
@@ -130,14 +98,14 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
 					...getFlexContainerClasses(this.properties),
-					...getFlexItemClasses(this.properties)
+					...getFlexItemClasses(this.properties),
+					...getTextDecorationClass(this.properties)
 				],
 				styles: {
-					...getTextStyles(this.properties),
-					...this._getOverlineTextStyles()
+					...getTextStyles(this.properties)
 				}
 			},
-			this._generateChildrenByTextProperties()
+			this.children
 		);
 	}
 }
