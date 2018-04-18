@@ -143,7 +143,7 @@ describe('GridColumn', () => {
 		}}, []));
 	});
 
-	it('offset', () => {
+	it('offset is zero', () => {
 		const h = harness(() => w(GridColumn, {offset: 0}));
 		h.expect(() => v('div',{ id: undefined, classes: [
 			'col',
