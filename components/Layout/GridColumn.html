@@ -7,17 +7,17 @@
   
   <title>GridColumn | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 偏移 default 0~11, default number/string">
+  <meta name="description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 右偏移列数 default 0~11, default number/string    示例offset               没有偏移         没有偏移">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GridColumn">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Layout/GridColumn.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 偏移 default 0~11, default number/string">
+<meta property="og:description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 右偏移列数 default 0~11, default number/string    示例offset               没有偏移         没有偏移">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-18T06:53:24.915Z">
+<meta property="og:updated_time" content="2018-04-18T09:09:10.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GridColumn">
-<meta name="twitter:description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 偏移 default 0~11, default number/string">
+<meta name="twitter:description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 右偏移列数 default 0~11, default number/string    示例offset               没有偏移         没有偏移">
   
   
     <link rel="icon" href="/favicon.png">
@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/container/container-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/view/view-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/grid-row/grid-row-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/grid-column/grid-column-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/main.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/style.css">
 </head>
@@ -330,14 +331,41 @@
 </tr>
 <tr>
 <td>offset</td>
-<td>偏移</td>
+<td>右偏移列数</td>
 <td>default</td>
 <td>0~11, default</td>
 <td>number/string</td>
 </tr>
 </tbody>
 </table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3>
+<div class="container" style="max-length: 90%">
+    <div id="row" class="row bg-primary border">
+        <div class="col bg-success text-light" style="height:30px">没有偏移</div>
+        <div class="col bg-info text-light" style="height:30px">没有偏移</div>
+    </div>
+</div>
 
+
+<div class="container" style="max-length: 90%">
+    <div id="row" class="row bg-primary border">
+        <div class="col offset-1 bg-success text-light" style="height:30px">偏移1</div>
+        <div class="col offset-2 bg-info text-light" style="height:30px">偏移2</div>
+    </div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span>&gt;</span>没有偏移<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span>&gt;</span>没有偏移<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">offset</span>=<span class="string">"1"</span>&gt;</span>偏移1<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">offset</span>=<span class="string">"2"</span>&gt;</span>偏移2<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="text-decoration"><a href="#text-decoration" class="headerlink" title="text decoration"></a>text decoration</h3>
+<db-container>
+    <db-grid-row widgetid="row">
+        <db-grid-column textdecoration="overline">上划线</db-grid-column>
+        <db-grid-column textdecoration="lineThrough">删除线</db-grid-column>
+        <db-grid-column textdecoration="underline">下划线</db-grid-column>
+    </db-grid-row>
+</db-container>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"overline"</span>&gt;</span>上划线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"lineThrough"</span>&gt;</span>删除线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"underline"</span>&gt;</span>下划线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -389,6 +417,7 @@
   <script src="/dojo2-bootstrap/js/components/container/container-1.0.0.js"></script>
   <script src="/dojo2-bootstrap/js/components/view/view-1.0.0.js"></script>
   <script src="/dojo2-bootstrap/js/components/grid-row/grid-row-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/grid-column/grid-column-1.0.0.js"></script>
   </div>
 </body>
 </html>
