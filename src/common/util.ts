@@ -1,4 +1,5 @@
 import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties } from './interfaces';
+import * as css from './base.m.css';
 
 export function getSpacingClasses(properties: SpacingProperties ): string[] {
         
@@ -252,6 +253,15 @@ export function getTextStyles( properties: TextProperties) {
     return textStyles;
 }
 
+type baseCssType = keyof typeof css;
+
+const textDecorationMap: {[key: string]: string} = {
+    'underline': 'textDecorationUnderline',
+    'overline': 'textDecorationOverline',
+    'lineThrough': 'textDecorationLineThrough',
+    'default': ''
+};
+
 export function getTextDecorationClass( properties: TextProperties ): string[] {
     let {
         textDecoration
@@ -260,7 +270,8 @@ export function getTextDecorationClass( properties: TextProperties ): string[] {
     let textClasses: string[] = [];
 
     if(textDecoration && textDecoration !== "default"){
-        textClasses.push(`text-decoration-${textDecoration}`);
+        const textDecorationClass = textDecorationMap[textDecoration];
+        textClasses.push(css[textDecorationClass as baseCssType]);
     }
 
     return textClasses;

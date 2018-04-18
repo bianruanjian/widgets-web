@@ -8,7 +8,6 @@ import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement'
 import * as css from './styles/grid-column.m.css';
 import { BorderProperties, SpacingProperties, TextProperties, FlexContainerProperties, FlexItemProperties } from '../common/interfaces';
 import { getBorderClasses, getSpacingClasses, getTextClasses, getFlexContainerClasses, getFlexItemClasses, getTextStyles, getTextDecorationClass } from '../common/util';
-import * as cssText from '../common/base.m.css';
 
 /**
  * 
@@ -65,7 +64,6 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-@theme(cssText)
 export class GridColumn<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
 	
 	private _getOffsetClasses(): string[] {

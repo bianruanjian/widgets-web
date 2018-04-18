@@ -61,3 +61,24 @@ tags:
     </db-grid-row>
 </db-container>
 ```
+
+### text decoration
+
+{% raw %}
+<db-container>
+    <db-grid-row widgetId="row">
+        <db-grid-column textDecoration="overline">上划线</db-grid-column>
+        <db-grid-column textDecoration="lineThrough">删除线</db-grid-column>
+        <db-grid-column textDecoration="underline">下划线</db-grid-column>
+    </db-grid-row>
+</db-container>
+{% endraw %}
+```html
+<db-container>
+    <db-grid-row widgetId="row">
+        <db-grid-column textDecoration="overline">上划线</db-grid-column>
+        <db-grid-column textDecoration="lineThrough">删除线</db-grid-column>
+        <db-grid-column textDecoration="underline">下划线</db-grid-column>
+    </db-grid-row>
+</db-container>
+```

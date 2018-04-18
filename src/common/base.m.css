@@ -1,11 +1,11 @@
-.text-decoration-underline {
+.textDecorationUnderline {
     text-decoration: underline;
 }
 
-.text-decoration-lineThrough {
+.textDecorationLineThrough {
     text-decoration: line-through;
 }
 
-.text-decoration-overline {
+.textDecorationOverline {
     text-decoration: overline;
 }

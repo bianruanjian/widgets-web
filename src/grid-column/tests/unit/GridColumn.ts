@@ -113,7 +113,7 @@ describe('GridColumn', () => {
 			'align-content-start',
 			'align-self-start',
 			'order-0',
-			'text-decoration-underline'
+			'_src_common_base_m__textDecorationUnderline'
 		], styles: {
 			"maxWidth": "40px",
 			"width": "1rem"
@@ -124,13 +124,13 @@ describe('GridColumn', () => {
 		const h = harness(() => w(GridColumn, {textDecoration: "overline"}));
 		h.expect(() => v('div',{ id: undefined, classes: [
 			'col',
-			'text-decoration-overline'
+			'_src_common_base_m__textDecorationOverline'
 		], styles: {
 		}}, []));
 		const h1 = harness(() => w(GridColumn, {textDecoration: "lineThrough"}));
 		h1.expect(() => v('div',{ id: undefined, classes: [
 			'col',
-			'text-decoration-lineThrough'
+			'_src_common_base_m__textDecorationLineThrough'
 		], styles: {
 		}}, []));
 	});
