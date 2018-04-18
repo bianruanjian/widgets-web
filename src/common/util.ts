@@ -1,4 +1,4 @@
-import { SpacingProperties, FlexContainerProperties, FlexItemProperties } from './interfaces';
+import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties } from './interfaces';
 
 export function getSpacingClasses(properties: SpacingProperties ): string[] {
         
@@ -145,4 +145,109 @@ export function getFlexItemClasses( properties: FlexItemProperties ): string[] {
     }
 
     return flexItemClasses;
+}
+
+export function getBorderClasses( properties: BorderProperties ): string[]{
+    let{
+        borderLeft,
+        borderTop,
+        borderRight,
+        borderBottom,
+        borderColor,
+        borderRadius
+    } = properties;
+
+    let borderClasses: string[] = [];
+
+    if(borderLeft){
+        borderClasses.push('border-left');
+    }
+
+    if(borderTop){
+        borderClasses.push('border-top');
+    }
+
+    if(borderRight){
+        borderClasses.push('border-right');
+    }
+
+    if(borderBottom){
+        borderClasses.push('border-bottom');
+    }
+
+    if(borderClasses.length === 4){
+        borderClasses = ['border'];
+    }
+
+    if(borderColor && borderColor != "default"){
+        borderClasses.push(`border-${borderColor}`);
+    }
+
+    if(borderRadius && borderRadius != "default"){
+        borderClasses.push(`rounded-${borderRadius}`);
+    }
+
+    return borderClasses;
+}
+
+export function getTextClasses( properties: TextProperties): string[] {
+    let{
+        fontWeight,
+        fontItalic,
+        alignment,
+        transform,
+        truncate,
+        wrap
+    } = properties;
+
+    const textClasses: string[] = [];
+
+    if(fontWeight && fontWeight != "default"){
+        textClasses.push(`font-weight-${fontWeight}`);
+    }
+
+    if(fontItalic){
+        textClasses.push('font-italic');
+    }
+
+    if(alignment && alignment != "default"){
+        textClasses.push(`text-${alignment}`);
+    }
+
+    if(transform && transform != "default"){
+        textClasses.push(`text-${transform}`);
+    }
+
+    if(truncate && truncate != "default"){
+        textClasses.push('text-truncate');
+    }
+
+    if(wrap){
+        textClasses.push('text-nowrap');
+    }
+
+    return textClasses;
+}
+
+export function getTextStyles( properties: TextProperties) {
+    let{
+        truncate,
+        wrap
+    } = properties;
+
+    let textStyles: any = {};
+
+    if(truncate && truncate != "default"){
+        if(typeof truncate == "number"){
+            textStyles.maxWidth = `${truncate}px`;
+        }else{
+            textStyles.maxWidth = `${truncate}`;
+        }
+    }
+
+    if(wrap){
+        textStyles.width = `${wrap}rem`;
+    }
+
+    return textStyles;
 }
