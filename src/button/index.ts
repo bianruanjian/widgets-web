@@ -29,7 +29,17 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<ButtonProperties>({
 	tag: 'brj-button',
-	attributes: ['id', 'value', 'appearance', 'size', 'disabled', 'type', 'fluidWidth', 'active', 'href', 'target'],
+	// prettier-ignore
+	attributes: ['id',
+				'value',
+				'appearance',
+				'size',
+				'disabled',
+				'type',
+				'fluidWidth',
+				'active',
+				'href',
+				'target'],
 	properties: [],
 	events: ['onClick']
 })
