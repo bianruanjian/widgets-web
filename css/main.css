@@ -6548,4 +6548,7 @@ label.panel-block {
             transform-origin: bottom center; }
 
 .tag:not(body) {
-  background-color: #2d2d2d; }
+  background-color: #2d2d2d;
+  display: inherit;
+  padding-left: 0;
+  padding-right: 0; }
