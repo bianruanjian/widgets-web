@@ -11,7 +11,7 @@ import * as css from './styles/button.m.css';
  *
  * Properties that can be set on button components
  */
-export interface ButtonProperties { 
+export interface ButtonProperties {
 	id?: string;
 	value?: string;
 	appearance?: string;
@@ -23,97 +23,80 @@ export interface ButtonProperties {
 	href?: string;
 	target?: string;
 	onClick?(): void;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
-
 @customElement<ButtonProperties>({
 	tag: 'brj-button',
-	attributes: ['id',
-				'value',
-				'appearance',
-				'size',
-				'disabled',
-				'type',
-				'fluidWidth',
-				'active',
-				'href',
-				'target'],
+	attributes: ['id', 'value', 'appearance', 'size', 'disabled', 'type', 'fluidWidth', 'active', 'href', 'target'],
 	properties: [],
 	events: ['onClick']
 })
 @theme(css)
 export class Button<P extends ButtonProperties = ButtonProperties> extends ThemedBase<P> {
-
-private _onClick (event: MouseEvent){
-	const a="aa";
-	event.stopPropagation();
-	this.properties.onClick && this.properties.onClick();
-}
+	private _onClick(event: MouseEvent) {
+		const a = 'aa';
+		let c = 'a';
+		event.stopPropagation();
+		this.properties.onClick && this.properties.onClick();
+	}
 
 	protected render(): DNode | DNode[] {
-		let{
-			id,
-			value,
-			appearance,
-			size,
-			disabled,
-			type,
-			fluidWidth,
-			active,
-			href,
-			target
-		}=this.properties;
+		let { id, value, appearance, size, disabled, type, fluidWidth, active, href, target } = this.properties;
 		if (this.children.length === 0) {
 			this.children.push(value || '按钮');
 		}
-		if(size) {
-			if(size === "large") {
+		if (size) {
+			if (size === 'large') {
 				size = 'lg';
-			}else if(size === "small") {
-				size ='sm';
-			}else {
+			} else if (size === 'small') {
+				size = 'sm';
+			} else {
 				size = '';
 			}
 		}
 
-		if(appearance === "default") {
-			appearance = "";
+		if (appearance === 'default') {
+			appearance = '';
 		}
 
-		if(href){//使用a标签
+		if (href) {
+			//使用a标签
 			return v(
-				'a', 
+				'a',
 				{
-					href: `${href}`, 
+					href: `${href}`,
 					target: target != null ? `${target}` : '_self',
-					classes:[
+					classes: [
 						'btn',
-						appearance !== '' ? `btn-${appearance}`: undefined,
+						appearance !== '' ? `btn-${appearance}` : undefined,
 						size !== '' ? `btn-${size}` : undefined,
 						fluidWidth ? 'btn-block' : undefined,
 						active ? 'active' : undefined
 					],
-					role: "button"
-				}, this.children);
-		}else{
+					role: 'button'
+				},
+				this.children
+			);
+		} else {
 			return v(
-				'button', 
+				'button',
 				{
-					id: id, 
+					id: id,
 					classes: [
 						'btn',
-						appearance !== '' ? `btn-${appearance}`: undefined,
+						appearance !== '' ? `btn-${appearance}` : undefined,
 						size !== '' ? `btn-${size}` : undefined,
 						fluidWidth ? 'btn-block' : undefined,
 						active ? 'active' : undefined
-						], 
+					],
 					disabled: disabled,
 					type: type,
-					onclick:this._onClick,
-				}, 
-				this.children);
+					onclick: this._onClick
+				},
+				this.children
+			);
 		}
 	}
 }
