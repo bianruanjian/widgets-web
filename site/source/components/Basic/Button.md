@@ -135,21 +135,21 @@ tags:
 
 ## 属性
 
-| 名称  | 说明 | 默认值 | 可选值 |值类型 |
+| 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| id    | 标识   |       |       | string |
-| value | 值     | 按钮  |          | string    |
-| appearance | 外观 |  default  |primary,secondary,success,danger,warning,info,light,dark,link,outline-primary,outline-secondary,outline-success,outline-danger,outline-warning,outline-info,outline-light,outline-dark,default          | string    |
-| size | 尺寸     |   default    |   small,default,large       | string     |
-|  disabled |   失效   |   false    |   true, false       |  boolean    |
-|  type  |   类型   |  button    |     button, submit, reset     |   string   |
-|  fluidWidth  |   水平铺满   |  false    |   true, false       |  boolean    |
-|  active |   激活   |   false    |   true, false       |  boolean    |
-|  href  |   链接地址   |     |      |  string  |
-|  target  |  目标  |  self  |   self, blank, {iframeId}  |  string  |
+| id | 标识 | | | string |
+| value | 值 | 按钮 | | string |
+| appearance | 外观 | default |primary, secondary, success, danger, warning, info, light, dark, link, outline-primary, outline-secondary, outline-success, outline-danger, outline-warning, outline-info, outline-light, outline-dark, default | string |
+| size | 尺寸 | default | small, default, large | string |
+| disabled | 失效 | false | true, false | boolean |
+| type | 类型 | button | button, submit, reset | string |
+| fluid | 水平铺满 | false | true, false | boolean |
+| active | 激活 | false | true, false | boolean |
+| href | 链接地址 | | | string |
+| target | 目标 | self | self, blank, {iframeId} | string |
 
 ## 事件
 
 | 名称  | 参数 | 描述 |
 | ----- | ------ | ----- |
-| onClick |   | 点击按钮时触发 |
+| onClick | | 点击按钮时触发 |
