@@ -46,7 +46,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Button<P extends ButtonProperties = ButtonProperties> extends ThemedBase<P> {
 
-	private _onClick (event: MouseEvent) {
+	private _onClick (event: MouseEvent){
 		event.stopPropagation();
 		this.properties.onClick && this.properties.onClick();
 	}
