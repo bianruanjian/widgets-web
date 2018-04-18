@@ -5,7 +5,7 @@ import harness from '@dojo/test-extras/harness';
 
 import { View , ViewProperties} from './../../index';
 
-describe('view', () => {
+describe('View', () => {
 
 	let defaultAttributes: ViewProperties = {
 		borderLeft: false,

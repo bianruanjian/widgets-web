@@ -5,7 +5,7 @@ import harness from '@dojo/test-extras/harness';
 
 import Button from './../../index';
 
-describe('button', () => {
+describe('Button', () => {
 
 	it('should construct button', () => {
 		const h = harness(() => w(Button, {}));

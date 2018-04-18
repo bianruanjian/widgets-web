@@ -7,7 +7,7 @@ import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/view.m.css';
 import { BorderProperties, SpacingProperties, TextProperties } from '../common/interfaces';
-import { getSpacingClasses } from '../common/util';
+import { getSpacingClasses, getBorderClasses, getTextClasses, getTextStyles } from '../common/util';
 
 /**
  * @type viewProperties
@@ -55,111 +55,6 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<P> {
 
-	private _getBorderClasses(){
-		let{
-			borderLeft,
-			borderTop,
-			borderRight,
-			borderBottom,
-			borderColor,
-			borderRadius
-		} = this.properties;
-
-		let borderClasses: string[] = [];
-
-		if(borderLeft){
-			borderClasses.push('border-left');
-		}
-
-		if(borderTop){
-			borderClasses.push('border-top');
-		}
-
-		if(borderRight){
-			borderClasses.push('border-right');
-		}
-
-		if(borderBottom){
-			borderClasses.push('border-bottom');
-		}
-
-		if(borderClasses.length === 4){
-			borderClasses = ['border'];
-		}
-
-		if(borderColor && borderColor != "default"){
-			borderClasses.push(`border-${borderColor}`);
-		}
-
-		if(borderRadius && borderRadius != "default"){
-			borderClasses.push(`rounded-${borderRadius}`);
-		}
-
-		return borderClasses;
-	}
-
-	private _getTextClasses() {
-		let{
-			fontWeight,
-			fontItalic,
-			alignment,
-			transform,
-			truncate,
-			wrap
-		} = this.properties;
-
-		const textClasses: string[] = [];
-
-		if(fontWeight && fontWeight != "default"){
-			textClasses.push(`font-weight-${fontWeight}`);
-		}
-
-		if(fontItalic){
-			textClasses.push('font-italic');
-		}
-
-		if(alignment && alignment != "default"){
-			textClasses.push(`text-${alignment}`);
-		}
-
-		if(transform && transform != "default"){
-			textClasses.push(`text-${transform}`);
-		}
-
-		if(truncate && truncate != "default"){
-			textClasses.push('text-truncate');
-		}
-
-		if(wrap){
-			textClasses.push('text-nowrap');
-		}
-
-		return textClasses;
-	}
-
-	private _getTextStyles() {
-		let{
-			truncate,
-			wrap
-		} = this.properties;
-
-		let textStyles: any = {};
-
-		if(truncate && truncate != "default"){
-			if(typeof truncate == "number"){
-				textStyles.maxWidth = `${truncate}px`;
-			}else{
-				textStyles.maxWidth = `${truncate}`;
-			}
-		}
-
-		if(wrap){
-			textStyles.width = `${wrap}rem`;
-		}
-
-		return textStyles;
-	}
-
 	private _getMaxWidthStyles() {
 		let{
 			maxWidth
@@ -188,8 +83,8 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			'div',
 			{
 				id: widgetId,
-				classes: [...this._getBorderClasses(), ...getSpacingClasses(this.properties), ...this._getTextClasses()],
-				styles: {...this._getTextStyles(), ...this._getMaxWidthStyles()}
+				classes: [...getBorderClasses(this.properties), ...getSpacingClasses(this.properties), ...getTextClasses(this.properties)],
+				styles: {...getTextStyles(this.properties), ...this._getMaxWidthStyles()}
 			},
 			this.children			
 		);
