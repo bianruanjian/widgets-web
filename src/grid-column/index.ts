@@ -73,7 +73,7 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 
 		const offsetClasses: string[] = [];
 
-		if((offset && offset != "default") || offset === 0){
+		if((offset && offset !== "default") || offset === 0){
 			offsetClasses.push(`offset-${offset}`);
 		}
 
