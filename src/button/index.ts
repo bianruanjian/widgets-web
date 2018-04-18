@@ -46,10 +46,11 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Button<P extends ButtonProperties = ButtonProperties> extends ThemedBase<P> {
 
-	private _onClick (event: MouseEvent){
-		event.stopPropagation();
-		this.properties.onClick && this.properties.onClick();
-	}
+private _onClick (event: MouseEvent){
+	const a="aa";
+	event.stopPropagation();
+	this.properties.onClick && this.properties.onClick();
+}
 
 	protected render(): DNode | DNode[] {
 		let{
