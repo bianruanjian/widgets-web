@@ -4,6 +4,7 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import { GridColumn, GridColumnProperties}  from './../../index';
+import * as css from '../../../common/base.m.css';
 
 describe('GridColumn', () => {
 
@@ -74,6 +75,14 @@ describe('GridColumn', () => {
 		order: 0
 	};
 
+	type baseCssType = keyof typeof css;
+	const textDecorationMap: {[key: string]: string} = {
+		'underline': 'textDecorationUnderline',
+		'overline': 'textDecorationOverline',
+		'lineThrough': 'textDecorationLineThrough',
+		'default': ''
+	};
+
 	it('should construct GridColumn', () => {
 		const h = harness(() => w(GridColumn, {}));
 		h.expect(() => v('div',{ id: undefined, classes: [
@@ -89,7 +98,9 @@ describe('GridColumn', () => {
 	});
 
 	it('custom properties', () => {
+		
 		const h = harness(() => w(GridColumn, customProperties));
+		const textDecorationClass = textDecorationMap['underline'];
 		h.expect(() => v('div',{ id: "random-id", classes: [
 			'col',
 			"offset-1",
@@ -113,7 +124,7 @@ describe('GridColumn', () => {
 			'align-content-start',
 			'align-self-start',
 			'order-0',
-			'_src_common_base_m__textDecorationUnderline'
+			css[textDecorationClass as baseCssType]
 		], styles: {
 			"maxWidth": "40px",
 			"width": "1rem"
@@ -122,15 +133,17 @@ describe('GridColumn', () => {
 
 	it('textDecoration', () => {
 		const h = harness(() => w(GridColumn, {textDecoration: "overline"}));
+		let textDecorationClass = textDecorationMap['overline'];
 		h.expect(() => v('div',{ id: undefined, classes: [
 			'col',
-			'_src_common_base_m__textDecorationOverline'
+			css[textDecorationClass as baseCssType]
 		], styles: {
 		}}, []));
 		const h1 = harness(() => w(GridColumn, {textDecoration: "lineThrough"}));
+		textDecorationClass = textDecorationMap['lineThrough'];
 		h1.expect(() => v('div',{ id: undefined, classes: [
 			'col',
-			'_src_common_base_m__textDecorationLineThrough'
+			css[textDecorationClass as baseCssType]
 		], styles: {
 		}}, []));
 	});
