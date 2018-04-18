@@ -6,6 +6,12 @@ import { v } from '@dojo/widget-core/d';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import * as css from './styles/button.m.css';
 
+const sizeMap: { [key: string]: string } = {
+	large: 'btn-lg',
+	small: 'btn-sm',
+	default: ''
+};
+
 /**
  * @type buttonProperties
  *
@@ -28,7 +34,7 @@ export interface ButtonProperties {
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<ButtonProperties>({
-	tag: 'brj-button',
+	tag: 'db-button',
 	attributes: ['id', 'value', 'appearance', 'size', 'disabled', 'type', 'fluidWidth', 'active', 'href', 'target'],
 	properties: [],
 	events: ['onClick']
@@ -36,8 +42,6 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Button<P extends ButtonProperties = ButtonProperties> extends ThemedBase<P> {
 	private _onClick(event: MouseEvent) {
-		const a = 'aa';
-		let c = 'a';
 		event.stopPropagation();
 		this.properties.onClick && this.properties.onClick();
 	}
@@ -47,15 +51,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 		if (this.children.length === 0) {
 			this.children.push(value || '按钮');
 		}
-		if (size) {
-			if (size === 'large') {
-				size = 'lg';
-			} else if (size === 'small') {
-				size = 'sm';
-			} else {
-				size = '';
-			}
-		}
+		let sizeClass: string = sizeMap[size as string];
 
 		if (appearance === 'default') {
 			appearance = '';
@@ -71,7 +67,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 					classes: [
 						'btn',
 						appearance !== '' ? `btn-${appearance}` : undefined,
-						size !== '' ? `btn-${size}` : undefined,
+						sizeClass !== '' ? sizeClass : undefined,
 						fluidWidth ? 'btn-block' : undefined,
 						active ? 'active' : undefined
 					],

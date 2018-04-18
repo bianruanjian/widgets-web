@@ -13,71 +13,71 @@ tags:
 ### 填充
 
 {% raw %}
-<brj-button appearance="primary" value="primary"></brj-button>
-<brj-button appearance="secondary" value="secondary"></brj-button>
-<brj-button appearance="danger" value="danger"></brj-button>
-<brj-button appearance="warning" value="warning"></brj-button>
-<brj-button appearance="info" value="info"></brj-button>
-<brj-button appearance="light" value="light"></brj-button>
-<brj-button appearance="dark" value="dark"></brj-button>
-<brj-button appearance="link" value="link"></brj-button>
+<db-button appearance="primary" value="primary"></db-button>
+<db-button appearance="secondary" value="secondary"></db-button>
+<db-button appearance="danger" value="danger"></db-button>
+<db-button appearance="warning" value="warning"></db-button>
+<db-button appearance="info" value="info"></db-button>
+<db-button appearance="light" value="light"></db-button>
+<db-button appearance="dark" value="dark"></db-button>
+<db-button appearance="link" value="link"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" value="primary"></brj-button>
-<brj-button appearance="secondary" value="secondary"></brj-button>
-<brj-button appearance="danger" value="danger"></brj-button>
-<brj-button appearance="warning" value="warning"></brj-button>
-<brj-button appearance="info" value="info"></brj-button>
-<brj-button appearance="light" value="light"></brj-button>
-<brj-button appearance="dark" value="dark"></brj-button>
-<brj-button appearance="link" value="link"></brj-button>
+<db-button appearance="primary" value="primary"></db-button>
+<db-button appearance="secondary" value="secondary"></db-button>
+<db-button appearance="danger" value="danger"></db-button>
+<db-button appearance="warning" value="warning"></db-button>
+<db-button appearance="info" value="info"></db-button>
+<db-button appearance="light" value="light"></db-button>
+<db-button appearance="dark" value="dark"></db-button>
+<db-button appearance="link" value="link"></db-button>
 ```
 
 ### 镂空
 
 {% raw %}
-<brj-button appearance="outline-primary" value="outline-primary"></brj-button>
-<brj-button appearance="outline-secondary" value="outline-secondary"></brj-button>
-<brj-button appearance="outline-success" value="outline-success"></brj-button>
-<brj-button appearance="outline-danger" value="outline-danger"></brj-button>
-<brj-button appearance="outline-warning" value="outline-warning"></brj-button>
-<brj-button appearance="outline-info" value="outline-info"></brj-button>
-<brj-button appearance="outline-light" value="outline-light"></brj-button>
-<brj-button appearance="outline-dark" value="outline-dark"></brj-button>
+<db-button appearance="outline-primary" value="outline-primary"></db-button>
+<db-button appearance="outline-secondary" value="outline-secondary"></db-button>
+<db-button appearance="outline-success" value="outline-success"></db-button>
+<db-button appearance="outline-danger" value="outline-danger"></db-button>
+<db-button appearance="outline-warning" value="outline-warning"></db-button>
+<db-button appearance="outline-info" value="outline-info"></db-button>
+<db-button appearance="outline-light" value="outline-light"></db-button>
+<db-button appearance="outline-dark" value="outline-dark"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="outline-primary" value="outline-primary"></brj-button>
-<brj-button appearance="outline-secondary" value="outline-secondary"></brj-button>
-<brj-button appearance="outline-success" value="outline-success"></brj-button>
-<brj-button appearance="outline-danger" value="outline-danger"></brj-button>
-<brj-button appearance="outline-warning" value="outline-warning"></brj-button>
-<brj-button appearance="outline-info" value="outline-info"></brj-button>
-<brj-button appearance="outline-light" value="outline-light"></brj-button>
-<brj-button appearance="outline-dark" value="outline-dark"></brj-button>
+<db-button appearance="outline-primary" value="outline-primary"></db-button>
+<db-button appearance="outline-secondary" value="outline-secondary"></db-button>
+<db-button appearance="outline-success" value="outline-success"></db-button>
+<db-button appearance="outline-danger" value="outline-danger"></db-button>
+<db-button appearance="outline-warning" value="outline-warning"></db-button>
+<db-button appearance="outline-info" value="outline-info"></db-button>
+<db-button appearance="outline-light" value="outline-light"></db-button>
+<db-button appearance="outline-dark" value="outline-dark"></db-button>
 ```
 
 ### 尺寸
 
 {% raw %}
-<brj-button appearance="primary" size="large" value="Large button"></brj-button>
-<brj-button appearance="secondary" size="large" value="Large button"></brj-button>
+<db-button appearance="primary" size="large" value="Large button"></db-button>
+<db-button appearance="secondary" size="large" value="Large button"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" size="large" value="Large button"></brj-button>
-<brj-button appearance="secondary" size="large" value="Large button"></brj-button>
+<db-button appearance="primary" size="large" value="Large button"></db-button>
+<db-button appearance="secondary" size="large" value="Large button"></db-button>
 ```
 
 {% raw %}
-<brj-button appearance="primary" size="small" value="Small button"></brj-button>
-<brj-button appearance="secondary" size="small" value="Small button"></brj-button>
+<db-button appearance="primary" size="small" value="Small button"></db-button>
+<db-button appearance="secondary" size="small" value="Small button"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" size="small" value="Small button"></brj-button>
-<brj-button appearance="secondary" size="small" value="Small button"></brj-button>
+<db-button appearance="primary" size="small" value="Small button"></db-button>
+<db-button appearance="secondary" size="small" value="Small button"></db-button>
 ```
 
 ### 失效
@@ -85,13 +85,13 @@ tags:
 设置`disabled`状态为`true`按钮即可失效
 
 {% raw %}
-<brj-button appearance="primary" disabled="true" value="Disabled button"></brj-button>
-<brj-button appearance="primary" value="Notdisabled button"></brj-button>
+<db-button appearance="primary" disabled="true" value="Disabled button"></db-button>
+<db-button appearance="primary" value="Notdisabled button"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" disabled="true" value="Disabled button"></brj-button>
-<brj-button appearance="primary" value="Notdisabled button"></brj-button>
+<db-button appearance="primary" disabled="true" value="Disabled button"></db-button>
+<db-button appearance="primary" value="Notdisabled button"></db-button>
 ```
 
 ### 水平铺满
@@ -99,13 +99,13 @@ tags:
 设置`fluidWidth`属性`true`可以创建水平铺满的块级按钮
 
 {% raw %}
-<brj-button appearance="primary" fluidWidth="true" value="Block level button"></brj-button>
-<brj-button appearance="secondary" fluidWidth="true" value="Block level button"></brj-button>
+<db-button appearance="primary" fluidWidth="true" value="Block level button"></db-button>
+<db-button appearance="secondary" fluidWidth="true" value="Block level button"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" fluidWidth="true" value="Block level button"></brj-button>
-<brj-button appearance="secondary" fluidWidth="true" value="Block level button"></brj-button>
+<db-button appearance="primary" fluidWidth="true" value="Block level button"></db-button>
+<db-button appearance="secondary" fluidWidth="true" value="Block level button"></db-button>
 ```
 
 ### 激活
@@ -113,23 +113,23 @@ tags:
 设置`active`状态为`true`按钮即可激活
 
 {% raw %}
-<brj-button appearance="primary" active="true" value="active button"></brj-button>
-<brj-button appearance="primary" value="Notactive button"></brj-button>
+<db-button appearance="primary" active="true" value="active button"></db-button>
+<db-button appearance="primary" value="Notactive button"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="primary" active="true" value="active button"></brj-button>
-<brj-button appearance="primary" value="Notactive button"></brj-button>
+<db-button appearance="primary" active="true" value="active button"></db-button>
+<db-button appearance="primary" value="Notactive button"></db-button>
 ```
 
 ### 超链接
 
 {% raw %}
-<brj-button appearance="link" active="true" value="超链接" href="#"></brj-button>
+<db-button appearance="link" active="true" value="超链接" href="#"></db-button>
 {% endraw %}
 
 ```html
-<brj-button appearance="link" active="true" value="超链接" href="#"></brj-button>
+<db-button appearance="link" active="true" value="超链接" href="#"></db-button>
 ```
 
 
