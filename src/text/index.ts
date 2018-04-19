@@ -5,9 +5,9 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { SpacingProperties, TextProperties, ColorsProperties } from '../common/interfaces';
+import { getSpacingClasses, getTextClasses, getTextDecorationClass, getColorsClasses, getTextStyles } from '../common/util';
 
 import * as css from './styles/text.m.css';
-import { getSpacingClasses, getTextClasses, getTextDecorationClass, getColorsClasses, getTextStyles } from '../common/util';
 /**
  * @type TextWidgetProperties
  *
@@ -59,33 +59,36 @@ export class Text<P extends TextWidgetProperties = TextWidgetProperties> extends
 			type
 		} = this.properties;
 
-		let tag: string = 'span';
+		let tag: string;
 		let cssClasses: string[] = [];
 
-		if(type && type !== "text"){
-			if(type === "lead"){
-				tag = 'p';
-				cssClasses.push('lead');
-			} else {
-				tag = type as string;
-			}
+		if(!type){
+			tag = 'span';
+		}else if(type === 'text'){
+			tag = 'span';
+		}else if(type === 'lead'){
+			tag = 'p';
+			cssClasses.push('lead');
+		}else{
+			tag = type as string;
 		}
 
 		return v(
 			tag,
 			{
 				id: widgetId,
-				classes: cssClasses.concat([
+				classes: [
+					...cssClasses,
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
 					...getTextDecorationClass(this.properties),
 					...getColorsClasses(this.properties)
-				]),
+				],
 				styles: {
 					...getTextStyles(this.properties)
 				}
 			},
-			value ? this.children.concat([value]) : this.children
+			value ? [...this.children,...[value]] : this.children
 		);
 	}
 }

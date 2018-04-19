@@ -1,11 +1,10 @@
 const { describe, it } = intern.getInterface('bdd');
-
 import { v, w } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
-
 import { Text, TextWidgetProperties } from './../../index';
-import * as css from '../../../common/base.m.css';
 import { textDecorationMap, } from '../../../common/util';
+
+import * as css from '../../../common/base.m.css';
 
 describe('Text', () => {
 

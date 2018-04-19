@@ -107,7 +107,7 @@ export interface FlexItemProperties{
  * Color(颜色)属性
  * 
  * @property textColor         文本颜色
- * @property order             背景色
+ * @property backgroundColor   背景色
  */
 export interface ColorsProperties{
     textColor?: string;
