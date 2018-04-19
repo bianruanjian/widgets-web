@@ -8,7 +8,8 @@
 			"src/container",
 			"src/view",
 			"src/grid-row",
-			"src/grid-column"
+			"src/grid-column",
+			"src/image"
 		]
 	}
 }

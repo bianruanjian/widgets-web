@@ -7,13 +7,13 @@ import { View , ViewProperties} from './../../index';
 
 describe('View', () => {
 
-	let defaultAttributes: ViewProperties = {
+	let defaultProperties: ViewProperties = {
 		borderLeft: false,
 		borderTop: false,
 		borderRight: false,
 		borderBottom: false,
 		borderColor: "default",
-		borderRadius: "default",
+		borderRound: "default",
 		marginTop: "default",
 		marginBottom: "default",
 		marginLeft: "default",
@@ -39,7 +39,7 @@ describe('View', () => {
 		borderRight: true,
 		borderBottom: true,
 		borderColor: "primary",
-		borderRadius: "top",
+		borderRound: "top",
 		marginTop: "0",
 		marginBottom: "0",
 		marginLeft: "1",
@@ -63,7 +63,7 @@ describe('View', () => {
 	});
 
 	it('default properties', () => {
-		const h = harness(() => w(View, defaultAttributes));
+		const h = harness(() => w(View, defaultProperties));
 		h.expect(() => v('div', { id: undefined, classes: [], styles: {}}));
 	});
 

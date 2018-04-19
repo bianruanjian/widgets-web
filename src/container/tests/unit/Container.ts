@@ -17,7 +17,7 @@ describe('Container', () => {
 	});
 
 	it('custom properties', () => {
-		const h = harness(() => w(Container, { widgetId: 'random-id', fluidWidth: true}));
+		const h = harness(() => w(Container, { widgetId: 'random-id', fluid: true}));
 		h.expect(() => v('div', {
 			id: 'random-id',
 			key: 'root',

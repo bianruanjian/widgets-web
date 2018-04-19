@@ -32,7 +32,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'borderRight',
 		'borderBottom',
 		'borderColor',
-		'borderRadius',
+		'borderRound',
 		'marginTop',
 		'marginBottom',
 		'marginLeft',
