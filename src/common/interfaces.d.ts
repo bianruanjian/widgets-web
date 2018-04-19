@@ -100,3 +100,16 @@ export interface FlexItemProperties{
     alignSelf?: string;
     order?: number | string;
 }
+
+/**
+ * @type ColorsProperties
+ * 
+ * Color(颜色)属性
+ * 
+ * @property textColor         文本颜色
+ * @property backgroundColor   背景色
+ */
+export interface ColorsProperties{
+    textColor?: string;
+    backgroundColor?: string;
+}

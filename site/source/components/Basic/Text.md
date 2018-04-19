@@ -10,6 +10,41 @@ tags:
 
 ## 基本用法
 
+### value
+
+{% raw %}
+<db-text widgetId="id" value="text"></db-text>
+{% endraw%}
+```html
+<db-text widgetId="id" value="text"></db-text>
+```
+
+### type
+{% raw %}
+<db-text value="h1" type="h1"></db-text>
+<db-text value="h2" type="h2"></db-text>
+<db-text value="h3" type="h3"></db-text>
+<db-text value="h4" type="h4"></db-text>
+<db-text value="h5" type="h5"></db-text>
+<db-text value="h6" type="h6"></db-text>
+<db-text value="p" type="p"></db-text>
+<db-text value="text" type="text"></db-text>
+<db-text value="lead" type="lead"></db-text>
+<db-text value="small" type="small"></db-text>
+{% endraw%}
+```html
+<db-text value="h1" type="h1"></db-text>
+<db-text value="h2" type="h2"></db-text>
+<db-text value="h3" type="h3"></db-text>
+<db-text value="h4" type="h4"></db-text>
+<db-text value="h5" type="h5"></db-text>
+<db-text value="h6" type="h6"></db-text>
+<db-text value="p" type="p"></db-text>
+<db-text value="text" type="text"></db-text>
+<db-text value="lead" type="lead"></db-text>
+<db-text value="small" type="small"></db-text>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)

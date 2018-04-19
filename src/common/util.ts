@@ -1,4 +1,4 @@
-import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties } from './interfaces';
+import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties, ColorsProperties } from './interfaces';
 import * as css from './base.m.css';
 
 export function getSpacingClasses(properties: SpacingProperties ): string[] {
@@ -275,4 +275,23 @@ export function getTextDecorationClass( properties: TextProperties ): string[] {
     }
 
     return textClasses;
+}
+
+export function getColorsClasses(properties: ColorsProperties): string[] {
+    let {
+        textColor,
+        backgroundColor
+    } = properties;
+
+    const colorsClasses: string[] = [];
+
+    if(textColor && textColor !== "default"){
+        colorsClasses.push(`text-${textColor}`);
+    }
+
+    if(backgroundColor && backgroundColor !== "default") {
+        colorsClasses.push(`bg-${backgroundColor}`);
+    }
+
+    return colorsClasses;
 }
