@@ -9,7 +9,8 @@
 			"src/view",
 			"src/grid-row",
 			"src/grid-column",
-			"src/image"
+			"src/image",
+			"src/text"
 		]
 	}
 }
