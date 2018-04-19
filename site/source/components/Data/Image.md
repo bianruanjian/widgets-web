@@ -74,7 +74,6 @@ tags:
 ```html
 <db-img src="..." alt="demo" alignment="left"></db-img>
 <db-img src="..." alt="demo" alignment="right"></db-img>
-</div>
 ```
 
 ### alignment center
@@ -91,10 +90,10 @@ tags:
 ### borderRound
 
 {% raw %}
-<div style="height:200px;width:200px;">
-    <db-img src="https://lorempixel.com/300/150/" alt="demo" borderRound="circle" height="100%"></db-img>
+<div style="height:200px;">
+    <db-img src="https://lorempixel.com/300/150/" alt="demo" borderRound="circle" height="100%" width="200"></db-img>
 </div>
 {% endraw %}
 ```html
-<db-img src="..." alt="demo" borderRound="circle"></db-img>
+<db-img src="..." alt="demo" borderRound="circle" height="200" width="200"></db-img>
 ```
