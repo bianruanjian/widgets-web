@@ -9,6 +9,7 @@ tags:
 
 * Button 按钮
 * Icon 图标
+* Link 超链接
 * Text 文本
 
 ## Layout
