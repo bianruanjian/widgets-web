@@ -6,7 +6,7 @@ date: 2018-04-18 10:48:06
 tags:
 ---
 
-单选框部件
+徽章
 
 ## 基本用法
 
@@ -20,3 +20,8 @@ tags:
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
+| value | 值 | | | string |
+| appearance | 外观 | default | primary, secondary, success, danger, warning, info, light, dark, default | string |
+| pill | 椭圆 | false | true, false | boolean |
+| href | 链接地址 | | | string |
+| target | 目标 | self | self, blank, {iframeId} | string |
