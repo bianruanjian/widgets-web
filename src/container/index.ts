@@ -14,7 +14,7 @@ import * as css from './styles/container.m.css';
  */
 export interface ContainerProperties {
 	widgetId?: string;
-	fluidWidth?: boolean;
+	fluid?: boolean;
 };
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -24,7 +24,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	childType: CustomElementChildType.TEXT,
 	attributes: [
 		'widgetId',
-		"fluidWidth"
+		"fluid"
 	],
 	properties: [],
 	events: []
@@ -34,10 +34,10 @@ export class ContainerBase<P extends ContainerProperties = ContainerProperties> 
 	protected render(): DNode | DNode[] {
 		let {
 			widgetId, 
-			fluidWidth
+			fluid
 		} = this.properties;
 		
-		const cssClass = fluidWidth ? 'container-fluid' : 'container';
+		const cssClass = fluid ? 'container-fluid' : 'container';
 
 		return v(
 			'div',

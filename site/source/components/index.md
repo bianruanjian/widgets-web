@@ -12,3 +12,4 @@ footer: false
     1. `Button` 的 `block` -> `Button` 的 `fluid`
     1. `Checkbox` 的 `inline` -> `Checkbox` 的 `fluid`
     1. `Radio` 的 `inline` -> `Radio` 的 `fluid`
+    1. `Image` 的 `fluid` -> `Image` 的 `fluid`

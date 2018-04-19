@@ -16,7 +16,7 @@ export interface BorderProperties{
     borderRight?: boolean;
     borderBottom?: boolean;
     borderColor?: string;
-    borderRadius?: string;
+    borderRound?: string;
 }
 
 /**

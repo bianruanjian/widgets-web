@@ -155,7 +155,7 @@ export function getBorderClasses( properties: BorderProperties ): string[]{
         borderRight,
         borderBottom,
         borderColor,
-        borderRadius
+        borderRound
     } = properties;
 
     let borderClasses: string[] = [];
@@ -184,8 +184,8 @@ export function getBorderClasses( properties: BorderProperties ): string[]{
         borderClasses.push(`border-${borderColor}`);
     }
 
-    if(borderRadius && borderRadius != "default"){
-        borderClasses.push(`rounded-${borderRadius}`);
+    if(borderRound && borderRound != "default"){
+        borderClasses.push(`rounded-${borderRound}`);
     }
 
     return borderClasses;
