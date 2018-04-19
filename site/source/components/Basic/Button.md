@@ -6,7 +6,7 @@ date: 2018-03-26 10:14:52
 tags:
 ---
 
-用于对表单，对话框等的操作，支持设置外观、大小和状态等属性。
+按钮, 用于对表单，对话框等的操作，支持设置外观、大小和状态等属性。
 
 ## 基本用法
 
@@ -139,7 +139,7 @@ tags:
 | ----- | ------ | ----- | ----- | --------- |
 | id | 标识 | | | string |
 | value | 值 | 按钮 | | string |
-| appearance | 外观 | default |primary, secondary, success, danger, warning, info, light, dark, link, outline-primary, outline-secondary, outline-success, outline-danger, outline-warning, outline-info, outline-light, outline-dark, default | string |
+| appearance | 外观 | default | primary, secondary, success, danger, warning, info, light, dark, link, outline-primary, outline-secondary, outline-success, outline-danger, outline-warning, outline-info, outline-light, outline-dark, default | string |
 | size | 尺寸 | default | small, default, large | string |
 | disabled | 失效 | false | true, false | boolean |
 | type | 类型 | button | button, submit, reset | string |
