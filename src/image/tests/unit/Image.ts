@@ -26,7 +26,7 @@ describe('Image', () => {
 		widgetId: 'random-id',
 		fluid: true,
 		thumbnail: true,
-		src: 'http://g.hiphotos.baidu.com/image/pic/item/cf1b9d16fdfaaf519d4aa2db805494eef01f7a2c.jpg',
+		src: 'http://img.jpg',
 		alt: 'beauty',
 		width: 60,
 		height: '60%',
@@ -46,9 +46,9 @@ describe('Image', () => {
 		const h = harness(() => w(Image, {}));
 		h.expect(() => v('img',{
 			id: undefined,
-			src: '',
-			alt: '',
-			classes: ['align-middle'],
+			src: undefined,
+			alt: undefined,
+			classes: [],
 			styles: {}
 		}, []));
 	});
@@ -57,9 +57,9 @@ describe('Image', () => {
 		const h = harness(() => w(Image, defaultProperties));
 		h.expect(() => v('img',{
 			id: undefined,
-			src: '',
-			alt: '',
-			classes: ['align-middle'],
+			src: undefined,
+			alt: undefined,
+			classes: [],
 			styles: {}
 		}, []));
 	});
@@ -68,10 +68,9 @@ describe('Image', () => {
 		const h = harness(() => w(Image, customProperties));
 		h.expect(() => v('img',{
 			id: 'random-id',
-			src: 'http://g.hiphotos.baidu.com/image/pic/item/cf1b9d16fdfaaf519d4aa2db805494eef01f7a2c.jpg',
+			src: 'http://img.jpg',
 			alt: 'beauty',
 			classes: [
-				'align-middle',
 				'img-fluid',
 				'img-thumbnail',
 				'float-left',
@@ -92,10 +91,9 @@ describe('Image', () => {
 		const h = harness(() => w(Image, {alignment : 'center'}));
 		h.expect(() => v('img',{
 			id: undefined,
-			src: '',
-			alt: '',
+			src: undefined,
+			alt: undefined,
 			classes: [
-				'align-middle',
 				'mx-auto',
 				'd-block'
 			],

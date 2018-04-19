@@ -2,12 +2,12 @@ import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import * as css from './styles/image.m.css';
 import { SpacingProperties } from '../common/interfaces';
 import { getSpacingClasses, getBorderClasses } from '../common/util';
+
+import * as css from './styles/image.m.css';
 
 /**
  * @type ImageProperties
@@ -84,7 +84,6 @@ export class Image<P extends ImageProperties = ImageProperties> extends ThemedBa
 	}
 
 	private _getImgStyles() {
-
 		let{
 			width,
 			height,
@@ -122,10 +121,9 @@ export class Image<P extends ImageProperties = ImageProperties> extends ThemedBa
 			'img',
 			{
 				id: widgetId,
-				src: src ? src : '',
-				alt: alt ? alt : '',
+				src,
+				alt,
 				classes: [
-					'align-middle',
 					...this._getImgClasses(),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties)

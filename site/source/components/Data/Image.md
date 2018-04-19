@@ -60,27 +60,41 @@ tags:
 </div>
 {% endraw %}
 ```html
-<db-img src="..." thumbnail="true" alt="demo" width="400" height="90%"></db-img>
+<db-img src="..." alt="demo" width="400" height="90%"></db-img>
 ```
 
-### alignment
+### alignment left and right
 
 {% raw %}
 <div style="height:200px;">
     <db-img src="https://lorempixel.com/300/150/" alt="demo" alignment="left" height="90%"></db-img>
+    <db-img src="https://lorempixel.com/300/150/" alt="demo" alignment="right" height="90%"></db-img>
 </div>
 {% endraw %}
 ```html
-<db-img src="..." thumbnail="true" alt="demo" alignment="left"></db-img>
+<db-img src="..." alt="demo" alignment="left"></db-img>
+<db-img src="..." alt="demo" alignment="right"></db-img>
+</div>
+```
+
+### alignment center
+
+{% raw %}
+<div style="height:200px;">
+    <db-img src="https://lorempixel.com/300/150/" alt="demo" alignment="center" height="90%"></db-img>
+</div>
+{% endraw %}
+```html
+<db-img src="..." alt="demo" alignment="center"></db-img>
 ```
 
 ### borderRound
 
 {% raw %}
-<div style="height:200px;">
-    <db-img src="https://lorempixel.com/300/150/" alt="demo" borderRound="circle" height="90%"></db-img>
+<div style="height:200px;width:200px;">
+    <db-img src="https://lorempixel.com/300/150/" alt="demo" borderRound="circle" height="100%"></db-img>
 </div>
 {% endraw %}
 ```html
-<db-img src="..." thumbnail="true" alt="demo" borderRound="circle"></db-img>
+<db-img src="..." alt="demo" borderRound="circle"></db-img>
 ```
