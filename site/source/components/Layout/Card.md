@@ -24,3 +24,5 @@ tags:
 | widgetId | 标识 | | | string |
 | width | 宽度 | | auto, 数字, 百分数 | number/string |
 | height | 高度 | | auto, 数字, 百分数 | number/string |
+
+1. `width`和`height`属性值为数字时计量单位是`px`
