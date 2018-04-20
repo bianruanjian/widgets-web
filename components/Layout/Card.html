@@ -5,19 +5,19 @@
   
 
   
-  <title>Radio | Dojo2-bootstrap</title>
+  <title>Card | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单选框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值 false true, false boolean   checked 是否选中 false true, false boolean   l">
+  <meta name="description" content="卡片部件 基本用法通用属性 Spacing Text Colors Border  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   width 宽度  auto, 数字, 百分数 number/string   height 高度  auto, 数字, 百分数 number/string     width和height属性值为数字时计量单位是p">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Radio">
-<meta property="og:url" content="https://bianruanjian.github.io/components/Form/Radio.html">
+<meta property="og:title" content="Card">
+<meta property="og:url" content="https://bianruanjian.github.io/components/Layout/Card.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="单选框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值 false true, false boolean   checked 是否选中 false true, false boolean   l">
+<meta property="og:description" content="卡片部件 基本用法通用属性 Spacing Text Colors Border  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   width 宽度  auto, 数字, 百分数 number/string   height 高度  auto, 数字, 百分数 number/string     width和height属性值为数字时计量单位是p">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-20T06:34:10.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Radio">
-<meta name="twitter:description" content="单选框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值 false true, false boolean   checked 是否选中 false true, false boolean   l">
+<meta name="twitter:title" content="Card">
+<meta name="twitter:description" content="卡片部件 基本用法通用属性 Spacing Text Colors Border  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   width 宽度  auto, 数字, 百分数 number/string   height 高度  auto, 数字, 百分数 number/string     width和height属性值为数字时计量单位是p">
   
   
     <link rel="icon" href="/favicon.png">
@@ -185,7 +185,7 @@
             </li>
         
             <li
-                class="active" 
+                
             >
                 <a href="/dojo2-bootstrap/components/Form/Radio.html">
                     Radio
@@ -225,7 +225,7 @@
     <ul class="menu-list">
         
             <li
-                
+                class="active" 
             >
                 <a href="/dojo2-bootstrap/components/Layout/Card.html">
                     Card
@@ -363,7 +363,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Radio
+      Card
     </h1>
   
 
@@ -371,11 +371,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>单选框部件</p>
+        <p>卡片部件</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Spacing.html">Spacing</a></li>
-<li><a href="../Utilities/Flex.html">Flex</a> 中的 Flex item 相关属性</li>
-<li><a href="../Utilities/Float.html">Float</a></li>
+<li><a href="../Utilities/Text.html">Text</a></li>
+<li><a href="../Utilities/Colors.html">Colors</a></li>
+<li><a href="../Utilities/Border.html">Border</a></li>
 </ol>
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
 <thead>
@@ -396,86 +397,23 @@
 <td>string</td>
 </tr>
 <tr>
-<td>name</td>
-<td>名称</td>
+<td>width</td>
+<td>宽度</td>
 <td></td>
+<td>auto, 数字, 百分数</td>
+<td>number/string</td>
+</tr>
+<tr>
+<td>height</td>
+<td>高度</td>
 <td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>value</td>
-<td>值</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>checked</td>
-<td>是否选中</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>label</td>
-<td>文本</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>labelAfter</td>
-<td>文本后置</td>
-<td>true</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>disabled</td>
-<td>失效</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>readOnly</td>
-<td>只读</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>fluid</td>
-<td>水平铺满</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>size</td>
-<td>尺寸</td>
-<td>default</td>
-<td>small, large, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>invalidMessage</td>
-<td>无效提示</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>validMessage</td>
-<td>有效提示</td>
-<td></td>
-<td></td>
-<td>string</td>
+<td>auto, 数字, 百分数</td>
+<td>number/string</td>
 </tr>
 </tbody>
 </table>
 <ol>
-<li><code>fluid</code> 为 <code>false</code> 时对应 bootstrap 中的 <code>.form-check-inline</code></li>
+<li><code>width</code>和<code>height</code>属性值为数字时计量单位是<code>px</code></li>
 </ol>
 
       
