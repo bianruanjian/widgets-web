@@ -22,6 +22,7 @@ tags:
 | thumbnail | 缩略图 | false | true, false | boolean |
 | src | 资源路径 | | | string |
 | alt | 替代文本 | | | string |
+| title | 提示文本 | | | string |
 | width | 宽度 | | auto, 数字, 百分数 | number/string |
 | height | 高度 | | auto, 数字, 百分数 | number/string |
 | alignment | 排列方式 | default | default, left, center, right | string |
