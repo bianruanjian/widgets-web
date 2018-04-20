@@ -23,7 +23,7 @@ describe('Label', () => {
 	it('custom properties', () => {
 		const h = harness(() => w(Label, customProperties));
 		h.expect(() => v('label',{
-			id:'random-id',
+			id: 'random-id',
 			for: 'id'
 		},['label']));
 	});

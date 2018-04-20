@@ -45,7 +45,7 @@ export class Label<P extends LabelProperties = LabelProperties> extends ThemedBa
 				id: widgetId,
 				for: forId
 			},
-			value ? [...[value],...this.children] : this.children
+			value ? [value, ...this.children] : this.children
 		);
 	}
 }
