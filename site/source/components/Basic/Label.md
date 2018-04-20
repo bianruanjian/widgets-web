@@ -10,6 +10,15 @@ tags:
 
 ## 基本用法
 
+{% raw %}
+<db-label widgetId="random-id" value="标签" forId="input"></db-label>
+<input type="text" id="input" class="ml-2"/>
+{% endraw %}
+```html
+<db-label widgetId="random-id" value="标签" forId="input"></db-label>
+<db-text-imput widgetId="input" name="name" type="text" marginLeft="2"></db-text-input>
+```
+
 ## 属性
 
 | 名称  | 显示名 | 默认值 | 可选值 |值类型 |

@@ -10,7 +10,8 @@
 			"src/grid-row",
 			"src/grid-column",
 			"src/image",
-			"src/text"
+			"src/text",
+			"src/label"
 		]
 	}
 }
