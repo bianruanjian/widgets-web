@@ -7,17 +7,17 @@
   
   <title>GridColumn | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 右偏移列数 default 0~11, default number/string    示例offset               没有偏移         没有偏移">
+  <meta name="description" content="网格列 基本用法offset               没有偏移         没有偏移                       偏移1         偏移2        123456&amp;lt;db-container&amp;gt;    &amp;lt;db-grid-row widgetId=&quot;row&quot;&amp;gt;        &amp;lt;db-grid-column&amp;gt;没有偏移&amp;lt;/db-gr">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GridColumn">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Layout/GridColumn.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 右偏移列数 default 0~11, default number/string    示例offset               没有偏移         没有偏移">
+<meta property="og:description" content="网格列 基本用法offset               没有偏移         没有偏移                       偏移1         偏移2        123456&amp;lt;db-container&amp;gt;    &amp;lt;db-grid-row widgetId=&quot;row&quot;&amp;gt;        &amp;lt;db-grid-column&amp;gt;没有偏移&amp;lt;/db-gr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-20T06:34:10.332Z">
+<meta property="og:updated_time" content="2018-04-21T07:30:16.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GridColumn">
-<meta name="twitter:description" content="网格列 基本用法通用属性 Border Spacing Text Flex  属性   名称 显示名 默认值 可选值 值类型     widgetId 标识   string   offset 右偏移列数 default 0~11, default number/string    示例offset               没有偏移         没有偏移">
+<meta name="twitter:description" content="网格列 基本用法offset               没有偏移         没有偏移                       偏移1         偏移2        123456&amp;lt;db-container&amp;gt;    &amp;lt;db-grid-row widgetId=&quot;row&quot;&amp;gt;        &amp;lt;db-grid-column&amp;gt;没有偏移&amp;lt;/db-gr">
   
   
     <link rel="icon" href="/favicon.png">
@@ -91,16 +91,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Basic/Badge.html">
-                    Badge
+                <a href="/dojo2-bootstrap/components/Basic/Addon.html">
+                    Addon
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Basic/Addon.html">
-                    Addon
+                <a href="/dojo2-bootstrap/components/Basic/Badge.html">
+                    Badge
                 </a>
             </li>
         
@@ -323,16 +323,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/dojo2-bootstrap/components/Utilities/Float.html">
+                    Float
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Float.html">
-                    Float
+                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
@@ -372,7 +372,35 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>网格列</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3>
+<div class="container" style="max-length: 90%">
+    <div id="row" class="row bg-primary border">
+        <div class="col bg-success text-light" style="height:30px">没有偏移</div>
+        <div class="col bg-info text-light" style="height:30px">没有偏移</div>
+    </div>
+</div>
+
+
+<div class="container" style="max-length: 90%">
+    <div id="row" class="row bg-primary border">
+        <div class="col offset-1 bg-success text-light" style="height:30px">偏移1</div>
+        <div class="col offset-2 bg-info text-light" style="height:30px">偏移2</div>
+    </div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span>&gt;</span>没有偏移<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span>&gt;</span>没有偏移<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">offset</span>=<span class="string">"1"</span>&gt;</span>偏移1<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">offset</span>=<span class="string">"2"</span>&gt;</span>偏移2<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="text-decoration"><a href="#text-decoration" class="headerlink" title="text decoration"></a>text decoration</h3>
+<db-container>
+    <db-grid-row widgetid="row">
+        <db-grid-column textdecoration="overline">上划线</db-grid-column>
+        <db-grid-column textdecoration="lineThrough">删除线</db-grid-column>
+        <db-grid-column textdecoration="underline">下划线</db-grid-column>
+    </db-grid-row>
+</db-container>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"overline"</span>&gt;</span>上划线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"lineThrough"</span>&gt;</span>删除线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"underline"</span>&gt;</span>下划线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Border.html">Border</a></li>
 <li><a href="../Utilities/Spacing.html">Spacing</a></li>
 <li><a href="../Utilities/Text.html">Text</a></li>
@@ -405,34 +433,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3>
-<div class="container" style="max-length: 90%">
-    <div id="row" class="row bg-primary border">
-        <div class="col bg-success text-light" style="height:30px">没有偏移</div>
-        <div class="col bg-info text-light" style="height:30px">没有偏移</div>
-    </div>
-</div>
 
-
-<div class="container" style="max-length: 90%">
-    <div id="row" class="row bg-primary border">
-        <div class="col offset-1 bg-success text-light" style="height:30px">偏移1</div>
-        <div class="col offset-2 bg-info text-light" style="height:30px">偏移2</div>
-    </div>
-</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span>&gt;</span>没有偏移<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span>&gt;</span>没有偏移<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">offset</span>=<span class="string">"1"</span>&gt;</span>偏移1<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">offset</span>=<span class="string">"2"</span>&gt;</span>偏移2<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="text-decoration"><a href="#text-decoration" class="headerlink" title="text decoration"></a>text decoration</h3>
-<db-container>
-    <db-grid-row widgetid="row">
-        <db-grid-column textdecoration="overline">上划线</db-grid-column>
-        <db-grid-column textdecoration="lineThrough">删除线</db-grid-column>
-        <db-grid-column textdecoration="underline">下划线</db-grid-column>
-    </db-grid-row>
-</db-container>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-grid-row</span> <span class="attr">widgetId</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"overline"</span>&gt;</span>上划线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"lineThrough"</span>&gt;</span>删除线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-grid-column</span> <span class="attr">textDecoration</span>=<span class="string">"underline"</span>&gt;</span>下划线<span class="tag">&lt;/<span class="name">db-grid-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-grid-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">

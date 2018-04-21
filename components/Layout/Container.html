@@ -7,17 +7,17 @@
   
   <title>Container | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluid 水平铺满 false true, false boolean    示例固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏">
+  <meta name="description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 基本用法固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏                铺满全屏        123&amp;lt;db-container fluidWidth=&quot;true&quot;&amp;gt;铺满全屏&amp;lt;/db-container&amp;gt;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Container">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Layout/Container.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluid 水平铺满 false true, false boolean    示例固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏">
+<meta property="og:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 基本用法固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏                铺满全屏        123&amp;lt;db-container fluidWidth=&quot;true&quot;&amp;gt;铺满全屏&amp;lt;/db-container&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-20T06:34:10.332Z">
+<meta property="og:updated_time" content="2018-04-21T07:30:16.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Container">
-<meta name="twitter:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   fluid 水平铺满 false true, false boolean    示例固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏">
+<meta name="twitter:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 基本用法固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏                铺满全屏        123&amp;lt;db-container fluidWidth=&quot;true&quot;&amp;gt;铺满全屏&amp;lt;/db-container&amp;gt;">
   
   
     <link rel="icon" href="/favicon.png">
@@ -91,16 +91,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Basic/Badge.html">
-                    Badge
+                <a href="/dojo2-bootstrap/components/Basic/Addon.html">
+                    Addon
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Basic/Addon.html">
-                    Addon
+                <a href="/dojo2-bootstrap/components/Basic/Badge.html">
+                    Badge
                 </a>
             </li>
         
@@ -323,16 +323,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/dojo2-bootstrap/components/Utilities/Float.html">
+                    Float
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Float.html">
-                    Float
+                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
@@ -372,6 +372,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>页面布局容器，可按固定的宽度居中显示，或铺满全屏。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>固定宽度</p>
+
+<div style="background-color:white;height:100px;border: 1px solid;">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="container mt-1">水平居中</div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    水平居中</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>铺满全屏</p>
+
+<div style="background-color:white;height:100px; border: 1px solid;" class="container-fluid">
+    <div id="id" style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="mt-1">
+        铺满全屏
+    </div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span> <span class="attr">fluidWidth</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">铺满全屏</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
 <thead>
 <tr>
@@ -399,22 +415,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>固定宽度</p>
-
-<div style="background-color:white;height:100px;border: 1px solid;">
-    <div style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="container mt-1">水平居中</div>
-</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    水平居中</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>铺满全屏</p>
-
-<div style="background-color:white;height:100px; border: 1px solid;" class="container-fluid">
-    <div id="id" style="background-color:#80bdff;height:90%; border: 1px solid blue;" class="mt-1">
-        铺满全屏
-    </div>
-</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span> <span class="attr">fluidWidth</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">铺满全屏</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
