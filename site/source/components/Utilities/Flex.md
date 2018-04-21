@@ -6,6 +6,10 @@ footer: false
 tags:
 ---
 
+Flex 布局
+
+## 基本用法
+
 ## 公共属性
 
 1. 将 [Display](../Utilities/Display.html) 中的`display`属性值设置为`flex`或`flexInline`时可以使用 flex 相关功能。

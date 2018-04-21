@@ -10,20 +10,6 @@ tags:
 
 ## 基本用法
 
-## 通用属性
-
-1. [Spacing](../Utilities/Spacing.html)
-1. [Flex](../Utilities/Flex.html)
-
-## 属性
-
-| 名称  | 显示名 | 默认值 | 可选值 |值类型 |
-| ----- | ------ | ----- | ----- | --------- |
-| widgetId | 标识 | | | string |
-| gutters | 间隔 | true | true, false| boolean |
-
-## 示例
-
 ### gutters
 
 {% raw %}
@@ -52,3 +38,14 @@ tags:
 </db-container>
 ```
 
+## 通用属性
+
+1. [Spacing](../Utilities/Spacing.html)
+1. [Flex](../Utilities/Flex.html)
+
+## 属性
+
+| 名称  | 显示名 | 默认值 | 可选值 |值类型 |
+| ----- | ------ | ----- | ----- | --------- |
+| widgetId | 标识 | | | string |
+| gutters | 间隔 | true | true, false| boolean |
