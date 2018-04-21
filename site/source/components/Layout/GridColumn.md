@@ -10,22 +10,6 @@ tags:
 
 ## 基本用法
 
-## 通用属性
-
-1. [Border](../Utilities/Border.html)
-1. [Spacing](../Utilities/Spacing.html)
-1. [Text](../Utilities/Text.html)
-1. [Flex](../Utilities/Flex.html)
-
-## 属性
-
-| 名称  | 显示名 | 默认值 | 可选值 |值类型 |
-| ----- | ------ | ----- | ----- | --------- |
-| widgetId | 标识 | | | string |
-| offset | 右偏移列数 | default | 0~11, default | number/string |
-
-## 示例
-
 ### offset
 
 {% raw %}
@@ -82,3 +66,17 @@ tags:
     </db-grid-row>
 </db-container>
 ```
+
+## 通用属性
+
+1. [Border](../Utilities/Border.html)
+1. [Spacing](../Utilities/Spacing.html)
+1. [Text](../Utilities/Text.html)
+1. [Flex](../Utilities/Flex.html)
+
+## 属性
+
+| 名称  | 显示名 | 默认值 | 可选值 |值类型 |
+| ----- | ------ | ----- | ----- | --------- |
+| widgetId | 标识 | | | string |
+| offset | 右偏移列数 | default | 0~11, default | number/string |
