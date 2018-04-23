@@ -11,7 +11,8 @@
 			"src/grid-column",
 			"src/image",
 			"src/text",
-			"src/label"
+			"src/label",
+			"src/text-input"
 		]
 	}
 }

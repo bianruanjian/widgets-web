@@ -113,3 +113,29 @@ export interface ColorsProperties{
     textColor?: string;
     backgroundColor?: string;
 }
+
+/**
+ * @type FloatProperties
+ * 
+ * Float(浮动方向)属性
+ * 
+ * @property float         浮动方向
+ */
+export interface FloatProperties{
+    float?: string;
+}
+
+/**
+ * @type FormProperties
+ * 
+ * Form(表单)属性
+ * 
+ * @property required         必填
+ * @property disabled         失效
+ * @property readOnly         只读
+ */
+export interface FormProperties{
+    required?: boolean;
+    disabled?: boolean;
+    readOnly?: boolean;
+}

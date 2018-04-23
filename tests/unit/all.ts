@@ -5,3 +5,4 @@ import '../../src/grid-column/tests/unit/GridColumn';
 import '../../src/image/tests/unit/Image';
 import '../../src/text/tests/unit/Text';
 import '../../src/label/tests/unit/Label';
+import '../../src/text-input/tests/unit/TextInput';

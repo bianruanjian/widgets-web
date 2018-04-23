@@ -1,4 +1,4 @@
-import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties, ColorsProperties } from './interfaces';
+import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties, ColorsProperties, FloatProperties } from './interfaces';
 import * as css from './base.m.css';
 
 export function getSpacingClasses(properties: SpacingProperties ): string[] {
@@ -294,4 +294,15 @@ export function getColorsClasses(properties: ColorsProperties): string[] {
     }
 
     return colorsClasses;
+}
+
+export function getFloatClass(properties: FloatProperties): string[] {
+    let { float } = properties;
+    const floatClasses: string[] = [];
+
+    if(float && float !== "default") {
+        floatClasses.push(`float-${float}`);
+    }
+
+    return floatClasses;
 }
