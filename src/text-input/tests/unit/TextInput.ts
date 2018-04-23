@@ -79,7 +79,7 @@ describe('TextInput', () => {
 					maxlength: null,
 					minlength: null,
 					classes: ['form-control'],
-					autofocus: undefined,
+					autofocus: false,
 					oninput: () => {},
 					onchange: () => {}
 			}),

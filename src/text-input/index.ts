@@ -143,7 +143,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 				...getFlexItemClasses(this.properties),
 				...getFloatClass(this.properties)
 			],
-			autofocus: focus,
+			autofocus: focus ? true : false,
 			oninput: this._onInput,
 			onchange: this._onChange
 		}, []);

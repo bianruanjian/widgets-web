@@ -13,7 +13,8 @@
 			"src/text",
 			"src/label",
 			"src/text-input",
-			"src/input-group"
+			"src/input-group",
+			"src/addon"
 		]
 	}
 }
