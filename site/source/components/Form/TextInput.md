@@ -29,13 +29,13 @@ tags:
 ### readOnly
 {% raw %}
 <db-container>
-    <db-text-input name="val" widgetId="random-id" marginTop="2" type="text" label="readOnly" readOnly="true"
+    <db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="readOnly" readOnly="true"
     placeholder="write down" invalidMessage="error" value="readOnly value"></db-text-input>
 </db-container>
 {% endraw %}
 ```html
 <db-container>
-    <db-text-input name="val" widgetId="random-id" marginTop="2" readOnly="true"
+    <db-text-input name="val" widgetId="randomz-id" marginTop="2" readOnly="true"
     type="text" label="readOnly" placeholder="write down" 
     invalidMessage="error" value="readOnly value">
     </db-text-input>
