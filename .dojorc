@@ -12,7 +12,8 @@
 			"src/image",
 			"src/text",
 			"src/label",
-			"src/text-input"
+			"src/text-input",
+			"src/input-group"
 		]
 	}
 }

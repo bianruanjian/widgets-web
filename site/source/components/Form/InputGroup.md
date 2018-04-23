@@ -10,6 +10,34 @@ tags:
 
 ## 基本用法
 
+### size
+{% raw %}
+<db-container>
+    <div class="input-group input-group-sm">
+        <input id="small" name="small" type="text" class="form-control mt-3" value="value">
+    </div>
+    <div class="input-group">
+        <input id="default" name="default" type="text" class="form-control mt-3" value="default">
+    </div>
+    <div class="input-group input-group-lg">
+        <input id="large" name="large" type="text" class="form-control mt-3" value="value">
+    </div>
+</db-container>
+{% endraw %}
+```html
+<db-container>
+    <db-input-group size="small">
+        <db-text-input name="small" widgetId="small" value="small" type="text" marginTop="3"></db-text-input>
+    </db-input-group>
+    <db-input-group size="default">
+        <db-text-input name="default" widgetId="default" value="default" type="text" marginTop="3"></db-text-input>
+    </db-input-group>
+    <db-input-group size="large">
+        <db-text-input name="large" widgetId="large" value="large" type="text" marginTop="3"></db-text-input>
+    </db-input-group>
+</db-container>  
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)

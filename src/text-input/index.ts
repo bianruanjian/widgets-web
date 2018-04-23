@@ -88,21 +88,6 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 		this.properties.onChange && this.properties.onChange((event.target as HTMLInputElement).value);	
 	}
 
-	protected getRootClasses(): (string | null)[] {
-		const {
-			disabled,
-			readOnly,
-			size
-		} = this.properties;
-		return [
-			css.root,
-			'form-group',
-			disabled ? 'disabled' : null,
-			readOnly ? 'form-control-plaintext' : null,
-			(size && size !== 'default') ? `form-control-${size}` : null
-		];
-	}
-
 	protected renderInput(): DNode {
 		let {
 			widgetId,
@@ -152,7 +137,12 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			readOnly,
 			maxlength: maxLength ? `${maxLength}` : null,
 			minlength: minLength ? `${minLength}` : null,
-			classes: cssClasses,
+			classes: [
+				...cssClasses,
+				...getSpacingClasses(this.properties),
+				...getFlexItemClasses(this.properties),
+				...getFloatClass(this.properties)
+			],
 			autofocus: focus,
 			oninput: this._onInput,
 			onchange: this._onChange
@@ -174,15 +164,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 		},[invalidMessage ? invalidMessage : (validMessage ? validMessage : '')]);
 	}
 
-	protected renderInputWrapper(): DNode {
-		return v('div', { 
-			classes: [
-				'input-group',
-				...getSpacingClasses(this.properties),
-				...getFlexItemClasses(this.properties),
-				...getFloatClass(this.properties)
-			] 
-		}, [this.renderInput(), this._renderTooltip()]);
+	protected renderInputWrapper(): DNode[] {
+		return [this.renderInput(), this._renderTooltip()];
 	}
 
 	protected render(): DNode | DNode[] {
@@ -196,12 +179,10 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 				value: label,
 				forId: widgetId
 			}, []) : null,
-			this.renderInputWrapper()
+			...this.renderInputWrapper()
 		];
 
-		return v('div',{
-			classes: this.getRootClasses()
-		}, children);
+		return children;
 	}
 }
 

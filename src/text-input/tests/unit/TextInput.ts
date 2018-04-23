@@ -2,7 +2,6 @@ const { describe, it } = intern.getInterface('bdd');
 import { v, w } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 import { TextInput, TextInputProperties } from './../../index';
-import * as root from './../../styles/text-input.m.css';
 import Label from './../../../label/index';
 
 describe('TextInput', () => {
@@ -66,20 +65,9 @@ describe('TextInput', () => {
 
 	it('should construct TextInput', () => {
 		const h = harness(() => w(TextInput, {}));
-		h.expect(() => v('div', {
-			classes: [
-				root['root'],
-				'form-group',
-				null,
-				null,
-				null
-			],
-		}, [
+		h.expect(() => [
 			null,
-			v('div', {
-				classes: ['input-group']
-			}, [
-				v('input',{
+			v('input',{
 					id: undefined,
 					name: undefined,
 					type: '',
@@ -94,28 +82,16 @@ describe('TextInput', () => {
 					autofocus: undefined,
 					oninput: () => {},
 					onchange: () => {}
-				}),
-				null
-			])
-		]));
+			}),
+			null
+			]);
 	});
 
 	it('default properties', () => {
 		const h = harness(() => w(TextInput, defaultProperties));
-		h.expect(() => v('div', {
-			classes: [
-				root['root'],
-				'form-group',
-				null,
-				null,
-				null
-			],
-		}, [
+		h.expect(() => [
 			null,
-			v('div', {
-				classes: ['input-group']
-			}, [
-				v('input',{
+			v('input',{
 					id: undefined,
 					name: undefined,
 					type: '',
@@ -130,30 +106,33 @@ describe('TextInput', () => {
 					autofocus: false,
 					oninput: () => {},
 					onchange: () => {}
-				}),
-				null
-			])
-		]));
+			}),
+			null
+		]);
 	});
 
 	it('custom properties', () => {
 		const h = harness(() => w(TextInput, customProperties));
-		h.expect(() => v('div', {
-			classes: [
-				root['root'],
-				'form-group',
-				'disabled',
-				'form-control-plaintext',
-				'form-control-small'
-			],
-		}, [
+		h.expect(() => [
 			w(Label, {
 				value: 'tag',
 				forId: 'random-id'
 			}, []),
-			v('div', {
+			v('input',{
+				id: 'random-id',
+				name: 'textInput',
+				type: 'password',
+				value: 'val',
+				placeholder: 'hold on',
+				disabled: true,
+				required: true,
+				readOnly: true,
+				maxlength: '5',
+				minlength: '5',
 				classes: [
-					'input-group',
+					'disabled',
+					'form-control-small',
+					'form-control-plaintext',
 					'my-0',
 					'mx-1',
 					'py-0',
@@ -161,32 +140,14 @@ describe('TextInput', () => {
 					'align-self-start',
 					'order-0',
 					'float-none'
-				]
-			}, [
-				v('input',{
-					id: 'random-id',
-					name: 'textInput',
-					type: 'password',
-					value: 'val',
-					placeholder: 'hold on',
-					disabled: true,
-					required: true,
-					readOnly: true,
-					maxlength: '5',
-					minlength: '5',
-					classes: [
-						'disabled',
-						'form-control-small',
-						'form-control-plaintext'
-					],
-					autofocus: true,
-					oninput: () => {'1'},
-					onchange: () => {'2'}
-				}),
-				v('div',{
-					classes: ['invalid-tooltip']
-				}, ['invalid message'])
-			])
-		]));
+				],
+				autofocus: true,
+				oninput: () => {'1'},
+				onchange: () => {'2'}
+			}),
+			v('div',{
+				classes: ['invalid-tooltip']
+			}, ['invalid message'])
+		]);
 	});
 });

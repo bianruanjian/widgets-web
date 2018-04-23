@@ -6,3 +6,4 @@ import '../../src/image/tests/unit/Image';
 import '../../src/text/tests/unit/Text';
 import '../../src/label/tests/unit/Label';
 import '../../src/text-input/tests/unit/TextInput';
+import '../../src/input-group/tests/unit/InputGroup';
