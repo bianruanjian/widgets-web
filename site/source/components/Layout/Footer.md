@@ -1,12 +1,12 @@
 ---
-title: Icon
+title: Footer
 layout: components
 footer: false
 date: 2018-04-19 13:49:55
 tags:
 ---
 
-图标
+页脚
 
 ## 基本用法
 

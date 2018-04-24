@@ -32,7 +32,7 @@ export const sizeMap: {[key: string]: string} = {
  */
 export interface IconProperties extends SpacingProperties, FlexItemProperties, ColorsProperties {
 	widgetId?: string;
-	appearance?: string;
+	value?: string;
 	size?: string;
 	alt?: string;
 	title?: string;
@@ -45,7 +45,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	childType: CustomElementChildType.TEXT,
 	attributes: [
 		'widgetId',
-		'appearance',
+		'value',
 		'size',
 		'alt',
 		'title',
@@ -70,7 +70,7 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 	protected render(): DNode | DNode[] {
 		const {
 			widgetId,
-			appearance,
+			value,
 			size,
 			alt,
 			title
@@ -90,7 +90,7 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 				v('i',{
 					alt,
 					classes: [
-						appearance ? appearance as string : '',
+						value ? value as string : '',
 						size ? sizeMap[size as string] : ''
 					]
 				}, []

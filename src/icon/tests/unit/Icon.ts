@@ -7,7 +7,7 @@ import Icon, { IconProperties } from './../../index';
 
 describe('Icon', () => {
 	const defaultProperties: IconProperties = {
-		appearance: 'fas fa-smile',
+		value: 'fas fa-smile',
 		size: 'default',
 		marginTop: "default",
 		marginBottom: "default",
@@ -25,7 +25,7 @@ describe('Icon', () => {
 
 	const customProperties: IconProperties = {
 		widgetId: 'random-id',
-		appearance: 'fas fa-smile',
+		value: 'fas fa-smile',
 		size: 'extraSmall',
 		alt: 'alt',
 		title: 'smile',
