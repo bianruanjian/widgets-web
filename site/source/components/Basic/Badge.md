@@ -10,6 +10,26 @@ tags:
 
 ## 基本用法
 
+### normal
+{% raw %}
+<db-button value="Notifications " appearance="primary" >
+    <db-badge value="4" appearance="light" pill="true"></db-badge>
+</db-button>
+{% endraw %}
+```html
+<db-button value="Notifications " appearance="primary">
+    <db-badge value="4" appearance="light" pill="true"></db-badge>
+</db-button>
+```
+
+### Links
+{% raw %}
+<db-badge value="baidu" appearance="warning" marginBottom="3" pill="true" href="https://wwww.baidu.com" target="blank"></db-badge>
+{% endraw %}
+```html
+<db-badge value="baidu" appearance="warning" pill="true" href="https://wwww.baidu.com" target="blank"></db-badge>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
