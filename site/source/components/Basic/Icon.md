@@ -10,6 +10,15 @@ tags:
 
 ## 基本用法
 
+{% raw %}
+<db-icon appearance="far fa-smile" alt="smile" title="微笑"></db-icon>
+<db-icon appearance="far fa-smile" alt="smile" title="微笑" size="large"></db-icon>
+{% endraw %}
+```html
+<db-icon appearance="far fa-smile" alt="smile" title="微笑"></db-icon>
+<db-icon appearance="far fa-smile" alt="smile" title="微笑" size="large"></db-icon>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
@@ -21,7 +30,7 @@ tags:
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
-| type | 类型 | fas fa-smile | | string |
+| appearance | 外观 | fas fa-smile | | string |
 | size | 尺寸 | default | extraSmall, small, large, 2x-10x, default | string |
 | alt | 替代文本 | | | string |
 | title | 提示文本 | | | string |
