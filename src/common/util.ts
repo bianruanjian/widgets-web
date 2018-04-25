@@ -1,4 +1,7 @@
-import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties, ColorsProperties, FloatProperties } from './interfaces';
+import { v } from '@dojo/widget-core/d';
+import { DNode } from '@dojo/widget-core/interfaces';
+import { SpacingProperties, FlexContainerProperties, FlexItemProperties, BorderProperties, TextProperties, ColorsProperties, FloatProperties, MessageProperties } from './interfaces';
+
 import * as css from './base.m.css';
 
 export function getSpacingClasses(properties: SpacingProperties ): string[] {
@@ -306,3 +309,24 @@ export function getFloatClass(properties: FloatProperties): string[] {
 
     return floatClasses;
 }
+
+export function renderMessageNode(properties: MessageProperties): DNode {
+    const {
+        invalidMessage,
+        validMessage
+    } = properties;
+
+    if(!invalidMessage && !validMessage){
+        return null;
+    }
+    
+    return v('div',{
+        classes: [invalidMessage ? 'invalid-tooltip' : (validMessage ? 'valid-tooltip' : '')]
+    }, [invalidMessage ? invalidMessage : (validMessage ? validMessage : '')]);
+}
+
+export const formSizeMap: {[key: string]: string} = {
+    'small': 'form-control-sm',
+    'large': 'form-control-lg',
+    'default': ''
+};

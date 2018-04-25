@@ -135,7 +135,20 @@ export interface FloatProperties{
  * @property readOnly         只读
  */
 export interface FormProperties{
-    required?: boolean;
-    disabled?: boolean;
-    readOnly?: boolean;
+    required?: boolean | string;
+    disabled?: boolean | string;
+    readOnly?: boolean | string;
+}
+
+/**
+ * @type MessageProperties
+ * 
+ * Message(消息)属性
+ * 
+ * @property invalidMessage         无效提示
+ * @property validMessage           有效提示
+ */
+export interface MessageProperties {
+    invalidMessage?: string;
+	validMessage?: string;
 }

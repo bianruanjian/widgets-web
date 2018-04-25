@@ -3,9 +3,9 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
-import { SpacingProperties, FlexItemProperties, FloatProperties, FormProperties } from '../common/interfaces';
+import { SpacingProperties, FlexItemProperties, FloatProperties, FormProperties, MessageProperties } from '../common/interfaces';
 import { Label } from '../label';
-import { getSpacingClasses, getFlexItemClasses, getFloatClass } from '../common/util';
+import { getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode, formSizeMap } from '../common/util';
 
 import * as css from './styles/text-input.m.css';
 
@@ -15,7 +15,7 @@ export type TextInputType = 'text' | 'email' | 'number' | 'password' | 'idCard' 
  *
  * Properties that can be set on TextInput components
  */
-export interface TextInputProperties extends FormProperties, SpacingProperties, FlexItemProperties, FloatProperties{
+export interface TextInputProperties extends FormProperties, SpacingProperties, FlexItemProperties, FloatProperties, MessageProperties{
 	widgetId?: string;
 	name?: string;
 	type?: TextInputType;
@@ -29,8 +29,6 @@ export interface TextInputProperties extends FormProperties, SpacingProperties, 
 	plainText?: boolean;
 	maxLength?: number;
 	minLength?: number;
-	invalidMessage?: string;
-	validMessage?: string;
 	onInput?(value: string): void;
 	onChange?(value: string): void;
 };
@@ -96,9 +94,9 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			value,
 			password,
 			placeholder,
-			disabled = false,
-			required = false,
-			readOnly = false,
+			disabled,
+			required,
+			readOnly,
 			maxLength,
 			minLength,
 			size,
@@ -116,8 +114,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			cssClasses.push('disabled');
 		}
 
-		if(size && size !== "default"){
-			cssClasses.push(`form-control-${size}`);
+		if(size){
+			cssClasses.push(formSizeMap[size as string]);
 		}
 
 		if(plainText || readOnly){
@@ -132,9 +130,9 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			type: (type && type !== 'default') ? type : '',
 			value,
 			placeholder,
-			disabled,
-			required,
-			readOnly,
+			disabled: (disabled === true || disabled === 'true'),
+			required: (required === true || required === 'true'),
+			readOnly: (readOnly === true || readOnly === 'true'),
 			maxlength: maxLength ? `${maxLength}` : null,
 			minlength: minLength ? `${minLength}` : null,
 			classes: [
@@ -149,23 +147,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 		}, []);
 	}
 
-	private _renderTooltip(): DNode {
-		let {
-			invalidMessage,
-			validMessage
-		} = this.properties;
-
-		if(!invalidMessage && !validMessage){
-			return null;
-		}
-		
-		return v('div',{
-			classes: [invalidMessage ? 'invalid-tooltip' : (validMessage ? 'valid-tooltip' : '')]
-		},[invalidMessage ? invalidMessage : (validMessage ? validMessage : '')]);
-	}
-
 	protected renderInputWrapper(): DNode[] {
-		return [this.renderInput(), this._renderTooltip()];
+		return [this.renderInput(), renderMessageNode(this.properties)];
 	}
 
 	protected render(): DNode | DNode[] {
