@@ -70,7 +70,7 @@ export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBa
 
 		const cssClasses: string[] = [];
 
-		if(disabled){
+		if(disabled === true || disabled === 'true'){
 			cssClasses.push('disabled');
 		}
 

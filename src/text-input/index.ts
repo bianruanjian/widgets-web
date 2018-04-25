@@ -110,7 +110,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			type = 'password';
 		}
 
-		if(disabled){
+		if(disabled === true || disabled === 'true'){
 			cssClasses.push('disabled');
 		}
 

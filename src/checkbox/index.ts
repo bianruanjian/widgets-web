@@ -72,7 +72,7 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 
 		const cssClasses: string[] = [];
 
-		if(disabled){
+		if(disabled === true || disabled === 'true'){
 			cssClasses.push('disabled');
 		}
 
