@@ -102,7 +102,7 @@ describe('TextInput', () => {
 					readOnly: false,
 					maxlength: null,
 					minlength: null,
-					classes: ['form-control'],
+					classes: ['','form-control'],
 					autofocus: false,
 					oninput: () => {},
 					onchange: () => {}
@@ -131,7 +131,7 @@ describe('TextInput', () => {
 				minlength: '5',
 				classes: [
 					'disabled',
-					'form-control-small',
+					'form-control-sm',
 					'form-control-plaintext',
 					'my-0',
 					'mx-1',
