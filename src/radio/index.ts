@@ -26,7 +26,7 @@ export interface RadioProperties extends SpacingProperties, FlexItemProperties, 
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
-@customElement({
+@customElement<RadioProperties>({
 	tag: 'db-radio',
 	attributes: [
 		'widgetId',

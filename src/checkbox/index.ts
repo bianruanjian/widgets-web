@@ -26,7 +26,7 @@ export interface CheckboxProperties extends SpacingProperties, FlexItemPropertie
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
-@customElement({
+@customElement<CheckboxProperties>({
 	tag: 'db-checkbox',
 	attributes: [
 		'widgetId',
