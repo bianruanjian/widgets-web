@@ -10,6 +10,28 @@ tags:
 
 ## 基本用法
 
+### flush
+{% raw %}
+<db-list-group widgetId="not-flush">
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
+</db-list-group>
+<db-list-group widgetId="flush" flush="true">
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
+</db-list-group>
+{% endraw %}
+```html
+<db-list-group widgetId="not-flush">
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
+</db-list-group>
+<db-list-group widgetId="flush" flush="true">
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
+</db-list-group>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
