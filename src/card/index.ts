@@ -8,7 +8,6 @@ import { v } from '@dojo/widget-core/d';
 import { getSpacingClasses, getTextClasses, getTextDecorationClass, getColorsClasses, getBorderClasses, getTextStyles } from '../common/util';
 
 import * as css from './styles/card.m.css';
-import { indexOf } from 'benchmark';
 
 /**
  * @type CardProperties
