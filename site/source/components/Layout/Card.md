@@ -10,6 +10,17 @@ tags:
 
 ## 基本用法
 
+{% raw %}
+<db-container>
+    <db-card width="300" height="200" backgroundColor="info"></db-card>
+</db-container>
+{% endraw %}
+```html
+<db-container>
+    <db-card width="300" height="200" backgroundColor="info"></db-card>
+</db-container>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
