@@ -28,6 +28,9 @@ export const sizeMap: { [key: string]: string } = {
  * @type IconProperties
  *
  * Properties that can be set on icon components
+ *
+ * 若使用该部件需要先引入 fontawesome 的 js 文件（SVG with JavaScript）
+ * 如：<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
  */
 export interface IconProperties extends SpacingProperties, FlexItemProperties, ColorsProperties {
 	widgetId?: string;
@@ -68,13 +71,36 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, size, alt, title } = this.properties;
+		const cssClasses: string[] = [
+			...getSpacingClasses(this.properties),
+			...getFlexItemClasses(this.properties),
+			...getColorsClasses(this.properties)
+		];
+
+		const iconClasses: string[] = [];
+
+		if (value) {
+			iconClasses.push(value as string);
+		}
+
+		if (size) {
+			iconClasses.push(sizeMap[size as string]);
+		}
+
+		if (cssClasses.length === 0) {
+			return v('i', {
+				id: widgetId,
+				alt,
+				title,
+				classes: iconClasses
+			});
+		}
 
 		return v(
 			'span',
 			{
 				id: widgetId,
 				classes: [
-					'd-inline-block',
 					...getSpacingClasses(this.properties),
 					...getFlexItemClasses(this.properties),
 					...getColorsClasses(this.properties)
@@ -82,14 +108,10 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 				title
 			},
 			[
-				v(
-					'i',
-					{
-						alt,
-						classes: [value ? (value as string) : '', size ? sizeMap[size as string] : '']
-					},
-					[]
-				)
+				v('i', {
+					alt,
+					classes: [value ? (value as string) : '', size ? sizeMap[size as string] : '']
+				})
 			]
 		);
 	}
