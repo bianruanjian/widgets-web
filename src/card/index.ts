@@ -74,24 +74,20 @@ export class Card<P extends CardProperties = CardProperties> extends ThemedBase<
 		if (width) {
 			if (typeof width === 'number') {
 				cssStyles.width = `${width}px`;
+			} else if (endsWith(width as string, '%') || width === 'auto') {
+				cssStyles.width = width;
 			} else {
-				if (!endsWith(width as string, '%') && width !== 'auto') {
-					cssStyles.width = `${width}px`;
-				} else {
-					cssStyles.width = width;
-				}
+				cssStyles.width = `${width}px`;
 			}
 		}
 
 		if (height) {
 			if (typeof height === 'number') {
 				cssStyles.height = `${height}px`;
+			} else if (endsWith(height as string, '%') || height === 'auto') {
+				cssStyles.height = height;
 			} else {
-				if (!endsWith(height as string, '%') && height !== 'auto') {
-					cssStyles.height = `${height}px`;
-				} else {
-					cssStyles.height = height;
-				}
+				cssStyles.height = `${height}px`;
 			}
 		}
 

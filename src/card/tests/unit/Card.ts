@@ -129,7 +129,7 @@ describe('Card', () => {
 		);
 	});
 
-	it('width and height', () => {
+	it('width and height value is auto', () => {
 		const h = harness(() => w(Card, { width: 'auto', height: 'auto' }));
 		h.expect(() =>
 			v(

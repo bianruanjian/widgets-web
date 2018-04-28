@@ -63,12 +63,10 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 		if (maxWidth) {
 			if (typeof maxWidth == 'number') {
 				maxWidthStyles.maxWidth = `${maxWidth}px`;
+			} else if (endsWith(maxWidth as string, '%')) {
+				maxWidthStyles.maxWidth = maxWidth;
 			} else {
-				if (!endsWith(maxWidth as string, '%')) {
-					maxWidthStyles.maxWidth = `${maxWidth}px`;
-				} else {
-					maxWidthStyles.maxWidth = maxWidth;
-				}
+				maxWidthStyles.maxWidth = `${maxWidth}px`;
 			}
 		}
 
