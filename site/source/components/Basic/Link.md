@@ -10,6 +10,13 @@ tags:
 
 ## 基本用法
 
+{% raw %}
+<db-link href="https://www.baidu.com/" target="blank" value="baidu"></db-link>
+{% endraw %}
+```html
+<db-link href="https://www.baidu.com/" target="blank" value="baidu"></db-link>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
