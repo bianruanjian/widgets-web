@@ -29,8 +29,6 @@ export const sizeMap: { [key: string]: string } = {
  *
  * Properties that can be set on icon components
  *
- * 若使用该部件需要先引入 fontawesome 的 js 文件（SVG with JavaScript）
- * 如：<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
  */
 export interface IconProperties extends SpacingProperties, FlexItemProperties, ColorsProperties {
 	widgetId?: string;
@@ -42,6 +40,10 @@ export interface IconProperties extends SpacingProperties, FlexItemProperties, C
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
+/**
+ * 若使用该部件需要先引入 fontawesome 的 js 文件（SVG with JavaScript）
+ * 如：<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+ */
 @customElement<IconProperties>({
 	tag: 'db-icon',
 	childType: CustomElementChildType.TEXT,
