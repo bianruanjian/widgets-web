@@ -14,7 +14,8 @@
 			"src/label",
 			"src/text-input",
 			"src/input-group",
-			"src/addon"
+			"src/addon",
+			"src/textarea"
 		]
 	}
 }

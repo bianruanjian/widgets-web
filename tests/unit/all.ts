@@ -8,3 +8,4 @@ import '../../src/label/tests/unit/Label';
 import '../../src/text-input/tests/unit/TextInput';
 import '../../src/input-group/tests/unit/InputGroup';
 import '../../src/addon/tests/unit/Addon';
+import '../../src/textarea/tests/unit/Textarea';

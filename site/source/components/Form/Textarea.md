@@ -10,6 +10,22 @@ tags:
 
 ## 基本用法
 
+### normal
+{% raw %}
+<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="false" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+{% endraw %}
+```html
+<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="false" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+```
+
+### noRisize
+{% raw %}
+<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="true" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+{% endraw %}
+```html
+<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="true" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
