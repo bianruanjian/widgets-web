@@ -10,7 +10,15 @@ tags:
 
 ## 基本用法
 
-### normal
+### Example
+{% raw %}
+<h4>Example heading<db-badge value="New" appearance="secondary"></db-badge></h4>
+{% endraw %}
+```html
+<db-text type="h4" value="Example heading"><db-badge value="New" appearance="secondary"></db-badge></db-text>
+```
+
+### button
 {% raw %}
 <db-button value="Notifications " appearance="primary" >
     <db-badge value="4" appearance="light" pill="true"></db-badge>
@@ -20,6 +28,22 @@ tags:
 <db-button value="Notifications " appearance="primary">
     <db-badge value="4" appearance="light" pill="true"></db-badge>
 </db-button>
+```
+
+### Contextual variations
+{% raw %}
+<db-badge value="warning" appearance="warning"></db-badge>
+{% endraw %}
+```html
+<db-badge value="warning" appearance="warning"></db-badge>
+```
+
+### Pill badges
+{% raw %}
+<db-badge value="warning" appearance="warning" pill="true"></db-badge>
+{% endraw %}
+```html
+<db-badge value="warning" appearance="warning" pill="true"></db-badge>
 ```
 
 ### Links

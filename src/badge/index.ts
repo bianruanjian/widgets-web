@@ -14,14 +14,14 @@ import * as css from './styles/badge.m.css';
  *
  * Properties that can be set on badge components
  */
-export interface BadgeProperties extends SpacingProperties, FlexItemProperties{
+export interface BadgeProperties extends SpacingProperties, FlexItemProperties {
 	widgetId?: string;
 	value?: string;
 	appearance?: string;
 	pill?: boolean;
 	href?: string;
 	target?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -52,41 +52,36 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			value,
-			appearance,
-			pill,
-			href,
-			target
-		} = this.properties;
+		const { widgetId, value, appearance, pill, href, target } = this.properties;
 
-		let tag:string = 'span';
-		const cssClasses:string[] = [];
+		let tag: string = 'span';
+		const cssClasses: string[] = [];
 
-		if(href && href !== ''){
+		if (href) {
 			tag = 'a';
 		}
 
-		if(appearance && appearance !== 'default'){
+		if (appearance && appearance !== 'default') {
 			cssClasses.push(`badge-${appearance}`);
 		}
 
-		if(pill){
+		if (pill) {
 			cssClasses.push('badge-pill');
 		}
 
-		return v(tag, {
-			id: widgetId,
-			classes: [
-				'badge',
-				...cssClasses,
-				...getSpacingClasses(this.properties),
-				...getFlexItemClasses(this.properties)
-			],
-			href,
-			target
-			}, 
+		return v(
+			tag,
+			{
+				id: widgetId,
+				classes: [
+					'badge',
+					...cssClasses,
+					...getSpacingClasses(this.properties),
+					...getFlexItemClasses(this.properties)
+				],
+				href,
+				target
+			},
 			value ? [value] : this.children
 		);
 	}
