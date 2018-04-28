@@ -48,9 +48,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 
 	protected render(): DNode | DNode[] {
 		let { id, value, appearance, size, disabled, type, fluidWidth, active, href, target } = this.properties;
-		if (this.children.length === 0) {
-			this.children.push(value || '按钮');
-		}
+		const children:any[] = [value, ...this.children];
 		let sizeClass: string = sizeMap[size as string];
 
 		if (appearance === 'default') {
@@ -73,7 +71,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 					],
 					role: 'button'
 				},
-				this.children
+				children
 			);
 		} else {
 			return v(
@@ -83,7 +81,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 					classes: [
 						'btn',
 						appearance !== '' ? `btn-${appearance}` : undefined,
-						size !== '' ? `btn-${size}` : undefined,
+						sizeClass !== '' ? sizeClass : undefined,
 						fluidWidth ? 'btn-block' : undefined,
 						active ? 'active' : undefined
 					],
@@ -91,7 +89,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 					type: type,
 					onclick: this._onClick
 				},
-				this.children
+				children
 			);
 		}
 	}
