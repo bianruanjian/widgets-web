@@ -8,12 +8,11 @@ import { SpacingProperties, FlexItemProperties, ColorsProperties } from '../comm
 import { getSpacingClasses, getFlexItemClasses, getColorsClasses } from '../common/util';
 
 import * as css from './styles/icon.m.css';
-import '@fortawesome/fontawesome/styles.css';
 
-export const sizeMap: {[key: string]: string} = {
-	'extraSmall': 'fa-xs',
-	'small': 'fa-sm',
-	'large': 'fa-lg',
+export const sizeMap: { [key: string]: string } = {
+	extraSmall: 'fa-xs',
+	small: 'fa-sm',
+	large: 'fa-lg',
 	'2x': 'fa-2x',
 	'3x': 'fa-3x',
 	'4x': 'fa-4x',
@@ -23,8 +22,8 @@ export const sizeMap: {[key: string]: string} = {
 	'8x': 'fa-8x',
 	'9x': 'fa-9x',
 	'10x': 'fa-10x',
-	'default': ''
-}
+	default: ''
+};
 /**
  * @type IconProperties
  *
@@ -36,7 +35,7 @@ export interface IconProperties extends SpacingProperties, FlexItemProperties, C
 	size?: string;
 	alt?: string;
 	title?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -68,15 +67,11 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			value,
-			size,
-			alt,
-			title
-		} = this.properties;
+		const { widgetId, value, size, alt, title } = this.properties;
 
-		return v('span', {
+		return v(
+			'span',
+			{
 				id: widgetId,
 				classes: [
 					'd-inline-block',
@@ -87,17 +82,16 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 				title
 			},
 			[
-				v('i',{
-					alt,
-					classes: [
-						value ? value as string : '',
-						size ? sizeMap[size as string] : ''
-					]
-				}, []
+				v(
+					'i',
+					{
+						alt,
+						classes: [value ? (value as string) : '', size ? sizeMap[size as string] : '']
+					},
+					[]
 				)
 			]
 		);
-		
 	}
 }
 

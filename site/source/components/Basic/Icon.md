@@ -30,7 +30,7 @@ tags:
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
-| value | 值 | fas fa-smile | | string |
+| value | 值 | far fa-smile | | string |
 | size | 尺寸 | default | extraSmall, small, large, 2x-10x, default | string |
 | alt | 替代文本 | | | string |
 | title | 提示文本 | | | string |
