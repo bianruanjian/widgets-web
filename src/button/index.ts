@@ -22,10 +22,10 @@ export interface ButtonProperties {
 	value?: string;
 	appearance?: string;
 	size?: string;
-	disabled?: boolean;
+	disabled?: boolean | string;
 	type?: string;
-	fluidWidth?: boolean;
-	active?: boolean;
+	fluidWidth?: boolean | string;
+	active?: boolean | string;
 	href?: string;
 	target?: string;
 	onClick?(): void;
@@ -68,8 +68,8 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 						'btn',
 						appearance !== '' ? `btn-${appearance}` : undefined,
 						sizeClass !== '' ? sizeClass : undefined,
-						fluidWidth ? 'btn-block' : undefined,
-						active ? 'active' : undefined
+						fluidWidth === true || fluidWidth === 'true' ? 'btn-block' : undefined,
+						active === true || active === 'true' ? 'active' : undefined
 					],
 					role: 'button'
 				},
@@ -84,10 +84,10 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 						'btn',
 						appearance !== '' ? `btn-${appearance}` : undefined,
 						size !== '' ? `btn-${size}` : undefined,
-						fluidWidth ? 'btn-block' : undefined,
-						active ? 'active' : undefined
+						fluidWidth === true || fluidWidth === 'true' ? 'btn-block' : undefined,
+						active === true || active === 'true' ? 'active' : undefined
 					],
-					disabled: disabled,
+					disabled: disabled === true || disabled === 'true',
 					type: type,
 					onclick: this._onClick
 				},
