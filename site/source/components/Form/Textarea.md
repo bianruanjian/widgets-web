@@ -12,7 +12,7 @@ tags:
 
 ### normal
 {% raw %}
-<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="false" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="false" invalidMessage="invalidTip" marginTop="3" marginBottom="2" autofocus="true"></db-textarea>
 {% endraw %}
 ```html
 <db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="false" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
@@ -20,7 +20,7 @@ tags:
 
 ### noRisize
 {% raw %}
-<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="true" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="textareaz" name="demo" label="demo" rows="3" cols="2" noResize="true" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
 {% endraw %}
 ```html
 <db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="true" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
@@ -49,7 +49,7 @@ tags:
 | disabled | 失效 | false | true, false | boolean |
 | readOnly | 只读 | false | true, false | boolean |
 | noResize | 禁止调节大小 | false | true，false | boolean |
-| focus | 获取焦点 | false | true, false | boolean |
+| autofocus | 获取焦点 | false | true, false | boolean |
 | plainText | 纯文本(无边框文本) | false | true, false | boolean |
 | maxLength | 最大字符个数 | | | number |
 | minLength | 最小字符个数 | | | number |

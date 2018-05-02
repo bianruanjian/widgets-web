@@ -36,7 +36,7 @@ export interface TextareaProperties
 	placeholder?: string;
 	placeholderAppearance?: string;
 	noResize?: boolean | string;
-	focus?: boolean | string;
+	autofocus?: boolean | string;
 	plainText?: boolean | string;
 	maxLength?: number;
 	minLength?: number;
@@ -59,7 +59,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'disabled',
 		'readOnly',
 		'size',
-		'focus',
+		'autofocus',
 		'plainText',
 		'noResize',
 		'maxLength',
@@ -97,7 +97,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			maxLength,
 			minLength,
 			size,
-			focus,
+			autofocus,
 			plainText,
 			noResize
 		} = this.properties;
@@ -141,7 +141,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 				...getFlexItemClasses(this.properties),
 				...getFloatClass(this.properties)
 			],
-			autofocus: focus === true || focus === 'true',
+			autofocus: autofocus === true || autofocus === 'true',
 			styles: cssStyles
 		});
 	}

@@ -14,16 +14,16 @@ describe('Textarea', () => {
 		disabled: false,
 		readOnly: false,
 		noResize: false,
-		focus: false,
+		autofocus: false,
 		plainText: false,
-		marginTop: "default",
-		marginBottom: "default",
-		marginLeft: "default",
-		marginRight: "default",
-		paddingTop: "default",
-		paddingBottom: "default",
-		paddingLeft: "default",
-		paddingRight: "default",
+		marginTop: 'default',
+		marginBottom: 'default',
+		marginLeft: 'default',
+		marginRight: 'default',
+		paddingTop: 'default',
+		paddingBottom: 'default',
+		paddingLeft: 'default',
+		paddingRight: 'default',
 		alignSelf: 'default',
 		order: 'default',
 		float: 'default'
@@ -42,21 +42,21 @@ describe('Textarea', () => {
 		disabled: true,
 		readOnly: true,
 		size: 'small',
-		focus: true,
+		autofocus: true,
 		plainText: true,
 		noResize: true,
 		maxLength: 5,
 		minLength: 5,
 		invalidMessage: 'invalid message',
 		validMessage: 'valid message',
-		marginTop: "0",
-		marginBottom: "0",
-		marginLeft: "1",
-		marginRight: "1",
-		paddingTop: "0",
-		paddingBottom: "0",
-		paddingLeft: "1",
-		paddingRight: "1",
+		marginTop: '0',
+		marginBottom: '0',
+		marginLeft: '1',
+		marginRight: '1',
+		paddingTop: '0',
+		paddingBottom: '0',
+		paddingLeft: '1',
+		paddingRight: '1',
 		alignSelf: 'start',
 		order: '0',
 		float: 'none'
@@ -78,9 +78,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: [
-					'form-control'
-				],
+				classes: ['form-control'],
 				autofocus: false,
 				styles: {}
 			}),
@@ -104,10 +102,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: [
-					'',
-					'form-control'
-				],
+				classes: ['', 'form-control'],
 				autofocus: false,
 				styles: {}
 			}),
@@ -118,10 +113,14 @@ describe('Textarea', () => {
 	it('custom properties', () => {
 		const h = harness(() => w(Textarea, customProperties));
 		h.expect(() => [
-			w(Label, {
-				value: 'tag',
-				forId: 'random-id'
-			}, []),
+			w(
+				Label,
+				{
+					value: 'tag',
+					forId: 'random-id'
+				},
+				[]
+			),
 			v('textarea', {
 				id: 'random-id',
 				name: 'textInput',
@@ -148,12 +147,16 @@ describe('Textarea', () => {
 				],
 				autofocus: true,
 				styles: {
-					'resize': 'none'
+					resize: 'none'
 				}
 			}),
-			v('div',{
-				classes: ['invalid-tooltip']
-			}, ['invalid message'])
+			v(
+				'div',
+				{
+					classes: ['invalid-tooltip']
+				},
+				['invalid message']
+			)
 		]);
 	});
 });
