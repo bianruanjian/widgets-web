@@ -2,7 +2,13 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
-import { SpacingProperties, FlexItemProperties, FloatProperties, FormProperties, MessageProperties } from '../common/interfaces';
+import {
+	SpacingProperties,
+	FlexItemProperties,
+	FloatProperties,
+	FormProperties,
+	MessageProperties
+} from '../common/interfaces';
 import { formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode } from '../common/util';
 import { v, w } from '@dojo/widget-core/d';
 
@@ -14,7 +20,12 @@ import { Label } from '../label';
  *
  * Properties that can be set on textarea components
  */
-export interface TextareaProperties extends SpacingProperties, FlexItemProperties, FloatProperties, FormProperties, MessageProperties{
+export interface TextareaProperties
+	extends SpacingProperties,
+		FlexItemProperties,
+		FloatProperties,
+		FormProperties,
+		MessageProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -25,11 +36,11 @@ export interface TextareaProperties extends SpacingProperties, FlexItemPropertie
 	placeholder?: string;
 	placeholderAppearance?: string;
 	noResize?: boolean | string;
-	focus?: boolean;
+	focus?: boolean | string;
 	plainText?: boolean | string;
 	maxLength?: number;
 	minLength?: number;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -93,23 +104,22 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 
 		const cssClasses: string[] = [];
 		let cssStyles: any = {};
-		
-		if(disabled === true || disabled === 'true'){
+
+		if (disabled === true || disabled === 'true') {
 			cssClasses.push('disabled');
 		}
 
-		if(size){
+		if (size) {
 			cssClasses.push(formSizeMap[size as string]);
 		}
 
-		if((plainText === true || plainText === 'true') || 
-			(readOnly === true || readOnly === 'true')){
+		if (plainText === true || plainText === 'true' || (readOnly === true || readOnly === 'true')) {
 			cssClasses.push('form-control-plaintext');
 		} else {
 			cssClasses.push('form-control');
 		}
 
-		if(noResize === true || noResize === 'true'){
+		if (noResize === true || noResize === 'true') {
 			cssStyles.resize = 'none';
 		}
 
@@ -120,9 +130,9 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			rows,
 			cols,
 			placeholder,
-			disabled: (disabled === true || disabled === 'true'),
-			required: (required === true || required === 'true'),
-			readOnly: (readOnly === true || readOnly === 'true'),
+			disabled: disabled === true || disabled === 'true',
+			required: required === true || required === 'true',
+			readOnly: readOnly === true || readOnly === 'true',
 			maxlength: maxLength ? maxLength : null,
 			minlength: minLength ? minLength : null,
 			classes: [
@@ -131,7 +141,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 				...getFlexItemClasses(this.properties),
 				...getFloatClass(this.properties)
 			],
-			autofocus: (focus === true || focus === 'true'),
+			autofocus: focus === true || focus === 'true',
 			styles: cssStyles
 		});
 	}
@@ -141,16 +151,19 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 	}
 
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			label
-		} = this.properties;
+		const { widgetId, label } = this.properties;
 
 		const children = [
-			label ? w(Label, {
-				value: label,
-				forId: widgetId
-			}, []) : null,
+			label
+				? w(
+						Label,
+						{
+							value: label,
+							forId: widgetId
+						},
+						[]
+				  )
+				: null,
 			...this.renderInputWrapper()
 		];
 
