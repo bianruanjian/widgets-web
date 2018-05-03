@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, VNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -17,36 +17,40 @@ import * as css from './styles/list-group.m.css';
 export interface ListGroupProperties extends SpacingProperties {
 	widgetId?: string;
 	flush?: boolean | string;
-};
+	isListItem?: boolean;
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<ListGroupProperties>({
 	tag: 'db-list-group',
-	childType: CustomElementChildType.TEXT,
-	attributes: [
-		'widgetId',
-		'flush'
-	],
+	childType: CustomElementChildType.NODE,
+	attributes: ['widgetId', 'flush'],
 	properties: [],
 	events: []
 })
 @theme(css)
 export class ListGroup<P extends ListGroupProperties = ListGroupProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			flush
-		} = this.properties;
+		const { widgetId, flush } = this.properties;
+		let tag: string = 'ul';
 
-		return v('ul', {
+		this.children.forEach((child, index) => {
+			if (child && ((child as VNode).tag === 'db-link' || (child as VNode).tag === 'db-button')) {
+				tag = 'div';
+			}
+		});
+
+		return v(
+			tag,
+			{
 				id: widgetId,
 				classes: [
 					'list-group',
-					(flush === true || flush === 'true') ? 'list-group-flush' : '',
+					flush === true || flush === 'true' ? 'list-group-flush' : '',
 					...getSpacingClasses(this.properties)
 				]
-			}, 
+			},
 			this.children
 		);
 	}

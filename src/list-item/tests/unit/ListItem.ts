@@ -10,19 +10,19 @@ describe('ListItem', () => {
 		active: false,
 		disabled: false,
 		appearance: 'default',
-		fontWeight: "default",
+		fontWeight: 'default',
 		fontItalic: false,
-		textDecoration: "default",
-		alignment: "default",
-		transform: "default",
-		truncate: "default",
+		textDecoration: 'default',
+		alignment: 'default',
+		transform: 'default',
+		truncate: 'default',
 		wrap: 0,
-		flexDirection: "default",
+		flexDirection: 'default',
 		reverse: false,
-		justifyItems: "default",
-		alignItems: "default",
-		flexWrap: "default",
-		alignContent: "default"
+		justifyItems: 'default',
+		alignItems: 'default',
+		flexWrap: 'default',
+		alignContent: 'default'
 	};
 
 	const customProperties: ListItemProperties = {
@@ -30,70 +30,88 @@ describe('ListItem', () => {
 		active: true,
 		disabled: true,
 		appearance: 'primary',
-		fontWeight: "light",
+		fontWeight: 'light',
 		fontItalic: true,
-		textDecoration: "underline",
-		alignment: "left",
-		transform: "lowerCase",
+		textDecoration: 'underline',
+		alignment: 'left',
+		transform: 'lowerCase',
 		truncate: 40,
 		wrap: 1,
-		flexDirection: "row",
+		flexDirection: 'row',
 		reverse: true,
-		justifyItems: "start",
-		alignItems: "start",
-		flexWrap: "nowrap",
-		alignContent: "start"
+		justifyItems: 'start',
+		alignItems: 'start',
+		flexWrap: 'nowrap',
+		alignContent: 'start'
 	};
 
 	it('should construct ListItem', () => {
 		const h = harness(() => w(ListItem, {}));
-		h.expect(() => v('li', {
-			id: undefined,
-			disabled: false,
-			classes: ['list-group-item', '', '', ''],
-			styles: {}
-		}, []));
+		h.expect(() =>
+			v(
+				'li',
+				{
+					id: undefined,
+					disabled: false,
+					classes: ['list-group-item', undefined, undefined, undefined],
+					styles: {}
+				},
+				[]
+			)
+		);
 	});
 
 	it('default properties', () => {
 		const h = harness(() => w(ListItem, defaultProperties));
-		h.expect(() => v('li', {
-			id: undefined,
-			disabled: false,
-			classes: ['list-group-item', '', '', ''],
-			styles: {}
-		}, []));
+		h.expect(() =>
+			v(
+				'li',
+				{
+					id: undefined,
+					disabled: false,
+					classes: ['list-group-item', undefined, undefined, undefined],
+					styles: {}
+				},
+				[]
+			)
+		);
 	});
 
 	type baseCssType = keyof typeof css;
 
 	it('custom properties', () => {
 		const h = harness(() => w(ListItem, customProperties));
-		h.expect(() => v('li', {
-			id: 'random-id',
-			disabled: true,
-			classes: [
-				'list-group-item', 
-				'list-group-item-primary', 
-				'disabled', 
-				'active',
-				'flex-row-reverse',
-				'justify-content-start',
-				'align-items-start',
-				'flex-nowrap',
-				'align-content-start',
-				'font-weight-light',
-				'font-italic',
-				'text-left',
-				'text-lowerCase',
-				'text-truncate',
-				'text-nowrap',
-				css[textDecorationMap['underline'] as baseCssType]
-			],
-			styles: {
-				"maxWidth": "40px",
-				"width": "1rem"
-			}
-		}, []));
+		h.expect(() =>
+			v(
+				'li',
+				{
+					id: 'random-id',
+					disabled: true,
+					classes: [
+						'list-group-item',
+						'list-group-item-primary',
+						'disabled',
+						'active',
+						'flex-row-reverse',
+						'justify-content-start',
+						'align-items-start',
+						'flex-nowrap',
+						'align-content-start',
+						'font-weight-light',
+						'font-italic',
+						'text-left',
+						'text-lowerCase',
+						'text-truncate',
+						'text-nowrap',
+						css[textDecorationMap['underline'] as baseCssType]
+					],
+					styles: {
+						maxWidth: '40px',
+						width: '1rem'
+					}
+				},
+				[]
+			)
+		);
 	});
 });

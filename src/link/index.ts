@@ -5,7 +5,14 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { SpacingProperties, FlexItemProperties, TextProperties, ColorsProperties } from '../common/interfaces';
-import { getSpacingClasses, getFlexItemClasses, getTextClasses, getTextStyles, getColorsClasses, getTextDecorationClass } from '../common/util';
+import {
+	getSpacingClasses,
+	getFlexItemClasses,
+	getTextClasses,
+	getTextStyles,
+	getColorsClasses,
+	getTextDecorationClass
+} from '../common/util';
 
 import * as css from './styles/link.m.css';
 
@@ -19,7 +26,8 @@ export interface LinkProperties extends SpacingProperties, FlexItemProperties, T
 	href?: string;
 	target?: string;
 	value?: string;
-};
+	isListItem?: boolean;
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -31,6 +39,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'href',
 		'target',
 		'value',
+		'isListItem',
 		'marginTop',
 		'marginBottom',
 		'marginLeft',
@@ -57,18 +66,16 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			href,
-			target,
-			value
-		} = this.properties;
+		const { widgetId, href, target, value, isListItem } = this.properties;
 
-		return v('a', {
+		return v(
+			'a',
+			{
 				id: widgetId,
 				href,
 				target,
 				classes: [
+					isListItem ? 'list-group-item list-group-item-action' : undefined,
 					...getSpacingClasses(this.properties),
 					...getFlexItemClasses(this.properties),
 					...getTextClasses(this.properties),
@@ -76,7 +83,7 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 					...getTextDecorationClass(this.properties)
 				],
 				styles: getTextStyles(this.properties)
-			}, 
+			},
 			value ? [value, ...this.children] : this.children
 		);
 	}

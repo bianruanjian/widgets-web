@@ -2,8 +2,8 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
-
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+
 import * as css from './styles/button.m.css';
 
 const sizeMap: { [key: string]: string } = {
@@ -28,6 +28,7 @@ export interface ButtonProperties {
 	active?: boolean;
 	href?: string;
 	target?: string;
+	isListItem?: boolean;
 	onClick?(): void;
 }
 
@@ -35,7 +36,19 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<ButtonProperties>({
 	tag: 'db-button',
-	attributes: ['id', 'value', 'appearance', 'size', 'disabled', 'type', 'fluidWidth', 'active', 'href', 'target'],
+	attributes: [
+		'id',
+		'value',
+		'appearance',
+		'size',
+		'disabled',
+		'type',
+		'fluidWidth',
+		'active',
+		'href',
+		'target',
+		'isListItem'
+	],
 	properties: [],
 	events: ['onClick']
 })
@@ -47,8 +60,20 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 	}
 
 	protected render(): DNode | DNode[] {
-		let { id, value, appearance, size, disabled, type, fluidWidth, active, href, target } = this.properties;
-		const children:any[] = [value, ...this.children];
+		let {
+			id,
+			value,
+			appearance,
+			size,
+			disabled,
+			type,
+			fluidWidth,
+			active,
+			href,
+			target,
+			isListItem
+		} = this.properties;
+		const children: any[] = [value, ...this.children];
 		let sizeClass: string = sizeMap[size as string];
 
 		if (appearance === 'default') {
@@ -62,13 +87,20 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 				{
 					href: `${href}`,
 					target: target != null ? `${target}` : '_self',
-					classes: [
-						'btn',
-						appearance !== '' ? `btn-${appearance}` : undefined,
-						sizeClass !== '' ? sizeClass : undefined,
-						fluidWidth ? 'btn-block' : undefined,
-						active ? 'active' : undefined
-					],
+					classes: isListItem
+						? [
+								'list-group-item',
+								'list-group-item-action',
+								appearance !== '' ? `list-group-item-${appearance}` : undefined,
+								active ? 'active' : undefined
+						  ]
+						: [
+								'btn',
+								appearance !== '' ? `btn-${appearance}` : undefined,
+								sizeClass !== '' ? sizeClass : undefined,
+								fluidWidth ? 'btn-block' : undefined,
+								active ? 'active' : undefined
+						  ],
 					role: 'button'
 				},
 				children
@@ -78,13 +110,20 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 				'button',
 				{
 					id: id,
-					classes: [
-						'btn',
-						appearance !== '' ? `btn-${appearance}` : undefined,
-						sizeClass !== '' ? sizeClass : undefined,
-						fluidWidth ? 'btn-block' : undefined,
-						active ? 'active' : undefined
-					],
+					classes: isListItem
+						? [
+								'list-group-item',
+								'list-group-item-action',
+								appearance !== '' ? `list-group-item-${appearance}` : undefined,
+								active ? 'active' : undefined
+						  ]
+						: [
+								'btn',
+								appearance !== '' ? `btn-${appearance}` : undefined,
+								sizeClass !== '' ? sizeClass : undefined,
+								fluidWidth ? 'btn-block' : undefined,
+								active ? 'active' : undefined
+						  ],
 					disabled: disabled,
 					type: type,
 					onclick: this._onClick
