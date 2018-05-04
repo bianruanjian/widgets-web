@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, VNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -17,36 +17,53 @@ import * as css from './styles/list-group.m.css';
 export interface ListGroupProperties extends SpacingProperties {
 	widgetId?: string;
 	flush?: boolean | string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<ListGroupProperties>({
 	tag: 'db-list-group',
-	childType: CustomElementChildType.TEXT,
-	attributes: [
-		'widgetId',
-		'flush'
-	],
+	childType: CustomElementChildType.NODE,
+	attributes: ['widgetId', 'flush'],
 	properties: [],
 	events: []
 })
 @theme(css)
 export class ListGroup<P extends ListGroupProperties = ListGroupProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			flush
-		} = this.properties;
+		const { widgetId, flush } = this.properties;
+		let tag: string = 'ul';
+		let existListItem: boolean = false;
+		let existButtonOrLink: boolean = false;
 
-		return v('ul', {
+		this.children.forEach((child, index) => {
+			if (child) {
+				const childTag: string = (child as VNode).tag;
+
+				if (childTag === 'db-link' || childTag === 'db-button' || childTag === 'a' || childTag === 'button') {
+					tag = 'div';
+					existButtonOrLink = true;
+				}
+				if (childTag === 'db-list-item' || childTag === 'li') {
+					existListItem = true;
+				}
+			}
+		});
+
+		if (existButtonOrLink && existListItem) {
+			console.error('ListItem and Button/Link can not be allowed at the same time in the ListGroup widget');
+		}
+
+		return v(
+			tag,
+			{
 				id: widgetId,
 				classes: [
 					'list-group',
-					(flush === true || flush === 'true') ? 'list-group-flush' : '',
+					flush === true || flush === 'true' ? 'list-group-flush' : undefined,
 					...getSpacingClasses(this.properties)
 				]
-			}, 
+			},
 			this.children
 		);
 	}

@@ -12,71 +12,87 @@ tags:
 
 ### active
 {% raw %}
-<db-list-group>
-  <db-list-item>not active</db-list-item>
-  <db-list-item active="true">active</db-list-item>
-</db-list-group>
+<ul class="list-group">
+  <li class="list-group-item">not active</li>
+  <li class="list-group-item active">active</li>
+</ul>
 {% endraw %}
-```html
-<db-list-group>
-  <db-list-item>not active</db-list-item>
-  <db-list-item active="true">active</db-list-item>
-</db-list-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import ListGroup from 'dojo2-bootstrap/list-group/index';
+import ListItem from 'dojo2-bootstrap/list-item/index';
+
+w(ListGroup, {}, [
+  w(ListItem, {}, ['not active']);
+  w(ListItem, { active: true }, ['active']);
+]);
 ```
 
 ### disabled
 {% raw %}
-<db-list-group>
-  <db-list-item>normal</db-list-item>
-  <db-list-item disabled="true">disabled</db-list-item>
-</db-list-group>
+<ul class="list-group">
+  <li class="list-group-item">default</li>
+  <li class="list-group-item disabled">disabled</li>
+</ul>
 {% endraw %}
-```html
-<db-list-group>
-  <db-list-item>normal</db-list-item>
-  <db-list-item disabled="true">disabled</db-list-item>
-</db-list-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import ListGroup from 'dojo2-bootstrap/list-group/index';
+import ListItem from 'dojo2-bootstrap/list-item/index';
+
+w(ListGroup, {}, [
+  w(ListItem, {}, ['default']);
+  w(ListItem, { disabled: true }, ['disabled']);
+]);
 ```
 ### appearance
 {% raw %}
-<db-list-group>
-  <db-list-item>normal</db-list-item>
-  <db-list-item appearance="primary">primary</db-list-item>
-  <db-list-item appearance="secondary">secondary</db-list-item>
-  <db-list-item appearance="success">success</db-list-item>
-  <db-list-item appearance="danger">danger</db-list-item>
-  <db-list-item appearance="warning">warning</db-list-item>
-  <db-list-item appearance="info">info</db-list-item>
-  <db-list-item appearance="light">light</db-list-item>
-  <db-list-item appearance="dark">dark</db-list-item>
-</db-list-group>
+<ul class="list-group">
+  <li class="list-group-item">default</li>
+  <li class="list-group-item list-group-item-primary">primary</li>
+  <li class="list-group-item list-group-item-secondary">secondary</li>
+  <li class="list-group-item list-group-item-success">success</li>
+  <li class="list-group-item list-group-item-danger">danger</li>
+  <li class="list-group-item list-group-item-warning">warning</li>
+  <li class="list-group-item list-group-item-info">info</li>
+  <li class="list-group-item list-group-item-light">light</li>
+  <li class="list-group-item list-group-item-dark">dark</li>
+</ul>
 {% endraw %}
-```html
-<db-list-group>
-  <db-list-item>normal</db-list-item>
-  <db-list-item appearance="primary">primary</db-list-item>
-  <db-list-item appearance="secondary">secondary</db-list-item>
-  <db-list-item appearance="success">success</db-list-item>
-  <db-list-item appearance="danger">danger</db-list-item>
-  <db-list-item appearance="warning">warning</db-list-item>
-  <db-list-item appearance="info">info</db-list-item>
-  <db-list-item appearance="light">light</db-list-item>
-  <db-list-item appearance="dark">dark</db-list-item>
-</db-list-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import ListGroup from 'dojo2-bootstrap/list-group/index';
+import ListItem from 'dojo2-bootstrap/list-item/index';
+
+w(ListGroup, {}, [
+  w(ListItem, {}, ['default']);
+  w(ListItem, { appearance: 'primary' }, ['primary']);
+  w(ListItem, { appearance: 'secondary' }, ['secondary']);
+  w(ListItem, { appearance: 'success' }, ['success']);
+  w(ListItem, { appearance: 'danger' }, ['danger']);
+  w(ListItem, { appearance: 'warning' }, ['warning']);
+  w(ListItem, { appearance: 'info' }, ['info']);
+  w(ListItem, { appearance: 'light' }, ['light']);
+  w(ListItem, { appearance: 'dark' }, ['dark']);
+]);
 ```
 
 ### button and link
 {% raw %}
-<db-list-group>
-  <db-list-item><db-button value="button" appearance="primary"></db-button></db-list-item>
-  <db-list-item><db-link value="link" target="blank" href="#"></db-link></db-list-item>
-</db-list-group>
+<div class="list-group">
+  <button type="button" class="list-group-item list-group-item-primary">button</button>
+  <a href="#" class="list-group-item" target="_self">link</a>
+</div>
 {% endraw %}
-```html
-<db-list-group>
-  <db-list-item><db-button value="button" appearance="primary"></db-button></db-list-item>
-  <db-list-item><db-link value="link" target="blank" href="#"></db-link></db-list-item>
-</db-list-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import Button from 'dojo2-bootstrap/button/index';
+import Link from 'dojo2-bootstrap/link/index';
+
+w(ListGroup, {}, [
+  w(Button, { value: 'button', appearance: 'primary' });
+  w(Link, { value: 'link', href: '#', target: 'self' });
+]);
 ```
 
 ## 通用属性

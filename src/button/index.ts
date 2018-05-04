@@ -2,8 +2,8 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
-
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+
 import * as css from './styles/button.m.css';
 
 const sizeMap: { [key: string]: string } = {
@@ -12,22 +12,28 @@ const sizeMap: { [key: string]: string } = {
 	default: ''
 };
 
+export const targetMap: { [key: string]: string } = {
+	self: '_self',
+	blank: '_blank'
+};
+
 /**
  * @type buttonProperties
  *
  * Properties that can be set on button components
  */
 export interface ButtonProperties {
-	id?: string;
+	widgetId?: string;
 	value?: string;
 	appearance?: string;
 	size?: string;
-	disabled?: boolean;
+	disabled?: boolean | string;
 	type?: string;
-	fluidWidth?: boolean;
-	active?: boolean;
+	fluid?: boolean | string;
+	active?: boolean | string;
 	href?: string;
 	target?: string;
+	isListItem?: boolean; // 当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
 	onClick?(): void;
 }
 
@@ -35,7 +41,19 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<ButtonProperties>({
 	tag: 'db-button',
-	attributes: ['id', 'value', 'appearance', 'size', 'disabled', 'type', 'fluidWidth', 'active', 'href', 'target'],
+	attributes: [
+		'widgetId',
+		'value',
+		'appearance',
+		'size',
+		'disabled',
+		'type',
+		'fluid',
+		'active',
+		'href',
+		'target',
+		'isListItem'
+	],
 	properties: [],
 	events: ['onClick']
 })
@@ -47,12 +65,24 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 	}
 
 	protected render(): DNode | DNode[] {
-		let { id, value, appearance, size, disabled, type, fluidWidth, active, href, target } = this.properties;
-		const children:any[] = [value, ...this.children];
+		let {
+			widgetId,
+			value,
+			appearance,
+			size,
+			disabled,
+			type,
+			fluid,
+			active,
+			href,
+			target,
+			isListItem = false
+		} = this.properties;
+		const children: any[] = value ? [value, ...this.children] : this.children;
 		let sizeClass: string = sizeMap[size as string];
 
-		if (appearance === 'default') {
-			appearance = '';
+		if (target) {
+			target = targetMap[target as string] || target;
 		}
 
 		if (href) {
@@ -60,15 +90,23 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			return v(
 				'a',
 				{
+					id: widgetId,
 					href: `${href}`,
-					target: target != null ? `${target}` : '_self',
-					classes: [
-						'btn',
-						appearance !== '' ? `btn-${appearance}` : undefined,
-						sizeClass !== '' ? sizeClass : undefined,
-						fluidWidth ? 'btn-block' : undefined,
-						active ? 'active' : undefined
-					],
+					target,
+					classes: isListItem
+						? [
+								'list-group-item',
+								'list-group-item-action',
+								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ]
+						: [
+								'btn',
+								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
+								sizeClass !== '' ? sizeClass : undefined,
+								fluid === true || fluid === 'true' ? 'btn-block' : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ],
 					role: 'button'
 				},
 				children
@@ -77,15 +115,22 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			return v(
 				'button',
 				{
-					id: id,
-					classes: [
-						'btn',
-						appearance !== '' ? `btn-${appearance}` : undefined,
-						sizeClass !== '' ? sizeClass : undefined,
-						fluidWidth ? 'btn-block' : undefined,
-						active ? 'active' : undefined
-					],
-					disabled: disabled,
+					id: widgetId,
+					classes: isListItem
+						? [
+								'list-group-item',
+								'list-group-item-action',
+								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ]
+						: [
+								'btn',
+								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
+								sizeClass !== '' ? sizeClass : undefined,
+								fluid === true || fluid === 'true' ? 'btn-block' : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ],
+					disabled: disabled === true || disabled === 'true',
 					type: type,
 					onclick: this._onClick
 				},

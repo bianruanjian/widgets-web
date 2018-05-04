@@ -14,12 +14,12 @@ import * as css from './styles/list-item.m.css';
  *
  * Properties that can be set on ListItem components
  */
-export interface ListItemProperties extends FlexContainerProperties, TextProperties{
+export interface ListItemProperties extends FlexContainerProperties, TextProperties {
 	widgetId?: string;
 	active?: boolean | string;
 	disabled?: boolean | string;
 	appearance?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -51,27 +51,26 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class ListItem<P extends ListItemProperties = ListItemProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			active,
-			disabled,
-			appearance
-		} = this.properties;
+		const { widgetId, active, disabled, appearance } = this.properties;
 
-		return v('li', {
-			id: widgetId,
-			disabled: (disabled === true || disabled === 'true'),
-			classes: [
-				'list-group-item',
-				(appearance && appearance !== 'default') ? `list-group-item-${appearance}` : '',
-				(disabled === true || disabled === 'true') ? 'disabled' : '',
-				(active === true || active === 'true') ? 'active' : '',
-				...getFlexContainerClasses(this.properties),
-				...getTextClasses(this.properties),
-				...getTextDecorationClass(this.properties)
-			],
-			styles : getTextStyles(this.properties)
-		}, this.children);
+		return v(
+			'li',
+			{
+				id: widgetId,
+				disabled: disabled === true || disabled === 'true',
+				classes: [
+					'list-group-item',
+					appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
+					disabled === true || disabled === 'true' ? 'disabled' : undefined,
+					active === true || active === 'true' ? 'active' : undefined,
+					...getFlexContainerClasses(this.properties),
+					...getTextClasses(this.properties),
+					...getTextDecorationClass(this.properties)
+				],
+				styles: getTextStyles(this.properties)
+			},
+			this.children
+		);
 	}
 }
 
