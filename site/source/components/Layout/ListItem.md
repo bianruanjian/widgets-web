@@ -31,8 +31,8 @@ w(ListGroup, {}, [
 ### disabled
 {% raw %}
 <ul class="list-group">
-  <li class="list-group-item">normal</li>
-  <li class="list-group-item disabled" disabled>disabled</li>
+  <li class="list-group-item">default</li>
+  <li class="list-group-item disabled">disabled</li>
 </ul>
 {% endraw %}
 ```TypeScript
@@ -41,7 +41,7 @@ import ListGroup from 'dojo2-bootstrap/list-group/index';
 import ListItem from 'dojo2-bootstrap/list-item/index';
 
 w(ListGroup, {}, [
-  w(ListItem, {}, ['normal']);
+  w(ListItem, {}, ['default']);
   w(ListItem, { disabled: true }, ['disabled']);
 ]);
 ```

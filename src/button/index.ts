@@ -24,11 +24,11 @@ export interface ButtonProperties {
 	size?: string;
 	disabled?: boolean | string;
 	type?: string;
-	fluidWidth?: boolean | string;
+	fluid?: boolean | string;
 	active?: boolean | string;
 	href?: string;
 	target?: string;
-	isListItem?: boolean; //当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
+	isListItem?: boolean; // 当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
 	onClick?(): void;
 }
 
@@ -43,7 +43,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'size',
 		'disabled',
 		'type',
-		'fluidWidth',
+		'fluid',
 		'active',
 		'href',
 		'target',
@@ -67,7 +67,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			size,
 			disabled,
 			type,
-			fluidWidth,
+			fluid,
 			active,
 			href,
 			target,
@@ -76,8 +76,8 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 		const children: any[] = [value, ...this.children];
 		let sizeClass: string = sizeMap[size as string];
 
-		if (appearance === 'default') {
-			appearance = '';
+		if (target && target === 'self') {
+			target = '_self';
 		}
 
 		if (href) {
@@ -85,20 +85,21 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			return v(
 				'a',
 				{
+					id: id,
 					href: `${href}`,
-					target: target != null ? `${target}` : '_self',
+					target,
 					classes: isListItem
 						? [
 								'list-group-item',
 								'list-group-item-action',
-								appearance !== '' ? `list-group-item-${appearance}` : undefined,
+								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 								active === true || active === 'true' ? 'active' : undefined
 						  ]
 						: [
 								'btn',
-								appearance !== '' ? `btn-${appearance}` : undefined,
+								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
 								sizeClass !== '' ? sizeClass : undefined,
-								fluidWidth === true || fluidWidth === 'true' ? 'btn-block' : undefined,
+								fluid === true || fluid === 'true' ? 'btn-block' : undefined,
 								active === true || active === 'true' ? 'active' : undefined
 						  ],
 					role: 'button'
@@ -114,14 +115,14 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 						? [
 								'list-group-item',
 								'list-group-item-action',
-								appearance !== '' ? `list-group-item-${appearance}` : undefined,
+								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 								active === true || active === 'true' ? 'active' : undefined
 						  ]
 						: [
 								'btn',
-								appearance !== '' ? `btn-${appearance}` : undefined,
+								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
 								sizeClass !== '' ? sizeClass : undefined,
-								fluidWidth === true || fluidWidth === 'true' ? 'btn-block' : undefined,
+								fluid === true || fluid === 'true' ? 'btn-block' : undefined,
 								active === true || active === 'true' ? 'active' : undefined
 						  ],
 					disabled: disabled === true || disabled === 'true',

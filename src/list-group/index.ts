@@ -33,26 +33,24 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 	protected render(): DNode | DNode[] {
 		const { widgetId, flush } = this.properties;
 		let tag: string = 'ul';
-		let childType: any = {
-			listItemType: false,
-			buttonOrLinkType: false
-		};
+		let existListItem: boolean = false;
+		let existButtonOrLink: boolean = false;
 
 		this.children.forEach((child, index) => {
 			if (child) {
 				const childTag: string = (child as VNode).tag;
 				if (childTag === 'db-link' || childTag === 'db-button') {
 					tag = 'div';
-					childType.buttonOrLinkType = true;
+					existButtonOrLink = true;
 				}
 				if (childTag === 'db-list-item') {
-					childType.listItemType = true;
+					existListItem = true;
 				}
 			}
 		});
 
-		if (childType.buttonOrLinkType && childType.listItemType) {
-			console.error('ListItem and Button or Link can not be allowed at the same time in the ListGroup widget');
+		if (existButtonOrLink && existListItem) {
+			console.error('ListItem and Button/Link can not be allowed at the same time in the ListGroup widget');
 		}
 
 		return v(
@@ -61,7 +59,7 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 				id: widgetId,
 				classes: [
 					'list-group',
-					flush === true || flush === 'true' ? 'list-group-flush' : '',
+					flush === true || flush === 'true' ? 'list-group-flush' : undefined,
 					...getSpacingClasses(this.properties)
 				]
 			},

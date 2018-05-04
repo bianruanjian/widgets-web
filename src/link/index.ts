@@ -26,7 +26,13 @@ export interface LinkProperties extends SpacingProperties, FlexItemProperties, T
 	href?: string;
 	target?: string;
 	value?: string;
-	isListItem?: boolean; //当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
+	// 当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
+	isListItem?: boolean;
+	// 在实现层面，list-group-item-xx 是同时设置了背景颜色和字体颜色，
+	// 但是 Link 部件只单独提供了 backgroundColor 和 textColor 两个属性，
+	// 没有提供可同时设置此两个颜色的属性，可考虑增加一个 appearance 属性，
+	// 此属性不对外公开，只是当父部件为 ListGroup 时使用
+	appearance?: string;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -66,7 +72,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let { widgetId, href, target, value, isListItem = false, textColor, backgroundColor } = this.properties;
+		let { widgetId, href, target, value, isListItem = false, appearance } = this.properties;
 
 		if (target && target === 'self') {
 			target = '_self';
@@ -85,11 +91,7 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 							...getSpacingClasses(this.properties),
 							...getFlexItemClasses(this.properties),
 							...getTextClasses(this.properties),
-							backgroundColor && backgroundColor !== 'default'
-								? `list-group-item-${backgroundColor}`
-								: textColor && textColor !== 'default'
-									? `list-group-item-${textColor}`
-									: undefined,
+							appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 							...getTextDecorationClass(this.properties)
 					  ]
 					: [
