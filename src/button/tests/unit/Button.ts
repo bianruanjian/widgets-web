@@ -17,7 +17,7 @@ describe('Button', () => {
 	};
 
 	const customProperties: ButtonProperties = {
-		id: 'random-id',
+		widgetId: 'random-id',
 		value: 'val',
 		appearance: 'primary',
 		size: 'small',
@@ -41,7 +41,7 @@ describe('Button', () => {
 					type: undefined,
 					onclick: () => {}
 				},
-				[undefined]
+				[]
 			)
 		);
 	});
@@ -58,7 +58,7 @@ describe('Button', () => {
 					type: 'button',
 					onclick: () => {}
 				},
-				[undefined]
+				[]
 			)
 		);
 	});
@@ -92,7 +92,7 @@ describe('Button', () => {
 					type: undefined,
 					onclick: () => {}
 				},
-				[undefined]
+				[]
 			)
 		);
 	});

@@ -39,11 +39,12 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 		this.children.forEach((child, index) => {
 			if (child) {
 				const childTag: string = (child as VNode).tag;
-				if (childTag === 'db-link' || childTag === 'db-button') {
+
+				if (childTag === 'db-link' || childTag === 'db-button' || childTag === 'a' || childTag === 'button') {
 					tag = 'div';
 					existButtonOrLink = true;
 				}
-				if (childTag === 'db-list-item') {
+				if (childTag === 'db-list-item' || childTag === 'li') {
 					existListItem = true;
 				}
 			}

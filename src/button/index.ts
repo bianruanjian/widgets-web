@@ -12,13 +12,18 @@ const sizeMap: { [key: string]: string } = {
 	default: ''
 };
 
+export const targetMap: { [key: string]: string } = {
+	self: '_self',
+	blank: '_blank'
+};
+
 /**
  * @type buttonProperties
  *
  * Properties that can be set on button components
  */
 export interface ButtonProperties {
-	id?: string;
+	widgetId?: string;
 	value?: string;
 	appearance?: string;
 	size?: string;
@@ -37,7 +42,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @customElement<ButtonProperties>({
 	tag: 'db-button',
 	attributes: [
-		'id',
+		'widgetId',
 		'value',
 		'appearance',
 		'size',
@@ -61,7 +66,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 
 	protected render(): DNode | DNode[] {
 		let {
-			id,
+			widgetId,
 			value,
 			appearance,
 			size,
@@ -73,11 +78,11 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			target,
 			isListItem = false
 		} = this.properties;
-		const children: any[] = [value, ...this.children];
+		const children: any[] = value ? [value, ...this.children] : this.children;
 		let sizeClass: string = sizeMap[size as string];
 
-		if (target && target === 'self') {
-			target = '_self';
+		if (target) {
+			target = targetMap[target as string] || target;
 		}
 
 		if (href) {
@@ -85,7 +90,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			return v(
 				'a',
 				{
-					id: id,
+					id: widgetId,
 					href: `${href}`,
 					target,
 					classes: isListItem
@@ -110,7 +115,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			return v(
 				'button',
 				{
-					id: id,
+					id: widgetId,
 					classes: isListItem
 						? [
 								'list-group-item',

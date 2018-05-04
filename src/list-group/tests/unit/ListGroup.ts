@@ -7,7 +7,7 @@ import ListGroup, { ListGroupProperties } from './../../index';
 import { Button } from '../../../button';
 import { ListItem } from '../../../list-item';
 import { Link } from '../../../link';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { VNode } from '@dojo/widget-core/interfaces';
 
 describe('ListGroup', () => {
 	const defaultProperties: ListGroupProperties = {
@@ -77,16 +77,12 @@ describe('ListGroup', () => {
 		);
 	});
 
-	it('test children', () => {
+	it('child is button', () => {
 		const buttonH = harness(() => w(Button, {}));
-		const linkH = harness(() => w(Link, {}));
-		const listItemH = harness(() => w(ListItem, {}));
-		const h = harness(() =>
-			w(ListGroup, {}, [buttonH.getRender() as DNode, linkH.getRender() as DNode, listItemH.getRender() as DNode])
-		);
+		const h = harness(() => w(ListGroup, {}, [buttonH.getRender() as VNode]));
 		h.expect(() =>
 			v(
-				'ul',
+				'div',
 				{
 					id: undefined,
 					classes: ['list-group', undefined]
@@ -101,15 +97,81 @@ describe('ListGroup', () => {
 							type: undefined,
 							onclick: () => {}
 						},
-						[undefined]
-					),
+						[]
+					)
+				]
+			)
+		);
+	});
+
+	it('child is link', () => {
+		const linkH = harness(() => w(Link, {}));
+		const h = harness(() => w(ListGroup, {}, [linkH.getRender() as VNode]));
+		h.expect(() =>
+			v(
+				'div',
+				{
+					id: undefined,
+					classes: ['list-group', undefined]
+				},
+				[
 					v('a', {
 						classes: [],
 						href: undefined,
 						id: undefined,
 						styles: {},
 						target: undefined
-					}),
+					})
+				]
+			)
+		);
+	});
+
+	it('child is listItem', () => {
+		const listItemH = harness(() => w(ListItem, {}));
+		const h = harness(() => w(ListGroup, {}, [listItemH.getRender() as VNode]));
+		h.expect(() =>
+			v(
+				'ul',
+				{
+					id: undefined,
+					classes: ['list-group', undefined]
+				},
+				[
+					v('li', {
+						classes: ['list-group-item', undefined, undefined, undefined],
+						disabled: false,
+						id: undefined,
+						styles: {}
+					})
+				]
+			)
+		);
+	});
+
+	it('child is button and listItem', () => {
+		const buttonH = harness(() => w(Button, {}));
+		const listItemH = harness(() => w(ListItem, {}));
+		const h = harness(() => w(ListGroup, {}, [buttonH.getRender() as VNode, listItemH.getRender() as VNode]));
+		h.expect(() =>
+			v(
+				'div',
+				{
+					id: undefined,
+					classes: ['list-group', undefined]
+				},
+				[
+					v(
+						'button',
+						{
+							id: undefined,
+							classes: ['btn', undefined, undefined, undefined, undefined],
+							disabled: false,
+							type: undefined,
+							onclick: () => {}
+						},
+						[]
+					),
 					v('li', {
 						classes: ['list-group-item', undefined, undefined, undefined],
 						disabled: false,
