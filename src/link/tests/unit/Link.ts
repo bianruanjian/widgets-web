@@ -61,7 +61,7 @@ describe('Link', () => {
 					id: undefined,
 					href: undefined,
 					target: undefined,
-					classes: [undefined],
+					classes: [],
 					styles: {}
 				},
 				[]
@@ -77,8 +77,8 @@ describe('Link', () => {
 				{
 					id: undefined,
 					href: undefined,
-					target: 'self',
-					classes: [undefined],
+					target: '_self',
+					classes: [],
 					styles: {}
 				},
 				[]
@@ -98,7 +98,6 @@ describe('Link', () => {
 					href: 'https://link.com/',
 					target: 'iframeId',
 					classes: [
-						undefined,
 						'my-0',
 						'mx-1',
 						'py-0',
@@ -119,6 +118,23 @@ describe('Link', () => {
 					}
 				},
 				['val']
+			)
+		);
+	});
+
+	it('isListItem', () => {
+		const h = harness(() => w(Link, { isListItem: true }));
+		h.expect(() =>
+			v(
+				'a',
+				{
+					id: undefined,
+					href: undefined,
+					target: undefined,
+					classes: ['list-group-item', 'list-group-item-action', undefined],
+					styles: {}
+				},
+				[]
 			)
 		);
 	});

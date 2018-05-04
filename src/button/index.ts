@@ -22,13 +22,13 @@ export interface ButtonProperties {
 	value?: string;
 	appearance?: string;
 	size?: string;
-	disabled?: boolean;
+	disabled?: boolean | string;
 	type?: string;
-	fluidWidth?: boolean;
-	active?: boolean;
+	fluidWidth?: boolean | string;
+	active?: boolean | string;
 	href?: string;
 	target?: string;
-	isListItem?: boolean;
+	isListItem?: boolean; //当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
 	onClick?(): void;
 }
 
@@ -71,7 +71,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 			active,
 			href,
 			target,
-			isListItem
+			isListItem = false
 		} = this.properties;
 		const children: any[] = [value, ...this.children];
 		let sizeClass: string = sizeMap[size as string];
@@ -92,14 +92,14 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 								'list-group-item',
 								'list-group-item-action',
 								appearance !== '' ? `list-group-item-${appearance}` : undefined,
-								active ? 'active' : undefined
+								active === true || active === 'true' ? 'active' : undefined
 						  ]
 						: [
 								'btn',
 								appearance !== '' ? `btn-${appearance}` : undefined,
 								sizeClass !== '' ? sizeClass : undefined,
-								fluidWidth ? 'btn-block' : undefined,
-								active ? 'active' : undefined
+								fluidWidth === true || fluidWidth === 'true' ? 'btn-block' : undefined,
+								active === true || active === 'true' ? 'active' : undefined
 						  ],
 					role: 'button'
 				},
@@ -115,16 +115,16 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 								'list-group-item',
 								'list-group-item-action',
 								appearance !== '' ? `list-group-item-${appearance}` : undefined,
-								active ? 'active' : undefined
+								active === true || active === 'true' ? 'active' : undefined
 						  ]
 						: [
 								'btn',
 								appearance !== '' ? `btn-${appearance}` : undefined,
 								sizeClass !== '' ? sizeClass : undefined,
-								fluidWidth ? 'btn-block' : undefined,
-								active ? 'active' : undefined
+								fluidWidth === true || fluidWidth === 'true' ? 'btn-block' : undefined,
+								active === true || active === 'true' ? 'active' : undefined
 						  ],
-					disabled: disabled,
+					disabled: disabled === true || disabled === 'true',
 					type: type,
 					onclick: this._onClick
 				},

@@ -48,7 +48,7 @@ w(ListGroup, {}, [
 ### appearance
 {% raw %}
 <ul class="list-group">
-  <li class="list-group-item">normal</li>
+  <li class="list-group-item">default</li>
   <li class="list-group-item list-group-item-primary">primary</li>
   <li class="list-group-item list-group-item-secondary">secondary</li>
   <li class="list-group-item list-group-item-success">success</li>
@@ -65,7 +65,7 @@ import ListGroup from 'dojo2-bootstrap/list-group/index';
 import ListItem from 'dojo2-bootstrap/list-item/index';
 
 w(ListGroup, {}, [
-  w(ListItem, {}, ['normal']);
+  w(ListItem, {}, ['default']);
   w(ListItem, { appearance: 'primary' }, ['primary']);
   w(ListItem, { appearance: 'secondary' }, ['secondary']);
   w(ListItem, { appearance: 'success' }, ['success']);
@@ -81,7 +81,7 @@ w(ListGroup, {}, [
 {% raw %}
 <div class="list-group">
   <button type="button" class="list-group-item list-group-item-primary">button</button>
-  <a href="#" class="list-group-item" target="self">link</a>
+  <a href="#" class="list-group-item" target="_self">link</a>
 </div>
 {% endraw %}
 ```TypeScript

@@ -26,7 +26,7 @@ export interface LinkProperties extends SpacingProperties, FlexItemProperties, T
 	href?: string;
 	target?: string;
 	value?: string;
-	isListItem?: boolean;
+	isListItem?: boolean; //当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -66,7 +66,11 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId, href, target, value, isListItem } = this.properties;
+		let { widgetId, href, target, value, isListItem = false, textColor, backgroundColor } = this.properties;
+
+		if (target && target === 'self') {
+			target = '_self';
+		}
 
 		return v(
 			'a',
@@ -74,14 +78,27 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 				id: widgetId,
 				href,
 				target,
-				classes: [
-					isListItem ? 'list-group-item list-group-item-action' : undefined,
-					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
-					...getTextClasses(this.properties),
-					...getColorsClasses(this.properties),
-					...getTextDecorationClass(this.properties)
-				],
+				classes: isListItem
+					? [
+							'list-group-item',
+							'list-group-item-action',
+							...getSpacingClasses(this.properties),
+							...getFlexItemClasses(this.properties),
+							...getTextClasses(this.properties),
+							backgroundColor && backgroundColor !== 'default'
+								? `list-group-item-${backgroundColor}`
+								: textColor && textColor !== 'default'
+									? `list-group-item-${textColor}`
+									: undefined,
+							...getTextDecorationClass(this.properties)
+					  ]
+					: [
+							...getSpacingClasses(this.properties),
+							...getFlexItemClasses(this.properties),
+							...getTextClasses(this.properties),
+							...getColorsClasses(this.properties),
+							...getTextDecorationClass(this.properties)
+					  ],
 				styles: getTextStyles(this.properties)
 			},
 			value ? [value, ...this.children] : this.children

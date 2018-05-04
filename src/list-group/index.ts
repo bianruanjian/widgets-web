@@ -17,7 +17,6 @@ import * as css from './styles/list-group.m.css';
 export interface ListGroupProperties extends SpacingProperties {
 	widgetId?: string;
 	flush?: boolean | string;
-	isListItem?: boolean;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -34,12 +33,27 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 	protected render(): DNode | DNode[] {
 		const { widgetId, flush } = this.properties;
 		let tag: string = 'ul';
+		let childType: any = {
+			listItemType: false,
+			buttonOrLinkType: false
+		};
 
 		this.children.forEach((child, index) => {
-			if (child && ((child as VNode).tag === 'db-link' || (child as VNode).tag === 'db-button')) {
-				tag = 'div';
+			if (child) {
+				const childTag: string = (child as VNode).tag;
+				if (childTag === 'db-link' || childTag === 'db-button') {
+					tag = 'div';
+					childType.buttonOrLinkType = true;
+				}
+				if (childTag === 'db-list-item') {
+					childType.listItemType = true;
+				}
 			}
 		});
+
+		if (childType.buttonOrLinkType && childType.listItemType) {
+			console.error('ListItem and Button or Link can not be allowed at the same time in the ListGroup widget');
+		}
 
 		return v(
 			tag,
