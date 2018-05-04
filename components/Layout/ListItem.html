@@ -7,17 +7,17 @@
   
   <title>ListItem | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="列表项 基本用法active    not active   active   1234&amp;lt;db-list-group&amp;gt;  &amp;lt;db-list-item&amp;gt;not active&amp;lt;/db-list-item&amp;gt;  &amp;lt;db-list-item active=&quot;true&quot;&amp;gt;active&amp;lt;/db-list-item&amp;gt;&amp;lt;/db-list-group&amp;">
+  <meta name="description" content="列表项 基本用法active    not active   active   12345678import &amp;#123; w &amp;#125; from &apos;@dojo/widget-core/d&apos;;import ListGroup from &apos;dojo2-bootstrap/list-group/index&apos;;import ListItem from &apos;dojo2-bootstrap/list-it">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ListItem">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Layout/ListItem.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="列表项 基本用法active    not active   active   1234&amp;lt;db-list-group&amp;gt;  &amp;lt;db-list-item&amp;gt;not active&amp;lt;/db-list-item&amp;gt;  &amp;lt;db-list-item active=&quot;true&quot;&amp;gt;active&amp;lt;/db-list-item&amp;gt;&amp;lt;/db-list-group&amp;">
+<meta property="og:description" content="列表项 基本用法active    not active   active   12345678import &amp;#123; w &amp;#125; from &apos;@dojo/widget-core/d&apos;;import ListGroup from &apos;dojo2-bootstrap/list-group/index&apos;;import ListItem from &apos;dojo2-bootstrap/list-it">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T01:16:23.758Z">
+<meta property="og:updated_time" content="2018-05-04T08:41:34.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ListItem">
-<meta name="twitter:description" content="列表项 基本用法active    not active   active   1234&amp;lt;db-list-group&amp;gt;  &amp;lt;db-list-item&amp;gt;not active&amp;lt;/db-list-item&amp;gt;  &amp;lt;db-list-item active=&quot;true&quot;&amp;gt;active&amp;lt;/db-list-item&amp;gt;&amp;lt;/db-list-group&amp;">
+<meta name="twitter:description" content="列表项 基本用法active    not active   active   12345678import &amp;#123; w &amp;#125; from &apos;@dojo/widget-core/d&apos;;import ListGroup from &apos;dojo2-bootstrap/list-group/index&apos;;import ListItem from &apos;dojo2-bootstrap/list-it">
   
   
     <link rel="icon" href="/favicon.png">
@@ -299,16 +299,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Border.html">
-                    Border
+                <a href="/dojo2-bootstrap/components/Utilities/Colors.html">
+                    Colors
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Colors.html">
-                    Colors
+                <a href="/dojo2-bootstrap/components/Utilities/Border.html">
+                    Border
                 </a>
             </li>
         
@@ -331,16 +331,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
+                    Text
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
-                    Text
+                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
@@ -373,40 +373,40 @@
       
         <p>列表项</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="active"><a href="#active" class="headerlink" title="active"></a>active</h3>
-<db-list-group>
-  <db-list-item>not active</db-list-item>
-  <db-list-item active="true">active</db-list-item>
-</db-list-group>
+<ul class="list-group">
+  <li class="list-group-item">not active</li>
+  <li class="list-group-item active">active</li>
+</ul>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-list-group</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span>&gt;</span>not active<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">active</span>=<span class="string">"true"</span>&gt;</span>active<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-list-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; w &#125; <span class="keyword">from</span> <span class="string">'@dojo/widget-core/d'</span>;</span><br><span class="line"><span class="keyword">import</span> ListGroup <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/list-group/index'</span>;</span><br><span class="line"><span class="keyword">import</span> ListItem <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/list-item/index'</span>;</span><br><span class="line"></span><br><span class="line">w(ListGroup, &#123;&#125;, [</span><br><span class="line">  w(ListItem, &#123;&#125;, [<span class="string">'not active'</span>]);</span><br><span class="line">  w(ListItem, &#123; active: <span class="literal">true</span> &#125;, [<span class="string">'active'</span>]);</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 <h3 id="disabled"><a href="#disabled" class="headerlink" title="disabled"></a>disabled</h3>
-<db-list-group>
-  <db-list-item>normal</db-list-item>
-  <db-list-item disabled="true">disabled</db-list-item>
-</db-list-group>
+<ul class="list-group">
+  <li class="list-group-item">default</li>
+  <li class="list-group-item disabled">disabled</li>
+</ul>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-list-group</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span>&gt;</span>normal<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">disabled</span>=<span class="string">"true"</span>&gt;</span>disabled<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-list-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; w &#125; <span class="keyword">from</span> <span class="string">'@dojo/widget-core/d'</span>;</span><br><span class="line"><span class="keyword">import</span> ListGroup <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/list-group/index'</span>;</span><br><span class="line"><span class="keyword">import</span> ListItem <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/list-item/index'</span>;</span><br><span class="line"></span><br><span class="line">w(ListGroup, &#123;&#125;, [</span><br><span class="line">  w(ListItem, &#123;&#125;, [<span class="string">'default'</span>]);</span><br><span class="line">  w(ListItem, &#123; disabled: <span class="literal">true</span> &#125;, [<span class="string">'disabled'</span>]);</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 <h3 id="appearance"><a href="#appearance" class="headerlink" title="appearance"></a>appearance</h3>
-<db-list-group>
-  <db-list-item>normal</db-list-item>
-  <db-list-item appearance="primary">primary</db-list-item>
-  <db-list-item appearance="secondary">secondary</db-list-item>
-  <db-list-item appearance="success">success</db-list-item>
-  <db-list-item appearance="danger">danger</db-list-item>
-  <db-list-item appearance="warning">warning</db-list-item>
-  <db-list-item appearance="info">info</db-list-item>
-  <db-list-item appearance="light">light</db-list-item>
-  <db-list-item appearance="dark">dark</db-list-item>
-</db-list-group>
+<ul class="list-group">
+  <li class="list-group-item">default</li>
+  <li class="list-group-item list-group-item-primary">primary</li>
+  <li class="list-group-item list-group-item-secondary">secondary</li>
+  <li class="list-group-item list-group-item-success">success</li>
+  <li class="list-group-item list-group-item-danger">danger</li>
+  <li class="list-group-item list-group-item-warning">warning</li>
+  <li class="list-group-item list-group-item-info">info</li>
+  <li class="list-group-item list-group-item-light">light</li>
+  <li class="list-group-item list-group-item-dark">dark</li>
+</ul>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-list-group</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span>&gt;</span>normal<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"primary"</span>&gt;</span>primary<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"secondary"</span>&gt;</span>secondary<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"success"</span>&gt;</span>success<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"danger"</span>&gt;</span>danger<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"warning"</span>&gt;</span>warning<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"info"</span>&gt;</span>info<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"light"</span>&gt;</span>light<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span> <span class="attr">appearance</span>=<span class="string">"dark"</span>&gt;</span>dark<span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-list-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; w &#125; <span class="keyword">from</span> <span class="string">'@dojo/widget-core/d'</span>;</span><br><span class="line"><span class="keyword">import</span> ListGroup <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/list-group/index'</span>;</span><br><span class="line"><span class="keyword">import</span> ListItem <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/list-item/index'</span>;</span><br><span class="line"></span><br><span class="line">w(ListGroup, &#123;&#125;, [</span><br><span class="line">  w(ListItem, &#123;&#125;, [<span class="string">'default'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'primary'</span> &#125;, [<span class="string">'primary'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'secondary'</span> &#125;, [<span class="string">'secondary'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'success'</span> &#125;, [<span class="string">'success'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'danger'</span> &#125;, [<span class="string">'danger'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'warning'</span> &#125;, [<span class="string">'warning'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'info'</span> &#125;, [<span class="string">'info'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'light'</span> &#125;, [<span class="string">'light'</span>]);</span><br><span class="line">  w(ListItem, &#123; appearance: <span class="string">'dark'</span> &#125;, [<span class="string">'dark'</span>]);</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 <h3 id="button-and-link"><a href="#button-and-link" class="headerlink" title="button and link"></a>button and link</h3>
-<db-list-group>
-  <db-list-item><db-button value="button" appearance="primary"></db-button></db-list-item>
-  <db-list-item><db-link value="link" target="blank" href="#"></db-link></db-list-item>
-</db-list-group>
+<div class="list-group">
+  <button type="button" class="list-group-item list-group-item-primary">button</button>
+  <a href="#" class="list-group-item" target="_self">link</a>
+</div>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-list-group</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span>&gt;</span><span class="tag">&lt;<span class="name">db-button</span> <span class="attr">value</span>=<span class="string">"button"</span> <span class="attr">appearance</span>=<span class="string">"primary"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-button</span>&gt;</span><span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">db-list-item</span>&gt;</span><span class="tag">&lt;<span class="name">db-link</span> <span class="attr">value</span>=<span class="string">"link"</span> <span class="attr">target</span>=<span class="string">"blank"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-link</span>&gt;</span><span class="tag">&lt;/<span class="name">db-list-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-list-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; w &#125; <span class="keyword">from</span> <span class="string">'@dojo/widget-core/d'</span>;</span><br><span class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/button/index'</span>;</span><br><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">'dojo2-bootstrap/link/index'</span>;</span><br><span class="line"></span><br><span class="line">w(ListGroup, &#123;&#125;, [</span><br><span class="line">  w(Button, &#123; value: <span class="string">'button'</span>, appearance: <span class="string">'primary'</span> &#125;);</span><br><span class="line">  w(Link, &#123; value: <span class="string">'link'</span>, href: <span class="string">'#'</span>, target: <span class="string">'self'</span> &#125;);</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 <h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Flex.html">Flex</a> 中的 flex container 相关属性</li>
 <li><a href="../Utilities/Text.html">Text</a></li>
