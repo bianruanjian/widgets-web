@@ -5,8 +5,21 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { BorderProperties, SpacingProperties, TextProperties } from '../common/interfaces';
-import { getSpacingClasses, getBorderClasses, getTextClasses, getTextStyles } from '../common/util';
+import {
+	BorderProperties,
+	SpacingProperties,
+	TextProperties,
+	FlexContainerProperties,
+	FlexItemProperties
+} from '../common/interfaces';
+import {
+	getSpacingClasses,
+	getBorderClasses,
+	getTextClasses,
+	getTextStyles,
+	getFlexContainerClasses,
+	getFlexItemClasses
+} from '../common/util';
 
 import * as css from './styles/view.m.css';
 
@@ -15,7 +28,12 @@ import * as css from './styles/view.m.css';
  *
  * Properties that can be set on view components
  */
-export interface ViewProperties extends BorderProperties, SpacingProperties, TextProperties {
+export interface ViewProperties
+	extends BorderProperties,
+		SpacingProperties,
+		TextProperties,
+		FlexContainerProperties,
+		FlexItemProperties {
 	widgetId?: string;
 	maxWidth?: number | string;
 }
@@ -48,7 +66,15 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'alignment',
 		'transform',
 		'truncate',
-		'wrap'
+		'wrap',
+		'flexDirection',
+		'reverse',
+		'justifyItems',
+		'alignItems',
+		'flexWrap',
+		'alignContent',
+		'alignSelf',
+		'order'
 	],
 	properties: [],
 	events: []
@@ -83,7 +109,9 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 				classes: [
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
-					...getTextClasses(this.properties)
+					...getTextClasses(this.properties),
+					...getFlexContainerClasses(this.properties),
+					...getFlexItemClasses(this.properties)
 				],
 				styles: { ...getTextStyles(this.properties), ...this._getMaxWidthStyles() }
 			},

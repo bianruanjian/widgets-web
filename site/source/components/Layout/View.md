@@ -44,6 +44,7 @@ tags:
 1. [Border](../Utilities/Border.html)
 1. [Spacing](../Utilities/Spacing.html)
 1. [Text](../Utilities/Text.html)
+1. [Flex](../Utilities/Flex.html)
 
 ## 属性
 
