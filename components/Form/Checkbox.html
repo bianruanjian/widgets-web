@@ -7,17 +7,17 @@
   
   <title>Checkbox | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="复选框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值   string   checked 是否选中 false true, false boolean   label 文本   string">
+  <meta name="description" content="复选框部件 基本用法labelAtfer and checked and size    12&amp;lt;db-checkbox widgetId=&quot;small&quot; name=&quot;demo&quot; value=&quot;1&quot; checked=&quot;true&quot; label=&quot;small&quot; size=&quot;small&quot;&amp;gt;&amp;lt;/db-checkbox&amp;gt;&amp;lt;db-checkbox widgetId=&quot;large&quot;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Checkbox">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Form/Checkbox.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="复选框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值   string   checked 是否选中 false true, false boolean   label 文本   string">
+<meta property="og:description" content="复选框部件 基本用法labelAtfer and checked and size    12&amp;lt;db-checkbox widgetId=&quot;small&quot; name=&quot;demo&quot; value=&quot;1&quot; checked=&quot;true&quot; label=&quot;small&quot; size=&quot;small&quot;&amp;gt;&amp;lt;/db-checkbox&amp;gt;&amp;lt;db-checkbox widgetId=&quot;large&quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T08:41:34.772Z">
+<meta property="og:updated_time" content="2018-05-07T03:52:07.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Checkbox">
-<meta name="twitter:description" content="复选框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值   string   checked 是否选中 false true, false boolean   label 文本   string">
+<meta name="twitter:description" content="复选框部件 基本用法labelAtfer and checked and size    12&amp;lt;db-checkbox widgetId=&quot;small&quot; name=&quot;demo&quot; value=&quot;1&quot; checked=&quot;true&quot; label=&quot;small&quot; size=&quot;small&quot;&amp;gt;&amp;lt;/db-checkbox&amp;gt;&amp;lt;db-checkbox widgetId=&quot;large&quot;">
   
   
     <link rel="icon" href="/favicon.png">
@@ -26,6 +26,7 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
+  <script src="//use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
   <link href="//cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/button/button-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/container/container-1.0.0.css">
@@ -35,6 +36,20 @@
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/image/image-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/text/text-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/label/label-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/text-input/text-input-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/input-group/input-group-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/addon/addon-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/textarea/textarea-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/badge/badge-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/card/card-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/checkbox/checkbox-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/footer/footer-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/icon/icon-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/link/link-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/list-group/list-group-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/list-item/list-item-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/radio/radio-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/select/select-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/main.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/style.css">
 </head>
@@ -299,16 +314,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Colors.html">
-                    Colors
+                <a href="/dojo2-bootstrap/components/Utilities/Border.html">
+                    Border
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Border.html">
-                    Border
+                <a href="/dojo2-bootstrap/components/Utilities/Colors.html">
+                    Colors
                 </a>
             </li>
         
@@ -331,16 +346,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
-                    Text
+                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
+                    Text
                 </a>
             </li>
         
@@ -372,7 +387,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>复选框部件</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="labelAtfer-and-checked-and-size"><a href="#labelAtfer-and-checked-and-size" class="headerlink" title="labelAtfer and checked and size"></a>labelAtfer and checked and size</h3>
+<db-checkbox widgetid="small" name="demo" value="1" checked="true" label="small" size="small"></db-checkbox>
+<db-checkbox widgetid="large" name="demo" value="2" checked="false" label="large" labelafter="false" disabled="false" size="large"></db-checkbox>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-checkbox</span> <span class="attr">widgetId</span>=<span class="string">"small"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">value</span>=<span class="string">"1"</span> <span class="attr">checked</span>=<span class="string">"true"</span> <span class="attr">label</span>=<span class="string">"small"</span> <span class="attr">size</span>=<span class="string">"small"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-checkbox</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-checkbox</span> <span class="attr">widgetId</span>=<span class="string">"large"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">checked</span>=<span class="string">"false"</span> <span class="attr">label</span>=<span class="string">"large"</span> <span class="attr">labelAfter</span>=<span class="string">"false"</span> <span class="attr">size</span>=<span class="string">"large"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-checkbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="fluid"><a href="#fluid" class="headerlink" title="fluid"></a>fluid</h3>
+<db-checkbox widgetid="fluidcheckbox1" name="demo" value="1" fluid="true" label="fluid demo1"></db-checkbox>
+<db-checkbox widgetid="fluidcheckbox2" name="demo" value="1" fluid="true" label="fluid demo2"></db-checkbox>
+<db-checkbox widgetid="normal1" name="demo" value="2" fluid="false" label="normal demo1"></db-checkbox>
+<db-checkbox widgetid="normal2" name="demo" value="2" fluid="false" label="normal demo2"></db-checkbox>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-checkbox</span> <span class="attr">widgetId</span>=<span class="string">"fluid1"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">value</span>=<span class="string">"1"</span> <span class="attr">fluid</span>=<span class="string">"true"</span> <span class="attr">label</span>=<span class="string">"fluid demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-checkbox</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-checkbox</span> <span class="attr">widgetId</span>=<span class="string">"fluid2"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">value</span>=<span class="string">"1"</span> <span class="attr">fluid</span>=<span class="string">"true"</span> <span class="attr">label</span>=<span class="string">"fluid demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-checkbox</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-checkbox</span> <span class="attr">widgetId</span>=<span class="string">"normal1"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">fluid</span>=<span class="string">"false"</span> <span class="attr">label</span>=<span class="string">"normal demo1"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-checkbox</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-checkbox</span> <span class="attr">widgetId</span>=<span class="string">"normal2"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">fluid</span>=<span class="string">"false"</span> <span class="attr">label</span>=<span class="string">"normal demo2"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-checkbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Spacing.html">Spacing</a></li>
 <li><a href="../Utilities/Flex.html">Flex</a> 中的 Flex item 相关属性</li>
 <li><a href="../Utilities/Float.html">Float</a></li>
@@ -540,6 +567,20 @@
   <script src="/dojo2-bootstrap/js/components/image/image-1.0.0.js"></script>
   <script src="/dojo2-bootstrap/js/components/text/text-1.0.0.js"></script>
   <script src="/dojo2-bootstrap/js/components/label/label-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/text-input/text-input-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/input-group/input-group-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/addon/addon-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/textarea/textarea-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/badge/badge-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/card/card-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/checkbox/checkbox-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/footer/footer-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/icon/icon-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/link/link-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/list-group/list-group-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/list-item/list-item-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/radio/radio-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/select/select-1.0.0.js"></script>
   </div>
 </body>
 </html>

@@ -7,17 +7,17 @@
   
   <title>Select | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="下拉框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值   string   label 文本   string   disabled 失效 false true, false boolean">
+  <meta name="description" content="下拉框部件 基本用法   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; disabled=&quot;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Select">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Form/Select.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="下拉框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值   string   label 文本   string   disabled 失效 false true, false boolean">
+<meta property="og:description" content="下拉框部件 基本用法   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; disabled=&quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T08:41:34.772Z">
+<meta property="og:updated_time" content="2018-05-07T03:52:07.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Select">
-<meta name="twitter:description" content="下拉框部件 基本用法通用属性 Spacing Flex 中的 Flex item 相关属性 Float  属性   名称 说明 默认值 可选值 值类型     widgetId 标识   string   name 名称   string   value 值   string   label 文本   string   disabled 失效 false true, false boolean">
+<meta name="twitter:description" content="下拉框部件 基本用法   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; disabled=&quot;">
   
   
     <link rel="icon" href="/favicon.png">
@@ -26,6 +26,7 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
+  <script src="//use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
   <link href="//cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/button/button-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/container/container-1.0.0.css">
@@ -35,6 +36,20 @@
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/image/image-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/text/text-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/components/label/label-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/text-input/text-input-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/input-group/input-group-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/addon/addon-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/textarea/textarea-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/badge/badge-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/card/card-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/checkbox/checkbox-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/footer/footer-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/icon/icon-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/link/link-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/list-group/list-group-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/list-item/list-item-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/radio/radio-1.0.0.css">
+  <link rel="stylesheet" href="/dojo2-bootstrap/css/components/select/select-1.0.0.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/main.css">
   <link rel="stylesheet" href="/dojo2-bootstrap/css/style.css">
 </head>
@@ -299,16 +314,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Colors.html">
-                    Colors
+                <a href="/dojo2-bootstrap/components/Utilities/Border.html">
+                    Border
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Border.html">
-                    Border
+                <a href="/dojo2-bootstrap/components/Utilities/Colors.html">
+                    Colors
                 </a>
             </li>
         
@@ -331,16 +346,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
-                    Text
+                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
+                    Text
                 </a>
             </li>
         
@@ -372,7 +387,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>下拉框部件</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2>
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]" widgetid="random-id" name="demo" label="demo" disabled="false" labelfield="label" valuefield="value" margintop="3" marginbottom="3"></db-select>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-select</span> <span class="attr">options</span>=<span class="string">"[&#123;'value': 'value1', 'label': 'label1'&#125;, &#123;'value': 'value2', 'label': 'label2'&#125;]"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">widgetId</span>=<span class="string">"random-id"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"demo"</span> <span class="attr">disabled</span>=<span class="string">"false"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">labelField</span>=<span class="string">"label"</span> <span class="attr">valueField</span>=<span class="string">"value"</span> <span class="attr">marginTop</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Spacing.html">Spacing</a></li>
 <li><a href="../Utilities/Flex.html">Flex</a> 中的 Flex item 相关属性</li>
 <li><a href="../Utilities/Float.html">Float</a></li>
@@ -555,6 +574,20 @@
   <script src="/dojo2-bootstrap/js/components/image/image-1.0.0.js"></script>
   <script src="/dojo2-bootstrap/js/components/text/text-1.0.0.js"></script>
   <script src="/dojo2-bootstrap/js/components/label/label-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/text-input/text-input-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/input-group/input-group-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/addon/addon-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/textarea/textarea-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/badge/badge-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/card/card-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/checkbox/checkbox-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/footer/footer-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/icon/icon-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/link/link-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/list-group/list-group-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/list-item/list-item-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/radio/radio-1.0.0.js"></script>
+  <script src="/dojo2-bootstrap/js/components/select/select-1.0.0.js"></script>
   </div>
 </body>
 </html>
