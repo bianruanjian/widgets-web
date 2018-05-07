@@ -11,6 +11,7 @@ describe('GridColumn', () => {
 
 	let defaultProperties: GridColumnProperties = {
 		offset: "default",
+		colspan: 'default',
 		borderLeft: false,
 		borderTop: false,
 		borderRight: false,
@@ -45,6 +46,7 @@ describe('GridColumn', () => {
 	let customProperties: GridColumnProperties = {
 		widgetId: "random-id",
 		offset: 1,
+		colspan: 2,
 		borderLeft: true,
 		borderTop: true,
 		borderRight: true,
@@ -97,7 +99,7 @@ describe('GridColumn', () => {
 		const h = harness(() => w(GridColumn, customProperties));
 		const textDecorationClass = textDecorationMap['underline'];
 		h.expect(() => v('div',{ id: "random-id", classes: [
-			'col',
+			'col-2',
 			"offset-1",
 			'border',
 			'border-primary',

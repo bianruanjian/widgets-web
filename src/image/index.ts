@@ -16,15 +16,15 @@ import * as css from './styles/image.m.css';
  */
 export interface ImageProperties extends SpacingProperties {
 	widgetId?: string;
-	fluid?: boolean;
-	thumbnail?: boolean;
+	fluid?: boolean | string;
+	thumbnail?: boolean | string;
 	src?: string;
 	alt?: string;
 	width?: number | string;
 	height?: number | string;
 	alignment?: string;
 	borderRound?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -55,52 +55,44 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class Image<P extends ImageProperties = ImageProperties> extends ThemedBase<P> {
-
-	private _getImgClasses(): string[]{
-		let{
-			fluid,
-			thumbnail,
-			alignment
-		} = this.properties;
+	private _getImgClasses(): string[] {
+		let { fluid, thumbnail, alignment } = this.properties;
 		const cssClasses: string[] = [];
-		if(fluid){
+		if (fluid === true || fluid === 'true') {
 			cssClasses.push('img-fluid');
 		}
 
-		if(thumbnail){
+		if (thumbnail === true || thumbnail === 'true') {
 			cssClasses.push('img-thumbnail');
 		}
 
-		if(alignment && alignment !== "default"){
-			if(alignment === "center"){
+		if (alignment && alignment !== 'default') {
+			if (alignment === 'center') {
 				cssClasses.push('mx-auto');
 				cssClasses.push('d-block');
 			} else {
 				cssClasses.push(`float-${alignment}`);
-			}	
+			}
 		}
 
 		return cssClasses;
 	}
 
 	private _getImgStyles() {
-		let{
-			width,
-			height,
-		} = this.properties;
+		let { width, height } = this.properties;
 
 		let cssStyles: any = {};
 
-		if(width && width !== "auto"){
-			if(typeof width === "number" || (width as string).indexOf("%") === -1){
+		if (width && width !== 'auto') {
+			if (typeof width === 'number' || (width as string).indexOf('%') === -1) {
 				cssStyles.width = `${width}px`;
 			} else {
 				cssStyles.width = `${width}`;
 			}
 		}
 
-		if(height && height !== "auto"){
-			if(typeof height === "number" || (height as string).indexOf("%") === -1 ){
+		if (height && height !== 'auto') {
+			if (typeof height === 'number' || (height as string).indexOf('%') === -1) {
 				cssStyles.height = `${height}px`;
 			} else {
 				cssStyles.height = `${height}`;
@@ -111,11 +103,7 @@ export class Image<P extends ImageProperties = ImageProperties> extends ThemedBa
 	}
 
 	protected render(): DNode | DNode[] {
-		let{
-			widgetId,
-			src,
-			alt
-		} = this.properties;
+		let { widgetId, src, alt } = this.properties;
 
 		return v(
 			'img',

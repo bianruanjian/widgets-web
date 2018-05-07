@@ -10,6 +10,38 @@ tags:
 
 ## 基本用法
 
+
+### normal
+{% raw %}
+<db-container>
+    <db-text-input name="val" widgetId="random-id" marginTop="2" alignSelf="start" type="text" password="true" label="normal" placeholder="write down" required="true" maxLength="6"   invalidMessage="error" focus="true"></db-text-input>
+</db-container>
+{% endraw %}
+```html
+<db-container>
+    <db-text-input name="val" widgetId="random-id" alignSelf="start" marginTop="2"
+    type="text" password="true" label="normal" placeholder="write down" 
+    required="true" maxLength="6" invalidMessage="error" focus="true">
+    </db-text-input>
+</db-container>
+```
+
+### readOnly
+{% raw %}
+<db-container>
+    <db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="readOnly" readOnly="true"
+    placeholder="write down" invalidMessage="error" value="readOnly value"></db-text-input>
+</db-container>
+{% endraw %}
+```html
+<db-container>
+    <db-text-input name="val" widgetId="randomz-id" marginTop="2" readOnly="true"
+    type="text" label="readOnly" placeholder="write down" 
+    invalidMessage="error" value="readOnly value">
+    </db-text-input>
+</db-container>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
