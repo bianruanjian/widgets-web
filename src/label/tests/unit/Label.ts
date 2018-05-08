@@ -9,7 +9,8 @@ describe('Label', () => {
 	let customProperties: LabelProperties = {
 		widgetId: 'random-id',
 		value: 'label',
-		forId: 'id'
+		forId: 'id',
+		classes: 'test'
 	};
 
 	it('should construct label', () => {
@@ -20,7 +21,8 @@ describe('Label', () => {
 				{
 					id: undefined,
 					key: 'label',
-					for: undefined
+					for: undefined,
+					classes: undefined
 				},
 				[]
 			)
@@ -35,7 +37,8 @@ describe('Label', () => {
 				{
 					id: 'random-id',
 					key: 'label',
-					for: 'id'
+					for: 'id',
+					classes: ['test']
 				},
 				['label']
 			)

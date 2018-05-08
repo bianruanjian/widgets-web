@@ -2,6 +2,7 @@ const { describe, it } = intern.getInterface('bdd');
 import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 import Checkbox, { CheckboxProperties } from './../../index';
+import { Label } from '../../../label';
 
 describe('Checkbox', () => {
 	const defaultProperties: CheckboxProperties = {
@@ -59,7 +60,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: ['form-check', '', 'form-check-inline']
+					classes: ['form-check', undefined, 'form-check-inline']
 				},
 				[
 					v('input', {
@@ -118,7 +119,7 @@ describe('Checkbox', () => {
 					classes: [
 						'form-check',
 						'form-control-sm',
-						'',
+						undefined,
 						'my-0',
 						'mx-1',
 						'py-0',
@@ -129,21 +130,11 @@ describe('Checkbox', () => {
 					]
 				},
 				[
-					v(
-						'label',
-						{
-							for: 'random-id',
-							classes: ['form-check-label']
-						},
-						['demo']
-					),
-					v(
-						'div',
-						{
-							classes: ['invalid-tooltip']
-						},
-						['invalid-tip']
-					),
+					w(Label, {
+						classes: 'form-check-label',
+						forId: 'random-id',
+						value: 'demo'
+					}),
 					v('input', {
 						type: 'checkbox',
 						id: 'random-id',
@@ -154,7 +145,14 @@ describe('Checkbox', () => {
 						required: true,
 						readOnly: true,
 						classes: ['form-check-input']
-					})
+					}),
+					v(
+						'div',
+						{
+							classes: ['invalid-tooltip']
+						},
+						['invalid-tip']
+					)
 				]
 			)
 		);

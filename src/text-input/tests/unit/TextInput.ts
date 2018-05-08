@@ -13,7 +13,7 @@ describe('TextInput', () => {
 		disabled: false,
 		readOnly: false,
 		size: 'default',
-		focus: false,
+		shouldFocus: false,
 		plainText: false,
 		marginTop: 'default',
 		marginBottom: 'default',
@@ -41,7 +41,7 @@ describe('TextInput', () => {
 		disabled: true,
 		readOnly: true,
 		size: 'small',
-		focus: true,
+		shouldFocus: true,
 		plainText: true,
 		maxLength: 5,
 		minLength: 5,
@@ -83,7 +83,6 @@ describe('TextInput', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['form-control'],
-				autofocus: false,
 				oninput: () => {},
 				onchange: () => {}
 			}),
@@ -108,7 +107,6 @@ describe('TextInput', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['', 'form-control'],
-				autofocus: false,
 				oninput: () => {},
 				onchange: () => {}
 			}),
@@ -151,7 +149,6 @@ describe('TextInput', () => {
 					'order-0',
 					'float-none'
 				],
-				autofocus: true,
 				oninput: () => {
 					'1';
 				},
@@ -167,5 +164,30 @@ describe('TextInput', () => {
 				['invalid message']
 			)
 		]);
+	});
+
+	it('child is file', () => {
+		const h = harness(() => w(TextInput, { type: 'file' }));
+		h.expect(() =>
+			v(
+				'div',
+				{
+					classes: ['custom-file']
+				},
+				[
+					v('input', {
+						id: undefined,
+						key: 'text-input',
+						name: undefined,
+						type: 'file',
+						disabled: false,
+						classes: ['custom-file-input'],
+						onchange: () => {}
+					}),
+					null,
+					null
+				]
+			)
+		);
 	});
 });

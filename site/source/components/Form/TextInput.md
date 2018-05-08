@@ -11,35 +11,66 @@ tags:
 ## 基本用法
 
 
-### normal
+### default
 {% raw %}
-<db-container>
-    <db-text-input name="val" widgetId="random-id" marginTop="2" alignSelf="start" type="text" password="true" label="normal" placeholder="write down" required="true" maxLength="6"   invalidMessage="error" focus="true"></db-text-input>
-</db-container>
+<db-text-input name="val" widgetId="random-id" marginTop="2" alignSelf="start" type="text" label="default" placeholder="demo" required="true" maxLength="6"   invalidMessage="error" shouldFocus="true"></db-text-input>
 {% endraw %}
 ```html
-<db-container>
-    <db-text-input name="val" widgetId="random-id" alignSelf="start" marginTop="2"
-    type="text" password="true" label="normal" placeholder="write down" 
-    required="true" maxLength="6" invalidMessage="error" focus="true">
-    </db-text-input>
-</db-container>
+<db-text-input name="val" widgetId="random-id" marginTop="2" alignSelf="start" type="text" 
+label="default" placeholder="demo" required="true" maxLength="6" 
+invalidMessage="error" shouldFocus="true"></db-text-input>
+```
+
+### type
+{% raw %}
+<db-text-input name="val" type="text" label="text" value="text"></db-text-input>
+<db-text-input name="val" type="text" password="true" label="password" value="password"></db-text-input>
+<db-text-input name="val" type="email" label="email" value="email"></db-text-input>
+<db-text-input name="val" type="number" label="number" value="666"></db-text-input>
+<db-text-input name="val" type="file" label="choose file"></db-text-input>
+<db-text-input name="val" type="idCard" label="idCard"></db-text-input>
+<db-text-input name="val" type="digit" label="digit"></db-text-input>
+{% endraw %}
+```html
+<db-text-input name="val" type="text" label="text" value="text"></db-text-input>
+<db-text-input name="val" type="text" password="true" label="password" value="password"></db-text-input>
+<db-text-input name="val" type="email" label="email" value="email"></db-text-input>
+<db-text-input name="val" type="number" label="number" value="666"></db-text-input>
+<db-text-input name="val" type="file" label="choose file"></db-text-input>
+<db-text-input name="val" type="idCard" label="idCard"></db-text-input>
+<db-text-input name="val" type="digit" label="digit"></db-text-input>
+```
+
+### size
+{% raw %}
+<db-text-input name="val" type="text" label="small" value="small" size="small"></db-text-input>
+<db-text-input name="val" type="text" label="default" value="default" size="default"></db-text-input>
+<db-text-input name="val" type="text" label="large" value="large" size="large"></db-text-input>
+{% endraw %}
+```html
+<db-text-input name="val" type="text" label="small" value="small" size="small"></db-text-input>
+<db-text-input name="val" type="text" label="default" value="default" size="default"></db-text-input>
+<db-text-input name="val" type="text" label="large" value="large" size="large"></db-text-input>
 ```
 
 ### readOnly
 {% raw %}
-<db-container>
-    <db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="readOnly" readOnly="true"
-    placeholder="write down" invalidMessage="error" value="readOnly value"></db-text-input>
-</db-container>
+<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="readOnly" readOnly="true"
+    invalidMessage="error" value="readOnly value"></db-text-input>
 {% endraw %}
 ```html
-<db-container>
-    <db-text-input name="val" widgetId="randomz-id" marginTop="2" readOnly="true"
-    type="text" label="readOnly" placeholder="write down" 
-    invalidMessage="error" value="readOnly value">
-    </db-text-input>
-</db-container>
+<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="readOnly" readOnly="true"
+    invalidMessage="error" value="readOnly value"></db-text-input>
+```
+
+### plain text
+{% raw %}
+<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="plainText" readOnly="true"
+     plainText="true" invalidMessage="error" value="plainText value"></db-text-input>
+{% endraw %}
+```html
+<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="plainText" readOnly="true"
+     plainText="true" invalidMessage="error" value="plainText value"></db-text-input>
 ```
 
 ## 通用属性
@@ -54,7 +85,7 @@ tags:
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
 | name | 名称 | | | string |
-| type | 类型 | default | text, email, number, idCard, digit(必须带小数点), default | string |
+| type | 类型 | default | text, email, number, file, idCard, digit(必须带小数点), default | string |
 | password | 密码 | false | true, false | boolean |
 | value | 值 | | | string |
 | label | 文本 | | | string |
@@ -64,7 +95,7 @@ tags:
 | disabled | 失效 | false | true, false | boolean |
 | readOnly | 只读 | false | true, false | boolean |
 | size | 尺寸 | default | small, large, default | string |
-| focus | 获取焦点 | false | true, false | boolean |
+| shouldFocus | 获取焦点 | false | true, false | boolean |
 | plainText | 纯文本(无边框文本) | false | true, false | boolean |
 | maxLength | 最大字符个数 | | | number |
 | minLength | 最小字符个数 | | | number |

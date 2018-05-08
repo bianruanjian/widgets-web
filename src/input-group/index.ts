@@ -61,30 +61,28 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 			sizeClass = `input-group-${sizeMap[size as string]}`;
 		}
 
-		const children: any[] = [
+		return [
 			label
 				? w(Label, {
 						value: label
 				  })
 				: null,
-			...this.children
+			v(
+				'div',
+				{
+					id: widgetId,
+					key: 'input-group',
+					classes: [
+						'input-group',
+						sizeClass,
+						...getSpacingClasses(this.properties),
+						...getFlexItemClasses(this.properties),
+						...getFloatClass(this.properties)
+					]
+				},
+				this.children
+			)
 		];
-
-		return v(
-			'div',
-			{
-				id: widgetId,
-				key: 'input-group',
-				classes: [
-					'input-group',
-					sizeClass,
-					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
-					...getFloatClass(this.properties)
-				]
-			},
-			children
-		);
 	}
 }
 

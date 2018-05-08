@@ -14,7 +14,7 @@ describe('Textarea', () => {
 		disabled: false,
 		readOnly: false,
 		noResize: false,
-		autofocus: false,
+		shouldFocus: false,
 		plainText: false,
 		marginTop: 'default',
 		marginBottom: 'default',
@@ -42,7 +42,7 @@ describe('Textarea', () => {
 		disabled: true,
 		readOnly: true,
 		size: 'small',
-		autofocus: true,
+		shouldFocus: true,
 		plainText: true,
 		noResize: true,
 		maxLength: 5,
@@ -80,7 +80,6 @@ describe('Textarea', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['form-control'],
-				autofocus: false,
 				styles: {}
 			}),
 			null
@@ -105,7 +104,6 @@ describe('Textarea', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['', 'form-control'],
-				autofocus: false,
 				styles: {}
 			}),
 			null
@@ -148,7 +146,6 @@ describe('Textarea', () => {
 					'order-0',
 					'float-none'
 				],
-				autofocus: true,
 				styles: {
 					resize: 'none'
 				}

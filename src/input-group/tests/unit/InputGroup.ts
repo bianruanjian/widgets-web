@@ -26,7 +26,8 @@ describe('InputGroup', () => {
 
 	it('should construct InputGroup', () => {
 		const h = harness(() => w(InputGroup, {}));
-		h.expect(() =>
+		h.expect(() => [
+			null,
 			v(
 				'div',
 				{
@@ -34,14 +35,15 @@ describe('InputGroup', () => {
 					key: 'input-group',
 					classes: ['input-group', '']
 				},
-				[null]
+				[]
 			)
-		);
+		]);
 	});
 
 	it('custom properties', () => {
 		const h = harness(() => w(InputGroup, customProperties));
-		h.expect(() =>
+		h.expect(() => [
+			w(Label, { value: 'hello' }),
 			v(
 				'div',
 				{
@@ -59,8 +61,8 @@ describe('InputGroup', () => {
 						'float-none'
 					]
 				},
-				[w(Label, { value: 'hello' })]
+				[]
 			)
-		);
+		]);
 	});
 });

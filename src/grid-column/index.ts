@@ -84,7 +84,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class GridColumn<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
-	private _getSelfClasses(): string[] {
+	private _getClasses(): string[] {
 		let { offset, colspan } = this.properties;
 
 		const cssClasses: string[] = [];
@@ -111,7 +111,7 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 				id: widgetId,
 				key: 'grid-column',
 				classes: [
-					...this._getSelfClasses(),
+					...this._getClasses(),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),

@@ -10,6 +10,7 @@ import { getColorsClasses } from '../common/util';
 
 import * as css from './styles/addon.m.css';
 
+export type positionType = 'prepend' | 'append' | 'default';
 /**
  * @type AddonProperties
  *
@@ -18,7 +19,7 @@ import * as css from './styles/addon.m.css';
 export interface AddonProperties extends ColorsProperties {
 	widgetId?: string;
 	value?: string;
-	position?: string;
+	position?: positionType;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);

@@ -16,6 +16,7 @@ export interface LabelProperties {
 	widgetId?: string;
 	value?: string;
 	forId?: string;
+	classes?: string | string[];
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -30,13 +31,14 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Label<P extends LabelProperties = LabelProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let { widgetId, value, forId } = this.properties;
+		let { widgetId, value, forId, classes } = this.properties;
 		return v(
 			'label',
 			{
 				id: widgetId,
 				key: 'label',
-				for: forId
+				for: forId,
+				classes: typeof classes === 'string' ? [classes] : classes
 			},
 			value ? [value, ...this.children] : this.children
 		);

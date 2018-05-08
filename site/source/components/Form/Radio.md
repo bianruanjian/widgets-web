@@ -10,28 +10,42 @@ tags:
 
 ## 基本用法
 
-### labelAtfer and checked and size
+### default
 {% raw %}
-<db-radio widgetId="small" name="demo" value="1" checked="true" label="small" size="small" invalidMessage="error"></db-radio>
-<db-radio widgetId="large" name="demo" value="2" checked="false" label="large" labelAfter="false" disabled="false" size="large"></db-radio>
+<db-radio widgetId="defaultDemo" name="demo" value="1" label="default"></db-radio>
 {% endraw%}
 ```html
-<db-radio widgetId="small" name="demo" value="1" checked="true" label="small" size="small"></db-radio>
-<db-radio widgetId="large" name="demo" value="2" checked="false" label="large" labelAfter="false" size="large"></db-radio>
+<db-radio widgetId="default" name="demo" value="1" label="default"></db-radio>
+```
+
+### disabled
+{% raw %}
+<db-radio widgetId="disabled" name="demo" value="1" label="disabled" disabled="true"></db-radio>
+{% endraw%}
+```html
+<db-radio widgetId="disabled" name="demo" value="1" label="disabled" disabled="true"></db-radio>
 ```
 
 ### fluid
 {% raw %}
-<db-radio widgetId="fluidcheckbox1" name="demo" value="1" fluid="true" label="fluid demo1"></db-radio>
-<db-radio widgetId="fluidcheckbox2" name="demo" value="1" fluid="true" label="fluid demo2"></db-radio>
-<db-radio widgetId="normal1" name="demo" value="2" fluid="false" label="normal demo1"></db-radio>
-<db-radio widgetId="normal2" name="demo" value="2" fluid="false" label="normal demo2"></db-radio>
+<db-radio widgetId="fluid1" name="demo" value="1" fluid="true" label="fluid demo1"></db-radio>
+<db-radio widgetId="fluid2" name="demo" value="1" fluid="true" label="fluid demo2"></db-radio>
+<db-radio widgetId="normal1" name="demo" value="2" fluid="false" label="default demo1"></db-radio>
+<db-radio widgetId="normal2" name="demo" value="2" fluid="false" label="default demo2"></db-radio>
 {% endraw%}
 ```html
 <db-radio widgetId="fluid1" name="demo" value="1" fluid="true" label="fluid demo1"></db-radio>
 <db-radio widgetId="fluid2" name="demo" value="1" fluid="true" label="fluid demo2"></db-radio>
-<db-radio widgetId="normal1" name="demo" value="2" fluid="false" label="normal demo1"></db-radio>
-<db-radio widgetId="normal2" name="demo" value="2" fluid="false" label="normal demo2"></db-radio>
+<db-radio widgetId="normal1" name="demo" value="2" fluid="false" label="default demo1"></db-radio>
+<db-radio widgetId="normal2" name="demo" value="2" fluid="false" label="default demo2"></db-radio>
+```
+
+### without label
+{% raw %}
+<db-radio name="demo" value="1"></db-radio>
+{% endraw%}
+```html
+<db-radio name="demo" value="1"></db-radio>
 ```
 
 ## 通用属性

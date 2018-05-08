@@ -12,30 +12,62 @@ tags:
 
 ### size
 {% raw %}
-<db-container>
-    <div class="input-group input-group-sm">
-        <input id="small" name="small" type="text" class="form-control mt-3" value="value">
+<div class="input-group input-group-sm mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Small
+        </div>
     </div>
-    <div class="input-group">
-        <input id="default" name="default" type="text" class="form-control mt-3" value="default">
+    <input id="small" name="small" type="text" class="form-control" value="value">
+</div>
+<div class="input-group mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Default
+        </div>
     </div>
-    <div class="input-group input-group-lg">
-        <input id="large" name="large" type="text" class="form-control mt-3" value="value">
+    <input id="default" name="default" type="text" class="form-control" value="default">
+</div>
+<div class="input-group input-group-lg mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Large
+        </div>
     </div>
-</db-container>
+    <input id="large" name="large" type="text" class="form-control" value="value">
+</div>
 {% endraw %}
 ```html
-<db-container>
-    <db-input-group size="small">
-        <db-text-input name="small" widgetId="small" value="small" type="text" marginTop="3"></db-text-input>
-    </db-input-group>
-    <db-input-group size="default">
-        <db-text-input name="default" widgetId="default" value="default" type="text" marginTop="3"></db-text-input>
-    </db-input-group>
-    <db-input-group size="large">
-        <db-text-input name="large" widgetId="large" value="large" type="text" marginTop="3"></db-text-input>
-    </db-input-group>
-</db-container>  
+<db-input-group size="small">
+    <db-addon>Small</db-addon>
+    <db-text-input name="small" widgetId="small" value="small" type="text"></db-text-input>
+</db-input-group>
+<db-input-group size="default">
+    <db-addon>Default</db-addon>
+    <db-text-input name="default" widgetId="default" value="default" type="text"></db-text-input>
+</db-input-group>
+<db-input-group size="large">
+    <db-addon>Large</db-addon>
+    <db-text-input name="large" widgetId="large" value="large" type="text"></db-text-input>
+</db-input-group>
+```
+
+### Multiple inputs
+{% raw %}
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">First and last name</span>
+  </div>
+  <input type="text" class="form-control">
+  <input type="text" class="form-control">
+</div>
+{% endraw %}
+```html
+<db-input-group>
+    <db-addon>First and last name</db-addon>
+    <db-text-input type="text"></db-text-input>
+    <db-text-input type="text"></db-text-input>
+</db-input-group>
 ```
 
 ## 通用属性

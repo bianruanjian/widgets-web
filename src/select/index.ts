@@ -1,5 +1,5 @@
 import { v, w } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, VNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -31,7 +31,7 @@ export interface SelectProperties
 	name?: string;
 	value?: string;
 	label?: string;
-	plainText?: boolean | string;
+	// TODO: 使用 string 类型还是 any[] 类型
 	options?: string;
 	labelField?: string;
 	valueField?: string;
@@ -52,7 +52,6 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'disabled',
 		'required',
 		'readOnly',
-		'plainText',
 		'options',
 		'labelField',
 		'valueField',
@@ -85,7 +84,6 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			disabled,
 			required,
 			readOnly,
-			plainText,
 			options,
 			labelField,
 			valueField,
@@ -103,18 +101,15 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			cssClasses.push(formSizeMap[size as string]);
 		}
 
-		if (plainText || readOnly) {
-			cssClasses.push('form-control-plaintext');
-		} else {
-			cssClasses.push('form-control');
-		}
+		cssClasses.push('form-control');
 
-		const children: DNode[] = [];
+		let children: DNode[] = [];
 
 		if (options) {
-			let optionJsons: any[] = eval(options as string);
-			optionJsons.forEach((option, index) => {
-				const child: DNode = v(
+			// 不使用 JSON.parse() 将 json 转为数组的原因是 JSON.parse() 不支持单引号 ',且不支持转移符
+			let optionJson: any[] = eval(options as string);
+			const childJsons: VNode[] = optionJson.map((option, index) => {
+				return v(
 					'option',
 					{
 						value: option[valueField],
@@ -122,8 +117,8 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 					},
 					[option[labelField]]
 				);
-				children.push(child);
 			});
+			children = childJsons;
 		}
 
 		if (dataPath) {
@@ -157,7 +152,7 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 	protected render(): DNode | DNode[] {
 		const { widgetId, label } = this.properties;
 
-		const children = [
+		return [
 			label
 				? w(
 						Label,
@@ -170,8 +165,6 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 				: null,
 			...this.renderSelectWrapper()
 		];
-
-		return children;
 	}
 }
 

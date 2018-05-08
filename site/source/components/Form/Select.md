@@ -10,6 +10,7 @@ tags:
 
 ## 基本用法
 
+### default
 {% raw %}
 <db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
     widgetId="random-id" name="demo" label="demo" disabled="false" 
@@ -19,6 +20,18 @@ tags:
 <db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
     widgetId="random-id" name="demo" label="demo" disabled="false" 
     labelField="label" valueField="value" marginTop="3"></db-select>
+```
+
+### disabled
+{% raw %}
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
+    widgetId="disabled" name="demo" label="disabled" disabled="true" 
+    labelField="label" valueField="value" marginTop="3" marginBottom="3"></db-select>
+{% endraw %}
+```html
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
+    widgetId="disabled" name="demo" label="disabled" disabled="true" 
+    labelField="label" valueField="value" marginTop="3" marginBottom="3"></db-select>
 ```
 
 ## 通用属性
@@ -38,7 +51,6 @@ tags:
 | disabled | 失效 | false | true, false | boolean |
 | required | 必填 | false | true, false | boolean |
 | readOnly | 只读 | false | true, false | boolean |
-| plainText | 纯文本(无边框文本) | false | true, false | boolean |
 | options | 选项 | | | json array |
 | labelField | 显示字段 | label | | string |
 | valueField | 隐藏字段 | value | | string |

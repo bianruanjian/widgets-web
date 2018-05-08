@@ -1,4 +1,4 @@
-import { v } from '@dojo/widget-core/d';
+import { v, w } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
@@ -13,6 +13,7 @@ import {
 import { renderMessageNode, formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass } from '../common/util';
 
 import * as css from './styles/checkbox.m.css';
+import { Label } from '../label';
 
 /**
  * @type CheckboxProperties
@@ -93,38 +94,16 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId, label, size, labelAfter = true, fluid } = this.properties;
+		const { widgetId, label, size, labelAfter, fluid } = this.properties;
 
-		const children: DNode[] =
-			labelAfter === true || labelAfter === 'true'
-				? [
-						this.renderCheckbox(),
-						label
-							? v(
-									'label',
-									{
-										for: widgetId,
-										classes: ['form-check-label']
-									},
-									[label]
-							  )
-							: null,
-						renderMessageNode(this.properties)
-				  ]
-				: [
-						label
-							? v(
-									'label',
-									{
-										for: widgetId,
-										classes: ['form-check-label']
-									},
-									[label]
-							  )
-							: null,
-						renderMessageNode(this.properties),
-						this.renderCheckbox()
-				  ];
+		let children: DNode[] = [
+			this.renderCheckbox(),
+			label ? w(Label, { value: label, forId: widgetId, classes: 'form-check-label' }) : null
+		];
+		if (labelAfter === false || labelAfter === 'false') {
+			children = children.reverse();
+		}
+		children.push(renderMessageNode(this.properties));
 
 		return v(
 			'div',
@@ -132,8 +111,8 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 				key: 'checkbox',
 				classes: [
 					'form-check',
-					size ? formSizeMap[size as string] : '',
-					fluid === true || fluid === 'true' ? '' : 'form-check-inline',
+					size ? formSizeMap[size as string] : undefined,
+					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
 					...getSpacingClasses(this.properties),
 					...getFlexItemClasses(this.properties),
 					...getFloatClass(this.properties)

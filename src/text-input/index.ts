@@ -3,6 +3,7 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+import Focus from '@dojo/widget-core/meta/Focus';
 import {
 	SpacingProperties,
 	FlexItemProperties,
@@ -15,7 +16,7 @@ import { getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode
 
 import * as css from './styles/text-input.m.css';
 
-export type TextInputType = 'text' | 'email' | 'number' | 'password' | 'idCard' | 'digit' | 'default';
+export type TextInputType = 'text' | 'email' | 'number' | 'file' | 'password' | 'idCard' | 'digit' | 'default';
 /**
  * @type TextInputProperties
  *
@@ -36,7 +37,7 @@ export interface TextInputProperties
 	placeholder?: string;
 	placeholderAppearance?: string;
 	size?: string;
-	focus?: boolean | string;
+	shouldFocus?: boolean | string;
 	plainText?: boolean | string;
 	maxLength?: number;
 	minLength?: number;
@@ -61,7 +62,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'disabled',
 		'readOnly',
 		'size',
-		'focus',
+		'shouldFocus',
 		'plainText',
 		'maxLength',
 		'minLength',
@@ -108,11 +109,15 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			maxLength,
 			minLength,
 			size,
-			focus,
+			shouldFocus,
 			plainText
 		} = this.properties;
 
 		const cssClasses: string[] = [];
+
+		if (shouldFocus) {
+			this.meta(Focus).set('text-input');
+		}
 
 		if (password === true || password === 'true') {
 			type = 'password';
@@ -126,7 +131,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			cssClasses.push(formSizeMap[size as string]);
 		}
 
-		if (plainText === true || plainText === 'true' || readOnly === true || readOnly === 'true') {
+		if (plainText === true || plainText === 'true') {
 			cssClasses.push('form-control-plaintext');
 		} else {
 			cssClasses.push('form-control');
@@ -152,7 +157,6 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 					...getFlexItemClasses(this.properties),
 					...getFloatClass(this.properties)
 				],
-				autofocus: focus === true || focus === 'true' ? true : false,
 				oninput: this._onInput,
 				onchange: this._onChange
 			},
@@ -165,9 +169,42 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId, label } = this.properties;
+		const { widgetId, label, type, disabled, name } = this.properties;
 
-		const children = [
+		if (type && type === 'file') {
+			return v(
+				'div',
+				{
+					classes: [
+						'custom-file',
+						...getSpacingClasses(this.properties),
+						...getFlexItemClasses(this.properties),
+						...getFloatClass(this.properties)
+					]
+				},
+				[
+					v('input', {
+						id: widgetId,
+						key: 'text-input',
+						name,
+						type: 'file',
+						disabled: disabled === true || disabled === 'true',
+						classes: ['custom-file-input'],
+						onchange: this._onChange
+					}),
+					label
+						? w(Label, {
+								value: label,
+								forId: widgetId,
+								classes: 'custom-file-label'
+						  })
+						: null,
+					renderMessageNode(this.properties)
+				]
+			);
+		}
+
+		return [
 			label
 				? w(
 						Label,
@@ -180,8 +217,6 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 				: null,
 			...this.renderInputWrapper()
 		];
-
-		return children;
 	}
 }
 
