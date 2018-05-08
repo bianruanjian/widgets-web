@@ -16,33 +16,26 @@ export interface LabelProperties {
 	widgetId?: string;
 	value?: string;
 	forId?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<LabelProperties>({
 	tag: 'db-label',
 	childType: CustomElementChildType.TEXT,
-	attributes: [
-		'widgetId',
-		'value',
-		'forId'
-	],
+	attributes: ['widgetId', 'value', 'forId'],
 	properties: [],
 	events: []
 })
 @theme(css)
 export class Label<P extends LabelProperties = LabelProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let {
-			widgetId,
-			value,
-			forId
-		} = this.properties;
+		let { widgetId, value, forId } = this.properties;
 		return v(
 			'label',
 			{
 				id: widgetId,
+				key: 'label',
 				for: forId
 			},
 			value ? [value, ...this.children] : this.children

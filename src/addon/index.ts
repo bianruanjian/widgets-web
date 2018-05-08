@@ -1,4 +1,5 @@
 import { v } from '@dojo/widget-core/d';
+import { find } from '@dojo/shim/array';
 import { DNode, VNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
@@ -53,14 +54,20 @@ export class Addon<P extends AddonProperties = AddonProperties> extends ThemedBa
 			);
 		} else {
 			let existCheckboxOrRadio: boolean = false;
-			this.children.forEach((child, index) => {
+			find(this.children, (child: DNode) => {
 				if (child) {
 					const childTag: string = (child as VNode).tag;
-
-					if (childTag === 'db-checkbox' || childTag === 'db-radio') {
+					const childKey = (child as VNode).properties.key;
+					if (
+						childTag === 'db-checkbox' ||
+						childTag === 'db-radio' ||
+						childKey === 'checkbox' ||
+						childKey === 'radio'
+					) {
 						existCheckboxOrRadio = true;
 					}
 				}
+				return existCheckboxOrRadio;
 			});
 			if (existCheckboxOrRadio) {
 				children.push(v('div', { classes: ['input-group-text'] }, this.children));
@@ -73,6 +80,7 @@ export class Addon<P extends AddonProperties = AddonProperties> extends ThemedBa
 			'div',
 			{
 				id: widgetId,
+				key: 'addon',
 				classes: [cssClass, ...getColorsClasses(this.properties)]
 			},
 			children

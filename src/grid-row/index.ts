@@ -17,7 +17,7 @@ import { getSpacingClasses, getFlexContainerClasses, getFlexItemClasses } from '
 export interface GridRowProperties extends SpacingProperties, FlexContainerProperties, FlexItemProperties {
 	widgetId?: string;
 	gutters?: boolean | string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -49,30 +49,27 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class GridRow<P extends GridRowProperties = GridRowProperties> extends ThemedBase<P> {
-	
 	private _getGuttersClasses() {
-		let {
-			gutters
-		} = this.properties;
+		let { gutters } = this.properties;
 
 		const guttersClasses: string[] = [];
 
-		if(gutters === false || gutters === "false" ){
+		if (gutters === false || gutters === 'false') {
 			guttersClasses.push('no-gutters');
 		}
-		
+
 		return guttersClasses;
 	}
 
 	protected render(): DNode | DNode[] {
-		let {
-			widgetId
-		} = this.properties;
+		let { widgetId } = this.properties;
 		return v(
 			'div',
 			{
 				id: widgetId,
-				classes: ['row', 
+				key: 'grid-row',
+				classes: [
+					'row',
 					...this._getGuttersClasses(),
 					...getSpacingClasses(this.properties),
 					...getFlexContainerClasses(this.properties),

@@ -16,7 +16,7 @@ import * as css from './styles/footer.m.css';
  */
 export interface FooterProperties extends SpacingProperties, FlexContainerProperties {
 	widgetId?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -46,17 +46,17 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Footer<P extends FooterProperties = FooterProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId
-		} = this.properties;
+		const { widgetId } = this.properties;
 
-		return v('div', {
-			id: widgetId,
-			classes: [
-				...getSpacingClasses(this.properties),
-				...getFlexContainerClasses(this.properties)
-			]
-		}, this.children);
+		return v(
+			'div',
+			{
+				id: widgetId,
+				key: 'footer',
+				classes: [...getSpacingClasses(this.properties), ...getFlexContainerClasses(this.properties)]
+			},
+			this.children
+		);
 	}
 }
 

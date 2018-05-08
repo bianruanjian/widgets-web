@@ -136,6 +136,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			'input',
 			{
 				id: widgetId,
+				key: 'text-input',
 				name,
 				type: type && type !== 'default' ? type : '',
 				value,

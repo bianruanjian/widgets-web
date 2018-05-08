@@ -37,7 +37,7 @@ export class ContainerBase<P extends ContainerProperties = ContainerProperties> 
 			'div',
 			{
 				id: widgetId,
-				key: 'root',
+				key: 'container',
 				classes: [cssClass]
 			},
 			this.children

@@ -68,6 +68,7 @@ describe('Textarea', () => {
 			null,
 			v('textarea', {
 				id: undefined,
+				key: 'textarea',
 				name: undefined,
 				value: undefined,
 				rows: undefined,
@@ -92,6 +93,7 @@ describe('Textarea', () => {
 			null,
 			v('textarea', {
 				id: undefined,
+				key: 'textarea',
 				name: undefined,
 				value: undefined,
 				rows: undefined,
@@ -123,6 +125,7 @@ describe('Textarea', () => {
 			),
 			v('textarea', {
 				id: 'random-id',
+				key: 'textarea',
 				name: 'textInput',
 				value: 'val',
 				rows: 3,

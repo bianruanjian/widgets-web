@@ -57,6 +57,7 @@ export class ListItem<P extends ListItemProperties = ListItemProperties> extends
 			'li',
 			{
 				id: widgetId,
+				key: 'list-item',
 				disabled: disabled === true || disabled === 'true',
 				classes: [
 					'list-group-item',

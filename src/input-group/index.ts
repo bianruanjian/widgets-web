@@ -10,9 +10,9 @@ import { Label } from '../label/index';
 import * as css from './styles/input-group.m.css';
 import { getSpacingClasses, getFlexItemClasses, getFloatClass } from '../common/util';
 
-export const sizeMap: {[key: string]: string} = {
-	'small': 'sm',
-	'large': 'lg'
+export const sizeMap: { [key: string]: string } = {
+	small: 'sm',
+	large: 'lg'
 };
 
 /**
@@ -21,10 +21,10 @@ export const sizeMap: {[key: string]: string} = {
  * Properties that can be set on input-group components
  */
 export interface InputGroupProperties extends SpacingProperties, FlexItemProperties, FloatProperties {
-	widgetId?: string,
-	size?: string,
-	label?: string
-};
+	widgetId?: string;
+	size?: string;
+	label?: string;
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -52,37 +52,39 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class InputGroup<P extends InputGroupProperties = InputGroupProperties> extends ThemedBase<P> {
-
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			size,
-			label
-		} = this.properties;
+		const { widgetId, size, label } = this.properties;
 
-		let sizeClass:string = '';
+		let sizeClass: string = '';
 
-		if(size && size !== 'default'){
+		if (size && size !== 'default') {
 			sizeClass = `input-group-${sizeMap[size as string]}`;
 		}
 
-		const children:any[] = [
-			label ? w(Label, {
-				value: label
-			}) : null,
+		const children: any[] = [
+			label
+				? w(Label, {
+						value: label
+				  })
+				: null,
 			...this.children
 		];
 
-		return v('div',{
-			id: widgetId,
-			classes: [
-				'input-group', 
-				sizeClass,
-				...getSpacingClasses(this.properties),
-				...getFlexItemClasses(this.properties),
-				...getFloatClass(this.properties)
-			]
-		}, children);
+		return v(
+			'div',
+			{
+				id: widgetId,
+				key: 'input-group',
+				classes: [
+					'input-group',
+					sizeClass,
+					...getSpacingClasses(this.properties),
+					...getFlexItemClasses(this.properties),
+					...getFloatClass(this.properties)
+				]
+			},
+			children
+		);
 	}
 }
 

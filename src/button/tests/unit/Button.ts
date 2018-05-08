@@ -36,6 +36,7 @@ describe('Button', () => {
 				'button',
 				{
 					id: undefined,
+					key: 'button',
 					classes: ['btn', undefined, undefined, undefined, undefined],
 					disabled: false,
 					type: undefined,
@@ -53,6 +54,7 @@ describe('Button', () => {
 				'button',
 				{
 					id: undefined,
+					key: 'button',
 					classes: ['btn', undefined, undefined, undefined, undefined],
 					disabled: false,
 					type: 'button',
@@ -70,6 +72,7 @@ describe('Button', () => {
 				'a',
 				{
 					id: 'random-id',
+					key: 'button',
 					href: '#',
 					target: '_self',
 					classes: ['btn', 'btn-primary', 'btn-sm', 'btn-block', 'active'],
@@ -87,6 +90,7 @@ describe('Button', () => {
 				'button',
 				{
 					id: undefined,
+					key: 'button',
 					classes: ['list-group-item', 'list-group-item-action', 'list-group-item-primary', undefined],
 					disabled: false,
 					type: undefined,

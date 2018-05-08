@@ -74,12 +74,12 @@ describe('View', () => {
 
 	it('should construct view', () => {
 		const h = harness(() => w(View, {}));
-		h.expect(() => v('div', { id: undefined, classes: [], styles: {} }, []));
+		h.expect(() => v('div', { id: undefined, key: 'view', classes: [], styles: {} }, []));
 	});
 
 	it('default properties', () => {
 		const h = harness(() => w(View, defaultProperties));
-		h.expect(() => v('div', { id: undefined, classes: [], styles: {} }));
+		h.expect(() => v('div', { id: undefined, key: 'view', classes: [], styles: {} }));
 	});
 
 	it('custom properties', () => {
@@ -87,6 +87,7 @@ describe('View', () => {
 		h.expect(() =>
 			v('div', {
 				id: 'random-id',
+				key: 'view',
 				classes: [
 					'border',
 					'border-primary',
@@ -122,6 +123,7 @@ describe('View', () => {
 		h.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['border-left', 'border-top'],
 				styles: {}
 			})
@@ -130,6 +132,7 @@ describe('View', () => {
 		h2.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['border'],
 				styles: {}
 			})
@@ -141,6 +144,7 @@ describe('View', () => {
 		h.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['mt-1', 'mb-2', 'ml-4', 'mr-3'],
 				styles: {}
 			})
@@ -149,6 +153,7 @@ describe('View', () => {
 		h1.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['my-1'],
 				styles: {}
 			})
@@ -157,6 +162,7 @@ describe('View', () => {
 		h2.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['mx-1'],
 				styles: {}
 			})
@@ -165,6 +171,7 @@ describe('View', () => {
 		h3.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['m-1'],
 				styles: {}
 			})
@@ -176,6 +183,7 @@ describe('View', () => {
 		h.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['pt-1', 'pb-2', 'pl-4', 'pr-3'],
 				styles: {}
 			})
@@ -184,6 +192,7 @@ describe('View', () => {
 		h1.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['py-1'],
 				styles: {}
 			})
@@ -192,6 +201,7 @@ describe('View', () => {
 		h2.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['px-1'],
 				styles: {}
 			})
@@ -200,6 +210,7 @@ describe('View', () => {
 		h3.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['p-1'],
 				styles: {}
 			})
@@ -211,6 +222,7 @@ describe('View', () => {
 		h.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['text-truncate'],
 				styles: {
 					maxWidth: '50px'
@@ -221,6 +233,7 @@ describe('View', () => {
 		h2.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['text-truncate'],
 				styles: {
 					maxWidth: '50%'
@@ -234,6 +247,7 @@ describe('View', () => {
 		h.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: [],
 				styles: {}
 			})
@@ -242,6 +256,7 @@ describe('View', () => {
 		h2.expect(() =>
 			v('div', {
 				id: undefined,
+				key: 'view',
 				classes: ['text-nowrap'],
 				styles: {
 					width: '5rem'

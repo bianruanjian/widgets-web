@@ -52,6 +52,7 @@ describe('ListItem', () => {
 				'li',
 				{
 					id: undefined,
+					key: 'list-item',
 					disabled: false,
 					classes: ['list-group-item', undefined, undefined, undefined],
 					styles: {}
@@ -68,6 +69,7 @@ describe('ListItem', () => {
 				'li',
 				{
 					id: undefined,
+					key: 'list-item',
 					disabled: false,
 					classes: ['list-group-item', undefined, undefined, undefined],
 					styles: {}
@@ -86,6 +88,7 @@ describe('ListItem', () => {
 				'li',
 				{
 					id: 'random-id',
+					key: 'list-item',
 					disabled: true,
 					classes: [
 						'list-group-item',

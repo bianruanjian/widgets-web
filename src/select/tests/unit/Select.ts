@@ -15,14 +15,14 @@ describe('Select', () => {
 		labelField: 'label',
 		valueField: 'value',
 		size: 'default',
-		marginTop: "default",
-		marginBottom: "default",
-		marginLeft: "default",
-		marginRight: "default",
-		paddingTop: "default",
-		paddingBottom: "default",
-		paddingLeft: "default",
-		paddingRight: "default",
+		marginTop: 'default',
+		marginBottom: 'default',
+		marginLeft: 'default',
+		marginRight: 'default',
+		paddingTop: 'default',
+		paddingBottom: 'default',
+		paddingLeft: 'default',
+		paddingRight: 'default',
 		alignSelf: 'default',
 		order: 'default',
 		float: 'default'
@@ -43,14 +43,14 @@ describe('Select', () => {
 		size: 'small',
 		invalidMessage: 'invalid-tip',
 		validMessage: 'valid-tip',
-		marginTop: "0",
-		marginBottom: "0",
-		marginLeft: "1",
-		marginRight: "1",
-		paddingTop: "0",
-		paddingBottom: "0",
-		paddingLeft: "1",
-		paddingRight: "1",
+		marginTop: '0',
+		marginBottom: '0',
+		marginLeft: '1',
+		marginRight: '1',
+		paddingTop: '0',
+		paddingBottom: '0',
+		paddingLeft: '1',
+		paddingRight: '1',
 		alignSelf: 'start',
 		order: '0',
 		float: 'none'
@@ -60,14 +60,19 @@ describe('Select', () => {
 		const h = harness(() => w(Select, {}));
 		h.expect(() => [
 			null,
-			v('select', {
-				id: undefined,
-				name: undefined,
-				disabled: false,
-				required: false,
-				readOnly: false,
-				classes: ['form-control']
-			}, [])
+			v(
+				'select',
+				{
+					id: undefined,
+					key: 'select',
+					name: undefined,
+					disabled: false,
+					required: false,
+					readOnly: false,
+					classes: ['form-control']
+				},
+				[]
+			)
 		]);
 	});
 
@@ -75,14 +80,19 @@ describe('Select', () => {
 		const h = harness(() => w(Select, defaultProperties));
 		h.expect(() => [
 			null,
-			v('select', {
-				id: undefined,
-				name: undefined,
-				disabled: false,
-				required: false,
-				readOnly: false,
-				classes: ['','form-control']
-			}, [])
+			v(
+				'select',
+				{
+					id: undefined,
+					key: 'select',
+					name: undefined,
+					disabled: false,
+					required: false,
+					readOnly: false,
+					classes: ['', 'form-control']
+				},
+				[]
+			)
 		]);
 	});
 
@@ -90,37 +100,54 @@ describe('Select', () => {
 		const h = harness(() => w(Select, customProperties));
 		h.expect(() => [
 			w(Label, { value: 'demo', forId: 'random-id' }),
-			v('select', {
-				id: 'random-id',
-				name: 'demo',
-				disabled: true,
-				required: true,
-				readOnly: true,
-				classes: [
-					'disabled',
-					'form-control-sm',
-					'form-control-plaintext',
-					'my-0',
-					'mx-1',
-					'py-0',
-					'px-1',
-					'align-self-start',
-					'order-0',
-					'float-none'
+			v(
+				'select',
+				{
+					id: 'random-id',
+					key: 'select',
+					name: 'demo',
+					disabled: true,
+					required: true,
+					readOnly: true,
+					classes: [
+						'disabled',
+						'form-control-sm',
+						'form-control-plaintext',
+						'my-0',
+						'mx-1',
+						'py-0',
+						'px-1',
+						'align-self-start',
+						'order-0',
+						'float-none'
+					]
+				},
+				[
+					v(
+						'option',
+						{
+							value: 'value1',
+							selected: false
+						},
+						['label1']
+					),
+					v(
+						'option',
+						{
+							value: 'value2',
+							selected: true
+						},
+						['label2']
+					)
 				]
-			}, [
-				v('option', {
-					value: 'value1',
-					selected: false
-				}, ['label1']),
-				v('option', {
-					value: 'value2',
-					selected: true
-				}, ['label2'])
-			]),
-			v('div',{
-				classes: ['invalid-tooltip']
-			}, ['invalid-tip'])
+			),
+			v(
+				'div',
+				{
+					classes: ['invalid-tooltip']
+				},
+				['invalid-tip']
+			)
 		]);
 	});
 });

@@ -5,7 +5,13 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { Label } from '../label';
-import { SpacingProperties, FlexItemProperties, FloatProperties, FormProperties, MessageProperties } from '../common/interfaces';
+import {
+	SpacingProperties,
+	FlexItemProperties,
+	FloatProperties,
+	FormProperties,
+	MessageProperties
+} from '../common/interfaces';
 import { formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode } from '../common/util';
 
 import * as css from './styles/select.m.css';
@@ -15,7 +21,12 @@ import * as css from './styles/select.m.css';
  *
  * Properties that can be set on select components
  */
-export interface SelectProperties extends SpacingProperties, FlexItemProperties, FloatProperties, FormProperties, MessageProperties{
+export interface SelectProperties
+	extends SpacingProperties,
+		FlexItemProperties,
+		FloatProperties,
+		FormProperties,
+		MessageProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -26,7 +37,7 @@ export interface SelectProperties extends SpacingProperties, FlexItemProperties,
 	valueField?: string;
 	dataPath?: string;
 	size?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -84,15 +95,15 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 
 		const cssClasses: string[] = [];
 
-		if(disabled === true || disabled === 'true'){
+		if (disabled === true || disabled === 'true') {
 			cssClasses.push('disabled');
 		}
 
-		if(size){
+		if (size) {
 			cssClasses.push(formSizeMap[size as string]);
 		}
 
-		if(plainText || readOnly){
+		if (plainText || readOnly) {
 			cssClasses.push('form-control-plaintext');
 		} else {
 			cssClasses.push('form-control');
@@ -100,36 +111,41 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 
 		const children: DNode[] = [];
 
-		if(options){
+		if (options) {
 			let optionJsons: any[] = eval(options as string);
-			optionJsons.forEach( (option, index) => {
-				const child: DNode = v('option', {
-					value: option[valueField],
-					selected: (value && value === option[valueField])
-				}, [
-					option[labelField]
-				]);
+			optionJsons.forEach((option, index) => {
+				const child: DNode = v(
+					'option',
+					{
+						value: option[valueField],
+						selected: value && value === option[valueField]
+					},
+					[option[labelField]]
+				);
 				children.push(child);
 			});
 		}
 
-		if(dataPath){
+		if (dataPath) {
 			//TODO: 发送请求，获取数据，暂时不处理
 		}
 
-		return v('select', {
+		return v(
+			'select',
+			{
 				id: widgetId,
+				key: 'select',
 				name,
-				disabled: (disabled === true || disabled === 'true'),
-				required: (required === true || required === 'true'),
-				readOnly: (readOnly === true || readOnly === 'true'), 
+				disabled: disabled === true || disabled === 'true',
+				required: required === true || required === 'true',
+				readOnly: readOnly === true || readOnly === 'true',
 				classes: [
 					...cssClasses,
 					...getSpacingClasses(this.properties),
 					...getFlexItemClasses(this.properties),
 					...getFloatClass(this.properties)
 				]
-			}, 
+			},
 			children
 		);
 	}
@@ -139,16 +155,19 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 	}
 
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			label
-		} = this.properties;
+		const { widgetId, label } = this.properties;
 
 		const children = [
-			label ? w(Label, {
-				value: label,
-				forId: widgetId
-			}, []) : null,
+			label
+				? w(
+						Label,
+						{
+							value: label,
+							forId: widgetId
+						},
+						[]
+				  )
+				: null,
 			...this.renderSelectWrapper()
 		];
 

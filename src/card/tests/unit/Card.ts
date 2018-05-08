@@ -69,6 +69,7 @@ describe('Card', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'card',
 					classes: ['card'],
 					styles: {}
 				},
@@ -84,6 +85,7 @@ describe('Card', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'card',
 					classes: ['card'],
 					styles: {}
 				},
@@ -99,6 +101,7 @@ describe('Card', () => {
 				'div',
 				{
 					id: 'random-id',
+					key: 'card',
 					classes: [
 						'card',
 						'my-0',
@@ -136,6 +139,7 @@ describe('Card', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'card',
 					classes: ['card'],
 					styles: {
 						width: 'auto',

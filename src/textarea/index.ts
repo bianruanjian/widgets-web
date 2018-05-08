@@ -125,6 +125,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 
 		return v('textarea', {
 			id: widgetId,
+			key: 'textarea',
 			name,
 			value,
 			rows,

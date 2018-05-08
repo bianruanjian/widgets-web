@@ -42,6 +42,7 @@ describe('ListGroup', () => {
 				'ul',
 				{
 					id: undefined,
+					key: 'list-group',
 					classes: ['list-group', undefined]
 				},
 				[]
@@ -56,6 +57,7 @@ describe('ListGroup', () => {
 				'ul',
 				{
 					id: undefined,
+					key: 'list-group',
 					classes: ['list-group', undefined]
 				},
 				[]
@@ -70,6 +72,7 @@ describe('ListGroup', () => {
 				'ul',
 				{
 					id: 'random-id',
+					key: 'list-group',
 					classes: ['list-group', 'list-group-flush', 'my-0', 'mx-1', 'py-0', 'px-1']
 				},
 				[]
@@ -85,6 +88,7 @@ describe('ListGroup', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'list-group',
 					classes: ['list-group', undefined]
 				},
 				[
@@ -92,6 +96,7 @@ describe('ListGroup', () => {
 						'button',
 						{
 							id: undefined,
+							key: 'button',
 							classes: ['btn', undefined, undefined, undefined, undefined],
 							disabled: false,
 							type: undefined,
@@ -112,6 +117,7 @@ describe('ListGroup', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'list-group',
 					classes: ['list-group', undefined]
 				},
 				[
@@ -119,6 +125,7 @@ describe('ListGroup', () => {
 						classes: [],
 						href: undefined,
 						id: undefined,
+						key: 'link',
 						styles: {},
 						target: undefined
 					})
@@ -135,6 +142,7 @@ describe('ListGroup', () => {
 				'ul',
 				{
 					id: undefined,
+					key: 'list-group',
 					classes: ['list-group', undefined]
 				},
 				[
@@ -142,6 +150,7 @@ describe('ListGroup', () => {
 						classes: ['list-group-item', undefined, undefined, undefined],
 						disabled: false,
 						id: undefined,
+						key: 'list-item',
 						styles: {}
 					})
 				]
@@ -158,6 +167,7 @@ describe('ListGroup', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'list-group',
 					classes: ['list-group', undefined]
 				},
 				[
@@ -165,6 +175,7 @@ describe('ListGroup', () => {
 						'button',
 						{
 							id: undefined,
+							key: 'button',
 							classes: ['btn', undefined, undefined, undefined, undefined],
 							disabled: false,
 							type: undefined,
@@ -176,6 +187,7 @@ describe('ListGroup', () => {
 						classes: ['list-group-item', undefined, undefined, undefined],
 						disabled: false,
 						id: undefined,
+						key: 'list-item',
 						styles: {}
 					})
 				]

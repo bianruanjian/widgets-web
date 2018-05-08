@@ -10,6 +10,8 @@ tags:
 
 ## 基本用法
 
+因为当前浏览器不支持使用 Custom Elements 定义内置的部件，如 <button is='my-button'></button> 所以不能使用 Custom Elements，只能使用编程式开发。
+
 ### prepend
 {% raw %}
 <div class="input-group">
@@ -21,11 +23,16 @@ tags:
     <input type="number" class="form-control">
 </div>
 {% endraw %}
-```html
-<db-input-group>
-    <db-addon value="$"></db-addon>
-    <db-text-input type="number"></db-text-input>
-</db-input-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+
+w(InputGroup, {}, [
+    w(Addon, {value: '$'});
+    w(TextInput, {type: 'number'});
+]);
 ```
 
 ### append
@@ -39,11 +46,16 @@ tags:
     </div>
 </div>
 {% endraw %}
-```html
-<db-input-group>
-    <db-text-input type="number"></db-text-input>
-    <db-addon value="$" position="append"></db-addon>
-</db-input-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+
+w(InputGroup, {}, [
+    w(TextInput, {type: 'number'});
+    w(Addon, {value: '$', position:'append'});
+]);
 ```
 
 ### Multiple addons
@@ -88,22 +100,27 @@ tags:
     </div>
 </div>
 {% endraw %}
-```html
-<db-input-group>
-    <db-addon value="$"></db-addon>
-    <db-addon value="0.00"></db-addon>
-    <db-text-input type="number"></db-text-input>
-</db-input-group>
-<db-input-group>
-    <db-text-input type="number"></db-text-input>
-    <db-addon value="$" position="append"></db-addon>
-    <db-addon value="0.00" position="append"></db-addon>
-</db-input-group>
-<db-input-group>
-    <db-addon value="$"></db-addon>
-    <db-text-input type="number"></db-text-input>
-    <db-addon value="0.00" position="append"></db-addon>
-</db-input-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+
+w(InputGroup, {}, [
+    w(Addon, {value: '$'});
+    w(Addon, {value: '0.00'});
+    w(TextInput, {type: 'number'});
+]);
+w(InputGroup, {}, [
+    w(TextInput, {type: 'number'});
+    w(Addon, {value: '$', position:'append'});
+    w(Addon, {value: '0.00', position:'append'});
+]);
+w(InputGroup, {}, [
+    w(Addon, {value: '$'});
+    w(TextInput, {type: 'number'});
+    w(Addon, {value: '0.00', position:'append'});
+]);
 ```
 
 ### With textarea
@@ -115,11 +132,16 @@ tags:
   <textarea class="form-control"></textarea>
 </div>
 {% endraw %}
-```html
-<db-input-group>
-    <db-addon value="With textarea"></db-addon>
-    <db-textarea></db-textarea>
-</db-input-group>
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import Textarea from 'widgets-web/textarea/index';
+
+w(InputGroup, {}, [
+    w(Addon, {value: 'With textarea'});
+    w(Textarea, {});
+]);
 ```
 
 ### With Checkbox and Radio
@@ -142,19 +164,26 @@ tags:
   <input type="text" class="form-control">
 </div>
 {% endraw %}
-```html
-<db-input-group>
-    <db-addon>
-        <db-checkbox></db-checkbox>
-    </db-addon>
-    <db-text-input></db-text-input>
-</db-input-group>
-<db-input-group>
-    <db-addon>
-        <db-radio></db-radio>
-    </db-addon>
-    <db-text-input></db-text-input>
-</db-input-group>
+```ts
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+import CheckBox from 'widgets-web/checkbox/index';
+import Radio from 'widgets-web/radio/index';
+
+w(InputGroup, {}, [
+    w(Addon, {}, [
+        w(CheckBox, {});
+    ]);
+    w(TextInput, {});
+]);
+w(InputGroup, {}, [
+    w(Addon, {}, [
+        w(Radio, {});
+    ]);
+    w(TextInput, {});
+]);
 ```
 
 ### Button addons
@@ -173,19 +202,25 @@ tags:
   </div>
 </div>
 {% endraw %}
-```html
-<db-input-group>
-    <db-addon>
-        <db-button appearance="outline-secondary" value="Button"></db-button>
-    </db-addon>
-    <db-text-input></db-text-input>
-</db-input-group>
-<db-input-group>
-    <db-text-input></db-text-input>
-    <db-addon position="append">
-        <db-button appearance="outline-secondary" value="Button"></db-button>
-    </db-addon>
-</db-input-group>
+```ts
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+import Button from 'widgets-web/button/index';
+
+w(InputGroup, {}, [
+    w(Addon, {}, [
+        w(Button, { appearance: 'outline-secondary', value: 'Button'});
+    ]);
+    w(TextInput, {});
+]);
+w(InputGroup, {}, [
+    w(TextInput, {});
+    w(Addon, { position:'append' }, [
+        w(Button, { appearance: 'outline-secondary', value: 'Button'});
+    ]);
+]);
 ```
 
 ## 通用属性
