@@ -1,3 +1,4 @@
+import '../../src/button/tests/unit/Button';
 import '../../src/container/tests/unit/Container';
 import '../../src/view/tests/unit/View';
 import '../../src/grid-row/tests/unit/GridRow';
