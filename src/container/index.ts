@@ -14,30 +14,24 @@ import * as css from './styles/container.m.css';
  */
 export interface ContainerProperties {
 	widgetId?: string;
-	fluid?: boolean;
-};
+	fluid?: boolean | string;
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 @customElement<ContainerProperties>({
 	tag: 'db-container',
 	childType: CustomElementChildType.TEXT,
-	attributes: [
-		'widgetId',
-		"fluid"
-	],
+	attributes: ['widgetId', 'fluid'],
 	properties: [],
 	events: []
 })
 @theme(css)
 export class ContainerBase<P extends ContainerProperties = ContainerProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let {
-			widgetId, 
-			fluid
-		} = this.properties;
-		
-		const cssClass = fluid ? 'container-fluid' : 'container';
+		let { widgetId, fluid } = this.properties;
+
+		const cssClass = fluid === true || fluid === 'true' ? 'container-fluid' : 'container';
 
 		return v(
 			'div',
@@ -51,4 +45,4 @@ export class ContainerBase<P extends ContainerProperties = ContainerProperties> 
 	}
 }
 
-export default class Container extends ContainerBase<ContainerProperties>{};
+export default class Container extends ContainerBase<ContainerProperties> {}

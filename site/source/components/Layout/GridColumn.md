@@ -80,3 +80,4 @@ tags:
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
 | offset | 右偏移列数 | default | 0~11, default | number/string |
+| colspan | 跨列数 | default | 1~12, default | number/string |

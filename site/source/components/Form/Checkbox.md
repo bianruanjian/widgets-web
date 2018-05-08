@@ -10,6 +10,30 @@ tags:
 
 ## 基本用法
 
+### labelAtfer and checked and size
+{% raw %}
+<db-checkbox widgetId="small" name="demo" value="1" checked="true" label="small" size="small"></db-checkbox>
+<db-checkbox widgetId="large" name="demo" value="2" checked="false" label="large" labelAfter="false" disabled="false" size="large"></db-checkbox>
+{% endraw%}
+```html
+<db-checkbox widgetId="small" name="demo" value="1" checked="true" label="small" size="small"></db-checkbox>
+<db-checkbox widgetId="large" name="demo" value="2" checked="false" label="large" labelAfter="false" size="large"></db-checkbox>
+```
+
+### fluid
+{% raw %}
+<db-checkbox widgetId="fluidcheckbox1" name="demo" value="1" fluid="true" label="fluid demo1"></db-checkbox>
+<db-checkbox widgetId="fluidcheckbox2" name="demo" value="1" fluid="true" label="fluid demo2"></db-checkbox>
+<db-checkbox widgetId="normal1" name="demo" value="2" fluid="false" label="normal demo1"></db-checkbox>
+<db-checkbox widgetId="normal2" name="demo" value="2" fluid="false" label="normal demo2"></db-checkbox>
+{% endraw%}
+```html
+<db-checkbox widgetId="fluid1" name="demo" value="1" fluid="true" label="fluid demo1"></db-checkbox>
+<db-checkbox widgetId="fluid2" name="demo" value="1" fluid="true" label="fluid demo2"></db-checkbox>
+<db-checkbox widgetId="normal1" name="demo" value="2" fluid="false" label="normal demo1"></db-checkbox>
+<db-checkbox widgetId="normal2" name="demo" value="2" fluid="false" label="normal demo2"></db-checkbox>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)

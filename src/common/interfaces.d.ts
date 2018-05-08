@@ -10,13 +10,13 @@
  * @property borderColor    颜色
  * @property borderRound    圆角
  */
-export interface BorderProperties{
-    borderLeft?: boolean;
-    borderTop?: boolean;
-    borderRight?: boolean;
-    borderBottom?: boolean;
-    borderColor?: string;
-    borderRound?: string;
+export interface BorderProperties {
+	borderLeft?: boolean | string;
+	borderTop?: boolean | string;
+	borderRight?: boolean | string;
+	borderBottom?: boolean | string;
+	borderColor?: string;
+	borderRound?: string;
 }
 
 /**
@@ -33,15 +33,15 @@ export interface BorderProperties{
  * @property paddingLeft        左内边距
  * @property paddingRight       右内边距
  */
-export interface SpacingProperties{
-    marginTop?: string;
-    marginBottom?: string;
-    marginLeft?: string;
-    marginRight?: string;
-    paddingTop?: string;
-    paddingBottom?: string;
-    paddingLeft?: string;
-    paddingRight?: string;
+export interface SpacingProperties {
+	marginTop?: string;
+	marginBottom?: string;
+	marginLeft?: string;
+	marginRight?: string;
+	paddingTop?: string;
+	paddingBottom?: string;
+	paddingLeft?: string;
+	paddingRight?: string;
 }
 
 /**
@@ -57,21 +57,21 @@ export interface SpacingProperties{
  * @property truncate          截取长度
  * @property wrap              包装长度
  */
-export interface TextProperties{
-    fontWeight?: string;
-    fontItalic?: boolean;
-    textDecoration?: string;
-    alignment?: string;
-    transform?: string;
-    truncate?: number | string;
-    wrap?: number;
+export interface TextProperties {
+	fontWeight?: string;
+	fontItalic?: boolean | string;
+	textDecoration?: string;
+	alignment?: string;
+	transform?: string;
+	truncate?: number | string;
+	wrap?: number;
 }
 
 /**
  * @type FlexContainerProperties
- * 
+ *
  * Flex Container(容器弹性)属性
- * 
+ *
  * @property flexDirection     主轴方向
  * @property reverse           翻转
  * @property justifyItems      主轴排列方式
@@ -79,37 +79,76 @@ export interface TextProperties{
  * @property flexWrap          换行
  * @property alignContent      多轴排列方式
  */
-export interface FlexContainerProperties{
-    flexDirection?: string;
-    reverse?: boolean;
-    justifyItems?: string;
-    alignItems?: string;
-    flexWrap?: string;
-    alignContent?: string;
+export interface FlexContainerProperties {
+	flexDirection?: string;
+	reverse?: boolean | string;
+	justifyItems?: string;
+	alignItems?: string;
+	flexWrap?: string;
+	alignContent?: string;
 }
 
 /**
  * @type FlexItemProperties
- * 
+ *
  * Flex Item(非容器弹性)属性
- * 
+ *
  * @property alignSelf         侧轴排列方式
  * @property order             排序
  */
-export interface FlexItemProperties{
-    alignSelf?: string;
-    order?: number | string;
+export interface FlexItemProperties {
+	alignSelf?: string;
+	order?: number | string;
 }
 
 /**
  * @type ColorsProperties
- * 
+ *
  * Color(颜色)属性
- * 
+ *
  * @property textColor         文本颜色
  * @property backgroundColor   背景色
  */
-export interface ColorsProperties{
-    textColor?: string;
-    backgroundColor?: string;
+export interface ColorsProperties {
+	textColor?: string;
+	backgroundColor?: string;
+}
+
+/**
+ * @type FloatProperties
+ *
+ * Float(浮动方向)属性
+ *
+ * @property float         浮动方向
+ */
+export interface FloatProperties {
+	float?: string;
+}
+
+/**
+ * @type FormProperties
+ *
+ * Form(表单)属性
+ *
+ * @property required         必填
+ * @property disabled         失效
+ * @property readOnly         只读
+ */
+export interface FormProperties {
+	required?: boolean | string;
+	disabled?: boolean | string;
+	readOnly?: boolean | string;
+}
+
+/**
+ * @type MessageProperties
+ *
+ * Message(消息)属性
+ *
+ * @property invalidMessage         无效提示
+ * @property validMessage           有效提示
+ */
+export interface MessageProperties {
+	invalidMessage?: string;
+	validMessage?: string;
 }

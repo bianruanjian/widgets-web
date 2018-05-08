@@ -11,7 +11,21 @@
 			"src/grid-column",
 			"src/image",
 			"src/text",
-			"src/label"
+			"src/label",
+			"src/text-input",
+			"src/input-group",
+			"src/addon",
+			"src/textarea",
+			"src/badge",
+			"src/card",
+			"src/checkbox",
+			"src/footer",
+			"src/icon",
+			"src/link",
+			"src/list-group",
+			"src/list-item",
+			"src/radio",
+			"src/select"
 		]
 	}
 }

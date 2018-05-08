@@ -20,6 +20,7 @@ export interface GridColumnProperties extends BorderProperties,
 	FlexItemProperties {
 	widgetId?: string;
 	offset? : number | string;
+	colspan?: number | string;
 };
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -30,6 +31,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	attributes: [
 		'widgetId',
 		'offset',
+		'colspan',
 		'borderLeft',
 		'borderTop',
 		'borderRight',
@@ -66,18 +68,25 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class GridColumn<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
 	
-	private _getOffsetClasses(): string[] {
+	private _getSelfClasses(): string[] {
 		let {
-			offset
+			offset,
+			colspan
 		} = this.properties;
 
-		const offsetClasses: string[] = [];
+		const cssClasses: string[] = [];
 
-		if((offset && offset !== "default") || offset === 0){
-			offsetClasses.push(`offset-${offset}`);
+		if(colspan && colspan !== 'default' && colspan !== 1){
+			cssClasses.push(`col-${colspan}`);
+		}else{
+			cssClasses.push('col');
 		}
 
-		return offsetClasses;
+		if((offset && offset !== 'default') || offset === 0){
+			cssClasses.push(`offset-${offset}`);
+		}
+
+		return cssClasses;
 	}
 
 	protected render(): DNode | DNode[] {
@@ -90,8 +99,7 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 			{
 				id: widgetId,
 				classes: [
-					'col',
-					...this._getOffsetClasses(),
+					...this._getSelfClasses(),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),

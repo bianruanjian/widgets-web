@@ -10,6 +10,17 @@ tags:
 
 ## 基本用法
 
+{% raw %}
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
+    widgetId="random-id" name="demo" label="demo" disabled="false" 
+    labelField="label" valueField="value" marginTop="3" marginBottom="3"></db-select>
+{% endraw %}
+```html
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
+    widgetId="random-id" name="demo" label="demo" disabled="false" 
+    labelField="label" valueField="value" marginTop="3"></db-select>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
