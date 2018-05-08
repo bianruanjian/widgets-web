@@ -12,9 +12,7 @@ function isDirectory(location: string): boolean {
 	try {
 		const stats = statSync(location);
 		return stats.isDirectory();
-	}
-	catch (e) {
-	}
+	} catch (e) {}
 
 	return false;
 }
@@ -24,21 +22,24 @@ const rootDirectory = './_dist';
 export function middleware(): Handler[] {
 	return [
 		new LogRequest(),
-		route(/./).filter(incomingMessage => {
-			const path = join(rootDirectory, incomingMessage.url||'');
+		route(/./)
+			.filter((incomingMessage) => {
+				const path = join(rootDirectory, incomingMessage.url || '');
 
-			return isDirectory(path) &&incomingMessage.url!=null&& incomingMessage.url.lastIndexOf('/') !== incomingMessage.url.length - 1;
-		}).wrap(
-			(request, response) => {
-				response.writeHead(301, { Location: request.url + '/'});
+				return (
+					isDirectory(path) &&
+					incomingMessage.url != null &&
+					incomingMessage.url.lastIndexOf('/') !== incomingMessage.url.length - 1
+				);
+			})
+			.wrap((request, response) => {
+				response.writeHead(301, { Location: request.url + '/' });
 				response.end('');
 				return Promise.resolve();
-			}
-		),
-		route(/./).transform(relativeUrl('/dojo2-bootstrap')).wrap([
-			new ServeFile(rootDirectory),
-			new ServeDirectory(rootDirectory)
-		]),
-		new WebProxy('http://bianruanjian.github.io/dojo2-bootstrap')
+			}),
+		route(/./)
+			.transform(relativeUrl('/widgets-web'))
+			.wrap([new ServeFile(rootDirectory), new ServeDirectory(rootDirectory)]),
+		new WebProxy('http://bianruanjian.github.io/widgets-web')
 	];
 }

@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Dojo2-bootstrap
+title: widgets-web
 subtitle:
 description:
 author: bianruanjian.com
@@ -13,7 +13,7 @@ timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://bianruanjian.github.io
-root: /dojo2-bootstrap
+root: /widgets-web
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -92,5 +92,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:bianruanjian/dojo2-bootstrap.git
+  repo: git@github.com:bianruanjian/widgets-web.git
   branch: gh-pages

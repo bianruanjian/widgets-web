@@ -1,5 +1,5 @@
 {
-  "name": "dojo2-bootstrap",
+  "name": "widgets-web",
   "version": "1.0.0",
   "scripts": {
     "build-widgets": "dojo build widget",
