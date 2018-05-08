@@ -7,17 +7,17 @@
   
   <title>Addon | Dojo2-bootstrap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前缀/后缀插件 基本用法                                             $                                                             0.00                                       12345&amp;lt;db-container&amp;gt;    &amp;lt;db-ad">
+  <meta name="description" content="前缀/后缀插件 基本用法prepend                            $                      1234&amp;lt;db-input-group&amp;gt;    &amp;lt;db-addon value=&quot;$&quot;&amp;gt;&amp;lt;/db-addon&amp;gt;    &amp;lt;db-text-input type=&quot;number&quot;&amp;gt;&amp;lt;/db-text-input">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Addon">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Basic/Addon.html">
 <meta property="og:site_name" content="Dojo2-bootstrap">
-<meta property="og:description" content="前缀/后缀插件 基本用法                                             $                                                             0.00                                       12345&amp;lt;db-container&amp;gt;    &amp;lt;db-ad">
+<meta property="og:description" content="前缀/后缀插件 基本用法prepend                            $                      1234&amp;lt;db-input-group&amp;gt;    &amp;lt;db-addon value=&quot;$&quot;&amp;gt;&amp;lt;/db-addon&amp;gt;    &amp;lt;db-text-input type=&quot;number&quot;&amp;gt;&amp;lt;/db-text-input">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-07T03:52:07.726Z">
+<meta property="og:updated_time" content="2018-05-08T02:18:45.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Addon">
-<meta name="twitter:description" content="前缀/后缀插件 基本用法                                             $                                                             0.00                                       12345&amp;lt;db-container&amp;gt;    &amp;lt;db-ad">
+<meta name="twitter:description" content="前缀/后缀插件 基本用法prepend                            $                      1234&amp;lt;db-input-group&amp;gt;    &amp;lt;db-addon value=&quot;$&quot;&amp;gt;&amp;lt;/db-addon&amp;gt;    &amp;lt;db-text-input type=&quot;number&quot;&amp;gt;&amp;lt;/db-text-input">
   
   
     <link rel="icon" href="/favicon.png">
@@ -346,16 +346,16 @@
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
+                    Text
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/dojo2-bootstrap/components/Utilities/Text.html">
-                    Text
+                <a href="/dojo2-bootstrap/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
@@ -387,24 +387,115 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>前缀/后缀插件</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2>
-<db-container>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <div class="input-group-text">
-                $
-            </div>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="prepend"><a href="#prepend" class="headerlink" title="prepend"></a>prepend</h3>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            $
         </div>
-        <div class="input-group-prepend">
-            <div class="input-group-text">
-                0.00
-            </div>
-        </div>
-        <input name="addon" type="number" class="form-control">
     </div>
-</db-container>
+    <input type="number" class="form-control">
+</div>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"$"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"0.00"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">name</span>=<span class="string">"addon"</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"$"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="append"><a href="#append" class="headerlink" title="append"></a>append</h3>
+<div class="input-group">
+    <input type="number" class="form-control">
+    <div class="input-group-append">
+        <div class="input-group-text">
+            $
+        </div>
+    </div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"$"</span> <span class="attr">position</span>=<span class="string">"append"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Multiple-addons"><a href="#Multiple-addons" class="headerlink" title="Multiple addons"></a>Multiple addons</h3>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            $
+        </div>
+    </div>
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            0.00
+        </div>
+    </div>
+    <input type="number" class="form-control">
+</div>
+<div class="input-group mt-3">
+    <input type="number" class="form-control">
+    <div class="input-group-append">
+        <div class="input-group-text">
+            $
+        </div>
+    </div>
+    <div class="input-group-append">
+        <div class="input-group-text">
+            0.00
+        </div>
+    </div>
+</div>
+<div class="input-group mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            $
+        </div>
+    </div>
+    <input type="number" class="form-control">
+    <div class="input-group-append">
+        <div class="input-group-text">
+            0.00
+        </div>
+    </div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"$"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"0.00"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"$"</span> <span class="attr">position</span>=<span class="string">"append"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"0.00"</span> <span class="attr">position</span>=<span class="string">"append"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"$"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"0.00"</span> <span class="attr">position</span>=<span class="string">"append"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="With-textarea"><a href="#With-textarea" class="headerlink" title="With textarea"></a>With textarea</h3>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">With textarea</span>
+  </div>
+  <textarea class="form-control"></textarea>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">value</span>=<span class="string">"With textarea"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">db-textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="With-Checkbox-and-Radio"><a href="#With-Checkbox-and-Radio" class="headerlink" title="With Checkbox and Radio"></a>With Checkbox and Radio</h3>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+        <input type="checkbox">
+    </div>
+  </div>
+  <input type="text" class="form-control">
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+        <input type="radio">
+    </div>
+  </div>
+  <input type="text" class="form-control">
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-checkbox</span>&gt;</span><span class="tag">&lt;/<span class="name">db-checkbox</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-radio</span>&gt;</span><span class="tag">&lt;/<span class="name">db-radio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Button-addons"><a href="#Button-addons" class="headerlink" title="Button addons"></a>Button addons</h3>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+  <input type="text" class="form-control">
+</div>
+
+<div class="input-group">
+  <input type="text" class="form-control">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-button</span> <span class="attr">appearance</span>=<span class="string">"outline-secondary"</span> <span class="attr">value</span>=<span class="string">"Button"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-text-input</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-addon</span> <span class="attr">position</span>=<span class="string">"append"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-button</span> <span class="attr">appearance</span>=<span class="string">"outline-secondary"</span> <span class="attr">value</span>=<span class="string">"Button"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-addon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Colors.html">Colors</a></li>
 </ol>
