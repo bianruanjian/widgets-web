@@ -19,8 +19,8 @@ tags:
 {% endraw %}
 ```TypeScript
 import { w } from '@dojo/widget-core/d';
-import ListGroup from 'dojo2-bootstrap/list-group/index';
-import ListItem from 'dojo2-bootstrap/list-item/index';
+import ListGroup from 'widgets-web/list-group/index';
+import ListItem from 'widgets-web/list-item/index';
 
 w(ListGroup, {}, [
   w(ListItem, {}, ['not active']);
@@ -37,8 +37,8 @@ w(ListGroup, {}, [
 {% endraw %}
 ```TypeScript
 import { w } from '@dojo/widget-core/d';
-import ListGroup from 'dojo2-bootstrap/list-group/index';
-import ListItem from 'dojo2-bootstrap/list-item/index';
+import ListGroup from 'widgets-web/list-group/index';
+import ListItem from 'widgets-web/list-item/index';
 
 w(ListGroup, {}, [
   w(ListItem, {}, ['default']);
@@ -61,8 +61,8 @@ w(ListGroup, {}, [
 {% endraw %}
 ```TypeScript
 import { w } from '@dojo/widget-core/d';
-import ListGroup from 'dojo2-bootstrap/list-group/index';
-import ListItem from 'dojo2-bootstrap/list-item/index';
+import ListGroup from 'widgets-web/list-group/index';
+import ListItem from 'widgets-web/list-item/index';
 
 w(ListGroup, {}, [
   w(ListItem, {}, ['default']);
@@ -86,8 +86,8 @@ w(ListGroup, {}, [
 {% endraw %}
 ```TypeScript
 import { w } from '@dojo/widget-core/d';
-import Button from 'dojo2-bootstrap/button/index';
-import Link from 'dojo2-bootstrap/link/index';
+import Button from 'widgets-web/button/index';
+import Link from 'widgets-web/link/index';
 
 w(ListGroup, {}, [
   w(Button, { value: 'button', appearance: 'primary' });
