@@ -38,13 +38,13 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 
 		this.children.forEach((child, index) => {
 			if (child) {
-				const childTag: string = (child as VNode).tag;
+				const childKey = (child as VNode).properties.key;
 
-				if (childTag === 'db-link' || childTag === 'db-button' || childTag === 'a' || childTag === 'button') {
+				if (childKey === 'link' || childKey === 'button') {
 					tag = 'div';
 					existButtonOrLink = true;
 				}
-				if (childTag === 'db-list-item' || childTag === 'li') {
+				if (childKey === 'list-item') {
 					existListItem = true;
 				}
 			}
