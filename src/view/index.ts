@@ -106,6 +106,7 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 			'div',
 			{
 				id: widgetId,
+				key: 'view',
 				classes: [
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),

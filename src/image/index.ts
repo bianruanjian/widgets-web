@@ -109,6 +109,7 @@ export class Image<P extends ImageProperties = ImageProperties> extends ThemedBa
 			'img',
 			{
 				id: widgetId,
+				key: 'image',
 				src,
 				alt,
 				classes: [

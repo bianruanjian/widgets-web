@@ -5,7 +5,6 @@ import { TextInput, TextInputProperties } from './../../index';
 import Label from './../../../label/index';
 
 describe('TextInput', () => {
-
 	const defaultProperties: TextInputProperties = {
 		type: 'default',
 		password: false,
@@ -14,16 +13,16 @@ describe('TextInput', () => {
 		disabled: false,
 		readOnly: false,
 		size: 'default',
-		focus: false,
+		shouldFocus: false,
 		plainText: false,
-		marginTop: "default",
-		marginBottom: "default",
-		marginLeft: "default",
-		marginRight: "default",
-		paddingTop: "default",
-		paddingBottom: "default",
-		paddingLeft: "default",
-		paddingRight: "default",
+		marginTop: 'default',
+		marginBottom: 'default',
+		marginLeft: 'default',
+		marginRight: 'default',
+		paddingTop: 'default',
+		paddingBottom: 'default',
+		paddingLeft: 'default',
+		paddingRight: 'default',
 		alignSelf: 'default',
 		order: 'default',
 		float: 'default'
@@ -42,22 +41,26 @@ describe('TextInput', () => {
 		disabled: true,
 		readOnly: true,
 		size: 'small',
-		focus: true,
+		shouldFocus: true,
 		plainText: true,
 		maxLength: 5,
 		minLength: 5,
 		invalidMessage: 'invalid message',
 		validMessage: 'valid message',
-		onInput: () => {'1'},
-		onChange: () => {'2'},
-		marginTop: "0",
-		marginBottom: "0",
-		marginLeft: "1",
-		marginRight: "1",
-		paddingTop: "0",
-		paddingBottom: "0",
-		paddingLeft: "1",
-		paddingRight: "1",
+		onInput: () => {
+			'1';
+		},
+		onChange: () => {
+			'2';
+		},
+		marginTop: '0',
+		marginBottom: '0',
+		marginLeft: '1',
+		marginRight: '1',
+		paddingTop: '0',
+		paddingBottom: '0',
+		paddingLeft: '1',
+		paddingRight: '1',
 		alignSelf: 'start',
 		order: '0',
 		float: 'none'
@@ -67,45 +70,45 @@ describe('TextInput', () => {
 		const h = harness(() => w(TextInput, {}));
 		h.expect(() => [
 			null,
-			v('input',{
-					id: undefined,
-					name: undefined,
-					type: '',
-					value: undefined,
-					placeholder: undefined,
-					disabled: false,
-					required: false,
-					readOnly: false,
-					maxlength: null,
-					minlength: null,
-					classes: ['form-control'],
-					autofocus: false,
-					oninput: () => {},
-					onchange: () => {}
+			v('input', {
+				id: undefined,
+				key: 'text-input',
+				name: undefined,
+				type: '',
+				value: undefined,
+				placeholder: undefined,
+				disabled: false,
+				required: false,
+				readOnly: false,
+				maxlength: null,
+				minlength: null,
+				classes: ['form-control'],
+				oninput: () => {},
+				onchange: () => {}
 			}),
 			null
-			]);
+		]);
 	});
 
 	it('default properties', () => {
 		const h = harness(() => w(TextInput, defaultProperties));
 		h.expect(() => [
 			null,
-			v('input',{
-					id: undefined,
-					name: undefined,
-					type: '',
-					value: undefined,
-					placeholder: undefined,
-					disabled: false,
-					required: false,
-					readOnly: false,
-					maxlength: null,
-					minlength: null,
-					classes: ['','form-control'],
-					autofocus: false,
-					oninput: () => {},
-					onchange: () => {}
+			v('input', {
+				id: undefined,
+				key: 'text-input',
+				name: undefined,
+				type: '',
+				value: undefined,
+				placeholder: undefined,
+				disabled: false,
+				required: false,
+				readOnly: false,
+				maxlength: null,
+				minlength: null,
+				classes: ['', 'form-control'],
+				oninput: () => {},
+				onchange: () => {}
 			}),
 			null
 		]);
@@ -114,12 +117,17 @@ describe('TextInput', () => {
 	it('custom properties', () => {
 		const h = harness(() => w(TextInput, customProperties));
 		h.expect(() => [
-			w(Label, {
-				value: 'tag',
-				forId: 'random-id'
-			}, []),
-			v('input',{
+			w(
+				Label,
+				{
+					value: 'tag',
+					forId: 'random-id'
+				},
+				[]
+			),
+			v('input', {
 				id: 'random-id',
+				key: 'text-input',
 				name: 'textInput',
 				type: 'password',
 				value: 'val',
@@ -141,13 +149,45 @@ describe('TextInput', () => {
 					'order-0',
 					'float-none'
 				],
-				autofocus: true,
-				oninput: () => {'1'},
-				onchange: () => {'2'}
+				oninput: () => {
+					'1';
+				},
+				onchange: () => {
+					'2';
+				}
 			}),
-			v('div',{
-				classes: ['invalid-tooltip']
-			}, ['invalid message'])
+			v(
+				'div',
+				{
+					classes: ['invalid-tooltip']
+				},
+				['invalid message']
+			)
 		]);
+	});
+
+	it('type is file', () => {
+		const h = harness(() => w(TextInput, { type: 'file' }));
+		h.expect(() =>
+			v(
+				'div',
+				{
+					classes: ['custom-file']
+				},
+				[
+					v('input', {
+						id: undefined,
+						key: 'text-input',
+						name: undefined,
+						type: 'file',
+						disabled: false,
+						classes: ['custom-file-input'],
+						onchange: () => {}
+					}),
+					null,
+					null
+				]
+			)
+		);
 	});
 });

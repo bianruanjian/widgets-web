@@ -6,22 +6,39 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/grid-column.m.css';
-import { BorderProperties, SpacingProperties, TextProperties, FlexContainerProperties, FlexItemProperties } from '../common/interfaces';
-import { getBorderClasses, getSpacingClasses, getTextClasses, getFlexContainerClasses, getFlexItemClasses, getTextStyles, getTextDecorationClass } from '../common/util';
+import {
+	BorderProperties,
+	SpacingProperties,
+	TextProperties,
+	FlexContainerProperties,
+	FlexItemProperties
+} from '../common/interfaces';
+import {
+	getBorderClasses,
+	getSpacingClasses,
+	getTextClasses,
+	getFlexContainerClasses,
+	getFlexItemClasses,
+	getTextStyles,
+	getTextDecorationClass
+} from '../common/util';
 
 /**
- * 
+ *
  * @type GridColumnProperties
  *
  * Properties that can be set on grid-column components
  */
-export interface GridColumnProperties extends BorderProperties,
-	SpacingProperties, TextProperties,FlexContainerProperties,
-	FlexItemProperties {
+export interface GridColumnProperties
+	extends BorderProperties,
+		SpacingProperties,
+		TextProperties,
+		FlexContainerProperties,
+		FlexItemProperties {
 	widgetId?: string;
-	offset? : number | string;
+	offset?: number | string;
 	colspan?: number | string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -67,22 +84,18 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class GridColumn<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
-	
-	private _getSelfClasses(): string[] {
-		let {
-			offset,
-			colspan
-		} = this.properties;
+	private _getClasses(): string[] {
+		let { offset, colspan } = this.properties;
 
 		const cssClasses: string[] = [];
 
-		if(colspan && colspan !== 'default' && colspan !== 1){
+		if (colspan && colspan !== 'default' && colspan !== 1) {
 			cssClasses.push(`col-${colspan}`);
-		}else{
+		} else {
 			cssClasses.push('col');
 		}
 
-		if((offset && offset !== 'default') || offset === 0){
+		if ((offset && offset !== 'default') || offset === 0) {
 			cssClasses.push(`offset-${offset}`);
 		}
 
@@ -90,16 +103,15 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 	}
 
 	protected render(): DNode | DNode[] {
-		let {
-			widgetId
-		} = this.properties;
+		let { widgetId } = this.properties;
 
 		return v(
 			'div',
 			{
 				id: widgetId,
+				key: 'grid-column',
 				classes: [
-					...this._getSelfClasses(),
+					...this._getClasses(),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),

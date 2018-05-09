@@ -58,6 +58,7 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 			tag,
 			{
 				id: widgetId,
+				key: 'list-group',
 				classes: [
 					'list-group',
 					flush === true || flush === 'true' ? 'list-group-flush' : undefined,

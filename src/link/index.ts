@@ -84,6 +84,7 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 			'a',
 			{
 				id: widgetId,
+				key: 'link',
 				href,
 				target,
 				classes: isListItem

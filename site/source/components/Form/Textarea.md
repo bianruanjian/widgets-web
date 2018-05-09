@@ -10,20 +10,36 @@ tags:
 
 ## 基本用法
 
-### normal
+### default
 {% raw %}
-<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="false" invalidMessage="invalidTip" marginTop="3" marginBottom="2" autofocus="true"></db-textarea>
+<db-textarea widgetId="default-id" name="demo" label="demo" rows="3" cols="2" noResize="false" shouldFocus="true" marginTop="3" marginBottom="2"></db-textarea>
 {% endraw %}
 ```html
-<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="false" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="default-id" name="demo" label="demo" rows="3" cols="2" noResize="false" shouldFocus="true"></db-textarea>
 ```
 
 ### noRisize
 {% raw %}
-<db-textarea widgetId="textareaz" name="demo" label="demo" rows="3" cols="2" noResize="true" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="noRisize-id" name="demo" label="demo" rows="3" cols="2" noResize="true" marginTop="3" marginBottom="2"></db-textarea>
 {% endraw %}
 ```html
-<db-textarea widgetId="textarea" name="demo" label="demo" rows="3" cols="2" noResize="true" invalidMessage="invalidTip" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="noRisize-id" name="demo" label="demo" rows="3" cols="2" noResize="true"></db-textarea>
+```
+
+### disabled
+{% raw %}
+<db-textarea widgetId="disabled-id" name="demo" label="demo" rows="3" cols="2" noResize="false" disabled="true" marginTop="3" marginBottom="2"></db-textarea>
+{% endraw %}
+```html
+<db-textarea widgetId="disabled-id" name="demo" label="demo" rows="3" cols="2" noResize="false" disabled="true"></db-textarea>
+```
+
+### readOnly
+{% raw %}
+<db-textarea widgetId="readOnly-id" name="demo" label="demo" rows="3" cols="2" noResize="false" readOnly="true" value="readOnly value" marginTop="3" marginBottom="2"></db-textarea>
+{% endraw %}
+```html
+<db-textarea widgetId="readOnly-id" name="demo" label="demo" rows="3" cols="2" noResize="false" readOnly="true" value="readOnly value"></db-textarea>
 ```
 
 ## 通用属性
@@ -49,7 +65,7 @@ tags:
 | disabled | 失效 | false | true, false | boolean |
 | readOnly | 只读 | false | true, false | boolean |
 | noResize | 禁止调节大小 | false | true，false | boolean |
-| autofocus | 获取焦点 | false | true, false | boolean |
+| shouldFocus | 获取焦点 | false | true, false | boolean |
 | plainText | 纯文本(无边框文本) | false | true, false | boolean |
 | maxLength | 最大字符个数 | | | number |
 | minLength | 最小字符个数 | | | number |

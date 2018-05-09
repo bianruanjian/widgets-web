@@ -14,6 +14,7 @@ import { v, w } from '@dojo/widget-core/d';
 
 import * as css from './styles/textarea.m.css';
 import { Label } from '../label';
+import { Focus } from '@dojo/widget-core/meta/Focus';
 
 /**
  * @type TextareaProperties
@@ -36,7 +37,7 @@ export interface TextareaProperties
 	placeholder?: string;
 	placeholderAppearance?: string;
 	noResize?: boolean | string;
-	autofocus?: boolean | string;
+	shouldFocus?: boolean | string;
 	plainText?: boolean | string;
 	maxLength?: number;
 	minLength?: number;
@@ -59,7 +60,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'disabled',
 		'readOnly',
 		'size',
-		'autofocus',
+		'shouldFocus',
 		'plainText',
 		'noResize',
 		'maxLength',
@@ -97,13 +98,17 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			maxLength,
 			minLength,
 			size,
-			autofocus,
+			shouldFocus,
 			plainText,
 			noResize
 		} = this.properties;
 
 		const cssClasses: string[] = [];
 		let cssStyles: any = {};
+
+		if (shouldFocus) {
+			this.meta(Focus).set('textarea');
+		}
 
 		if (disabled === true || disabled === 'true') {
 			cssClasses.push('disabled');
@@ -113,7 +118,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			cssClasses.push(formSizeMap[size as string]);
 		}
 
-		if (plainText === true || plainText === 'true' || (readOnly === true || readOnly === 'true')) {
+		if (plainText === true || plainText === 'true') {
 			cssClasses.push('form-control-plaintext');
 		} else {
 			cssClasses.push('form-control');
@@ -125,6 +130,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 
 		return v('textarea', {
 			id: widgetId,
+			key: 'textarea',
 			name,
 			value,
 			rows,
@@ -141,7 +147,6 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 				...getFlexItemClasses(this.properties),
 				...getFloatClass(this.properties)
 			],
-			autofocus: autofocus === true || autofocus === 'true',
 			styles: cssStyles
 		});
 	}
@@ -153,7 +158,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 	protected render(): DNode | DNode[] {
 		const { widgetId, label } = this.properties;
 
-		const children = [
+		return [
 			label
 				? w(
 						Label,
@@ -166,8 +171,6 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 				: null,
 			...this.renderInputWrapper()
 		];
-
-		return children;
 	}
 }
 

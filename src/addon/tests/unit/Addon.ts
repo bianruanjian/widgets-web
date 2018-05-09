@@ -22,6 +22,7 @@ describe('Addon', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'addon',
 					classes: ['input-group-prepend']
 				},
 				[v('div', {})]
@@ -36,6 +37,7 @@ describe('Addon', () => {
 				'div',
 				{
 					id: 'random-id',
+					key: 'addon',
 					classes: ['input-group-append']
 				},
 				[
@@ -59,32 +61,40 @@ describe('Addon', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'addon',
 					classes: ['input-group-prepend']
 				},
 				[
-					v('div', {}, [
-						v(
-							'div',
-							{
-								classes: ['form-check', '', 'form-check-inline']
-							},
-							[
-								v('input', {
-									type: 'checkbox',
-									id: undefined,
-									name: undefined,
-									value: undefined,
-									checked: false,
-									disabled: false,
-									required: false,
-									readOnly: false,
-									classes: ['form-check-input']
-								}),
-								null,
-								null
-							]
-						)
-					])
+					v(
+						'div',
+						{
+							classes: ['input-group-text']
+						},
+						[
+							v(
+								'div',
+								{
+									key: 'checkbox',
+									classes: ['form-check', undefined, 'form-check-inline']
+								},
+								[
+									v('input', {
+										type: 'checkbox',
+										id: undefined,
+										name: undefined,
+										value: undefined,
+										checked: false,
+										disabled: false,
+										required: false,
+										readOnly: false,
+										classes: ['form-check-input']
+									}),
+									null,
+									null
+								]
+							)
+						]
+					)
 				]
 			)
 		);
@@ -98,6 +108,7 @@ describe('Addon', () => {
 				'div',
 				{
 					id: undefined,
+					key: 'addon',
 					classes: ['input-group-prepend']
 				},
 				[
@@ -106,6 +117,7 @@ describe('Addon', () => {
 							'button',
 							{
 								id: undefined,
+								key: 'button',
 								classes: ['btn', undefined, undefined, undefined, undefined],
 								disabled: false,
 								type: undefined,

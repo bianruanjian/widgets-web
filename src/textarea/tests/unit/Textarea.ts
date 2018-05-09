@@ -14,7 +14,7 @@ describe('Textarea', () => {
 		disabled: false,
 		readOnly: false,
 		noResize: false,
-		autofocus: false,
+		shouldFocus: false,
 		plainText: false,
 		marginTop: 'default',
 		marginBottom: 'default',
@@ -42,7 +42,7 @@ describe('Textarea', () => {
 		disabled: true,
 		readOnly: true,
 		size: 'small',
-		autofocus: true,
+		shouldFocus: true,
 		plainText: true,
 		noResize: true,
 		maxLength: 5,
@@ -68,6 +68,7 @@ describe('Textarea', () => {
 			null,
 			v('textarea', {
 				id: undefined,
+				key: 'textarea',
 				name: undefined,
 				value: undefined,
 				rows: undefined,
@@ -79,7 +80,6 @@ describe('Textarea', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['form-control'],
-				autofocus: false,
 				styles: {}
 			}),
 			null
@@ -92,6 +92,7 @@ describe('Textarea', () => {
 			null,
 			v('textarea', {
 				id: undefined,
+				key: 'textarea',
 				name: undefined,
 				value: undefined,
 				rows: undefined,
@@ -103,7 +104,6 @@ describe('Textarea', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['', 'form-control'],
-				autofocus: false,
 				styles: {}
 			}),
 			null
@@ -123,6 +123,7 @@ describe('Textarea', () => {
 			),
 			v('textarea', {
 				id: 'random-id',
+				key: 'textarea',
 				name: 'textInput',
 				value: 'val',
 				rows: 3,
@@ -145,7 +146,6 @@ describe('Textarea', () => {
 					'order-0',
 					'float-none'
 				],
-				autofocus: true,
 				styles: {
 					resize: 'none'
 				}

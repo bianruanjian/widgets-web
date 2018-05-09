@@ -5,7 +5,13 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { Label } from '../label';
-import { SpacingProperties, FlexItemProperties, FloatProperties, FormProperties, MessageProperties } from '../common/interfaces';
+import {
+	SpacingProperties,
+	FlexItemProperties,
+	FloatProperties,
+	FormProperties,
+	MessageProperties
+} from '../common/interfaces';
 import { formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode } from '../common/util';
 
 import * as css from './styles/select.m.css';
@@ -15,18 +21,23 @@ import * as css from './styles/select.m.css';
  *
  * Properties that can be set on select components
  */
-export interface SelectProperties extends SpacingProperties, FlexItemProperties, FloatProperties, FormProperties, MessageProperties{
+export interface SelectProperties
+	extends SpacingProperties,
+		FlexItemProperties,
+		FloatProperties,
+		FormProperties,
+		MessageProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
 	label?: string;
-	plainText?: boolean | string;
+	// TODO: 使用 string 类型还是 any[] 类型
 	options?: string;
 	labelField?: string;
 	valueField?: string;
 	dataPath?: string;
 	size?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -41,7 +52,6 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'disabled',
 		'required',
 		'readOnly',
-		'plainText',
 		'options',
 		'labelField',
 		'valueField',
@@ -74,7 +84,6 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			disabled,
 			required,
 			readOnly,
-			plainText,
 			options,
 			labelField,
 			valueField,
@@ -84,52 +93,53 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 
 		const cssClasses: string[] = [];
 
-		if(disabled === true || disabled === 'true'){
+		if (disabled === true || disabled === 'true') {
 			cssClasses.push('disabled');
 		}
 
-		if(size){
+		if (size) {
 			cssClasses.push(formSizeMap[size as string]);
 		}
 
-		if(plainText || readOnly){
-			cssClasses.push('form-control-plaintext');
-		} else {
-			cssClasses.push('form-control');
-		}
+		cssClasses.push('form-control');
 
-		const children: DNode[] = [];
+		let children: DNode[] = [];
 
-		if(options){
-			let optionJsons: any[] = eval(options as string);
-			optionJsons.forEach( (option, index) => {
-				const child: DNode = v('option', {
-					value: option[valueField],
-					selected: (value && value === option[valueField])
-				}, [
-					option[labelField]
-				]);
-				children.push(child);
+		if (options) {
+			// 不使用 JSON.parse() 将 json 转为数组的原因是 JSON.parse() 不支持单引号,且不支持转义符
+			let optionJson: any[] = eval(options as string);
+			children = optionJson.map((option, index) => {
+				return v(
+					'option',
+					{
+						value: option[valueField],
+						selected: value && value === option[valueField]
+					},
+					[option[labelField]]
+				);
 			});
 		}
 
-		if(dataPath){
+		if (dataPath) {
 			//TODO: 发送请求，获取数据，暂时不处理
 		}
 
-		return v('select', {
+		return v(
+			'select',
+			{
 				id: widgetId,
+				key: 'select',
 				name,
-				disabled: (disabled === true || disabled === 'true'),
-				required: (required === true || required === 'true'),
-				readOnly: (readOnly === true || readOnly === 'true'), 
+				disabled: disabled === true || disabled === 'true',
+				required: required === true || required === 'true',
+				readOnly: readOnly === true || readOnly === 'true',
 				classes: [
 					...cssClasses,
 					...getSpacingClasses(this.properties),
 					...getFlexItemClasses(this.properties),
 					...getFloatClass(this.properties)
 				]
-			}, 
+			},
 			children
 		);
 	}
@@ -139,20 +149,21 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 	}
 
 	protected render(): DNode | DNode[] {
-		const {
-			widgetId,
-			label
-		} = this.properties;
+		const { widgetId, label } = this.properties;
 
-		const children = [
-			label ? w(Label, {
-				value: label,
-				forId: widgetId
-			}, []) : null,
+		return [
+			label
+				? w(
+						Label,
+						{
+							value: label,
+							forId: widgetId
+						},
+						[]
+				  )
+				: null,
 			...this.renderSelectWrapper()
 		];
-
-		return children;
 	}
 }
 

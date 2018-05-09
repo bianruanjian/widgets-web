@@ -4,8 +4,14 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { FlexContainerProperties, TextProperties } from '../common/interfaces';
-import { getFlexContainerClasses, getTextClasses, getTextDecorationClass, getTextStyles } from '../common/util';
+import { FlexContainerProperties, TextProperties, ColorsProperties } from '../common/interfaces';
+import {
+	getFlexContainerClasses,
+	getTextClasses,
+	getTextDecorationClass,
+	getTextStyles,
+	getColorsClasses
+} from '../common/util';
 
 import * as css from './styles/list-item.m.css';
 
@@ -14,7 +20,7 @@ import * as css from './styles/list-item.m.css';
  *
  * Properties that can be set on ListItem components
  */
-export interface ListItemProperties extends FlexContainerProperties, TextProperties {
+export interface ListItemProperties extends FlexContainerProperties, TextProperties, ColorsProperties {
 	widgetId?: string;
 	active?: boolean | string;
 	disabled?: boolean | string;
@@ -43,7 +49,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'alignment',
 		'transform',
 		'truncate',
-		'wrap'
+		'wrap',
+		'textColor',
+		'backgroundColor'
 	],
 	properties: [],
 	events: []
@@ -57,6 +65,7 @@ export class ListItem<P extends ListItemProperties = ListItemProperties> extends
 			'li',
 			{
 				id: widgetId,
+				key: 'list-item',
 				disabled: disabled === true || disabled === 'true',
 				classes: [
 					'list-group-item',
@@ -65,7 +74,8 @@ export class ListItem<P extends ListItemProperties = ListItemProperties> extends
 					active === true || active === 'true' ? 'active' : undefined,
 					...getFlexContainerClasses(this.properties),
 					...getTextClasses(this.properties),
-					...getTextDecorationClass(this.properties)
+					...getTextDecorationClass(this.properties),
+					...getColorsClasses(this.properties)
 				],
 				styles: getTextStyles(this.properties)
 			},

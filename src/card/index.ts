@@ -101,6 +101,7 @@ export class Card<P extends CardProperties = CardProperties> extends ThemedBase<
 			'div',
 			{
 				id: widgetId,
+				key: 'card',
 				classes: [
 					'card',
 					...getSpacingClasses(this.properties),

@@ -22,7 +22,9 @@ describe('ListItem', () => {
 		justifyItems: 'default',
 		alignItems: 'default',
 		flexWrap: 'default',
-		alignContent: 'default'
+		alignContent: 'default',
+		textColor: 'default',
+		backgroundColor: 'default'
 	};
 
 	const customProperties: ListItemProperties = {
@@ -42,7 +44,9 @@ describe('ListItem', () => {
 		justifyItems: 'start',
 		alignItems: 'start',
 		flexWrap: 'nowrap',
-		alignContent: 'start'
+		alignContent: 'start',
+		textColor: 'primary',
+		backgroundColor: 'primary'
 	};
 
 	it('should construct ListItem', () => {
@@ -52,6 +56,7 @@ describe('ListItem', () => {
 				'li',
 				{
 					id: undefined,
+					key: 'list-item',
 					disabled: false,
 					classes: ['list-group-item', undefined, undefined, undefined],
 					styles: {}
@@ -68,6 +73,7 @@ describe('ListItem', () => {
 				'li',
 				{
 					id: undefined,
+					key: 'list-item',
 					disabled: false,
 					classes: ['list-group-item', undefined, undefined, undefined],
 					styles: {}
@@ -86,6 +92,7 @@ describe('ListItem', () => {
 				'li',
 				{
 					id: 'random-id',
+					key: 'list-item',
 					disabled: true,
 					classes: [
 						'list-group-item',
@@ -103,7 +110,9 @@ describe('ListItem', () => {
 						'text-lowerCase',
 						'text-truncate',
 						'text-nowrap',
-						css[textDecorationMap['underline'] as baseCssType]
+						css[textDecorationMap['underline'] as baseCssType],
+						'text-primary',
+						'bg-primary'
 					],
 					styles: {
 						maxWidth: '40px',

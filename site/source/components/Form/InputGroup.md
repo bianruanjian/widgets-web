@@ -12,30 +12,72 @@ tags:
 
 ### size
 {% raw %}
-<db-container>
-    <div class="input-group input-group-sm">
-        <input id="small" name="small" type="text" class="form-control mt-3" value="value">
+<div class="input-group input-group-sm mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Small
+        </div>
     </div>
-    <div class="input-group">
-        <input id="default" name="default" type="text" class="form-control mt-3" value="default">
+    <input id="small" name="small" type="text" class="form-control" value="value">
+</div>
+<div class="input-group mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Default
+        </div>
     </div>
-    <div class="input-group input-group-lg">
-        <input id="large" name="large" type="text" class="form-control mt-3" value="value">
+    <input id="default" name="default" type="text" class="form-control" value="default">
+</div>
+<div class="input-group input-group-lg mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Large
+        </div>
     </div>
-</db-container>
+    <input id="large" name="large" type="text" class="form-control" value="value">
+</div>
 {% endraw %}
-```html
-<db-container>
-    <db-input-group size="small">
-        <db-text-input name="small" widgetId="small" value="small" type="text" marginTop="3"></db-text-input>
-    </db-input-group>
-    <db-input-group size="default">
-        <db-text-input name="default" widgetId="default" value="default" type="text" marginTop="3"></db-text-input>
-    </db-input-group>
-    <db-input-group size="large">
-        <db-text-input name="large" widgetId="large" value="large" type="text" marginTop="3"></db-text-input>
-    </db-input-group>
-</db-container>  
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+
+w(InputGroup, {size: 'small'}, [
+    w(Addon, {value: 'Small'});
+    w(TextInput, {name: 'small', widgetId: 'small', value: 'small', type: 'text'});
+]);
+w(InputGroup, {}, [
+    w(Addon, {value: 'Default'});
+    w(TextInput, {name: 'default', widgetId: 'default', value: 'default', type: 'text'});
+]);
+w(InputGroup, {size: 'large'}, [
+    w(Addon, {value: 'Large'});
+    w(TextInput, {name: 'large', widgetId: 'large', value: 'large', type: 'text'});
+]);
+```
+
+### Multiple inputs
+{% raw %}
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">First and last name</span>
+  </div>
+  <input type="text" class="form-control">
+  <input type="text" class="form-control">
+</div>
+{% endraw %}
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+
+w(InputGroup, {size: 'small'}, [
+    w(Addon, {value: 'First and last name'});
+    w(TextInput, {type: 'text'});
+    w(TextInput, {type: 'text'});
+]);
 ```
 
 ## 通用属性

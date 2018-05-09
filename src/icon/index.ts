@@ -92,6 +92,7 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 		if (cssClasses.length === 0) {
 			return v('i', {
 				id: widgetId,
+				key: 'icon',
 				alt,
 				title,
 				classes: iconClasses
@@ -102,6 +103,7 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 			'span',
 			{
 				id: widgetId,
+				key: 'icon',
 				classes: [
 					...getSpacingClasses(this.properties),
 					...getFlexItemClasses(this.properties),

@@ -59,6 +59,7 @@ describe('Link', () => {
 				'a',
 				{
 					id: undefined,
+					key: 'link',
 					href: undefined,
 					target: undefined,
 					classes: [],
@@ -76,6 +77,7 @@ describe('Link', () => {
 				'a',
 				{
 					id: undefined,
+					key: 'link',
 					href: undefined,
 					target: '_self',
 					classes: [],
@@ -95,6 +97,7 @@ describe('Link', () => {
 				'a',
 				{
 					id: 'random-id',
+					key: 'link',
 					href: 'https://link.com/',
 					target: 'iframeId',
 					classes: [
@@ -129,6 +132,7 @@ describe('Link', () => {
 				'a',
 				{
 					id: undefined,
+					key: 'link',
 					href: undefined,
 					target: undefined,
 					classes: ['list-group-item', 'list-group-item-action', undefined],

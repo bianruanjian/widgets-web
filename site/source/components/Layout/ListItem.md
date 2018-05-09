@@ -99,6 +99,7 @@ w(ListGroup, {}, [
 
 1. [Flex](../Utilities/Flex.html) 中的 flex container 相关属性
 1. [Text](../Utilities/Text.html)
+1. [Colors](../Utilities/Colors.html)
 
 ## 属性
 

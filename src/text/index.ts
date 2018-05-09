@@ -5,7 +5,13 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { SpacingProperties, TextProperties, ColorsProperties } from '../common/interfaces';
-import { getSpacingClasses, getTextClasses, getTextDecorationClass, getColorsClasses, getTextStyles } from '../common/util';
+import {
+	getSpacingClasses,
+	getTextClasses,
+	getTextDecorationClass,
+	getColorsClasses,
+	getTextStyles
+} from '../common/util';
 
 import * as css from './styles/text.m.css';
 /**
@@ -17,7 +23,7 @@ export interface TextWidgetProperties extends SpacingProperties, TextProperties,
 	widgetId?: string;
 	value?: string;
 	type?: string;
-};
+}
 
 export const ThemedBase = ThemedMixin(WidgetBase);
 
@@ -51,25 +57,20 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class Text<P extends TextWidgetProperties = TextWidgetProperties> extends ThemedBase<P> {
-
 	protected render(): DNode | DNode[] {
-		let {
-			widgetId,
-			value,
-			type
-		} = this.properties;
+		let { widgetId, value, type } = this.properties;
 
 		let tag: string;
 		let cssClasses: string[] = [];
 
-		if(!type){
+		if (!type) {
 			tag = 'span';
-		}else if(type === 'text'){
+		} else if (type === 'text') {
 			tag = 'span';
-		}else if(type === 'lead'){
+		} else if (type === 'lead') {
 			tag = 'p';
 			cssClasses.push('lead');
-		}else{
+		} else {
 			tag = type as string;
 		}
 
@@ -77,6 +78,7 @@ export class Text<P extends TextWidgetProperties = TextWidgetProperties> extends
 			tag,
 			{
 				id: widgetId,
+				key: 'text',
 				classes: [
 					...cssClasses,
 					...getSpacingClasses(this.properties),
@@ -88,7 +90,7 @@ export class Text<P extends TextWidgetProperties = TextWidgetProperties> extends
 					...getTextStyles(this.properties)
 				}
 			},
-			value ? [...this.children,...[value]] : this.children
+			value ? [...this.children, ...[value]] : this.children
 		);
 	}
 }

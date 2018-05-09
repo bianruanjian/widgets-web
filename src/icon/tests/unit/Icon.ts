@@ -48,6 +48,7 @@ describe('Icon', () => {
 		h.expect(() =>
 			v('i', {
 				id: undefined,
+				key: 'icon',
 				alt: undefined,
 				title: undefined,
 				classes: []
@@ -60,6 +61,7 @@ describe('Icon', () => {
 		h.expect(() =>
 			v('i', {
 				id: undefined,
+				key: 'icon',
 				alt: undefined,
 				title: undefined,
 				classes: ['fas fa-smile', '']
@@ -74,6 +76,7 @@ describe('Icon', () => {
 				'span',
 				{
 					id: 'random-id',
+					key: 'icon',
 					classes: [
 						'my-0',
 						'mx-1',

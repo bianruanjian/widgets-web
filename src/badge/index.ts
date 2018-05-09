@@ -73,6 +73,7 @@ export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBa
 			tag,
 			{
 				id: widgetId,
+				key: 'badge',
 				classes: [
 					'badge',
 					...cssClasses,

@@ -91,6 +91,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 				'a',
 				{
 					id: widgetId,
+					key: 'button',
 					href: `${href}`,
 					target,
 					classes: isListItem
@@ -116,6 +117,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 				'button',
 				{
 					id: widgetId,
+					key: 'button',
 					classes: isListItem
 						? [
 								'list-group-item',
