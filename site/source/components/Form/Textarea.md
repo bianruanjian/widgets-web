@@ -12,34 +12,34 @@ tags:
 
 ### default
 {% raw %}
-<db-textarea widgetId="defaultDemo" name="demo" label="demo" rows="3" cols="2" noResize="false" shouldFocus="true" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="default-id" name="demo" label="demo" rows="3" cols="2" noResize="false" shouldFocus="true" marginTop="3" marginBottom="2"></db-textarea>
 {% endraw %}
 ```html
-<db-textarea widgetId="default" name="demo" label="demo" rows="3" cols="2" noResize="false" shouldFocus="true"></db-textarea>
+<db-textarea widgetId="default-id" name="demo" label="demo" rows="3" cols="2" noResize="false" shouldFocus="true"></db-textarea>
 ```
 
 ### noRisize
 {% raw %}
-<db-textarea widgetId="noRisizeDemo" name="demo" label="demo" rows="3" cols="2" noResize="true" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="noRisize-id" name="demo" label="demo" rows="3" cols="2" noResize="true" marginTop="3" marginBottom="2"></db-textarea>
 {% endraw %}
 ```html
-<db-textarea widgetId="noRisize" name="demo" label="demo" rows="3" cols="2" noResize="true"></db-textarea>
+<db-textarea widgetId="noRisize-id" name="demo" label="demo" rows="3" cols="2" noResize="true"></db-textarea>
 ```
 
 ### disabled
 {% raw %}
-<db-textarea widgetId="disabledDemo" name="demo" label="demo" rows="3" cols="2" noResize="false" disabled="true" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="disabled-id" name="demo" label="demo" rows="3" cols="2" noResize="false" disabled="true" marginTop="3" marginBottom="2"></db-textarea>
 {% endraw %}
 ```html
-<db-textarea widgetId="disabled" name="demo" label="demo" rows="3" cols="2" noResize="false" disabled="true"></db-textarea>
+<db-textarea widgetId="disabled-id" name="demo" label="demo" rows="3" cols="2" noResize="false" disabled="true"></db-textarea>
 ```
 
 ### readOnly
 {% raw %}
-<db-textarea widgetId="readOnlyDemo" name="demo" label="demo" rows="3" cols="2" noResize="false" readOnly="true" value="readOnly value" marginTop="3" marginBottom="2"></db-textarea>
+<db-textarea widgetId="readOnly-id" name="demo" label="demo" rows="3" cols="2" noResize="false" readOnly="true" value="readOnly value" marginTop="3" marginBottom="2"></db-textarea>
 {% endraw %}
 ```html
-<db-textarea widgetId="readOnly" name="demo" label="demo" rows="3" cols="2" noResize="false" readOnly="true" value="readOnly value"></db-textarea>
+<db-textarea widgetId="readOnly-id" name="demo" label="demo" rows="3" cols="2" noResize="false" readOnly="true" value="readOnly value"></db-textarea>
 ```
 
 ## 通用属性

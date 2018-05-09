@@ -37,7 +37,7 @@ tags:
     <input id="large" name="large" type="text" class="form-control" value="value">
 </div>
 {% endraw %}
-```html
+```TypeScript
 import { w } from '@dojo/widget-core/d';
 import InputGroup from 'widgets-web/input-group/index';
 import Addon from 'widgets-web/addon/index';
@@ -67,7 +67,7 @@ w(InputGroup, {size: 'large'}, [
   <input type="text" class="form-control">
 </div>
 {% endraw %}
-```html
+```TypeScript
 import { w } from '@dojo/widget-core/d';
 import InputGroup from 'widgets-web/input-group/index';
 import Addon from 'widgets-web/addon/index';
