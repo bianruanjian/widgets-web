@@ -22,7 +22,9 @@ describe('ListItem', () => {
 		justifyItems: 'default',
 		alignItems: 'default',
 		flexWrap: 'default',
-		alignContent: 'default'
+		alignContent: 'default',
+		textColor: 'default',
+		backgroundColor: 'default'
 	};
 
 	const customProperties: ListItemProperties = {
@@ -42,7 +44,9 @@ describe('ListItem', () => {
 		justifyItems: 'start',
 		alignItems: 'start',
 		flexWrap: 'nowrap',
-		alignContent: 'start'
+		alignContent: 'start',
+		textColor: 'primary',
+		backgroundColor: 'primary'
 	};
 
 	it('should construct ListItem', () => {
@@ -106,7 +110,9 @@ describe('ListItem', () => {
 						'text-lowerCase',
 						'text-truncate',
 						'text-nowrap',
-						css[textDecorationMap['underline'] as baseCssType]
+						css[textDecorationMap['underline'] as baseCssType],
+						'text-primary',
+						'bg-primary'
 					],
 					styles: {
 						maxWidth: '40px',
