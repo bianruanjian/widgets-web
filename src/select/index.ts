@@ -106,9 +106,9 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 		let children: DNode[] = [];
 
 		if (options) {
-			// 不使用 JSON.parse() 将 json 转为数组的原因是 JSON.parse() 不支持单引号 ',且不支持转移符
+			// 不使用 JSON.parse() 将 json 转为数组的原因是 JSON.parse() 不支持单引号,且不支持转义符
 			let optionJson: any[] = eval(options as string);
-			const childJsons: VNode[] = optionJson.map((option, index) => {
+			children = optionJson.map((option, index) => {
 				return v(
 					'option',
 					{
@@ -118,7 +118,6 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 					[option[labelField]]
 				);
 			});
-			children = childJsons;
 		}
 
 		if (dataPath) {

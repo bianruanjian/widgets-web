@@ -164,45 +164,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 		);
 	}
 
-	protected renderInputWrapper(): DNode[] {
-		return [this.renderInput(), renderMessageNode(this.properties)];
-	}
-
-	protected render(): DNode | DNode[] {
-		const { widgetId, label, type, disabled, name } = this.properties;
-
-		if (type && type === 'file') {
-			return v(
-				'div',
-				{
-					classes: [
-						'custom-file',
-						...getSpacingClasses(this.properties),
-						...getFlexItemClasses(this.properties),
-						...getFloatClass(this.properties)
-					]
-				},
-				[
-					v('input', {
-						id: widgetId,
-						key: 'text-input',
-						name,
-						type: 'file',
-						disabled: disabled === true || disabled === 'true',
-						classes: ['custom-file-input'],
-						onchange: this._onChange
-					}),
-					label
-						? w(Label, {
-								value: label,
-								forId: widgetId,
-								classes: 'custom-file-label'
-						  })
-						: null,
-					renderMessageNode(this.properties)
-				]
-			);
-		}
+	protected renderTextInput(): DNode[] {
+		const { widgetId, label } = this.properties;
 
 		return [
 			label
@@ -215,8 +178,54 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 						[]
 				  )
 				: null,
-			...this.renderInputWrapper()
+			this.renderInput(),
+			renderMessageNode(this.properties)
 		];
+	}
+
+	protected renderFileInput(): DNode {
+		const { widgetId, label, disabled, name } = this.properties;
+
+		return v(
+			'div',
+			{
+				classes: [
+					'custom-file',
+					...getSpacingClasses(this.properties),
+					...getFlexItemClasses(this.properties),
+					...getFloatClass(this.properties)
+				]
+			},
+			[
+				v('input', {
+					id: widgetId,
+					key: 'text-input',
+					name,
+					type: 'file',
+					disabled: disabled === true || disabled === 'true',
+					classes: ['custom-file-input'],
+					onchange: this._onChange
+				}),
+				label
+					? w(Label, {
+							value: label,
+							forId: widgetId,
+							classes: 'custom-file-label'
+					  })
+					: null,
+				renderMessageNode(this.properties)
+			]
+		);
+	}
+
+	protected render(): DNode | DNode[] {
+		const { type } = this.properties;
+
+		if (type && type === 'file') {
+			return this.renderFileInput();
+		}
+
+		return this.renderTextInput();
 	}
 }
 

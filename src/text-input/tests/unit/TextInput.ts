@@ -166,7 +166,7 @@ describe('TextInput', () => {
 		]);
 	});
 
-	it('child is file', () => {
+	it('type is file', () => {
 		const h = harness(() => w(TextInput, { type: 'file' }));
 		h.expect(() =>
 			v(

@@ -54,7 +54,7 @@ import TextInput from 'widgets-web/text-input/index';
 
 w(InputGroup, {}, [
     w(TextInput, {type: 'number'});
-    w(Addon, {value: '$', position:'append'});
+    w(Addon, {value: '$', position: 'append'});
 ]);
 ```
 
@@ -113,13 +113,13 @@ w(InputGroup, {}, [
 ]);
 w(InputGroup, {}, [
     w(TextInput, {type: 'number'});
-    w(Addon, {value: '$', position:'append'});
-    w(Addon, {value: '0.00', position:'append'});
+    w(Addon, {value: '$', position: 'append'});
+    w(Addon, {value: '0.00', position: 'append'});
 ]);
 w(InputGroup, {}, [
     w(Addon, {value: '$'});
     w(TextInput, {type: 'number'});
-    w(Addon, {value: '0.00', position:'append'});
+    w(Addon, {value: '0.00', position: 'append'});
 ]);
 ```
 
@@ -236,4 +236,5 @@ w(InputGroup, {}, [
 | position | 位置 | default | prepend, append, default | string |
 
 1. 支持子部件
-1. 只能放在 InputGroup 中
+1. 只能放在 `InputGroup` 中
+1. 如果要将 `Addon` 放在 `TextInput` 后面，则除了要设置 `position` 属性值为 `append` 外，在排版代码时还需将 `Addon` 放在 `TextInput` 后面。

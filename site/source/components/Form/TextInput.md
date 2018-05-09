@@ -13,10 +13,10 @@ tags:
 
 ### default
 {% raw %}
-<db-text-input name="val" widgetId="random-id" marginTop="2" alignSelf="start" type="text" label="default" placeholder="demo" required="true" maxLength="6"   invalidMessage="error" shouldFocus="true"></db-text-input>
+<db-text-input name="val" widgetId="defaultDemo" marginTop="2" alignSelf="start" type="text" label="default" placeholder="demo" required="true" maxLength="6"   invalidMessage="error" shouldFocus="true"></db-text-input>
 {% endraw %}
 ```html
-<db-text-input name="val" widgetId="random-id" marginTop="2" alignSelf="start" type="text" 
+<db-text-input name="val" widgetId="default" marginTop="2" alignSelf="start" type="text" 
 label="default" placeholder="demo" required="true" maxLength="6" 
 invalidMessage="error" shouldFocus="true"></db-text-input>
 ```
@@ -25,20 +25,20 @@ invalidMessage="error" shouldFocus="true"></db-text-input>
 {% raw %}
 <db-text-input name="val" type="text" label="text" value="text"></db-text-input>
 <db-text-input name="val" type="text" password="true" label="password" value="password"></db-text-input>
-<db-text-input name="val" type="email" label="email" value="email"></db-text-input>
+<db-text-input name="val" type="email" label="email" value="support@bianruanjian.com"></db-text-input>
 <db-text-input name="val" type="number" label="number" value="666"></db-text-input>
 <db-text-input name="val" type="file" label="choose file"></db-text-input>
 <db-text-input name="val" type="idCard" label="idCard"></db-text-input>
-<db-text-input name="val" type="digit" label="digit"></db-text-input>
+<db-text-input name="val" type="digit" label="digit" value='1.1'></db-text-input>
 {% endraw %}
 ```html
 <db-text-input name="val" type="text" label="text" value="text"></db-text-input>
 <db-text-input name="val" type="text" password="true" label="password" value="password"></db-text-input>
-<db-text-input name="val" type="email" label="email" value="email"></db-text-input>
+<db-text-input name="val" type="email" label="email" value="support@bianruanjian.com"></db-text-input>
 <db-text-input name="val" type="number" label="number" value="666"></db-text-input>
 <db-text-input name="val" type="file" label="choose file"></db-text-input>
 <db-text-input name="val" type="idCard" label="idCard"></db-text-input>
-<db-text-input name="val" type="digit" label="digit"></db-text-input>
+<db-text-input name="val" type="digit" label="digit" value='1.1'></db-text-input>
 ```
 
 ### size
@@ -55,21 +55,21 @@ invalidMessage="error" shouldFocus="true"></db-text-input>
 
 ### readOnly
 {% raw %}
-<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="readOnly" readOnly="true"
+<db-text-input name="val" widgetId="readOnly-id" marginTop="2" type="text" label="readOnly" readOnly="true"
     invalidMessage="error" value="readOnly value"></db-text-input>
 {% endraw %}
 ```html
-<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="readOnly" readOnly="true"
+<db-text-input name="val" widgetId="readOnly-id" marginTop="2" type="text" label="readOnly" readOnly="true"
     invalidMessage="error" value="readOnly value"></db-text-input>
 ```
 
 ### plain text
 {% raw %}
-<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="plainText" readOnly="true"
+<db-text-input name="val" widgetId="plain-text-id" marginTop="2" type="text" label="plainText" readOnly="true"
      plainText="true" invalidMessage="error" value="plainText value"></db-text-input>
 {% endraw %}
 ```html
-<db-text-input name="val" widgetId="randomz-id" marginTop="2" type="text" label="plainText" readOnly="true"
+<db-text-input name="val" widgetId="plain-text-id" marginTop="2" type="text" label="plainText" readOnly="true"
      plainText="true" invalidMessage="error" value="plainText value"></db-text-input>
 ```
 

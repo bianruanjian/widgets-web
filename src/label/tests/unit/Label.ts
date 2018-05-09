@@ -38,7 +38,7 @@ describe('Label', () => {
 					id: 'random-id',
 					key: 'label',
 					for: 'id',
-					classes: ['test']
+					classes: 'test'
 				},
 				['label']
 			)
