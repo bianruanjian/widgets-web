@@ -7,17 +7,17 @@
   
   <title>InputGroup | widgets-web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="输入框组 基本用法size                                                             1234567891011&amp;lt;db-container&amp;gt;    &amp;lt;db-input-group size=&quot;small&quot;&amp;gt;        &amp;lt;db-text-input name=&quot;small&quot; widgetId=&quot;small">
+  <meta name="description" content="输入框组 基本用法size                            Small                                                Default                                                Large                      123456789101112131415161">
 <meta property="og:type" content="website">
 <meta property="og:title" content="InputGroup">
 <meta property="og:url" content="https://bianruanjian.github.io/components/Form/InputGroup.html">
 <meta property="og:site_name" content="widgets-web">
-<meta property="og:description" content="输入框组 基本用法size                                                             1234567891011&amp;lt;db-container&amp;gt;    &amp;lt;db-input-group size=&quot;small&quot;&amp;gt;        &amp;lt;db-text-input name=&quot;small&quot; widgetId=&quot;small">
+<meta property="og:description" content="输入框组 基本用法size                            Small                                                Default                                                Large                      123456789101112131415161">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-08T02:33:38.123Z">
+<meta property="og:updated_time" content="2018-05-09T02:40:57.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InputGroup">
-<meta name="twitter:description" content="输入框组 基本用法size                                                             1234567891011&amp;lt;db-container&amp;gt;    &amp;lt;db-input-group size=&quot;small&quot;&amp;gt;        &amp;lt;db-text-input name=&quot;small&quot; widgetId=&quot;small">
+<meta name="twitter:description" content="输入框组 基本用法size                            Small                                                Default                                                Large                      123456789101112131415161">
   
   
     <link rel="icon" href="/favicon.png">
@@ -388,19 +388,42 @@
       
         <p>输入框组</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="size"><a href="#size" class="headerlink" title="size"></a>size</h3>
-<db-container>
-    <div class="input-group input-group-sm">
-        <input id="small" name="small" type="text" class="form-control mt-3" value="value">
+<div class="input-group input-group-sm mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Small
+        </div>
     </div>
-    <div class="input-group">
-        <input id="default" name="default" type="text" class="form-control mt-3" value="default">
+    <input id="small" name="small" type="text" class="form-control" value="value">
+</div>
+<div class="input-group mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Default
+        </div>
     </div>
-    <div class="input-group input-group-lg">
-        <input id="large" name="large" type="text" class="form-control mt-3" value="value">
+    <input id="default" name="default" type="text" class="form-control" value="default">
+</div>
+<div class="input-group input-group-lg mt-3">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Large
+        </div>
     </div>
-</db-container>
+    <input id="large" name="large" type="text" class="form-control" value="value">
+</div>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-input-group</span> <span class="attr">size</span>=<span class="string">"small"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">name</span>=<span class="string">"small"</span> <span class="attr">widgetId</span>=<span class="string">"small"</span> <span class="attr">value</span>=<span class="string">"small"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">marginTop</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-input-group</span> <span class="attr">size</span>=<span class="string">"default"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">widgetId</span>=<span class="string">"default"</span> <span class="attr">value</span>=<span class="string">"default"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">marginTop</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-input-group</span> <span class="attr">size</span>=<span class="string">"large"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">db-text-input</span> <span class="attr">name</span>=<span class="string">"large"</span> <span class="attr">widgetId</span>=<span class="string">"large"</span> <span class="attr">value</span>=<span class="string">"large"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">marginTop</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">db-input-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; w &#125; <span class="keyword">from</span> <span class="string">'@dojo/widget-core/d'</span>;</span><br><span class="line"><span class="keyword">import</span> InputGroup <span class="keyword">from</span> <span class="string">'widgets-web/input-group/index'</span>;</span><br><span class="line"><span class="keyword">import</span> Addon <span class="keyword">from</span> <span class="string">'widgets-web/addon/index'</span>;</span><br><span class="line"><span class="keyword">import</span> TextInput <span class="keyword">from</span> <span class="string">'widgets-web/text-input/index'</span>;</span><br><span class="line"></span><br><span class="line">w(InputGroup, &#123;size: <span class="string">'small'</span>&#125;, [</span><br><span class="line">    w(Addon, &#123;value: <span class="string">'Small'</span>&#125;);</span><br><span class="line">    w(TextInput, &#123;name: <span class="string">'small'</span>, widgetId: <span class="string">'small'</span>, value: <span class="string">'small'</span>, <span class="keyword">type</span>: <span class="string">'text'</span>&#125;);</span><br><span class="line">]);</span><br><span class="line">w(InputGroup, &#123;&#125;, [</span><br><span class="line">    w(Addon, &#123;value: <span class="string">'Default'</span>&#125;);</span><br><span class="line">    w(TextInput, &#123;name: <span class="string">'default'</span>, widgetId: <span class="string">'default'</span>, value: <span class="string">'default'</span>, <span class="keyword">type</span>: <span class="string">'text'</span>&#125;);</span><br><span class="line">]);</span><br><span class="line">w(InputGroup, &#123;size: <span class="string">'large'</span>&#125;, [</span><br><span class="line">    w(Addon, &#123;value: <span class="string">'Large'</span>&#125;);</span><br><span class="line">    w(TextInput, &#123;name: <span class="string">'large'</span>, widgetId: <span class="string">'large'</span>, value: <span class="string">'large'</span>, <span class="keyword">type</span>: <span class="string">'text'</span>&#125;);</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<h3 id="Multiple-inputs"><a href="#Multiple-inputs" class="headerlink" title="Multiple inputs"></a>Multiple inputs</h3>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">First and last name</span>
+  </div>
+  <input type="text" class="form-control">
+  <input type="text" class="form-control">
+</div>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; w &#125; <span class="keyword">from</span> <span class="string">'@dojo/widget-core/d'</span>;</span><br><span class="line"><span class="keyword">import</span> InputGroup <span class="keyword">from</span> <span class="string">'widgets-web/input-group/index'</span>;</span><br><span class="line"><span class="keyword">import</span> Addon <span class="keyword">from</span> <span class="string">'widgets-web/addon/index'</span>;</span><br><span class="line"><span class="keyword">import</span> TextInput <span class="keyword">from</span> <span class="string">'widgets-web/text-input/index'</span>;</span><br><span class="line"></span><br><span class="line">w(InputGroup, &#123;size: <span class="string">'small'</span>&#125;, [</span><br><span class="line">    w(Addon, &#123;value: <span class="string">'First and last name'</span>&#125;);</span><br><span class="line">    w(TextInput, &#123;<span class="keyword">type</span>: <span class="string">'text'</span>&#125;);</span><br><span class="line">    w(TextInput, &#123;<span class="keyword">type</span>: <span class="string">'text'</span>&#125;);</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 <h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Spacing.html">Spacing</a></li>
 <li><a href="../Utilities/Flex.html">Flex</a> 中的 Flex item 相关属性</li>
