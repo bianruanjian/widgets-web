@@ -97,7 +97,11 @@ describe('Select', () => {
 	it('custom properties', () => {
 		const h = harness(() => w(Select, customProperties));
 		h.expect(() => [
-			w(Label, { value: 'demo', forId: 'random-id' }),
+			w(Label, {
+				value: 'demo',
+				forId: 'random-id',
+				classes: ['col-form-label', 'mr-3']
+			}),
 			v(
 				'select',
 				{

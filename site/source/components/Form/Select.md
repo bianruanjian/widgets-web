@@ -34,6 +34,18 @@ tags:
     labelField="label" valueField="value" marginTop="3" marginBottom="3"></db-select>
 ```
 
+### labelPosition is left
+{% raw %}
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
+    widgetId="label-position-id" name="demo" label="labelPositionLeft" 
+    labelField="label" valueField="value" labelPosition="left"></db-select>
+{% endraw %}
+```html
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
+    widgetId="label-position-id" name="demo" label="labelPositionLeft" 
+    labelField="label" valueField="value" labelPosition="left"></db-select>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
@@ -48,6 +60,7 @@ tags:
 | name | 名称 | | | string |
 | value | 值 | | | string |
 | label | 文本 | | | string |
+| labelPosition | 文本位置 | top | top, left | string |
 | disabled | 失效 | false | true, false | boolean |
 | required | 必填 | false | true, false | boolean |
 | readOnly | 只读 | false | true, false | boolean |

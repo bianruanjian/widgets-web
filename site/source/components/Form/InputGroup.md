@@ -93,5 +93,6 @@ w(InputGroup, {size: 'small'}, [
 | widgetId | 标识 | | | string |
 | size | 尺寸 | default | small, large, default | string |
 | label | 文本 | | | string |
+| labelPosition | 文本位置 | top | top, left | string |
 
 1. `InputGroup`的`label`会覆盖`TextInput`的`label`属性值

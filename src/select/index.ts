@@ -31,6 +31,7 @@ export interface SelectProperties
 	name?: string;
 	value?: string;
 	label?: string;
+	labelPosition?: string;
 	// TODO: 使用 string 类型还是 any[] 类型
 	options?: string;
 	labelField?: string;
@@ -49,6 +50,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'name',
 		'value',
 		'label',
+		'labelPosition',
 		'disabled',
 		'required',
 		'readOnly',
@@ -148,7 +150,7 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 		return [this.renderSelect(), renderMessageNode(this.properties)];
 	}
 
-	protected render(): DNode | DNode[] {
+	protected renderSelectNode(): DNode[] {
 		const { widgetId, label } = this.properties;
 
 		return [
@@ -157,13 +159,30 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 						Label,
 						{
 							value: label,
-							forId: widgetId
+							forId: widgetId,
+							classes: ['col-form-label', 'mr-3']
 						},
 						[]
 				  )
 				: null,
 			...this.renderSelectWrapper()
 		];
+	}
+
+	protected render(): DNode | DNode[] {
+		const { label, labelPosition } = this.properties;
+
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'div',
+				{
+					classes: ['form-group', 'form-check-inline', 'w-100']
+				},
+				this.renderSelectNode()
+			);
+		}
+
+		return this.renderSelectNode();
 	}
 }
 

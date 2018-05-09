@@ -42,6 +42,14 @@ tags:
 <db-textarea widgetId="readOnly-id" name="demo" label="demo" rows="3" cols="2" noResize="false" readOnly="true" value="readOnly value"></db-textarea>
 ```
 
+### labelPosition is left
+{% raw %}
+<db-textarea widgetId="label-position-id" name="demo" label="labelPositionLeft" rows="3" cols="2" labelPosition="left"></db-textarea>
+{% endraw %}
+```html
+<db-textarea widgetId="label-position-id" name="demo" label="labelPositionLeft" rows="3" cols="2" labelPosition="left"></db-textarea>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
@@ -56,6 +64,7 @@ tags:
 | name | 名称 | | | string |
 | value | 值 | | | string |
 | label | 文本 | | | string |
+| labelPosition | 文本位置 | top | top, left | string |
 | rows | 行数 | | | number |
 | cols | 列数 | | | number |
 | size | 尺寸 | default | small, large, default | string |

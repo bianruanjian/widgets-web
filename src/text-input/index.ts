@@ -34,6 +34,7 @@ export interface TextInputProperties
 	password?: boolean | string;
 	value?: string;
 	label?: string;
+	labelPosition?: string;
 	placeholder?: string;
 	placeholderAppearance?: string;
 	size?: string;
@@ -56,6 +57,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'password',
 		'value',
 		'label',
+		'labelPosition',
 		'placeholder',
 		'placeholderAppearance',
 		'required',
@@ -173,7 +175,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 						Label,
 						{
 							value: label,
-							forId: widgetId
+							forId: widgetId,
+							classes: ['col-form-label', 'mr-3']
 						},
 						[]
 				  )
@@ -219,10 +222,20 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 	}
 
 	protected render(): DNode | DNode[] {
-		const { type } = this.properties;
+		const { type, label, labelPosition } = this.properties;
 
 		if (type && type === 'file') {
 			return this.renderFileInput();
+		}
+
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'div',
+				{
+					classes: ['form-group', 'form-check-inline', 'w-100']
+				},
+				this.renderTextInput()
+			);
 		}
 
 		return this.renderTextInput();

@@ -24,6 +24,7 @@ export interface InputGroupProperties extends SpacingProperties, FlexItemPropert
 	widgetId?: string;
 	size?: string;
 	label?: string;
+	labelPosition?: string;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -35,6 +36,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'widgetId',
 		'size',
 		'label',
+		'labelPosition',
 		'marginTop',
 		'marginBottom',
 		'marginLeft',
@@ -52,7 +54,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class InputGroup<P extends InputGroupProperties = InputGroupProperties> extends ThemedBase<P> {
-	protected render(): DNode | DNode[] {
+	protected renderInputGroup(): DNode[] {
 		const { widgetId, size, label } = this.properties;
 
 		let sizeClass: string = '';
@@ -64,7 +66,8 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 		return [
 			label
 				? w(Label, {
-						value: label
+						value: label,
+						classes: ['col-form-label', 'mr-3']
 				  })
 				: null,
 			v(
@@ -83,6 +86,22 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 				this.children
 			)
 		];
+	}
+
+	protected render(): DNode | DNode[] {
+		const { label, labelPosition } = this.properties;
+
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'div',
+				{
+					classes: ['form-group', 'form-check-inline', 'w-100']
+				},
+				this.renderInputGroup()
+			);
+		}
+
+		return this.renderInputGroup();
 	}
 }
 

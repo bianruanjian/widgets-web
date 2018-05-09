@@ -31,6 +31,7 @@ export interface TextareaProperties
 	name?: string;
 	value?: string;
 	label?: string;
+	labelPosition?: string;
 	rows?: number;
 	cols?: number;
 	size?: string;
@@ -52,6 +53,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'name',
 		'value',
 		'label',
+		'labelPosition',
 		'rows',
 		'cols',
 		'placeholder',
@@ -155,7 +157,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 		return [this.renderTextarea(), renderMessageNode(this.properties)];
 	}
 
-	protected render(): DNode | DNode[] {
+	protected renderTextareaNode(): DNode[] {
 		const { widgetId, label } = this.properties;
 
 		return [
@@ -164,13 +166,30 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 						Label,
 						{
 							value: label,
-							forId: widgetId
+							forId: widgetId,
+							classes: ['col-form-label', 'mr-3']
 						},
 						[]
 				  )
 				: null,
 			...this.renderInputWrapper()
 		];
+	}
+
+	protected render(): DNode | DNode[] {
+		const { label, labelPosition } = this.properties;
+
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'div',
+				{
+					classes: ['form-group', 'form-check-inline', 'w-100']
+				},
+				this.renderTextareaNode()
+			);
+		}
+
+		return this.renderTextareaNode();
 	}
 }
 

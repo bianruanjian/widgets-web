@@ -73,6 +73,14 @@ invalidMessage="error" shouldFocus="true"></db-text-input>
      plainText="true" invalidMessage="error" value="plainText value"></db-text-input>
 ```
 
+### labelPosition is left
+{% raw %}
+<db-text-input name="val" widgetId="label-position-id" type="text" label="labelPositionLeft" labelPosition="left"></db-text-input>
+{% endraw %}
+```html
+<db-text-input name="val" widgetId="label-position-id" type="text" label="labelPositionLeft" labelPosition="left"></db-text-input>
+```
+
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
@@ -89,6 +97,7 @@ invalidMessage="error" shouldFocus="true"></db-text-input>
 | password | 密码 | false | true, false | boolean |
 | value | 值 | | | string |
 | label | 文本 | | | string |
+| labelPosition | 文本位置 | top | top, left | string |
 | placeholder | 占位符 | | | string |
 | placeholderAppearance | 占位符外观 | default | default | string |
 | required | 必填 | false | true, false | boolean |
