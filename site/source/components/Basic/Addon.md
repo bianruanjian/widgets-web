@@ -12,6 +12,15 @@ tags:
 
 因为当前浏览器不支持使用 Custom Elements 定义内置的部件，如 <button is='my-button'></button> 所以不能使用 Custom Elements，只能使用编程式开发。
 
+{% raw %}
+<div class="input-group">
+    <db-addon>
+        <db-button value="text" appearance="outline-primary"></db-button>
+    </db-addon>
+    <db-text-input></db-text-input>
+</div>
+{% endraw %}
+
 ### prepend
 {% raw %}
 <div class="input-group">

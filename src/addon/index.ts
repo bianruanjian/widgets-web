@@ -57,14 +57,8 @@ export class Addon<P extends AddonProperties = AddonProperties> extends ThemedBa
 			let existCheckboxOrRadio: boolean = false;
 			find(this.children, (child: DNode) => {
 				if (child) {
-					const childTag: string = (child as VNode).tag;
 					const childKey = (child as VNode).properties.key;
-					if (
-						childTag === 'db-checkbox' ||
-						childTag === 'db-radio' ||
-						childKey === 'checkbox' ||
-						childKey === 'radio'
-					) {
+					if (childKey === 'checkbox' || childKey === 'radio') {
 						existCheckboxOrRadio = true;
 					}
 				}
