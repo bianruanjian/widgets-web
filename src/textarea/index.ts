@@ -176,7 +176,8 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 	protected render(): DNode | DNode[] {
 		const { label, labelPosition } = this.properties;
 
-		/** bootstrap 中有三种 inline 实现：
+		/**
+		 * bootstrap 中有三种 inline 实现：
 		 * 1. inline forms, 在 form 表单外放一个 inline form 布局管理器实现的,相当于 android 的水平 linearlayout；
 		 * 2. checkbox inline，直接处理每个 form 表单和 label；
 		 * 3. Form Grid 中的 Horizontal form，使用 Grid 布局，但是 Label 的宽度无法动态调整为任意值。
