@@ -1,5 +1,35 @@
+import { Config } from 'webserv/commands/createServer';
+import { middleware } from './config/webserv';
+import { repositorySource } from 'grunt-dojo2-extras/src/util/environment';
+import { join } from 'path';
 const pkgDir = require('pkg-dir');
-const { join } = require('path');
+
+export interface WebServerConfig {
+	[key: string]: Config;
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Variables
+// ---------------------------------------------------------------------------------------------------------------------
+export const [repoOwner, repoName] = repositorySource().split('/');
+
+export const dojoProjectOwner = 'dojo';
+
+export const ghPagesBranch = 'gh-pages';
+
+export const binDirectory = join('node_modules', '.bin');
+
+export const distDirectory = '_dist';
+
+export const siteDirectory = 'site';
+
+export const syncDirectory = '.sync';
+
+export const publishDirectory = '.ghpublish';
+
+// This is considered the master branch as far as the CI is concerned
+export const masterBranch = 'master';
+
 const createProcessors = require('grunt-dojo2/tasks/util/postcss').createProcessors;
 
 const packagePath = pkgDir.sync(process.cwd());
@@ -7,6 +37,10 @@ const packagePath = pkgDir.sync(process.cwd());
 const fontFiles = 'theme/fonts/*.{svg,ttf,woff}';
 const staticExampleFiles = ['*/example/**', '!*/example/**/*.js'];
 const staticTestFiles = '*/tests/**/*.{html,css,json,xml,js,txt}';
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Task Configuration
+// ---------------------------------------------------------------------------------------------------------------------
 
 export const copy = {
 	'staticDefinitionFiles-dev': {
@@ -66,23 +100,103 @@ export const postcss = {
 	}
 };
 
-export const intern3 = {
+export const clean = {
+	dist: ['<%= distDirectory %>'],
+	publish: ['<%= publishDirectory %>'],
+	sync: ['<%= syncDirectory %>'],
+	compiledFiles: ['./+(tests|support)/**/*.d.ts', './+(tests|support)/**/*.js']
+};
+
+export const hexo = {
+	generate: {
+		src: '<%= siteDirectory %>',
+		dest: '<%= distDirectory %>'
+	}
+};
+
+export const intern = {
+	version: 4
+};
+
+export const prompt = {
+	github: {
+		options: {
+			questions: [
+				{
+					config: 'github.username',
+					type: 'input',
+					message: 'Github username'
+				},
+				{
+					config: 'github.password',
+					type: 'password',
+					message: 'Github password'
+				}
+			]
+		}
+	}
+};
+
+export const publish = {
+	'gh-pages': {
+		options: {
+			branch: 'gh-pages',
+			cloneDirectory: '<%= distDirectory %>'
+		}
+	}
+};
+
+export const initAutomation = {
+	repo: {
+		options: {
+			repoOwner: '<%= repoOwner %>',
+			repoName: '<%= repoName %>'
+		}
+	}
+};
+
+export const shell = {
+	'build-tests': {
+		command: 'tsc',
+		options: {
+			execOptions: {
+				cwd: 'tests'
+			}
+		}
+	},
+	'build-ts': {
+		command: 'tsc',
+		options: {
+			execOptions: {
+				cwd: 'support'
+			}
+		}
+	}
+};
+
+export const sync = {
+	'gh-pages': {
+		options: {
+			branch: 'gh-pages',
+			cloneDirectory: '<%= distDirectory %>'
+		}
+	}
+};
+
+export const tslint = {
 	options: {
-		runType: 'runner',
-		config: '<%= devDirectory %>/common/tests/intern',
-		reporters: ['Runner']
+		configuration: 'tslint.json'
 	},
-	browserstack: {},
-	saucelabs: {
-		options: {
-			config: '<%= devDirectory %>/common/tests/intern-saucelabs'
-		}
-	},
-	remote: {},
-	local: {
-		options: {
-			config: '<%= devDirectory %>/common/tests/intern-local'
-		}
+	support: 'support/**/*.ts',
+	site: ['site/**/*.ts', '!site/node_modules/**']
+};
+
+/**
+ * Host a local development server
+ */
+export const webserv: WebServerConfig = {
+	server: {
+		middleware
 	}
 };
 
@@ -90,8 +204,4 @@ export const typedoc = {
 	options: {
 		ignoreCompilerErrors: true // Remove this once compile errors are resolved
 	}
-};
-
-export const intern = {
-	version: 4
 };
