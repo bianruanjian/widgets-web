@@ -117,7 +117,8 @@ describe('Textarea', () => {
 				Label,
 				{
 					value: 'tag',
-					forId: 'random-id'
+					forId: 'random-id',
+					classes: ['col-form-label', 'mr-3']
 				},
 				[]
 			),

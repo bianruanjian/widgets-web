@@ -43,7 +43,10 @@ describe('InputGroup', () => {
 	it('custom properties', () => {
 		const h = harness(() => w(InputGroup, customProperties));
 		h.expect(() => [
-			w(Label, { value: 'hello' }),
+			w(Label, {
+				value: 'hello',
+				classes: ['col-form-label', 'mr-3']
+			}),
 			v(
 				'div',
 				{

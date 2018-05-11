@@ -34,6 +34,7 @@ export interface TextInputProperties
 	password?: boolean | string;
 	value?: string;
 	label?: string;
+	labelPosition?: string;
 	placeholder?: string;
 	placeholderAppearance?: string;
 	size?: string;
@@ -56,6 +57,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'password',
 		'value',
 		'label',
+		'labelPosition',
 		'placeholder',
 		'placeholderAppearance',
 		'required',
@@ -173,7 +175,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 						Label,
 						{
 							value: label,
-							forId: widgetId
+							forId: widgetId,
+							classes: ['col-form-label', 'mr-3']
 						},
 						[]
 				  )
@@ -219,10 +222,28 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 	}
 
 	protected render(): DNode | DNode[] {
-		const { type } = this.properties;
+		const { type, label, labelPosition } = this.properties;
 
 		if (type && type === 'file') {
 			return this.renderFileInput();
+		}
+
+		/**
+		 * bootstrap 中有三种 inline 实现：
+		 * 1. inline forms, 在 form 表单外放一个 inline form 布局管理器实现的,相当于 android 的水平 linearlayout；
+		 * 2. checkbox inline，直接处理每个 form 表单和 label；
+		 * 3. Form Grid 中的 Horizontal form，使用 Grid 布局，但是 Label 的宽度无法动态调整为任意值。
+		 *
+		 * 现在使用 第二种实现，当有更好的实现时，再完善此处代码。
+		 */
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'div',
+				{
+					classes: ['form-group', 'form-check-inline', 'w-100']
+				},
+				this.renderTextInput()
+			);
 		}
 
 		return this.renderTextInput();

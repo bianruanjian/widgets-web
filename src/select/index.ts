@@ -31,6 +31,7 @@ export interface SelectProperties
 	name?: string;
 	value?: string;
 	label?: string;
+	labelPosition?: string;
 	// TODO: 使用 string 类型还是 any[] 类型
 	options?: string;
 	labelField?: string;
@@ -49,6 +50,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'name',
 		'value',
 		'label',
+		'labelPosition',
 		'disabled',
 		'required',
 		'readOnly',
@@ -145,10 +147,6 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 	}
 
 	protected renderSelectWrapper(): DNode[] {
-		return [this.renderSelect(), renderMessageNode(this.properties)];
-	}
-
-	protected render(): DNode | DNode[] {
 		const { widgetId, label } = this.properties;
 
 		return [
@@ -157,13 +155,39 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 						Label,
 						{
 							value: label,
-							forId: widgetId
+							forId: widgetId,
+							classes: ['col-form-label', 'mr-3']
 						},
 						[]
 				  )
 				: null,
-			...this.renderSelectWrapper()
+			this.renderSelect(),
+			renderMessageNode(this.properties)
 		];
+	}
+
+	protected render(): DNode | DNode[] {
+		const { label, labelPosition } = this.properties;
+
+		/**
+		 * bootstrap 中有三种 inline 实现：
+		 * 1. inline forms, 在 form 表单外放一个 inline form 布局管理器实现的,相当于 android 的水平 linearlayout；
+		 * 2. checkbox inline，直接处理每个 form 表单和 label；
+		 * 3. Form Grid 中的 Horizontal form，使用 Grid 布局，但是 Label 的宽度无法动态调整为任意值。
+		 *
+		 * 现在使用 第二种实现，当有更好的实现时，再完善此处代码。
+		 */
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'div',
+				{
+					classes: ['form-group', 'form-check-inline', 'w-100']
+				},
+				this.renderSelectWrapper()
+			);
+		}
+
+		return this.renderSelectWrapper();
 	}
 }
 
