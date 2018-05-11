@@ -37,12 +37,12 @@ tags:
 ### labelPosition is left
 {% raw %}
 <db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
-    widgetId="label-position-id" name="demo" label="labelPositionLeft" 
+    widgetId="label-position-id" name="demo" label="Label" 
     labelField="label" valueField="value" labelPosition="left"></db-select>
 {% endraw %}
 ```html
 <db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]"
-    widgetId="label-position-id" name="demo" label="labelPositionLeft" 
+    widgetId="label-position-id" name="demo" label="Label" 
     labelField="label" valueField="value" labelPosition="left"></db-select>
 ```
 

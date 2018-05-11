@@ -75,10 +75,10 @@ invalidMessage="error" shouldFocus="true"></db-text-input>
 
 ### labelPosition is left
 {% raw %}
-<db-text-input name="val" widgetId="label-position-id" type="text" label="labelPositionLeft" labelPosition="left"></db-text-input>
+<db-text-input name="val" widgetId="label-position-id" type="text" label="Label" labelPosition="left"></db-text-input>
 {% endraw %}
 ```html
-<db-text-input name="val" widgetId="label-position-id" type="text" label="labelPositionLeft" labelPosition="left"></db-text-input>
+<db-text-input name="val" widgetId="label-position-id" type="text" label="Label" labelPosition="left"></db-text-input>
 ```
 
 ## 通用属性

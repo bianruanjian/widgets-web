@@ -44,10 +44,10 @@ tags:
 
 ### labelPosition is left
 {% raw %}
-<db-textarea widgetId="label-position-id" name="demo" label="labelPositionLeft" rows="3" cols="2" labelPosition="left"></db-textarea>
+<db-textarea widgetId="label-position-id" name="demo" label="Label" rows="3" cols="2" labelPosition="left"></db-textarea>
 {% endraw %}
 ```html
-<db-textarea widgetId="label-position-id" name="demo" label="labelPositionLeft" rows="3" cols="2" labelPosition="left"></db-textarea>
+<db-textarea widgetId="label-position-id" name="demo" label="Label" rows="3" cols="2" labelPosition="left"></db-textarea>
 ```
 
 ## 通用属性

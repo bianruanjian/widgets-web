@@ -86,7 +86,7 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 		}
 
 		if (href) {
-			//使用a标签
+			// 使用a标签
 			return v(
 				'a',
 				{

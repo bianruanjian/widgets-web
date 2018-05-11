@@ -73,9 +73,33 @@ import InputGroup from 'widgets-web/input-group/index';
 import Addon from 'widgets-web/addon/index';
 import TextInput from 'widgets-web/text-input/index';
 
-w(InputGroup, {size: 'small'}, [
+w(InputGroup, {}, [
     w(Addon, {value: 'First and last name'});
     w(TextInput, {type: 'text'});
+    w(TextInput, {type: 'text'});
+]);
+```
+
+### labelPosition is left
+{% raw %}
+<div class="form-group form-check-inline w-100 mb-3">
+    <label for="label-position-id" class="col-form-label mr-3">Label</label>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">tool</span>
+        </div>
+        <input type="text" class="form-control">
+    </div>
+</div>
+{% endraw %}
+```TypeScript
+import { w } from '@dojo/widget-core/d';
+import InputGroup from 'widgets-web/input-group/index';
+import Addon from 'widgets-web/addon/index';
+import TextInput from 'widgets-web/text-input/index';
+
+w(InputGroup, {label: 'Label', labelPosition: 'left'}, [
+    w(Addon, {value: 'tool'});
     w(TextInput, {type: 'text'});
 ]);
 ```
