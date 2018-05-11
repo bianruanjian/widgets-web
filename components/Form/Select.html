@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="widgets-web">
 <meta property="og:description" content="下拉框部件 基本用法default   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; dis">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-11T02:09:45.281Z">
+<meta property="og:updated_time" content="2018-05-11T07:26:23.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Select">
 <meta name="twitter:description" content="下拉框部件 基本用法default   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; dis">
@@ -122,16 +122,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Basic/Icon.html">
-                    Icon
+                <a href="/widgets-web/components/Basic/Button.html">
+                    Button
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/widgets-web/components/Basic/Button.html">
-                    Button
+                <a href="/widgets-web/components/Basic/Icon.html">
+                    Icon
                 </a>
             </li>
         
@@ -208,6 +208,14 @@
             </li>
         
             <li
+                class="active" 
+            >
+                <a href="/widgets-web/components/Form/Select.html">
+                    Select
+                </a>
+            </li>
+        
+            <li
                 
             >
                 <a href="/widgets-web/components/Form/TextInput.html">
@@ -220,14 +228,6 @@
             >
                 <a href="/widgets-web/components/Form/Textarea.html">
                     Textarea
-                </a>
-            </li>
-        
-            <li
-                class="active" 
-            >
-                <a href="/widgets-web/components/Form/Select.html">
-                    Select
                 </a>
             </li>
         
@@ -338,8 +338,8 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/widgets-web/components/Utilities/Float.html">
+                    Float
                 </a>
             </li>
         
@@ -354,8 +354,8 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Float.html">
-                    Float
+                <a href="/widgets-web/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
@@ -395,6 +395,10 @@
 <db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]" widgetid="disabled" name="demo" label="disabled" disabled="true" labelfield="label" valuefield="value" margintop="3" marginbottom="3"></db-select>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-select</span> <span class="attr">options</span>=<span class="string">"[&#123;'value': 'value1', 'label': 'label1'&#125;, &#123;'value': 'value2', 'label': 'label2'&#125;]"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">widgetId</span>=<span class="string">"disabled"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"disabled"</span> <span class="attr">disabled</span>=<span class="string">"true"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">labelField</span>=<span class="string">"label"</span> <span class="attr">valueField</span>=<span class="string">"value"</span> <span class="attr">marginTop</span>=<span class="string">"3"</span> <span class="attr">marginBottom</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="labelPosition-is-left"><a href="#labelPosition-is-left" class="headerlink" title="labelPosition is left"></a>labelPosition is left</h3>
+<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]" widgetid="label-position-id" name="demo" label="Label" labelfield="label" valuefield="value" labelposition="left"></db-select>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-select</span> <span class="attr">options</span>=<span class="string">"[&#123;'value': 'value1', 'label': 'label1'&#125;, &#123;'value': 'value2', 'label': 'label2'&#125;]"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">widgetId</span>=<span class="string">"label-position-id"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"Label"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">labelField</span>=<span class="string">"label"</span> <span class="attr">valueField</span>=<span class="string">"value"</span> <span class="attr">labelPosition</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Spacing.html">Spacing</a></li>
 <li><a href="../Utilities/Flex.html">Flex</a> 中的 Flex item 相关属性</li>
@@ -437,6 +441,13 @@
 <td>文本</td>
 <td></td>
 <td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>labelPosition</td>
+<td>文本位置</td>
+<td>top</td>
+<td>top, left</td>
 <td>string</td>
 </tr>
 <tr>

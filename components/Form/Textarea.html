@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="widgets-web">
 <meta property="og:description" content="文本域部件 基本用法default   1&amp;lt;db-textarea widgetId=&quot;default-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; rows=&quot;3&quot; cols=&quot;2&quot; noResize=&quot;false&quot; shouldFocus=&quot;true&quot;&amp;gt;&amp;lt;/db-textarea&amp;gt; noRisize   1&amp;lt;db-textarea widgetId=&quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-11T02:09:45.281Z">
+<meta property="og:updated_time" content="2018-05-11T07:26:23.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Textarea">
 <meta name="twitter:description" content="文本域部件 基本用法default   1&amp;lt;db-textarea widgetId=&quot;default-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; rows=&quot;3&quot; cols=&quot;2&quot; noResize=&quot;false&quot; shouldFocus=&quot;true&quot;&amp;gt;&amp;lt;/db-textarea&amp;gt; noRisize   1&amp;lt;db-textarea widgetId=&quot;">
@@ -122,16 +122,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Basic/Icon.html">
-                    Icon
+                <a href="/widgets-web/components/Basic/Button.html">
+                    Button
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/widgets-web/components/Basic/Button.html">
-                    Button
+                <a href="/widgets-web/components/Basic/Icon.html">
+                    Icon
                 </a>
             </li>
         
@@ -210,6 +210,14 @@
             <li
                 
             >
+                <a href="/widgets-web/components/Form/Select.html">
+                    Select
+                </a>
+            </li>
+        
+            <li
+                
+            >
                 <a href="/widgets-web/components/Form/TextInput.html">
                     TextInput
                 </a>
@@ -220,14 +228,6 @@
             >
                 <a href="/widgets-web/components/Form/Textarea.html">
                     Textarea
-                </a>
-            </li>
-        
-            <li
-                
-            >
-                <a href="/widgets-web/components/Form/Select.html">
-                    Select
                 </a>
             </li>
         
@@ -338,8 +338,8 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Spacing.html">
-                    Spacing
+                <a href="/widgets-web/components/Utilities/Float.html">
+                    Float
                 </a>
             </li>
         
@@ -354,8 +354,8 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Float.html">
-                    Float
+                <a href="/widgets-web/components/Utilities/Spacing.html">
+                    Spacing
                 </a>
             </li>
         
@@ -403,6 +403,10 @@
 <db-textarea widgetid="readOnly-id" name="demo" label="demo" rows="3" cols="2" noresize="false" readonly="true" value="readOnly value" margintop="3" marginbottom="2"></db-textarea>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-textarea</span> <span class="attr">widgetId</span>=<span class="string">"readOnly-id"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"demo"</span> <span class="attr">rows</span>=<span class="string">"3"</span> <span class="attr">cols</span>=<span class="string">"2"</span> <span class="attr">noResize</span>=<span class="string">"false"</span> <span class="attr">readOnly</span>=<span class="string">"true"</span> <span class="attr">value</span>=<span class="string">"readOnly value"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="labelPosition-is-left"><a href="#labelPosition-is-left" class="headerlink" title="labelPosition is left"></a>labelPosition is left</h3>
+<db-textarea widgetid="label-position-id" name="demo" label="Label" rows="3" cols="2" labelposition="left"></db-textarea>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-textarea</span> <span class="attr">widgetId</span>=<span class="string">"label-position-id"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"Label"</span> <span class="attr">rows</span>=<span class="string">"3"</span> <span class="attr">cols</span>=<span class="string">"2"</span> <span class="attr">labelPosition</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
 <li><a href="../Utilities/Spacing.html">Spacing</a></li>
 <li><a href="../Utilities/Flex.html">Flex</a> 中的 Flex item 相关属性</li>
@@ -445,6 +449,13 @@
 <td>文本</td>
 <td></td>
 <td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>labelPosition</td>
+<td>文本位置</td>
+<td>top</td>
+<td>top, left</td>
 <td>string</td>
 </tr>
 <tr>
