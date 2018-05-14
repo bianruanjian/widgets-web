@@ -19,8 +19,6 @@ export const ghPagesBranch = 'gh-pages';
 
 export const binDirectory = join('node_modules', '.bin');
 
-export const distDirectory = '_dist';
-
 export const siteDirectory = 'site';
 
 export const syncDirectory = '.sync';
