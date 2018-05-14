@@ -11,7 +11,8 @@ import {
 	SpacingProperties,
 	TextProperties,
 	FlexContainerProperties,
-	FlexItemProperties
+	FlexItemProperties,
+	DisplayProperties
 } from '../common/interfaces';
 import {
 	getBorderClasses,
@@ -20,7 +21,8 @@ import {
 	getFlexContainerClasses,
 	getFlexItemClasses,
 	getTextStyles,
-	getTextDecorationClass
+	getTextDecorationClass,
+	getDisplayClass
 } from '../common/util';
 
 /**
@@ -33,6 +35,7 @@ export interface GridColumnProperties
 	extends BorderProperties,
 		SpacingProperties,
 		TextProperties,
+		DisplayProperties,
 		FlexContainerProperties,
 		FlexItemProperties {
 	widgetId?: string;
@@ -70,6 +73,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'transform',
 		'truncate',
 		'wrap',
+		'display',
 		'flexDirection',
 		'reverse',
 		'justifyItems',
@@ -103,7 +107,15 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 	}
 
 	protected render(): DNode | DNode[] {
-		let { widgetId } = this.properties;
+		let { widgetId, display } = this.properties;
+
+		let flexContainerClasses: string[] = [];
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexContainerClasses = getFlexContainerClasses(this.properties);
+			flexItemClasses = getFlexItemClasses(this.properties);
+		}
 
 		return v(
 			'div',
@@ -115,8 +127,9 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
-					...getFlexContainerClasses(this.properties),
-					...getFlexItemClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexContainerClasses,
+					...flexItemClasses,
 					...getTextDecorationClass(this.properties)
 				],
 				styles: {

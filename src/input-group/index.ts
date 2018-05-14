@@ -4,11 +4,11 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { SpacingProperties, FlexItemProperties, FloatProperties } from '../common/interfaces';
+import { SpacingProperties, FlexItemProperties, FloatProperties, DisplayProperties } from '../common/interfaces';
 import { Label } from '../label/index';
 
 import * as css from './styles/input-group.m.css';
-import { getSpacingClasses, getFlexItemClasses, getFloatClass } from '../common/util';
+import { getSpacingClasses, getFlexItemClasses, getFloatClass, getDisplayClass } from '../common/util';
 
 export const sizeMap: { [key: string]: string } = {
 	small: 'sm',
@@ -20,7 +20,11 @@ export const sizeMap: { [key: string]: string } = {
  *
  * Properties that can be set on input-group components
  */
-export interface InputGroupProperties extends SpacingProperties, FlexItemProperties, FloatProperties {
+export interface InputGroupProperties
+	extends SpacingProperties,
+		FlexItemProperties,
+		FloatProperties,
+		DisplayProperties {
 	widgetId?: string;
 	size?: string;
 	label?: string;
@@ -45,6 +49,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'alignSelf',
 		'order',
 		'float'
@@ -55,12 +60,18 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class InputGroup<P extends InputGroupProperties = InputGroupProperties> extends ThemedBase<P> {
 	protected renderInputGroup(): DNode[] {
-		const { widgetId, size, label } = this.properties;
+		const { widgetId, size, label, display } = this.properties;
 
 		let sizeClass: string = '';
 
 		if (size && size !== 'default') {
 			sizeClass = `input-group-${sizeMap[size as string]}`;
+		}
+
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
 		return [
@@ -79,7 +90,8 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 						'input-group',
 						sizeClass,
 						...getSpacingClasses(this.properties),
-						...getFlexItemClasses(this.properties),
+						display ? getDisplayClass(this.properties) : undefined,
+						...flexItemClasses,
 						...getFloatClass(this.properties)
 					]
 				},

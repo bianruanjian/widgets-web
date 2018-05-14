@@ -9,10 +9,18 @@ import {
 	FlexItemProperties,
 	FloatProperties,
 	FormProperties,
-	MessageProperties
+	MessageProperties,
+	DisplayProperties
 } from '../common/interfaces';
 import { Label } from '../label';
-import { getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode, formSizeMap } from '../common/util';
+import {
+	getSpacingClasses,
+	getFlexItemClasses,
+	getFloatClass,
+	renderMessageNode,
+	formSizeMap,
+	getDisplayClass
+} from '../common/util';
 
 import * as css from './styles/text-input.m.css';
 
@@ -27,7 +35,8 @@ export interface TextInputProperties
 		SpacingProperties,
 		FlexItemProperties,
 		FloatProperties,
-		MessageProperties {
+		MessageProperties,
+		DisplayProperties {
 	widgetId?: string;
 	name?: string;
 	type?: TextInputType;
@@ -78,6 +87,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'alignSelf',
 		'order',
 		'float'
@@ -112,7 +122,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			minLength,
 			size,
 			shouldFocus,
-			plainText
+			plainText,
+			display
 		} = this.properties;
 
 		const cssClasses: string[] = [];
@@ -139,6 +150,12 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			cssClasses.push('form-control');
 		}
 
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
 		return v(
 			'input',
 			{
@@ -156,7 +173,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 				classes: [
 					...cssClasses,
 					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexItemClasses,
 					...getFloatClass(this.properties)
 				],
 				oninput: this._onInput,
@@ -187,7 +205,13 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 	}
 
 	protected renderFileInput(): DNode {
-		const { widgetId, label, disabled, name } = this.properties;
+		const { widgetId, label, disabled, name, display } = this.properties;
+
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
 
 		return v(
 			'div',
@@ -195,7 +219,8 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 				classes: [
 					'custom-file',
 					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexItemClasses,
 					...getFloatClass(this.properties)
 				]
 			},

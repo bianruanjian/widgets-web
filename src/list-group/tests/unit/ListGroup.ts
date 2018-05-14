@@ -122,7 +122,7 @@ describe('ListGroup', () => {
 				},
 				[
 					v('a', {
-						classes: [],
+						classes: [undefined],
 						href: undefined,
 						id: undefined,
 						key: 'link',
@@ -147,7 +147,7 @@ describe('ListGroup', () => {
 				},
 				[
 					v('li', {
-						classes: ['list-group-item', undefined, undefined, undefined],
+						classes: ['list-group-item', undefined, undefined, undefined, undefined],
 						disabled: false,
 						id: undefined,
 						key: 'list-item',
@@ -184,7 +184,7 @@ describe('ListGroup', () => {
 						[]
 					),
 					v('li', {
-						classes: ['list-group-item', undefined, undefined, undefined],
+						classes: ['list-group-item', undefined, undefined, undefined, undefined],
 						disabled: false,
 						id: undefined,
 						key: 'list-item',

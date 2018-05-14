@@ -32,6 +32,7 @@ describe('GridColumn', () => {
 		transform: 'default',
 		truncate: 'default',
 		wrap: 0,
+		display: 'default',
 		flexDirection: 'default',
 		reverse: false,
 		justifyItems: 'default',
@@ -67,6 +68,7 @@ describe('GridColumn', () => {
 		transform: 'lowerCase',
 		truncate: 40,
 		wrap: 1,
+		display: 'flex',
 		flexDirection: 'row',
 		reverse: true,
 		justifyItems: 'start',
@@ -87,7 +89,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col'],
+					classes: ['col', undefined],
 					styles: {}
 				},
 				[]
@@ -103,7 +105,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col'],
+					classes: ['col', ''],
 					styles: {}
 				},
 				[]
@@ -136,6 +138,7 @@ describe('GridColumn', () => {
 						'text-lowerCase',
 						'text-truncate',
 						'text-nowrap',
+						'd-flex',
 						'flex-row-reverse',
 						'justify-content-start',
 						'align-items-start',
@@ -164,7 +167,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', css[textDecorationClass as baseCssType]],
+					classes: ['col', undefined, css[textDecorationClass as baseCssType]],
 					styles: {}
 				},
 				[]
@@ -178,7 +181,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', css[textDecorationClass as baseCssType]],
+					classes: ['col', undefined, css[textDecorationClass as baseCssType]],
 					styles: {}
 				},
 				[]
@@ -194,7 +197,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', 'offset-0'],
+					classes: ['col', 'offset-0', undefined],
 					styles: {}
 				},
 				[]

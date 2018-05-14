@@ -15,6 +15,7 @@ describe('Footer', () => {
 		paddingBottom: 'default',
 		paddingLeft: 'default',
 		paddingRight: 'default',
+		display: 'default',
 		flexDirection: 'default',
 		reverse: false,
 		justifyItems: 'default',
@@ -33,6 +34,7 @@ describe('Footer', () => {
 		paddingBottom: '0',
 		paddingLeft: '1',
 		paddingRight: '1',
+		display: 'flex',
 		flexDirection: 'row',
 		reverse: true,
 		justifyItems: 'start',
@@ -49,7 +51,7 @@ describe('Footer', () => {
 				{
 					id: undefined,
 					key: 'footer',
-					classes: []
+					classes: [undefined]
 				},
 				[]
 			)
@@ -64,7 +66,7 @@ describe('Footer', () => {
 				{
 					id: undefined,
 					key: 'footer',
-					classes: []
+					classes: ['']
 				},
 				[]
 			)
@@ -84,6 +86,7 @@ describe('Footer', () => {
 						'mx-1',
 						'py-0',
 						'px-1',
+						'd-flex',
 						'flex-row-reverse',
 						'justify-content-start',
 						'align-items-start',

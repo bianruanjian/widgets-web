@@ -8,9 +8,17 @@ import {
 	FlexItemProperties,
 	FloatProperties,
 	FormProperties,
-	MessageProperties
+	MessageProperties,
+	DisplayProperties
 } from '../common/interfaces';
-import { renderMessageNode, formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass } from '../common/util';
+import {
+	renderMessageNode,
+	formSizeMap,
+	getSpacingClasses,
+	getFlexItemClasses,
+	getFloatClass,
+	getDisplayClass
+} from '../common/util';
 
 import * as css from './styles/radio.m.css';
 import { Label } from '../label';
@@ -25,7 +33,8 @@ export interface RadioProperties
 		FlexItemProperties,
 		FloatProperties,
 		FormProperties,
-		MessageProperties {
+		MessageProperties,
+		DisplayProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -61,6 +70,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'alignSelf',
 		'order',
 		'float'
@@ -92,7 +102,7 @@ export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBa
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId, label, size, labelAfter, fluid } = this.properties;
+		const { widgetId, label, size, labelAfter, fluid, display } = this.properties;
 
 		let children: DNode[] = [
 			this.renderRadio(),
@@ -103,6 +113,12 @@ export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBa
 		}
 		children.push(renderMessageNode(this.properties));
 
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
 		return v(
 			'div',
 			{
@@ -112,7 +128,8 @@ export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBa
 					size ? formSizeMap[size as string] : undefined,
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
 					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexItemClasses,
 					...getFloatClass(this.properties)
 				]
 			},

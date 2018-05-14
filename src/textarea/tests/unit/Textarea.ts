@@ -24,6 +24,7 @@ describe('Textarea', () => {
 		paddingBottom: 'default',
 		paddingLeft: 'default',
 		paddingRight: 'default',
+		display: 'default',
 		alignSelf: 'default',
 		order: 'default',
 		float: 'default'
@@ -57,6 +58,7 @@ describe('Textarea', () => {
 		paddingBottom: '0',
 		paddingLeft: '1',
 		paddingRight: '1',
+		display: 'flex',
 		alignSelf: 'start',
 		order: '0',
 		float: 'none'
@@ -79,7 +81,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['form-control'],
+				classes: ['form-control', undefined],
 				styles: {}
 			}),
 			null
@@ -103,7 +105,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['', 'form-control'],
+				classes: ['', 'form-control', ''],
 				styles: {}
 			}),
 			null
@@ -143,6 +145,7 @@ describe('Textarea', () => {
 					'mx-1',
 					'py-0',
 					'px-1',
+					'd-flex',
 					'align-self-start',
 					'order-0',
 					'float-none'

@@ -4,8 +4,8 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { SpacingProperties, FlexItemProperties } from '../common/interfaces';
-import { getSpacingClasses, getFlexItemClasses } from '../common/util';
+import { SpacingProperties, FlexItemProperties, DisplayProperties } from '../common/interfaces';
+import { getSpacingClasses, getFlexItemClasses, getDisplayClass } from '../common/util';
 
 import * as css from './styles/badge.m.css';
 
@@ -14,7 +14,7 @@ import * as css from './styles/badge.m.css';
  *
  * Properties that can be set on badge components
  */
-export interface BadgeProperties extends SpacingProperties, FlexItemProperties {
+export interface BadgeProperties extends SpacingProperties, FlexItemProperties, DisplayProperties {
 	widgetId?: string;
 	value?: string;
 	appearance?: string;
@@ -44,7 +44,8 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingLeft',
 		'paddingRight',
 		'alignSelf',
-		'order'
+		'order',
+		'display'
 	],
 	properties: [],
 	events: []
@@ -52,7 +53,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId, value, appearance, pill, href, target } = this.properties;
+		const { widgetId, value, appearance, pill, href, target, display } = this.properties;
 
 		let tag: string = 'span';
 		const cssClasses: string[] = [];
@@ -69,6 +70,12 @@ export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBa
 			cssClasses.push('badge-pill');
 		}
 
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
 		return v(
 			tag,
 			{
@@ -78,7 +85,8 @@ export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBa
 					'badge',
 					...cssClasses,
 					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties)
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexItemClasses
 				],
 				href,
 				target

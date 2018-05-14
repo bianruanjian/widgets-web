@@ -6,15 +6,24 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import * as css from './styles/grid-row.m.css';
-import { SpacingProperties, FlexContainerProperties, FlexItemProperties } from '../common/interfaces';
-import { getSpacingClasses, getFlexContainerClasses, getFlexItemClasses } from '../common/util';
+import {
+	SpacingProperties,
+	FlexContainerProperties,
+	FlexItemProperties,
+	DisplayProperties
+} from '../common/interfaces';
+import { getSpacingClasses, getFlexContainerClasses, getFlexItemClasses, getDisplayClass } from '../common/util';
 
 /**
  * @type GridRowProperties
  *
  * Properties that can be set on GridRow components
  */
-export interface GridRowProperties extends SpacingProperties, FlexContainerProperties, FlexItemProperties {
+export interface GridRowProperties
+	extends SpacingProperties,
+		DisplayProperties,
+		FlexContainerProperties,
+		FlexItemProperties {
 	widgetId?: string;
 	gutters?: boolean | string;
 }
@@ -35,6 +44,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'flexDirection',
 		'reverse',
 		'justifyItems',
@@ -62,7 +72,16 @@ export class GridRow<P extends GridRowProperties = GridRowProperties> extends Th
 	}
 
 	protected render(): DNode | DNode[] {
-		let { widgetId } = this.properties;
+		let { widgetId, display } = this.properties;
+
+		let flexContainerClasses: string[] = [];
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexContainerClasses = getFlexContainerClasses(this.properties);
+			flexItemClasses = getFlexItemClasses(this.properties);
+		}
+
 		return v(
 			'div',
 			{
@@ -72,8 +91,9 @@ export class GridRow<P extends GridRowProperties = GridRowProperties> extends Th
 					'row',
 					...this._getGuttersClasses(),
 					...getSpacingClasses(this.properties),
-					...getFlexContainerClasses(this.properties),
-					...getFlexItemClasses(this.properties)
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexContainerClasses,
+					...flexItemClasses
 				]
 			},
 			this.children

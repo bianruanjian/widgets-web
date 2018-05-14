@@ -28,6 +28,7 @@ describe('View', () => {
 		transform: 'default',
 		truncate: 'default',
 		wrap: 0,
+		display: 'default',
 		flexDirection: 'default',
 		reverse: false,
 		justifyItems: 'default',
@@ -62,6 +63,7 @@ describe('View', () => {
 		transform: 'lowerCase',
 		truncate: '50%',
 		wrap: 1,
+		display: 'flex',
 		flexDirection: 'row',
 		reverse: true,
 		justifyItems: 'start',
@@ -74,12 +76,12 @@ describe('View', () => {
 
 	it('should construct view', () => {
 		const h = harness(() => w(View, {}));
-		h.expect(() => v('div', { id: undefined, key: 'view', classes: [], styles: {} }, []));
+		h.expect(() => v('div', { id: undefined, key: 'view', classes: [undefined], styles: {} }, []));
 	});
 
 	it('default properties', () => {
 		const h = harness(() => w(View, defaultProperties));
-		h.expect(() => v('div', { id: undefined, key: 'view', classes: [], styles: {} }));
+		h.expect(() => v('div', { id: undefined, key: 'view', classes: [''], styles: {} }));
 	});
 
 	it('custom properties', () => {
@@ -102,6 +104,7 @@ describe('View', () => {
 					'text-lowerCase',
 					'text-truncate',
 					'text-nowrap',
+					'd-flex',
 					'flex-row-reverse',
 					'justify-content-start',
 					'align-items-start',
@@ -124,7 +127,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['border-left', 'border-top'],
+				classes: ['border-left', 'border-top', undefined],
 				styles: {}
 			})
 		);
@@ -133,7 +136,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['border'],
+				classes: ['border', undefined],
 				styles: {}
 			})
 		);
@@ -145,7 +148,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['mt-1', 'mb-2', 'ml-4', 'mr-3'],
+				classes: ['mt-1', 'mb-2', 'ml-4', 'mr-3', undefined],
 				styles: {}
 			})
 		);
@@ -154,7 +157,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['my-1'],
+				classes: ['my-1', undefined],
 				styles: {}
 			})
 		);
@@ -163,7 +166,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['mx-1'],
+				classes: ['mx-1', undefined],
 				styles: {}
 			})
 		);
@@ -172,7 +175,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['m-1'],
+				classes: ['m-1', undefined],
 				styles: {}
 			})
 		);
@@ -184,7 +187,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['pt-1', 'pb-2', 'pl-4', 'pr-3'],
+				classes: ['pt-1', 'pb-2', 'pl-4', 'pr-3', undefined],
 				styles: {}
 			})
 		);
@@ -193,7 +196,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['py-1'],
+				classes: ['py-1', undefined],
 				styles: {}
 			})
 		);
@@ -202,7 +205,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['px-1'],
+				classes: ['px-1', undefined],
 				styles: {}
 			})
 		);
@@ -211,7 +214,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['p-1'],
+				classes: ['p-1', undefined],
 				styles: {}
 			})
 		);
@@ -223,7 +226,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['text-truncate'],
+				classes: ['text-truncate', undefined],
 				styles: {
 					maxWidth: '50px'
 				}
@@ -234,7 +237,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['text-truncate'],
+				classes: ['text-truncate', undefined],
 				styles: {
 					maxWidth: '50%'
 				}
@@ -248,7 +251,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: [],
+				classes: [undefined],
 				styles: {}
 			})
 		);
@@ -257,7 +260,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['text-nowrap'],
+				classes: ['text-nowrap', undefined],
 				styles: {
 					width: '5rem'
 				}

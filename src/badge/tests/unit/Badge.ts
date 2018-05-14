@@ -18,7 +18,8 @@ describe('Badge', () => {
 		paddingBottom: 'default',
 		paddingLeft: 'default',
 		alignSelf: 'default',
-		order: 'default'
+		order: 'default',
+		display: 'default'
 	};
 
 	const customProperties: BadgeProperties = {
@@ -37,7 +38,8 @@ describe('Badge', () => {
 		paddingLeft: '1',
 		paddingRight: '1',
 		alignSelf: 'start',
-		order: 0
+		order: 0,
+		display: 'flex'
 	};
 
 	it('should construct Badge', () => {
@@ -48,7 +50,7 @@ describe('Badge', () => {
 				{
 					id: undefined,
 					key: 'badge',
-					classes: ['badge'],
+					classes: ['badge', undefined],
 					href: undefined,
 					target: undefined
 				},
@@ -65,7 +67,7 @@ describe('Badge', () => {
 				{
 					id: undefined,
 					key: 'badge',
-					classes: ['badge'],
+					classes: ['badge', ''],
 					href: undefined,
 					target: 'self'
 				},
@@ -90,6 +92,7 @@ describe('Badge', () => {
 						'mx-1',
 						'py-0',
 						'px-1',
+						'd-flex',
 						'align-self-start',
 						'order-0'
 					],

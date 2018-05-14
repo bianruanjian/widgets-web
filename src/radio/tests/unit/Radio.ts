@@ -22,6 +22,7 @@ describe('Radio', () => {
 		paddingBottom: 'default',
 		paddingLeft: 'default',
 		paddingRight: 'default',
+		display: 'default',
 		alignSelf: 'default',
 		order: 'default',
 		float: 'default'
@@ -48,6 +49,7 @@ describe('Radio', () => {
 		paddingBottom: '0',
 		paddingLeft: '1',
 		paddingRight: '1',
+		display: 'inlineFlex',
 		alignSelf: 'start',
 		order: '0',
 		float: 'none'
@@ -60,7 +62,7 @@ describe('Radio', () => {
 				'div',
 				{
 					key: 'radio',
-					classes: ['form-check', undefined, 'form-check-inline']
+					classes: ['form-check', undefined, 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -87,7 +89,7 @@ describe('Radio', () => {
 				'div',
 				{
 					key: 'radio',
-					classes: ['form-check', '', 'form-check-inline']
+					classes: ['form-check', '', 'form-check-inline', '']
 				},
 				[
 					v('input', {
@@ -122,6 +124,7 @@ describe('Radio', () => {
 						'mx-1',
 						'py-0',
 						'px-1',
+						'd-inline-flex',
 						'align-self-start',
 						'order-0',
 						'float-none'

@@ -10,7 +10,8 @@ import {
 	SpacingProperties,
 	TextProperties,
 	FlexContainerProperties,
-	FlexItemProperties
+	FlexItemProperties,
+	DisplayProperties
 } from '../common/interfaces';
 import {
 	getSpacingClasses,
@@ -18,7 +19,8 @@ import {
 	getTextClasses,
 	getTextStyles,
 	getFlexContainerClasses,
-	getFlexItemClasses
+	getFlexItemClasses,
+	getDisplayClass
 } from '../common/util';
 
 import * as css from './styles/view.m.css';
@@ -32,6 +34,7 @@ export interface ViewProperties
 	extends BorderProperties,
 		SpacingProperties,
 		TextProperties,
+		DisplayProperties,
 		FlexContainerProperties,
 		FlexItemProperties {
 	widgetId?: string;
@@ -67,6 +70,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'transform',
 		'truncate',
 		'wrap',
+		'display',
 		'flexDirection',
 		'reverse',
 		'justifyItems',
@@ -100,7 +104,15 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 	}
 
 	protected render(): DNode | DNode[] {
-		let { widgetId } = this.properties;
+		let { widgetId, display } = this.properties;
+
+		let flexContainerClasses: string[] = [];
+		let flexItemClasses: string[] = [];
+
+		if ((display && display === 'flex') || display === 'inlineFlex') {
+			flexContainerClasses = getFlexContainerClasses(this.properties);
+			flexItemClasses = getFlexItemClasses(this.properties);
+		}
 
 		return v(
 			'div',
@@ -111,8 +123,9 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
-					...getFlexContainerClasses(this.properties),
-					...getFlexItemClasses(this.properties)
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexContainerClasses,
+					...flexItemClasses
 				],
 				styles: { ...getTextStyles(this.properties), ...this._getMaxWidthStyles() }
 			},

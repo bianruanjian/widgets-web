@@ -25,7 +25,8 @@ describe('Link', () => {
 		truncate: 'default',
 		wrap: 0,
 		textColor: 'default',
-		backgroundColor: 'default'
+		backgroundColor: 'default',
+		display: 'default'
 	};
 
 	const customProperties: LinkProperties = {
@@ -49,7 +50,8 @@ describe('Link', () => {
 		truncate: 40,
 		wrap: 1,
 		textColor: 'primary',
-		backgroundColor: 'primary'
+		backgroundColor: 'primary',
+		display: 'flex'
 	};
 
 	it('should construct Link', () => {
@@ -62,7 +64,7 @@ describe('Link', () => {
 					key: 'link',
 					href: undefined,
 					target: undefined,
-					classes: [],
+					classes: [undefined],
 					styles: {}
 				},
 				[]
@@ -80,7 +82,7 @@ describe('Link', () => {
 					key: 'link',
 					href: undefined,
 					target: '_self',
-					classes: [],
+					classes: [''],
 					styles: {}
 				},
 				[]
@@ -105,6 +107,7 @@ describe('Link', () => {
 						'mx-1',
 						'py-0',
 						'px-1',
+						'd-flex',
 						'font-weight-light',
 						'font-italic',
 						'text-left',
@@ -135,7 +138,7 @@ describe('Link', () => {
 					key: 'link',
 					href: undefined,
 					target: undefined,
-					classes: ['list-group-item', 'list-group-item-action', undefined],
+					classes: ['list-group-item', 'list-group-item-action', undefined, undefined],
 					styles: {}
 				},
 				[]
