@@ -19,6 +19,8 @@ export const ghPagesBranch = 'gh-pages';
 
 export const binDirectory = join('node_modules', '.bin');
 
+export const _distDirectory = '_dist';
+
 export const siteDirectory = 'site';
 
 export const syncDirectory = '.sync';
@@ -99,7 +101,7 @@ export const postcss = {
 };
 
 export const clean = {
-	dist: ['<%= distDirectory %>'],
+	dist: ['<%= _distDirectory %>'],
 	publish: ['<%= publishDirectory %>'],
 	sync: ['<%= syncDirectory %>'],
 	compiledFiles: ['./+(tests|support)/**/*.d.ts', './+(tests|support)/**/*.js']
@@ -108,7 +110,7 @@ export const clean = {
 export const hexo = {
 	generate: {
 		src: '<%= siteDirectory %>',
-		dest: '<%= distDirectory %>'
+		dest: '<%= _distDirectory %>'
 	}
 };
 
@@ -139,7 +141,7 @@ export const publish = {
 	'gh-pages': {
 		options: {
 			branch: 'gh-pages',
-			cloneDirectory: '<%= distDirectory %>'
+			cloneDirectory: '<%= _distDirectory %>'
 		}
 	}
 };
@@ -176,7 +178,7 @@ export const sync = {
 	'gh-pages': {
 		options: {
 			branch: 'gh-pages',
-			cloneDirectory: '<%= distDirectory %>'
+			cloneDirectory: '<%= _distDirectory %>'
 		}
 	}
 };
