@@ -51,7 +51,7 @@ export class Footer<P extends FooterProperties = FooterProperties> extends Theme
 
 		let flexContainerClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
 		}
 

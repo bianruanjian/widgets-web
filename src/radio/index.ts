@@ -115,7 +115,7 @@ export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBa
 
 		let flexItemClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 

@@ -66,7 +66,7 @@ describe('Footer', () => {
 				{
 					id: undefined,
 					key: 'footer',
-					classes: ['']
+					classes: [undefined]
 				},
 				[]
 			)

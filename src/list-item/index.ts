@@ -69,7 +69,7 @@ export class ListItem<P extends ListItemProperties = ListItemProperties> extends
 
 		let flexContainerClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
 		}
 

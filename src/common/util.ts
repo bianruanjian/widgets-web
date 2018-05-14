@@ -323,14 +323,8 @@ export const displayMap: { [key: string]: string } = {
 	default: ''
 };
 
-export function getDisplayClass(properties: DisplayProperties): string {
+export function getDisplayClass(properties: DisplayProperties): string | undefined {
 	const { display } = properties;
 
-	let displayClasses: string = '';
-
-	if (display) {
-		displayClasses = displayMap[display];
-	}
-
-	return displayClasses;
+	return displayMap[display as string] || undefined;
 }

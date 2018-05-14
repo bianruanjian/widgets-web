@@ -89,7 +89,7 @@ describe('Radio', () => {
 				'div',
 				{
 					key: 'radio',
-					classes: ['form-check', '', 'form-check-inline', '']
+					classes: ['form-check', '', 'form-check-inline', undefined]
 				},
 				[
 					v('input', {

@@ -6,7 +6,7 @@ footer: false
 tags:
 ---
 
-显示框类型
+显示类型
 
 ## 基本用法
 
@@ -14,4 +14,4 @@ tags:
 
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| display | 显示框类型 | default | none, inline, inlineBlock, block, table, tableCell, tableRow, flex, inlineFlex, default | string |
+| display | 显示类型 | default | none, inline, inlineBlock, block, table, tableCell, tableRow, flex, inlineFlex, default | string |

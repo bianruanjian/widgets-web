@@ -152,7 +152,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 
 		let flexItemClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
@@ -209,7 +209,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 
 		let flexItemClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 

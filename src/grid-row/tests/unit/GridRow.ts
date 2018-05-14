@@ -72,7 +72,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', '']
+					classes: ['row', undefined]
 				},
 				[]
 			)

@@ -77,7 +77,7 @@ export class GridRow<P extends GridRowProperties = GridRowProperties> extends Th
 		let flexContainerClasses: string[] = [];
 		let flexItemClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
 			flexItemClasses = getFlexItemClasses(this.properties);
 		}

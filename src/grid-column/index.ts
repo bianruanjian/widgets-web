@@ -112,7 +112,7 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 		let flexContainerClasses: string[] = [];
 		let flexItemClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
 			flexItemClasses = getFlexItemClasses(this.properties);
 		}

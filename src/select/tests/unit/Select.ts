@@ -89,7 +89,7 @@ describe('Select', () => {
 					disabled: false,
 					required: false,
 					readOnly: false,
-					classes: ['', 'form-control', '']
+					classes: ['', 'form-control', undefined]
 				},
 				[]
 			)

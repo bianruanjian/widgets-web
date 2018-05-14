@@ -77,13 +77,19 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 
 		let flexItemClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
+		let displayClass = getDisplayClass(this.properties);
+
+		if (displayClass === undefined) {
+			displayClass = '';
 		}
 
 		const cssClasses: string[] = [
 			...getSpacingClasses(this.properties),
-			display ? getDisplayClass(this.properties) : '',
+			display ? displayClass : '',
 			...flexItemClasses,
 			...getColorsClasses(this.properties)
 		];

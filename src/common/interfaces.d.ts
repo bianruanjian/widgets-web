@@ -156,9 +156,9 @@ export interface MessageProperties {
 /**
  * @type DisplayProperties
  *
- * Display(显示框类型)属性
+ * Display(显示类型)属性
  *
- * @property display         显示框类型
+ * @property display         显示类型
  */
 export interface DisplayProperties {
 	display?: string;

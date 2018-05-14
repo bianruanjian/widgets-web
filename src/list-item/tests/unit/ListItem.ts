@@ -77,7 +77,7 @@ describe('ListItem', () => {
 					id: undefined,
 					key: 'list-item',
 					disabled: false,
-					classes: ['list-group-item', undefined, undefined, undefined, ''],
+					classes: ['list-group-item', undefined, undefined, undefined, undefined],
 					styles: {}
 				},
 				[]

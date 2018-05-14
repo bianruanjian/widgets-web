@@ -108,7 +108,7 @@ describe('TextInput', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['', 'form-control', ''],
+				classes: ['', 'form-control', undefined],
 				oninput: () => {},
 				onchange: () => {}
 			}),

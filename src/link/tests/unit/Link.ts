@@ -82,7 +82,7 @@ describe('Link', () => {
 					key: 'link',
 					href: undefined,
 					target: '_self',
-					classes: [''],
+					classes: [undefined],
 					styles: {}
 				},
 				[]

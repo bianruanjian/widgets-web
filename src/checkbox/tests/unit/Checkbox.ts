@@ -90,7 +90,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: ['form-check', '', 'form-check-inline', '']
+					classes: ['form-check', '', 'form-check-inline', undefined]
 				},
 				[
 					v('input', {

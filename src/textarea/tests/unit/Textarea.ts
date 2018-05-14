@@ -105,7 +105,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['', 'form-control', ''],
+				classes: ['', 'form-control', undefined],
 				styles: {}
 			}),
 			null

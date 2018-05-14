@@ -109,7 +109,7 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 		let flexContainerClasses: string[] = [];
 		let flexItemClasses: string[] = [];
 
-		if ((display && display === 'flex') || display === 'inlineFlex') {
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
 			flexItemClasses = getFlexItemClasses(this.properties);
 		}
