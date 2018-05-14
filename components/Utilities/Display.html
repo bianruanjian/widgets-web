@@ -5,19 +5,19 @@
   
 
   
-  <title>Select | widgets-web</title>
+  <title>Display | widgets-web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="下拉框部件 基本用法default   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; dis">
+  <meta name="description" content="显示类型 基本用法属性   名称 说明 默认值 可选值 值类型     display 显示类型 default none, inline, inlineBlock, block, table, tableCell, tableRow, flex, inlineFlex, default string">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Select">
-<meta property="og:url" content="https://bianruanjian.github.io/components/Form/Select.html">
+<meta property="og:title" content="Display">
+<meta property="og:url" content="https://bianruanjian.github.io/components/Utilities/Display.html">
 <meta property="og:site_name" content="widgets-web">
-<meta property="og:description" content="下拉框部件 基本用法default   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; dis">
+<meta property="og:description" content="显示类型 基本用法属性   名称 说明 默认值 可选值 值类型     display 显示类型 default none, inline, inlineBlock, block, table, tableCell, tableRow, flex, inlineFlex, default string">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-14T07:47:44.019Z">
+<meta property="og:updated_time" content="2018-05-14T07:47:44.023Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Select">
-<meta name="twitter:description" content="下拉框部件 基本用法default   123&amp;lt;db-select options=&quot;[&amp;#123;&apos;value&apos;: &apos;value1&apos;, &apos;label&apos;: &apos;label1&apos;&amp;#125;, &amp;#123;&apos;value&apos;: &apos;value2&apos;, &apos;label&apos;: &apos;label2&apos;&amp;#125;]&quot;    widgetId=&quot;random-id&quot; name=&quot;demo&quot; label=&quot;demo&quot; dis">
+<meta name="twitter:title" content="Display">
+<meta name="twitter:description" content="显示类型 基本用法属性   名称 说明 默认值 可选值 值类型     display 显示类型 default none, inline, inlineBlock, block, table, tableCell, tableRow, flex, inlineFlex, default string">
   
   
     <link rel="icon" href="/favicon.png">
@@ -192,7 +192,7 @@
             </li>
         
             <li
-                class="active" 
+                
             >
                 <a href="/widgets-web/components/Form/Select.html">
                     Select
@@ -328,7 +328,7 @@
             </li>
         
             <li
-                
+                class="active" 
             >
                 <a href="/widgets-web/components/Utilities/Display.html">
                     Display
@@ -386,7 +386,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Select
+      Display
     </h1>
   
 
@@ -394,26 +394,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>下拉框部件</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="default"><a href="#default" class="headerlink" title="default"></a>default</h3>
-<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]" widgetid="random-id" name="demo" label="demo" disabled="false" labelfield="label" valuefield="value" margintop="3" marginbottom="3"></db-select>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-select</span> <span class="attr">options</span>=<span class="string">"[&#123;'value': 'value1', 'label': 'label1'&#125;, &#123;'value': 'value2', 'label': 'label2'&#125;]"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">widgetId</span>=<span class="string">"random-id"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"demo"</span> <span class="attr">disabled</span>=<span class="string">"false"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">labelField</span>=<span class="string">"label"</span> <span class="attr">valueField</span>=<span class="string">"value"</span> <span class="attr">marginTop</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="disabled"><a href="#disabled" class="headerlink" title="disabled"></a>disabled</h3>
-<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]" widgetid="disabled" name="demo" label="disabled" disabled="true" labelfield="label" valuefield="value" margintop="3" marginbottom="3"></db-select>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-select</span> <span class="attr">options</span>=<span class="string">"[&#123;'value': 'value1', 'label': 'label1'&#125;, &#123;'value': 'value2', 'label': 'label2'&#125;]"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">widgetId</span>=<span class="string">"disabled"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"disabled"</span> <span class="attr">disabled</span>=<span class="string">"true"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">labelField</span>=<span class="string">"label"</span> <span class="attr">valueField</span>=<span class="string">"value"</span> <span class="attr">marginTop</span>=<span class="string">"3"</span> <span class="attr">marginBottom</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="labelPosition-is-left"><a href="#labelPosition-is-left" class="headerlink" title="labelPosition is left"></a>labelPosition is left</h3>
-<db-select options="[{'value': 'value1', 'label': 'label1'}, {'value': 'value2', 'label': 'label2'}]" widgetid="label-position-id" name="demo" label="Label" labelfield="label" valuefield="value" labelposition="left"></db-select>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-select</span> <span class="attr">options</span>=<span class="string">"[&#123;'value': 'value1', 'label': 'label1'&#125;, &#123;'value': 'value2', 'label': 'label2'&#125;]"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">widgetId</span>=<span class="string">"label-position-id"</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">label</span>=<span class="string">"Label"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">labelField</span>=<span class="string">"label"</span> <span class="attr">valueField</span>=<span class="string">"value"</span> <span class="attr">labelPosition</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
-<li><a href="../Utilities/Spacing.html">Spacing</a></li>
-<li><a href="../Utilities/Display.html">Display</a></li>
-<li><a href="../Utilities/Flex.html">Flex</a> 中的 Flex item 相关属性</li>
-<li><a href="../Utilities/Float.html">Float</a></li>
-</ol>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+        <p>显示类型</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
 <thead>
 <tr>
 <th>名称</th>
@@ -425,116 +407,14 @@
 </thead>
 <tbody>
 <tr>
-<td>widgetId</td>
-<td>标识</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>name</td>
-<td>名称</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>value</td>
-<td>值</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>label</td>
-<td>文本</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>labelPosition</td>
-<td>文本位置</td>
-<td>top</td>
-<td>top, left</td>
-<td>string</td>
-</tr>
-<tr>
-<td>disabled</td>
-<td>失效</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>required</td>
-<td>必填</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>readOnly</td>
-<td>只读</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>options</td>
-<td>选项</td>
-<td></td>
-<td></td>
-<td>json array</td>
-</tr>
-<tr>
-<td>labelField</td>
-<td>显示字段</td>
-<td>label</td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>valueField</td>
-<td>隐藏字段</td>
-<td>value</td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>dataPath</td>
-<td>数据路径</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>size</td>
-<td>尺寸</td>
+<td>display</td>
+<td>显示类型</td>
 <td>default</td>
-<td>small, large, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>invalidMessage</td>
-<td>无效提示</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>validMessage</td>
-<td>有效提示</td>
-<td></td>
-<td></td>
+<td>none, inline, inlineBlock, block, table, tableCell, tableRow, flex, inlineFlex, default</td>
 <td>string</td>
 </tr>
 </tbody>
 </table>
-<ol>
-<li>options 格式<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#123;<span class="attr">"value"</span>: <span class="string">"value1"</span>, <span class="attr">"label"</span>: <span class="string">"label1"</span>&#125;]</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 
       
     </div>
