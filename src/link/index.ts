@@ -4,14 +4,21 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { SpacingProperties, FlexItemProperties, TextProperties, ColorsProperties } from '../common/interfaces';
+import {
+	SpacingProperties,
+	FlexItemProperties,
+	TextProperties,
+	ColorsProperties,
+	DisplayProperties
+} from '../common/interfaces';
 import {
 	getSpacingClasses,
 	getFlexItemClasses,
 	getTextClasses,
 	getTextStyles,
 	getColorsClasses,
-	getTextDecorationClass
+	getTextDecorationClass,
+	getDisplayClass
 } from '../common/util';
 
 import * as css from './styles/link.m.css';
@@ -22,7 +29,12 @@ import { targetMap } from '../button';
  *
  * Properties that can be set on link components
  */
-export interface LinkProperties extends SpacingProperties, FlexItemProperties, TextProperties, ColorsProperties {
+export interface LinkProperties
+	extends SpacingProperties,
+		DisplayProperties,
+		FlexItemProperties,
+		TextProperties,
+		ColorsProperties {
 	widgetId?: string;
 	href?: string;
 	target?: string;
@@ -63,6 +75,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'transform',
 		'truncate',
 		'wrap',
+		'display',
 		'alignSelf',
 		'order',
 		'textColor',
@@ -74,10 +87,16 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let { widgetId, href, target, value, isListItem = false, appearance } = this.properties;
+		let { widgetId, href, target, value, isListItem = false, appearance, display } = this.properties;
 
 		if (target) {
 			target = targetMap[target as string] || target;
+		}
+
+		let flexItemClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
 		return v(
@@ -92,14 +111,16 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 							'list-group-item',
 							'list-group-item-action',
 							...getSpacingClasses(this.properties),
-							...getFlexItemClasses(this.properties),
+							display ? getDisplayClass(this.properties) : undefined,
+							...flexItemClasses,
 							...getTextClasses(this.properties),
 							appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 							...getTextDecorationClass(this.properties)
 					  ]
 					: [
 							...getSpacingClasses(this.properties),
-							...getFlexItemClasses(this.properties),
+							display ? getDisplayClass(this.properties) : undefined,
+							...flexItemClasses,
 							...getTextClasses(this.properties),
 							...getColorsClasses(this.properties),
 							...getTextDecorationClass(this.properties)

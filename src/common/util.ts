@@ -8,7 +8,8 @@ import {
 	TextProperties,
 	ColorsProperties,
 	FloatProperties,
-	MessageProperties
+	MessageProperties,
+	DisplayProperties
 } from './interfaces';
 
 import * as css from './base.m.css';
@@ -308,3 +309,22 @@ export const formSizeMap: { [key: string]: string } = {
 	large: 'form-control-lg',
 	default: ''
 };
+
+export const displayMap: { [key: string]: string } = {
+	none: 'd-none',
+	inline: 'd-inline',
+	inlineBlock: 'd-inline-block',
+	block: 'd-block',
+	table: 'd-table',
+	tableCell: 'd-table-cell',
+	tableRow: 'd-table-row',
+	flex: 'd-flex',
+	inlineFlex: 'd-inline-flex',
+	default: ''
+};
+
+export function getDisplayClass(properties: DisplayProperties): string | undefined {
+	const { display } = properties;
+
+	return displayMap[display as string] || undefined;
+}

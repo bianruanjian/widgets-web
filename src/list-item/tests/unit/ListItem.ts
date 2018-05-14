@@ -17,6 +17,7 @@ describe('ListItem', () => {
 		transform: 'default',
 		truncate: 'default',
 		wrap: 0,
+		display: 'default',
 		flexDirection: 'default',
 		reverse: false,
 		justifyItems: 'default',
@@ -39,6 +40,7 @@ describe('ListItem', () => {
 		transform: 'lowerCase',
 		truncate: 40,
 		wrap: 1,
+		display: 'flex',
 		flexDirection: 'row',
 		reverse: true,
 		justifyItems: 'start',
@@ -58,7 +60,7 @@ describe('ListItem', () => {
 					id: undefined,
 					key: 'list-item',
 					disabled: false,
-					classes: ['list-group-item', undefined, undefined, undefined],
+					classes: ['list-group-item', undefined, undefined, undefined, undefined],
 					styles: {}
 				},
 				[]
@@ -75,7 +77,7 @@ describe('ListItem', () => {
 					id: undefined,
 					key: 'list-item',
 					disabled: false,
-					classes: ['list-group-item', undefined, undefined, undefined],
+					classes: ['list-group-item', undefined, undefined, undefined, undefined],
 					styles: {}
 				},
 				[]
@@ -99,6 +101,7 @@ describe('ListItem', () => {
 						'list-group-item-primary',
 						'disabled',
 						'active',
+						'd-flex',
 						'flex-row-reverse',
 						'justify-content-start',
 						'align-items-start',

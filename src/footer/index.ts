@@ -2,10 +2,10 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
-import { SpacingProperties, FlexContainerProperties } from '../common/interfaces';
+import { SpacingProperties, FlexContainerProperties, DisplayProperties } from '../common/interfaces';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { v } from '@dojo/widget-core/d';
-import { getSpacingClasses, getFlexContainerClasses } from '../common/util';
+import { getSpacingClasses, getFlexContainerClasses, getDisplayClass } from '../common/util';
 
 import * as css from './styles/footer.m.css';
 
@@ -14,7 +14,7 @@ import * as css from './styles/footer.m.css';
  *
  * Properties that can be set on footer components
  */
-export interface FooterProperties extends SpacingProperties, FlexContainerProperties {
+export interface FooterProperties extends SpacingProperties, FlexContainerProperties, DisplayProperties {
 	widgetId?: string;
 }
 
@@ -33,6 +33,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'flexDirection',
 		'reverse',
 		'justifyItems',
@@ -46,14 +47,24 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Footer<P extends FooterProperties = FooterProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId } = this.properties;
+		const { widgetId, display } = this.properties;
+
+		let flexContainerClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexContainerClasses = getFlexContainerClasses(this.properties);
+		}
 
 		return v(
 			'div',
 			{
 				id: widgetId,
 				key: 'footer',
-				classes: [...getSpacingClasses(this.properties), ...getFlexContainerClasses(this.properties)]
+				classes: [
+					...getSpacingClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexContainerClasses
+				]
 			},
 			this.children
 		);

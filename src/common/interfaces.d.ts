@@ -152,3 +152,14 @@ export interface MessageProperties {
 	invalidMessage?: string;
 	validMessage?: string;
 }
+
+/**
+ * @type DisplayProperties
+ *
+ * Display(显示类型)属性
+ *
+ * @property display         显示类型
+ */
+export interface DisplayProperties {
+	display?: string;
+}

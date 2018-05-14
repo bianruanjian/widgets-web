@@ -10,9 +10,17 @@ import {
 	FlexItemProperties,
 	FloatProperties,
 	FormProperties,
-	MessageProperties
+	MessageProperties,
+	DisplayProperties
 } from '../common/interfaces';
-import { formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode } from '../common/util';
+import {
+	formSizeMap,
+	getSpacingClasses,
+	getFlexItemClasses,
+	getFloatClass,
+	renderMessageNode,
+	getDisplayClass
+} from '../common/util';
 
 import * as css from './styles/select.m.css';
 
@@ -26,7 +34,8 @@ export interface SelectProperties
 		FlexItemProperties,
 		FloatProperties,
 		FormProperties,
-		MessageProperties {
+		MessageProperties,
+		DisplayProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -69,6 +78,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'alignSelf',
 		'order',
 		'float'
@@ -90,7 +100,8 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			labelField,
 			valueField,
 			dataPath,
-			size
+			size,
+			display
 		} = this.properties;
 
 		const cssClasses: string[] = [];
@@ -126,6 +137,12 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			//TODO: 发送请求，获取数据，暂时不处理
 		}
 
+		let flexItemClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
 		return v(
 			'select',
 			{
@@ -138,7 +155,8 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 				classes: [
 					...cssClasses,
 					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexItemClasses,
 					...getFloatClass(this.properties)
 				]
 			},

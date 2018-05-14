@@ -49,6 +49,7 @@ tags:
 ## 通用属性
 
 1. [Spacing](../Utilities/Spacing.html)
+1. [Display](../Utilities/Display.html)
 1. [Flex](../Utilities/Flex.html) 中的 Flex item 相关属性
 1. [Float](../Utilities/Float.html)
 

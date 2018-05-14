@@ -7,9 +7,17 @@ import {
 	FlexItemProperties,
 	FloatProperties,
 	FormProperties,
-	MessageProperties
+	MessageProperties,
+	DisplayProperties
 } from '../common/interfaces';
-import { formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass, renderMessageNode } from '../common/util';
+import {
+	formSizeMap,
+	getSpacingClasses,
+	getFlexItemClasses,
+	getFloatClass,
+	renderMessageNode,
+	getDisplayClass
+} from '../common/util';
 import { v, w } from '@dojo/widget-core/d';
 
 import * as css from './styles/textarea.m.css';
@@ -26,7 +34,8 @@ export interface TextareaProperties
 		FlexItemProperties,
 		FloatProperties,
 		FormProperties,
-		MessageProperties {
+		MessageProperties,
+		DisplayProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -77,6 +86,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'alignSelf',
 		'order',
 		'float'
@@ -102,7 +112,8 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			size,
 			shouldFocus,
 			plainText,
-			noResize
+			noResize,
+			display
 		} = this.properties;
 
 		const cssClasses: string[] = [];
@@ -130,6 +141,12 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			cssStyles.resize = 'none';
 		}
 
+		let flexItemClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
 		return v('textarea', {
 			id: widgetId,
 			key: 'textarea',
@@ -146,7 +163,8 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			classes: [
 				...cssClasses,
 				...getSpacingClasses(this.properties),
-				...getFlexItemClasses(this.properties),
+				display ? getDisplayClass(this.properties) : undefined,
+				...flexItemClasses,
 				...getFloatClass(this.properties)
 			],
 			styles: cssStyles

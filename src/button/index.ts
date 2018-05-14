@@ -6,7 +6,7 @@ import { customElement } from '@dojo/widget-core/decorators/customElement';
 
 import * as css from './styles/button.m.css';
 
-const sizeMap: { [key: string]: string } = {
+export const sizeMap: { [key: string]: string } = {
 	large: 'btn-lg',
 	small: 'btn-sm',
 	default: ''

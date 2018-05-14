@@ -16,6 +16,7 @@ describe('GridRow', () => {
 		paddingBottom: 'default',
 		paddingLeft: 'default',
 		paddingRight: 'default',
+		display: 'default',
 		flexDirection: 'default',
 		reverse: false,
 		justifyItems: 'default',
@@ -37,6 +38,7 @@ describe('GridRow', () => {
 		paddingBottom: '1',
 		paddingLeft: '1',
 		paddingRight: '1',
+		display: 'flex',
 		flexDirection: 'row',
 		reverse: true,
 		justifyItems: 'start',
@@ -55,7 +57,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row']
+					classes: ['row', undefined]
 				},
 				[]
 			)
@@ -70,7 +72,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row']
+					classes: ['row', undefined]
 				},
 				[]
 			)
@@ -93,6 +95,7 @@ describe('GridRow', () => {
 						'ml-3',
 						'mr-4',
 						'p-1',
+						'd-flex',
 						'flex-row-reverse',
 						'justify-content-start',
 						'align-items-start',
@@ -108,26 +111,26 @@ describe('GridRow', () => {
 	});
 
 	it('direction reverse', () => {
-		const h = harness(() => w(GridRow, { flexDirection: 'row', reverse: false }));
+		const h = harness(() => w(GridRow, { display: 'flex', flexDirection: 'row', reverse: false }));
 		h.expect(() =>
 			v(
 				'div',
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', 'flex-row']
+					classes: ['row', 'd-flex', 'flex-row']
 				},
 				[]
 			)
 		);
-		const h1 = harness(() => w(GridRow, { flexDirection: 'row', reverse: true }));
+		const h1 = harness(() => w(GridRow, { display: 'flex', flexDirection: 'row', reverse: true }));
 		h1.expect(() =>
 			v(
 				'div',
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', 'flex-row-reverse']
+					classes: ['row', 'd-flex', 'flex-row-reverse']
 				},
 				[]
 			)
@@ -135,14 +138,14 @@ describe('GridRow', () => {
 	});
 
 	it('flexWrap', () => {
-		const h = harness(() => w(GridRow, { flexWrap: 'reverseWrap' }));
+		const h = harness(() => w(GridRow, { display: 'flex', flexWrap: 'reverseWrap' }));
 		h.expect(() =>
 			v(
 				'div',
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', 'flex-wrap-reverse']
+					classes: ['row', 'd-flex', 'flex-wrap-reverse']
 				},
 				[]
 			)

@@ -8,9 +8,17 @@ import {
 	FlexItemProperties,
 	FloatProperties,
 	FormProperties,
-	MessageProperties
+	MessageProperties,
+	DisplayProperties
 } from '../common/interfaces';
-import { renderMessageNode, formSizeMap, getSpacingClasses, getFlexItemClasses, getFloatClass } from '../common/util';
+import {
+	renderMessageNode,
+	formSizeMap,
+	getSpacingClasses,
+	getFlexItemClasses,
+	getFloatClass,
+	getDisplayClass
+} from '../common/util';
 
 import * as css from './styles/checkbox.m.css';
 import { Label } from '../label';
@@ -25,7 +33,8 @@ export interface CheckboxProperties
 		FlexItemProperties,
 		FloatProperties,
 		FormProperties,
-		MessageProperties {
+		MessageProperties,
+		DisplayProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -64,6 +73,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingRight',
 		'alignSelf',
 		'order',
+		'display',
 		'float'
 	],
 	properties: [],
@@ -94,7 +104,7 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId, label, size, labelAfter, fluid } = this.properties;
+		const { widgetId, label, size, labelAfter, fluid, display } = this.properties;
 
 		let children: DNode[] = [
 			this.renderCheckbox(),
@@ -105,6 +115,12 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 		}
 		children.push(renderMessageNode(this.properties));
 
+		let flexItemClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
 		return v(
 			'div',
 			{
@@ -114,7 +130,8 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 					size ? formSizeMap[size as string] : undefined,
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
 					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexItemClasses,
 					...getFloatClass(this.properties)
 				]
 			},

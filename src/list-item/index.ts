@@ -4,13 +4,14 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { FlexContainerProperties, TextProperties, ColorsProperties } from '../common/interfaces';
+import { FlexContainerProperties, TextProperties, ColorsProperties, DisplayProperties } from '../common/interfaces';
 import {
 	getFlexContainerClasses,
 	getTextClasses,
 	getTextDecorationClass,
 	getTextStyles,
-	getColorsClasses
+	getColorsClasses,
+	getDisplayClass
 } from '../common/util';
 
 import * as css from './styles/list-item.m.css';
@@ -20,7 +21,11 @@ import * as css from './styles/list-item.m.css';
  *
  * Properties that can be set on ListItem components
  */
-export interface ListItemProperties extends FlexContainerProperties, TextProperties, ColorsProperties {
+export interface ListItemProperties
+	extends DisplayProperties,
+		FlexContainerProperties,
+		TextProperties,
+		ColorsProperties {
 	widgetId?: string;
 	active?: boolean | string;
 	disabled?: boolean | string;
@@ -37,6 +42,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'active',
 		'disabled',
 		'appearance',
+		'display',
 		'flexDirection',
 		'reverse',
 		'justifyItems',
@@ -59,7 +65,13 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class ListItem<P extends ListItemProperties = ListItemProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId, active, disabled, appearance } = this.properties;
+		const { widgetId, active, disabled, appearance, display } = this.properties;
+
+		let flexContainerClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexContainerClasses = getFlexContainerClasses(this.properties);
+		}
 
 		return v(
 			'li',
@@ -72,7 +84,8 @@ export class ListItem<P extends ListItemProperties = ListItemProperties> extends
 					appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 					disabled === true || disabled === 'true' ? 'disabled' : undefined,
 					active === true || active === 'true' ? 'active' : undefined,
-					...getFlexContainerClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexContainerClasses,
 					...getTextClasses(this.properties),
 					...getTextDecorationClass(this.properties),
 					...getColorsClasses(this.properties)

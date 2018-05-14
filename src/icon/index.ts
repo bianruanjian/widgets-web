@@ -4,8 +4,8 @@ import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { SpacingProperties, FlexItemProperties, ColorsProperties } from '../common/interfaces';
-import { getSpacingClasses, getFlexItemClasses, getColorsClasses } from '../common/util';
+import { SpacingProperties, FlexItemProperties, ColorsProperties, DisplayProperties } from '../common/interfaces';
+import { getSpacingClasses, getFlexItemClasses, getColorsClasses, getDisplayClass } from '../common/util';
 
 import * as css from './styles/icon.m.css';
 
@@ -30,7 +30,7 @@ export const sizeMap: { [key: string]: string } = {
  * Properties that can be set on icon components
  *
  */
-export interface IconProperties extends SpacingProperties, FlexItemProperties, ColorsProperties {
+export interface IconProperties extends SpacingProperties, FlexItemProperties, ColorsProperties, DisplayProperties {
 	widgetId?: string;
 	value?: string;
 	size?: string;
@@ -61,6 +61,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'display',
 		'alignSelf',
 		'order',
 		'textColor',
@@ -72,10 +73,24 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId, value, size, alt, title } = this.properties;
+		const { widgetId, value, size, alt, title, display } = this.properties;
+
+		let flexItemClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
+		let displayClass = getDisplayClass(this.properties);
+
+		if (displayClass === undefined) {
+			displayClass = '';
+		}
+
 		const cssClasses: string[] = [
 			...getSpacingClasses(this.properties),
-			...getFlexItemClasses(this.properties),
+			display ? displayClass : '',
+			...flexItemClasses,
 			...getColorsClasses(this.properties)
 		];
 
@@ -89,7 +104,7 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 			iconClasses.push(sizeMap[size as string]);
 		}
 
-		if (cssClasses.length === 0) {
+		if (cssClasses.length === 0 || (cssClasses.length === 1 && cssClasses[0] === '')) {
 			return v('i', {
 				id: widgetId,
 				key: 'icon',
@@ -104,11 +119,7 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 			{
 				id: widgetId,
 				key: 'icon',
-				classes: [
-					...getSpacingClasses(this.properties),
-					...getFlexItemClasses(this.properties),
-					...getColorsClasses(this.properties)
-				],
+				classes: cssClasses,
 				title
 			},
 			[

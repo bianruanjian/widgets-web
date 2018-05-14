@@ -23,6 +23,7 @@ describe('Checkbox', () => {
 		paddingRight: 'default',
 		alignSelf: 'default',
 		order: 'default',
+		display: 'default',
 		float: 'default'
 	};
 
@@ -50,6 +51,7 @@ describe('Checkbox', () => {
 		paddingRight: '1',
 		alignSelf: 'start',
 		order: '0',
+		display: 'flex',
 		float: 'none'
 	};
 
@@ -60,7 +62,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: ['form-check', undefined, 'form-check-inline']
+					classes: ['form-check', undefined, 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -88,7 +90,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: ['form-check', '', 'form-check-inline']
+					classes: ['form-check', '', 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -124,6 +126,7 @@ describe('Checkbox', () => {
 						'mx-1',
 						'py-0',
 						'px-1',
+						'd-flex',
 						'align-self-start',
 						'order-0',
 						'float-none'

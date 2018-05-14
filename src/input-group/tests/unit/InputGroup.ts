@@ -19,6 +19,7 @@ describe('InputGroup', () => {
 		paddingBottom: '0',
 		paddingLeft: '1',
 		paddingRight: '1',
+		display: 'flex',
 		alignSelf: 'start',
 		order: '0',
 		float: 'none'
@@ -33,7 +34,7 @@ describe('InputGroup', () => {
 				{
 					id: undefined,
 					key: 'input-group',
-					classes: ['input-group', '']
+					classes: ['input-group', '', undefined]
 				},
 				[]
 			)
@@ -59,6 +60,7 @@ describe('InputGroup', () => {
 						'mx-1',
 						'py-0',
 						'px-1',
+						'd-flex',
 						'align-self-start',
 						'order-0',
 						'float-none'
