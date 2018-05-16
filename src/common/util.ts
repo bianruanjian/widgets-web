@@ -180,8 +180,14 @@ export function getBorderClasses(properties: BorderProperties): string[] {
 		borderClasses.push(`border-${borderColor}`);
 	}
 
-	if (borderRound && borderRound != 'default') {
-		borderClasses.push(`rounded-${borderRound}`);
+	if (borderRound) {
+		if (borderRound === 'default') {
+			borderClasses.push('rounded-0');
+		} else if (borderRound === 'all') {
+			borderClasses.push('rounded');
+		} else {
+			borderClasses.push(`rounded-${borderRound}`);
+		}
 	}
 
 	return borderClasses;

@@ -86,7 +86,7 @@ describe('Card', () => {
 				{
 					id: undefined,
 					key: 'card',
-					classes: ['card'],
+					classes: ['card', 'rounded-0'],
 					styles: {}
 				},
 				[]

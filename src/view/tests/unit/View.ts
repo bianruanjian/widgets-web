@@ -81,7 +81,7 @@ describe('View', () => {
 
 	it('default properties', () => {
 		const h = harness(() => w(View, defaultProperties));
-		h.expect(() => v('div', { id: undefined, key: 'view', classes: [undefined], styles: {} }));
+		h.expect(() => v('div', { id: undefined, key: 'view', classes: ['rounded-0', undefined], styles: {} }));
 	});
 
 	it('custom properties', () => {

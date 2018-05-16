@@ -105,7 +105,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', undefined],
+					classes: ['col', 'rounded-0', undefined],
 					styles: {}
 				},
 				[]
