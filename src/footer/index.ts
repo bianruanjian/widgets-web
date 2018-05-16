@@ -1,4 +1,4 @@
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -14,7 +14,11 @@ import * as css from './styles/footer.m.css';
  *
  * Properties that can be set on footer components
  */
-export interface FooterProperties extends SpacingProperties, FlexContainerProperties, DisplayProperties {
+export interface FooterProperties
+	extends SpacingProperties,
+		FlexContainerProperties,
+		DisplayProperties,
+		WidgetProperties {
 	widgetId?: string;
 }
 

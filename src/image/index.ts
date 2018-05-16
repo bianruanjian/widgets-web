@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -14,7 +14,7 @@ import * as css from './styles/image.m.css';
  *
  * Properties that can be set on image components
  */
-export interface ImageProperties extends SpacingProperties {
+export interface ImageProperties extends SpacingProperties, WidgetProperties {
 	widgetId?: string;
 	fluid?: boolean | string;
 	thumbnail?: boolean | string;

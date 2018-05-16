@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
@@ -12,7 +12,7 @@ import * as css from './styles/container.m.css';
  *
  * Properties that can be set on Container components
  */
-export interface ContainerProperties {
+export interface ContainerProperties extends WidgetProperties {
 	widgetId?: string;
 	fluid?: boolean | string;
 }

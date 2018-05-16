@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -30,7 +30,12 @@ export const sizeMap: { [key: string]: string } = {
  * Properties that can be set on icon components
  *
  */
-export interface IconProperties extends SpacingProperties, FlexItemProperties, ColorsProperties, DisplayProperties {
+export interface IconProperties
+	extends SpacingProperties,
+		FlexItemProperties,
+		ColorsProperties,
+		DisplayProperties,
+		WidgetProperties {
 	widgetId?: string;
 	value?: string;
 	size?: string;

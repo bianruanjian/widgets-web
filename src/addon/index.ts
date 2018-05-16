@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { find } from '@dojo/shim/array';
-import { DNode, VNode } from '@dojo/widget-core/interfaces';
+import { DNode, VNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -16,7 +16,7 @@ export type positionType = 'prepend' | 'append' | 'default';
  *
  * Properties that can be set on addon components
  */
-export interface AddonProperties extends ColorsProperties {
+export interface AddonProperties extends ColorsProperties, WidgetProperties {
 	widgetId?: string;
 	value?: string;
 	position?: positionType;

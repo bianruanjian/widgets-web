@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode, VNode } from '@dojo/widget-core/interfaces';
+import { DNode, VNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -14,7 +14,7 @@ import * as css from './styles/list-group.m.css';
  *
  * Properties that can be set on list-group components
  */
-export interface ListGroupProperties extends SpacingProperties {
+export interface ListGroupProperties extends SpacingProperties, WidgetProperties {
 	widgetId?: string;
 	flush?: boolean | string;
 }
