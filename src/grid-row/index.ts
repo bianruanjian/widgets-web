@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
@@ -23,7 +23,8 @@ export interface GridRowProperties
 	extends SpacingProperties,
 		DisplayProperties,
 		FlexContainerProperties,
-		FlexItemProperties {
+		FlexItemProperties,
+		WidgetProperties {
 	widgetId?: string;
 	gutters?: boolean | string;
 }

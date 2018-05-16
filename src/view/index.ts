@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { endsWith } from '@dojo/shim/string';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
@@ -36,7 +36,8 @@ export interface ViewProperties
 		TextProperties,
 		DisplayProperties,
 		FlexContainerProperties,
-		FlexItemProperties {
+		FlexItemProperties,
+		WidgetProperties {
 	widgetId?: string;
 	maxWidth?: number | string;
 }

@@ -1,4 +1,4 @@
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
@@ -22,7 +22,7 @@ export const targetMap: { [key: string]: string } = {
  *
  * Properties that can be set on button components
  */
-export interface ButtonProperties {
+export interface ButtonProperties extends WidgetProperties {
 	widgetId?: string;
 	value?: string;
 	appearance?: string;

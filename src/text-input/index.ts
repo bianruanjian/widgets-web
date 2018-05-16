@@ -1,5 +1,5 @@
 import { v, w } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -36,7 +36,8 @@ export interface TextInputProperties
 		FlexItemProperties,
 		FloatProperties,
 		MessageProperties,
-		DisplayProperties {
+		DisplayProperties,
+		WidgetProperties {
 	widgetId?: string;
 	name?: string;
 	type?: TextInputType;

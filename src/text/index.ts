@@ -1,5 +1,5 @@
 import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -19,7 +19,7 @@ import * as css from './styles/text.m.css';
  *
  * Properties that can be set on text components
  */
-export interface TextWidgetProperties extends SpacingProperties, TextProperties, ColorsProperties {
+export interface TextWidgetProperties extends SpacingProperties, TextProperties, ColorsProperties, WidgetProperties {
 	widgetId?: string;
 	value?: string;
 	type?: string;
