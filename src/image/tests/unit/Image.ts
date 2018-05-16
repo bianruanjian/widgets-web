@@ -69,7 +69,7 @@ describe('Image', () => {
 					key: 'image',
 					src: undefined,
 					alt: undefined,
-					classes: [],
+					classes: ['rounded-0'],
 					styles: {}
 				},
 				[]
