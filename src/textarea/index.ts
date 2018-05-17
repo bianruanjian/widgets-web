@@ -150,29 +150,16 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		if (label && labelPosition && labelPosition === 'left') {
-			return v('textarea', {
-				id: widgetId,
-				key: 'textarea',
-				name,
-				value,
-				rows,
-				cols,
-				placeholder,
-				disabled: disabled === true || disabled === 'true',
-				required: required === true || required === 'true',
-				readOnly: readOnly === true || readOnly === 'true',
-				maxlength: maxLength ? maxLength : null,
-				minlength: minLength ? minLength : null,
-				classes: [
-					...cssClasses,
-					...getSpacingClasses(this.properties),
-					display ? getDisplayClass(this.properties) : undefined,
-					...flexItemClasses,
-					...getFloatClass(this.properties)
-				],
-				styles: cssStyles
-			});
+		let textareaClasses = [
+			...cssClasses,
+			...getSpacingClasses(this.properties),
+			display ? getDisplayClass(this.properties) : undefined,
+			...flexItemClasses,
+			...getFloatClass(this.properties)
+		];
+
+		if (!(label && labelPosition && labelPosition === 'left')) {
+			textareaClasses.push(this.theme(css.root) as string);
 		}
 
 		return v('textarea', {
@@ -188,14 +175,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 			readOnly: readOnly === true || readOnly === 'true',
 			maxlength: maxLength ? maxLength : null,
 			minlength: minLength ? minLength : null,
-			classes: [
-				this.theme(css.root),
-				...cssClasses,
-				...getSpacingClasses(this.properties),
-				display ? getDisplayClass(this.properties) : undefined,
-				...flexItemClasses,
-				...getFloatClass(this.properties)
-			],
+			classes: textareaClasses,
 			styles: cssStyles
 		});
 	}

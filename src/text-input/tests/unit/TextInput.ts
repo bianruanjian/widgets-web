@@ -85,7 +85,7 @@ describe('TextInput', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: [css.root, 'form-control', undefined],
+				classes: ['form-control', undefined, css.root],
 				oninput: () => {},
 				onchange: () => {}
 			}),
@@ -109,7 +109,7 @@ describe('TextInput', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: [css.root, '', 'form-control', undefined],
+				classes: ['', 'form-control', undefined, css.root],
 				oninput: () => {},
 				onchange: () => {}
 			}),
@@ -142,7 +142,6 @@ describe('TextInput', () => {
 				maxlength: '5',
 				minlength: '5',
 				classes: [
-					css.root,
 					'disabled',
 					'form-control-sm',
 					'form-control-plaintext',
@@ -153,7 +152,8 @@ describe('TextInput', () => {
 					'd-flex',
 					'align-self-start',
 					'order-0',
-					'float-none'
+					'float-none',
+					css.root
 				],
 				oninput: () => {
 					'1';

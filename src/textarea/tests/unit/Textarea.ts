@@ -82,7 +82,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: [css.root, 'form-control', undefined],
+				classes: ['form-control', undefined, css.root],
 				styles: {}
 			}),
 			null
@@ -106,7 +106,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: [css.root, '', 'form-control', undefined],
+				classes: ['', 'form-control', undefined, css.root],
 				styles: {}
 			}),
 			null
@@ -139,7 +139,6 @@ describe('Textarea', () => {
 				maxlength: 5,
 				minlength: 5,
 				classes: [
-					css.root,
 					'disabled',
 					'form-control-sm',
 					'form-control-plaintext',
@@ -150,7 +149,8 @@ describe('Textarea', () => {
 					'd-flex',
 					'align-self-start',
 					'order-0',
-					'float-none'
+					'float-none',
+					css.root
 				],
 				styles: {
 					resize: 'none'

@@ -75,31 +75,17 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		if (label && labelPosition && labelPosition === 'left') {
-			return [
-				label
-					? w(Label, {
-							value: label,
-							classes: ['col-form-label', 'mr-3']
-					  })
-					: null,
-				v(
-					'div',
-					{
-						id: widgetId,
-						key: 'input-group',
-						classes: [
-							'input-group',
-							sizeClass,
-							...getSpacingClasses(this.properties),
-							display ? getDisplayClass(this.properties) : undefined,
-							...flexItemClasses,
-							...getFloatClass(this.properties)
-						]
-					},
-					this.children
-				)
-			];
+		let cssClasses = [
+			'input-group',
+			sizeClass,
+			...getSpacingClasses(this.properties),
+			display ? getDisplayClass(this.properties) : undefined,
+			...flexItemClasses,
+			...getFloatClass(this.properties)
+		];
+
+		if (!(label && labelPosition && labelPosition === 'left')) {
+			cssClasses.push(this.theme(css.root) as string);
 		}
 
 		return [
@@ -114,15 +100,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 				{
 					id: widgetId,
 					key: 'input-group',
-					classes: [
-						this.theme(css.root),
-						'input-group',
-						sizeClass,
-						...getSpacingClasses(this.properties),
-						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
-						...getFloatClass(this.properties)
-					]
+					classes: cssClasses
 				},
 				this.children
 			)

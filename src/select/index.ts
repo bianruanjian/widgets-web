@@ -146,26 +146,16 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		if (label && labelPosition && labelPosition === 'left') {
-			return v(
-				'select',
-				{
-					id: widgetId,
-					key: 'select',
-					name,
-					disabled: disabled === true || disabled === 'true',
-					required: required === true || required === 'true',
-					readOnly: readOnly === true || readOnly === 'true',
-					classes: [
-						...cssClasses,
-						...getSpacingClasses(this.properties),
-						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
-						...getFloatClass(this.properties)
-					]
-				},
-				children
-			);
+		let selectClasses = [
+			...cssClasses,
+			...getSpacingClasses(this.properties),
+			display ? getDisplayClass(this.properties) : undefined,
+			...flexItemClasses,
+			...getFloatClass(this.properties)
+		];
+
+		if (!(label && labelPosition && labelPosition === 'left')) {
+			selectClasses.push(this.theme(css.root) as string);
 		}
 
 		return v(
@@ -177,14 +167,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 				disabled: disabled === true || disabled === 'true',
 				required: required === true || required === 'true',
 				readOnly: readOnly === true || readOnly === 'true',
-				classes: [
-					this.theme(css.root),
-					...cssClasses,
-					...getSpacingClasses(this.properties),
-					display ? getDisplayClass(this.properties) : undefined,
-					...flexItemClasses,
-					...getFloatClass(this.properties)
-				]
+				classes: selectClasses
 			},
 			children
 		);

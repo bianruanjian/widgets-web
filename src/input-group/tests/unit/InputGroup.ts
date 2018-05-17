@@ -35,7 +35,7 @@ describe('InputGroup', () => {
 				{
 					id: undefined,
 					key: 'input-group',
-					classes: [css.root, 'input-group', '', undefined]
+					classes: ['input-group', '', undefined, css.root]
 				},
 				[]
 			)
@@ -55,7 +55,6 @@ describe('InputGroup', () => {
 					id: 'random-id',
 					key: 'input-group',
 					classes: [
-						css.root,
 						'input-group',
 						'input-group-sm',
 						'my-0',
@@ -65,7 +64,8 @@ describe('InputGroup', () => {
 						'd-flex',
 						'align-self-start',
 						'order-0',
-						'float-none'
+						'float-none',
+						css.root
 					]
 				},
 				[]

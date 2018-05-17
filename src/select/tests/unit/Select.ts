@@ -70,7 +70,7 @@ describe('Select', () => {
 					disabled: false,
 					required: false,
 					readOnly: false,
-					classes: [css.root, 'form-control', undefined]
+					classes: ['form-control', undefined, css.root]
 				},
 				[]
 			)
@@ -90,7 +90,7 @@ describe('Select', () => {
 					disabled: false,
 					required: false,
 					readOnly: false,
-					classes: [css.root, '', 'form-control', undefined]
+					classes: ['', 'form-control', undefined, css.root]
 				},
 				[]
 			)
@@ -115,7 +115,6 @@ describe('Select', () => {
 					required: true,
 					readOnly: true,
 					classes: [
-						css.root,
 						'disabled',
 						'form-control-sm',
 						'form-control',
@@ -124,7 +123,8 @@ describe('Select', () => {
 						'py-0',
 						'px-1',
 						'd-table',
-						'float-none'
+						'float-none',
+						css.root
 					]
 				},
 				[
