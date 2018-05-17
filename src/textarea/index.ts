@@ -150,7 +150,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		let textareaClasses = [
+		let classes = [
 			...cssClasses,
 			...getSpacingClasses(this.properties),
 			display ? getDisplayClass(this.properties) : undefined,
@@ -159,7 +159,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		];
 
 		if (!(label && labelPosition && labelPosition === 'left')) {
-			textareaClasses.push(this.theme(css.root) as string);
+			classes.push(this.theme(css.root) as string);
 		}
 
 		return v('textarea', {
@@ -175,7 +175,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 			readOnly: readOnly === true || readOnly === 'true',
 			maxlength: maxLength ? maxLength : null,
 			minlength: minLength ? minLength : null,
-			classes: textareaClasses,
+			classes,
 			styles: cssStyles
 		});
 	}

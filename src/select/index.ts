@@ -146,7 +146,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		let selectClasses = [
+		let classes = [
 			...cssClasses,
 			...getSpacingClasses(this.properties),
 			display ? getDisplayClass(this.properties) : undefined,
@@ -155,7 +155,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 		];
 
 		if (!(label && labelPosition && labelPosition === 'left')) {
-			selectClasses.push(this.theme(css.root) as string);
+			classes.push(this.theme(css.root) as string);
 		}
 
 		return v(
@@ -167,7 +167,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 				disabled: disabled === true || disabled === 'true',
 				required: required === true || required === 'true',
 				readOnly: readOnly === true || readOnly === 'true',
-				classes: selectClasses
+				classes
 			},
 			children
 		);

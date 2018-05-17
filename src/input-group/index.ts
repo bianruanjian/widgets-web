@@ -75,7 +75,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		let cssClasses = [
+		let classes = [
 			'input-group',
 			sizeClass,
 			...getSpacingClasses(this.properties),
@@ -85,7 +85,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 		];
 
 		if (!(label && labelPosition && labelPosition === 'left')) {
-			cssClasses.push(this.theme(css.root) as string);
+			classes.push(this.theme(css.root) as string);
 		}
 
 		return [
@@ -100,7 +100,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 				{
 					id: widgetId,
 					key: 'input-group',
-					classes: cssClasses
+					classes
 				},
 				this.children
 			)

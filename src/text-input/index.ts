@@ -159,7 +159,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		let inputClasses = [
+		let classes = [
 			...cssClasses,
 			...getSpacingClasses(this.properties),
 			display ? getDisplayClass(this.properties) : undefined,
@@ -168,7 +168,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		];
 
 		if (!(label && labelPosition && labelPosition === 'left')) {
-			inputClasses.push(this.theme(css.root) as string);
+			classes.push(this.theme(css.root) as string);
 		}
 
 		return v(
@@ -185,7 +185,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 				readOnly: readOnly === true || readOnly === 'true',
 				maxlength: maxLength ? `${maxLength}` : null,
 				minlength: minLength ? `${minLength}` : null,
-				classes: inputClasses,
+				classes,
 				oninput: this._onInput,
 				onchange: this._onChange
 			},
