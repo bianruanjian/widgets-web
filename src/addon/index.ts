@@ -1,7 +1,7 @@
 import { v } from '@dojo/widget-core/d';
 import { find } from '@dojo/shim/array';
 import { DNode, VNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -16,7 +16,7 @@ export type positionType = 'prepend' | 'append' | 'default';
  *
  * Properties that can be set on addon components
  */
-export interface AddonProperties extends ColorsProperties {
+export interface AddonProperties extends ColorsProperties, ThemedProperties {
 	widgetId?: string;
 	value?: string;
 	position?: positionType;
@@ -32,7 +32,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Addon<P extends AddonProperties = AddonProperties> extends ThemedBase<P> {
+export class AddonBase<P extends AddonProperties = AddonProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, position } = this.properties;
 
@@ -76,11 +76,11 @@ export class Addon<P extends AddonProperties = AddonProperties> extends ThemedBa
 			{
 				id: widgetId,
 				key: 'addon',
-				classes: [cssClass, ...getColorsClasses(this.properties)]
+				classes: [this.theme(css.root), cssClass, ...getColorsClasses(this.properties)]
 			},
 			children
 		);
 	}
 }
 
-export default Addon;
+export default class Addon extends AddonBase<AddonProperties> {}

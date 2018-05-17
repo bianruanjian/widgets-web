@@ -1,8 +1,9 @@
 const { describe, it } = intern.getInterface('bdd');
 import { v, w } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
-import { TextInput, TextInputProperties } from './../../index';
+import TextInput, { TextInputProperties } from './../../index';
 import Label from './../../../label/index';
+import * as css from './../../styles/text-input.m.css';
 
 describe('TextInput', () => {
 	const defaultProperties: TextInputProperties = {
@@ -84,7 +85,7 @@ describe('TextInput', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['form-control', undefined],
+				classes: ['form-control', undefined, css.root],
 				oninput: () => {},
 				onchange: () => {}
 			}),
@@ -108,7 +109,7 @@ describe('TextInput', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['', 'form-control', undefined],
+				classes: ['', 'form-control', undefined, css.root],
 				oninput: () => {},
 				onchange: () => {}
 			}),
@@ -151,7 +152,8 @@ describe('TextInput', () => {
 					'd-flex',
 					'align-self-start',
 					'order-0',
-					'float-none'
+					'float-none',
+					css.root
 				],
 				oninput: () => {
 					'1';
@@ -176,7 +178,7 @@ describe('TextInput', () => {
 			v(
 				'div',
 				{
-					classes: ['custom-file', undefined]
+					classes: [css.root, 'custom-file', undefined]
 				},
 				[
 					v('input', {

@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -19,7 +19,7 @@ import * as css from './styles/text.m.css';
  *
  * Properties that can be set on text components
  */
-export interface TextWidgetProperties extends SpacingProperties, TextProperties, ColorsProperties {
+export interface TextWidgetProperties extends SpacingProperties, TextProperties, ColorsProperties, ThemedProperties {
 	widgetId?: string;
 	value?: string;
 	type?: string;
@@ -56,7 +56,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Text<P extends TextWidgetProperties = TextWidgetProperties> extends ThemedBase<P> {
+export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		let { widgetId, value, type } = this.properties;
 
@@ -80,6 +80,7 @@ export class Text<P extends TextWidgetProperties = TextWidgetProperties> extends
 				id: widgetId,
 				key: 'text',
 				classes: [
+					this.theme(css.root),
 					...cssClasses,
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
@@ -95,4 +96,4 @@ export class Text<P extends TextWidgetProperties = TextWidgetProperties> extends
 	}
 }
 
-export default Text;
+export default class Text extends TextBase<TextWidgetProperties> {}

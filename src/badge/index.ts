@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -14,7 +14,7 @@ import * as css from './styles/badge.m.css';
  *
  * Properties that can be set on badge components
  */
-export interface BadgeProperties extends SpacingProperties, FlexItemProperties, DisplayProperties {
+export interface BadgeProperties extends SpacingProperties, FlexItemProperties, DisplayProperties, ThemedProperties {
 	widgetId?: string;
 	value?: string;
 	appearance?: string;
@@ -51,7 +51,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
+export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, appearance, pill, href, target, display } = this.properties;
 
@@ -82,6 +82,7 @@ export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBa
 				id: widgetId,
 				key: 'badge',
 				classes: [
+					this.theme(css.root),
 					'badge',
 					...cssClasses,
 					...getSpacingClasses(this.properties),
@@ -96,4 +97,4 @@ export class Badge<P extends BadgeProperties = BadgeProperties> extends ThemedBa
 	}
 }
 
-export default Badge;
+export default class Badge extends BadgeBase<BadgeProperties> {}

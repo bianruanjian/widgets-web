@@ -1,6 +1,6 @@
 import { endsWith } from '@dojo/shim/string';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { SpacingProperties, TextProperties, ColorsProperties, BorderProperties } from '../common/interfaces';
@@ -22,7 +22,12 @@ import * as css from './styles/card.m.css';
  *
  * Properties that can be set on card components
  */
-export interface CardProperties extends SpacingProperties, TextProperties, ColorsProperties, BorderProperties {
+export interface CardProperties
+	extends SpacingProperties,
+		TextProperties,
+		ColorsProperties,
+		BorderProperties,
+		ThemedProperties {
 	widgetId?: string;
 	width?: number | string;
 	height?: number | string;
@@ -65,7 +70,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Card<P extends CardProperties = CardProperties> extends ThemedBase<P> {
+export class CardBase<P extends CardProperties = CardProperties> extends ThemedBase<P> {
 	private _getStyles() {
 		const { width, height } = this.properties;
 
@@ -103,6 +108,7 @@ export class Card<P extends CardProperties = CardProperties> extends ThemedBase<
 				id: widgetId,
 				key: 'card',
 				classes: [
+					this.theme(css.root),
 					'card',
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
@@ -120,4 +126,4 @@ export class Card<P extends CardProperties = CardProperties> extends ThemedBase<
 	}
 }
 
-export default Card;
+export default class Card extends CardBase<CardProperties> {}

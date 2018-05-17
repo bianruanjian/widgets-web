@@ -4,9 +4,12 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Addon, { AddonProperties } from './../../index';
-import { Checkbox } from '../../../checkbox';
+import Checkbox from '../../../checkbox';
 import { VNode } from '@dojo/widget-core/interfaces';
-import { Button } from '../../../button';
+import Button from '../../../button/index';
+import * as css from './../../styles/addon.m.css';
+import * as cssButton from './../../../button/styles/button.m.css';
+import * as cssCheckbox from './../../../checkbox/styles/checkbox.m.css';
 
 describe('Addon', () => {
 	const customProperties: AddonProperties = {
@@ -23,7 +26,7 @@ describe('Addon', () => {
 				{
 					id: undefined,
 					key: 'addon',
-					classes: ['input-group-prepend']
+					classes: [css.root, 'input-group-prepend']
 				},
 				[v('div', {})]
 			)
@@ -38,7 +41,7 @@ describe('Addon', () => {
 				{
 					id: 'random-id',
 					key: 'addon',
-					classes: ['input-group-append']
+					classes: [css.root, 'input-group-append']
 				},
 				[
 					v(
@@ -62,7 +65,7 @@ describe('Addon', () => {
 				{
 					id: undefined,
 					key: 'addon',
-					classes: ['input-group-prepend']
+					classes: [css.root, 'input-group-prepend']
 				},
 				[
 					v(
@@ -75,7 +78,7 @@ describe('Addon', () => {
 								'div',
 								{
 									key: 'checkbox',
-									classes: ['form-check', undefined, 'form-check-inline', undefined]
+									classes: [cssCheckbox.root, 'form-check', undefined, 'form-check-inline', undefined]
 								},
 								[
 									v('input', {
@@ -109,7 +112,7 @@ describe('Addon', () => {
 				{
 					id: undefined,
 					key: 'addon',
-					classes: ['input-group-prepend']
+					classes: [css.root, 'input-group-prepend']
 				},
 				[
 					v('div', {}, [
@@ -118,7 +121,7 @@ describe('Addon', () => {
 							{
 								id: undefined,
 								key: 'button',
-								classes: ['btn', undefined, undefined, undefined, undefined],
+								classes: [cssButton.root, 'btn', undefined, undefined, undefined, undefined],
 								disabled: false,
 								type: undefined,
 								onclick: () => {}

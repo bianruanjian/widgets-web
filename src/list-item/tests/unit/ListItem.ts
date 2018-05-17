@@ -4,6 +4,7 @@ import harness from '@dojo/test-extras/harness';
 import ListItem, { ListItemProperties } from './../../index';
 import * as css from '../../../common/base.m.css';
 import { textDecorationMap } from '../../../common/util';
+import * as cssListItem from './../../styles/list-item.m.css';
 
 describe('ListItem', () => {
 	const defaultProperties: ListItemProperties = {
@@ -60,7 +61,7 @@ describe('ListItem', () => {
 					id: undefined,
 					key: 'list-item',
 					disabled: false,
-					classes: ['list-group-item', undefined, undefined, undefined, undefined],
+					classes: [cssListItem.root, 'list-group-item', undefined, undefined, undefined, undefined],
 					styles: {}
 				},
 				[]
@@ -77,7 +78,7 @@ describe('ListItem', () => {
 					id: undefined,
 					key: 'list-item',
 					disabled: false,
-					classes: ['list-group-item', undefined, undefined, undefined, undefined],
+					classes: [cssListItem.root, 'list-group-item', undefined, undefined, undefined, undefined],
 					styles: {}
 				},
 				[]
@@ -97,6 +98,7 @@ describe('ListItem', () => {
 					key: 'list-item',
 					disabled: true,
 					classes: [
+						cssListItem.root,
 						'list-group-item',
 						'list-group-item-primary',
 						'disabled',

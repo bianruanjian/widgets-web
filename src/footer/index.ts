@@ -1,5 +1,5 @@
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { SpacingProperties, FlexContainerProperties, DisplayProperties } from '../common/interfaces';
@@ -14,7 +14,11 @@ import * as css from './styles/footer.m.css';
  *
  * Properties that can be set on footer components
  */
-export interface FooterProperties extends SpacingProperties, FlexContainerProperties, DisplayProperties {
+export interface FooterProperties
+	extends SpacingProperties,
+		FlexContainerProperties,
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 }
 
@@ -45,7 +49,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Footer<P extends FooterProperties = FooterProperties> extends ThemedBase<P> {
+export class FooterBase<P extends FooterProperties = FooterProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		const { widgetId, display } = this.properties;
 
@@ -61,6 +65,7 @@ export class Footer<P extends FooterProperties = FooterProperties> extends Theme
 				id: widgetId,
 				key: 'footer',
 				classes: [
+					this.theme(css.root),
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
 					...flexContainerClasses
@@ -71,4 +76,4 @@ export class Footer<P extends FooterProperties = FooterProperties> extends Theme
 	}
 }
 
-export default Footer;
+export default class Footer extends FooterBase<FooterProperties> {}

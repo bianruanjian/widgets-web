@@ -1,7 +1,7 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
 import { endsWith } from '@dojo/shim/string';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -36,7 +36,8 @@ export interface ViewProperties
 		TextProperties,
 		DisplayProperties,
 		FlexContainerProperties,
-		FlexItemProperties {
+		FlexItemProperties,
+		ThemedProperties {
 	widgetId?: string;
 	maxWidth?: number | string;
 }
@@ -84,7 +85,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<P> {
+export class ViewBase<P extends ViewProperties = ViewProperties> extends ThemedBase<P> {
 	private _getMaxWidthStyles() {
 		let { maxWidth } = this.properties;
 
@@ -120,6 +121,7 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 				id: widgetId,
 				key: 'view',
 				classes: [
+					this.theme(css.root),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
@@ -134,4 +136,4 @@ export class View<P extends ViewProperties = ViewProperties> extends ThemedBase<
 	}
 }
 
-export default View;
+export default class View extends ViewBase<ViewProperties> {}

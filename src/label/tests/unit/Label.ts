@@ -3,7 +3,8 @@ const { describe, it } = intern.getInterface('bdd');
 import { v, w } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
-import { Label, LabelProperties } from './../../index';
+import Label, { LabelProperties } from './../../index';
+import * as css from './../../styles/label.m.css';
 
 describe('Label', () => {
 	let customProperties: LabelProperties = {
@@ -22,7 +23,7 @@ describe('Label', () => {
 					id: undefined,
 					key: 'label',
 					for: undefined,
-					classes: undefined
+					classes: [css.root]
 				},
 				[]
 			)
@@ -38,7 +39,7 @@ describe('Label', () => {
 					id: 'random-id',
 					key: 'label',
 					for: 'id',
-					classes: 'test'
+					classes: [css.root, 'test']
 				},
 				['label']
 			)

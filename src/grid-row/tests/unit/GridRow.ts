@@ -3,7 +3,8 @@ const { describe, it } = intern.getInterface('bdd');
 import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
-import { GridRow, GridRowProperties } from './../../index';
+import GridRow, { GridRowProperties } from './../../index';
+import * as css from './../../styles/grid-row.m.css';
 
 describe('GridRow', () => {
 	const defaultProperties: GridRowProperties = {
@@ -57,7 +58,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', undefined]
+					classes: [css.root, 'row', undefined]
 				},
 				[]
 			)
@@ -72,7 +73,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', undefined]
+					classes: [css.root, 'row', undefined]
 				},
 				[]
 			)
@@ -88,6 +89,7 @@ describe('GridRow', () => {
 					id: 'random-id',
 					key: 'grid-row',
 					classes: [
+						css.root,
 						'row',
 						'no-gutters',
 						'mt-1',
@@ -118,7 +120,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', 'd-flex', 'flex-row']
+					classes: [css.root, 'row', 'd-flex', 'flex-row']
 				},
 				[]
 			)
@@ -130,7 +132,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', 'd-flex', 'flex-row-reverse']
+					classes: [css.root, 'row', 'd-flex', 'flex-row-reverse']
 				},
 				[]
 			)
@@ -145,7 +147,7 @@ describe('GridRow', () => {
 				{
 					id: undefined,
 					key: 'grid-row',
-					classes: ['row', 'd-flex', 'flex-wrap-reverse']
+					classes: [css.root, 'row', 'd-flex', 'flex-wrap-reverse']
 				},
 				[]
 			)

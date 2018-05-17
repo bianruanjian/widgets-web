@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -14,7 +14,7 @@ import * as css from './styles/image.m.css';
  *
  * Properties that can be set on image components
  */
-export interface ImageProperties extends SpacingProperties {
+export interface ImageProperties extends SpacingProperties, ThemedProperties {
 	widgetId?: string;
 	fluid?: boolean | string;
 	thumbnail?: boolean | string;
@@ -54,7 +54,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Image<P extends ImageProperties = ImageProperties> extends ThemedBase<P> {
+export class ImageBase<P extends ImageProperties = ImageProperties> extends ThemedBase<P> {
 	private _getImgClasses(): string[] {
 		let { fluid, thumbnail, alignment } = this.properties;
 		const cssClasses: string[] = [];
@@ -113,6 +113,7 @@ export class Image<P extends ImageProperties = ImageProperties> extends ThemedBa
 				src,
 				alt,
 				classes: [
+					this.theme(css.root),
 					...this._getImgClasses(),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties)
@@ -126,4 +127,4 @@ export class Image<P extends ImageProperties = ImageProperties> extends ThemedBa
 	}
 }
 
-export default Image;
+export default class Image extends ImageBase<ImageProperties> {}

@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -12,7 +12,7 @@ import * as css from './styles/container.m.css';
  *
  * Properties that can be set on Container components
  */
-export interface ContainerProperties {
+export interface ContainerProperties extends ThemedProperties {
 	widgetId?: string;
 	fluid?: boolean | string;
 }
@@ -38,7 +38,7 @@ export class ContainerBase<P extends ContainerProperties = ContainerProperties> 
 			{
 				id: widgetId,
 				key: 'container',
-				classes: [cssClass]
+				classes: [this.theme(css.root), cssClass]
 			},
 			this.children
 		);

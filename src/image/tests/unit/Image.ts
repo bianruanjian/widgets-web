@@ -3,7 +3,8 @@ const { describe, it } = intern.getInterface('bdd');
 import { v, w } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
-import { Image, ImageProperties } from './../../index';
+import Image, { ImageProperties } from './../../index';
+import * as css from './../../styles/image.m.css';
 
 describe('Image', () => {
 	let defaultProperties: ImageProperties = {
@@ -51,7 +52,7 @@ describe('Image', () => {
 					key: 'image',
 					src: undefined,
 					alt: undefined,
-					classes: [],
+					classes: [css.root],
 					styles: {}
 				},
 				[]
@@ -69,7 +70,7 @@ describe('Image', () => {
 					key: 'image',
 					src: undefined,
 					alt: undefined,
-					classes: ['rounded-0'],
+					classes: [css.root, 'rounded-0'],
 					styles: {}
 				},
 				[]
@@ -88,6 +89,7 @@ describe('Image', () => {
 					src: 'http://img.jpg',
 					alt: 'beauty',
 					classes: [
+						css.root,
 						'img-fluid',
 						'img-thumbnail',
 						'float-left',
@@ -117,7 +119,7 @@ describe('Image', () => {
 					key: 'image',
 					src: undefined,
 					alt: undefined,
-					classes: ['mx-auto', 'd-block'],
+					classes: [css.root, 'mx-auto', 'd-block'],
 					styles: {}
 				},
 				[]

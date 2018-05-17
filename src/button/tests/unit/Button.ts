@@ -4,6 +4,7 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Button, { ButtonProperties } from './../../index';
+import * as css from './../../styles/button.m.css';
 
 describe('Button', () => {
 	const defaultProperties: ButtonProperties = {
@@ -37,7 +38,7 @@ describe('Button', () => {
 				{
 					id: undefined,
 					key: 'button',
-					classes: ['btn', undefined, undefined, undefined, undefined],
+					classes: [css.root, 'btn', undefined, undefined, undefined, undefined],
 					disabled: false,
 					type: undefined,
 					onclick: () => {}
@@ -55,7 +56,7 @@ describe('Button', () => {
 				{
 					id: undefined,
 					key: 'button',
-					classes: ['btn', undefined, undefined, undefined, undefined],
+					classes: [css.root, 'btn', undefined, undefined, undefined, undefined],
 					disabled: false,
 					type: 'button',
 					onclick: () => {}
@@ -75,7 +76,7 @@ describe('Button', () => {
 					key: 'button',
 					href: '#',
 					target: '_self',
-					classes: ['btn', 'btn-primary', 'btn-sm', 'btn-block', 'active'],
+					classes: [css.root, 'btn', 'btn-primary', 'btn-sm', 'btn-block', 'active'],
 					role: 'button'
 				},
 				['val']
@@ -91,7 +92,13 @@ describe('Button', () => {
 				{
 					id: undefined,
 					key: 'button',
-					classes: ['list-group-item', 'list-group-item-action', 'list-group-item-primary', undefined],
+					classes: [
+						css.root,
+						'list-group-item',
+						'list-group-item-action',
+						'list-group-item-primary',
+						undefined
+					],
 					disabled: false,
 					type: undefined,
 					onclick: () => {}

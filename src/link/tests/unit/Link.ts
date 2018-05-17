@@ -5,6 +5,7 @@ import Link, { LinkProperties } from './../../index';
 import { textDecorationMap } from '../../../common/util';
 
 import * as css from '../../../common/base.m.css';
+import * as cssLink from './../../styles/link.m.css';
 
 describe('Link', () => {
 	const defaultProperties: LinkProperties = {
@@ -64,7 +65,7 @@ describe('Link', () => {
 					key: 'link',
 					href: undefined,
 					target: undefined,
-					classes: [undefined],
+					classes: [cssLink.root, undefined],
 					styles: {}
 				},
 				[]
@@ -82,7 +83,7 @@ describe('Link', () => {
 					key: 'link',
 					href: undefined,
 					target: '_self',
-					classes: [undefined],
+					classes: [cssLink.root, undefined],
 					styles: {}
 				},
 				[]
@@ -103,6 +104,7 @@ describe('Link', () => {
 					href: 'https://link.com/',
 					target: 'iframeId',
 					classes: [
+						cssLink.root,
 						'my-0',
 						'mx-1',
 						'py-0',
@@ -138,7 +140,7 @@ describe('Link', () => {
 					key: 'link',
 					href: undefined,
 					target: undefined,
-					classes: ['list-group-item', 'list-group-item-action', undefined, undefined],
+					classes: [cssLink.root, 'list-group-item', 'list-group-item-action', undefined, undefined],
 					styles: {}
 				},
 				[]

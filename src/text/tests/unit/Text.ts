@@ -1,10 +1,11 @@
 const { describe, it } = intern.getInterface('bdd');
 import { v, w } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
-import { Text, TextWidgetProperties } from './../../index';
+import Text, { TextWidgetProperties } from './../../index';
 import { textDecorationMap } from '../../../common/util';
 
 import * as css from '../../../common/base.m.css';
+import * as cssText from './../../styles/text.m.css';
 
 describe('Text', () => {
 	let defaultProperties: TextWidgetProperties = {
@@ -59,7 +60,7 @@ describe('Text', () => {
 				{
 					id: undefined,
 					key: 'text',
-					classes: [],
+					classes: [cssText.root],
 					styles: {}
 				},
 				[]
@@ -75,7 +76,7 @@ describe('Text', () => {
 				{
 					id: undefined,
 					key: 'text',
-					classes: [],
+					classes: [cssText.root],
 					styles: {}
 				},
 				[]
@@ -95,6 +96,7 @@ describe('Text', () => {
 					id: 'random-id',
 					key: 'text',
 					classes: [
+						cssText.root,
 						'my-0',
 						'mx-1',
 						'py-0',
@@ -127,7 +129,7 @@ describe('Text', () => {
 				{
 					id: undefined,
 					key: 'text',
-					classes: ['lead'],
+					classes: [cssText.root, 'lead'],
 					styles: {}
 				},
 				[]

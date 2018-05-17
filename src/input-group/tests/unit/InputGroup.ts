@@ -4,7 +4,8 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import InputGroup, { InputGroupProperties } from './../../index';
-import { Label } from '../../../label';
+import Label from '../../../label';
+import * as css from './../../styles/input-group.m.css';
 
 describe('InputGroup', () => {
 	const customProperties: InputGroupProperties = {
@@ -34,7 +35,7 @@ describe('InputGroup', () => {
 				{
 					id: undefined,
 					key: 'input-group',
-					classes: ['input-group', '', undefined]
+					classes: ['input-group', '', undefined, css.root]
 				},
 				[]
 			)
@@ -63,7 +64,8 @@ describe('InputGroup', () => {
 						'd-flex',
 						'align-self-start',
 						'order-0',
-						'float-none'
+						'float-none',
+						css.root
 					]
 				},
 				[]

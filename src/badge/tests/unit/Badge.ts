@@ -4,6 +4,7 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Badge, { BadgeProperties } from './../../index';
+import * as css from './../../styles/badge.m.css';
 
 describe('Badge', () => {
 	const defaultProperties: BadgeProperties = {
@@ -50,7 +51,7 @@ describe('Badge', () => {
 				{
 					id: undefined,
 					key: 'badge',
-					classes: ['badge', undefined],
+					classes: [css.root, 'badge', undefined],
 					href: undefined,
 					target: undefined
 				},
@@ -67,7 +68,7 @@ describe('Badge', () => {
 				{
 					id: undefined,
 					key: 'badge',
-					classes: ['badge', undefined],
+					classes: [css.root, 'badge', undefined],
 					href: undefined,
 					target: 'self'
 				},
@@ -85,6 +86,7 @@ describe('Badge', () => {
 					id: 'random-id',
 					key: 'badge',
 					classes: [
+						css.root,
 						'badge',
 						'badge-primary',
 						'badge-pill',

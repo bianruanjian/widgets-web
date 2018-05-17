@@ -1,5 +1,5 @@
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -22,7 +22,7 @@ export const targetMap: { [key: string]: string } = {
  *
  * Properties that can be set on button components
  */
-export interface ButtonProperties {
+export interface ButtonProperties extends ThemedProperties {
 	widgetId?: string;
 	value?: string;
 	appearance?: string;
@@ -58,7 +58,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: ['onClick']
 })
 @theme(css)
-export class Button<P extends ButtonProperties = ButtonProperties> extends ThemedBase<P> {
+export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends ThemedBase<P> {
 	private _onClick(event: MouseEvent) {
 		event.stopPropagation();
 		this.properties.onClick && this.properties.onClick();
@@ -96,12 +96,14 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 					target,
 					classes: isListItem
 						? [
+								this.theme(css.root),
 								'list-group-item',
 								'list-group-item-action',
 								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 								active === true || active === 'true' ? 'active' : undefined
 						  ]
 						: [
+								this.theme(css.root),
 								'btn',
 								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
 								sizeClass !== '' ? sizeClass : undefined,
@@ -120,12 +122,14 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 					key: 'button',
 					classes: isListItem
 						? [
+								this.theme(css.root),
 								'list-group-item',
 								'list-group-item-action',
 								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 								active === true || active === 'true' ? 'active' : undefined
 						  ]
 						: [
+								this.theme(css.root),
 								'btn',
 								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
 								sizeClass !== '' ? sizeClass : undefined,
@@ -142,4 +146,4 @@ export class Button<P extends ButtonProperties = ButtonProperties> extends Theme
 	}
 }
 
-export default Button;
+export default class Button extends ButtonBase<ButtonProperties> {}

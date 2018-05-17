@@ -5,6 +5,7 @@ import Card, { CardProperties } from './../../index';
 
 import * as css from '../../../common/base.m.css';
 import { textDecorationMap } from '../../../common/util';
+import * as cssCard from './../../styles/card.m.css';
 
 describe('Card', () => {
 	const defaultProperties: CardProperties = {
@@ -70,7 +71,7 @@ describe('Card', () => {
 				{
 					id: undefined,
 					key: 'card',
-					classes: ['card'],
+					classes: [cssCard.root, 'card'],
 					styles: {}
 				},
 				[]
@@ -86,7 +87,7 @@ describe('Card', () => {
 				{
 					id: undefined,
 					key: 'card',
-					classes: ['card', 'rounded-0'],
+					classes: [cssCard.root, 'card', 'rounded-0'],
 					styles: {}
 				},
 				[]
@@ -103,6 +104,7 @@ describe('Card', () => {
 					id: 'random-id',
 					key: 'card',
 					classes: [
+						cssCard.root,
 						'card',
 						'my-0',
 						'mx-1',
@@ -140,7 +142,7 @@ describe('Card', () => {
 				{
 					id: undefined,
 					key: 'card',
-					classes: ['card'],
+					classes: [cssCard.root, 'card'],
 					styles: {
 						width: 'auto',
 						height: 'auto'

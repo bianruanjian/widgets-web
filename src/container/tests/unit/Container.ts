@@ -4,20 +4,17 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Container from '../../index';
+import * as css from './../../styles/container.m.css';
 
 describe('Container', () => {
 	it('should construct container', () => {
 		const h = harness(() => w(Container, {}));
 		h.expect(() =>
-			v(
-				'div',
-				{
-					id: undefined,
-					key: 'container',
-					classes: ['container']
-				},
-				[]
-			)
+			v('div', {
+				id: undefined,
+				key: 'container',
+				classes: [css.root, 'container']
+			})
 		);
 	});
 
@@ -29,7 +26,7 @@ describe('Container', () => {
 				{
 					id: 'random-id',
 					key: 'container',
-					classes: ['container-fluid']
+					classes: [css.root, 'container-fluid']
 				},
 				[]
 			)
@@ -44,7 +41,7 @@ describe('Container', () => {
 				{
 					id: undefined,
 					key: 'container',
-					classes: ['container']
+					classes: [css.root, 'container']
 				},
 				['Content']
 			)
