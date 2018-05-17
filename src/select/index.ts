@@ -1,10 +1,10 @@
 import { v, w } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { Label } from '../label';
+import Label from '../label';
 import {
 	SpacingProperties,
 	FlexItemProperties,
@@ -35,7 +35,8 @@ export interface SelectProperties
 		FloatProperties,
 		FormProperties,
 		MessageProperties,
-		DisplayProperties {
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -87,7 +88,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Select<P extends SelectProperties = SelectProperties> extends ThemedBase<P> {
+export class SelectBase<P extends SelectProperties = SelectProperties> extends ThemedBase<P> {
 	protected renderSelect(): DNode {
 		const {
 			widgetId,
@@ -101,7 +102,9 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			valueField,
 			dataPath,
 			size,
-			display
+			display,
+			label,
+			labelPosition
 		} = this.properties;
 
 		const cssClasses: string[] = [];
@@ -143,6 +146,28 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'select',
+				{
+					id: widgetId,
+					key: 'select',
+					name,
+					disabled: disabled === true || disabled === 'true',
+					required: required === true || required === 'true',
+					readOnly: readOnly === true || readOnly === 'true',
+					classes: [
+						...cssClasses,
+						...getSpacingClasses(this.properties),
+						display ? getDisplayClass(this.properties) : undefined,
+						...flexItemClasses,
+						...getFloatClass(this.properties)
+					]
+				},
+				children
+			);
+		}
+
 		return v(
 			'select',
 			{
@@ -153,6 +178,7 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 				required: required === true || required === 'true',
 				readOnly: readOnly === true || readOnly === 'true',
 				classes: [
+					this.theme(css.root),
 					...cssClasses,
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
@@ -199,7 +225,7 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 			return v(
 				'div',
 				{
-					classes: ['form-group', 'form-check-inline', 'w-100']
+					classes: [this.theme(css.root), 'form-group', 'form-check-inline', 'w-100']
 				},
 				this.renderSelectWrapper()
 			);
@@ -209,4 +235,4 @@ export class Select<P extends SelectProperties = SelectProperties> extends Theme
 	}
 }
 
-export default Select;
+export default class Select extends SelectBase<SelectProperties> {}

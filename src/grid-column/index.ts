@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -37,7 +37,8 @@ export interface GridColumnProperties
 		TextProperties,
 		DisplayProperties,
 		FlexContainerProperties,
-		FlexItemProperties {
+		FlexItemProperties,
+		ThemedProperties {
 	widgetId?: string;
 	offset?: number | string;
 	colspan?: number | string;
@@ -87,7 +88,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class GridColumn<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
+export class GridColumnBase<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
 	private _getClasses(): string[] {
 		let { offset, colspan } = this.properties;
 
@@ -123,6 +124,7 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 				id: widgetId,
 				key: 'grid-column',
 				classes: [
+					this.theme(css.root),
 					...this._getClasses(),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties),
@@ -141,4 +143,4 @@ export class GridColumn<P extends GridColumnProperties = GridColumnProperties> e
 	}
 }
 
-export default GridColumn;
+export default class GridColumn extends GridColumnBase<GridColumnProperties> {}

@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode, VNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -14,7 +14,7 @@ import * as css from './styles/list-group.m.css';
  *
  * Properties that can be set on list-group components
  */
-export interface ListGroupProperties extends SpacingProperties {
+export interface ListGroupProperties extends SpacingProperties, ThemedProperties {
 	widgetId?: string;
 	flush?: boolean | string;
 }
@@ -29,7 +29,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class ListGroup<P extends ListGroupProperties = ListGroupProperties> extends ThemedBase<P> {
+export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		const { widgetId, flush } = this.properties;
 		let tag: string = 'ul';
@@ -60,6 +60,7 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 				id: widgetId,
 				key: 'list-group',
 				classes: [
+					this.theme(css.root),
 					'list-group',
 					flush === true || flush === 'true' ? 'list-group-flush' : undefined,
 					...getSpacingClasses(this.properties)
@@ -70,4 +71,4 @@ export class ListGroup<P extends ListGroupProperties = ListGroupProperties> exte
 	}
 }
 
-export default ListGroup;
+export default class ListGroup extends ListGroupBase<ListGroupProperties> {}

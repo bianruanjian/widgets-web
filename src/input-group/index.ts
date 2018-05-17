@@ -1,11 +1,11 @@
 import { v, w } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { SpacingProperties, FlexItemProperties, FloatProperties, DisplayProperties } from '../common/interfaces';
-import { Label } from '../label/index';
+import Label from '../label/index';
 
 import * as css from './styles/input-group.m.css';
 import { getSpacingClasses, getFlexItemClasses, getFloatClass, getDisplayClass } from '../common/util';
@@ -24,7 +24,8 @@ export interface InputGroupProperties
 	extends SpacingProperties,
 		FlexItemProperties,
 		FloatProperties,
-		DisplayProperties {
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 	size?: string;
 	label?: string;
@@ -58,9 +59,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class InputGroup<P extends InputGroupProperties = InputGroupProperties> extends ThemedBase<P> {
+export class InputGroupBase<P extends InputGroupProperties = InputGroupProperties> extends ThemedBase<P> {
 	protected renderInputGroup(): DNode[] {
-		const { widgetId, size, label, display } = this.properties;
+		const { widgetId, size, label, display, labelPosition } = this.properties;
 
 		let sizeClass: string = '';
 
@@ -72,6 +73,33 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 
 		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+		}
+
+		if (label && labelPosition && labelPosition === 'left') {
+			return [
+				label
+					? w(Label, {
+							value: label,
+							classes: ['col-form-label', 'mr-3']
+					  })
+					: null,
+				v(
+					'div',
+					{
+						id: widgetId,
+						key: 'input-group',
+						classes: [
+							'input-group',
+							sizeClass,
+							...getSpacingClasses(this.properties),
+							display ? getDisplayClass(this.properties) : undefined,
+							...flexItemClasses,
+							...getFloatClass(this.properties)
+						]
+					},
+					this.children
+				)
+			];
 		}
 
 		return [
@@ -87,6 +115,7 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 					id: widgetId,
 					key: 'input-group',
 					classes: [
+						this.theme(css.root),
 						'input-group',
 						sizeClass,
 						...getSpacingClasses(this.properties),
@@ -115,7 +144,7 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 			return v(
 				'div',
 				{
-					classes: ['form-group', 'form-check-inline', 'w-100']
+					classes: [this.theme(css.root), 'form-group', 'form-check-inline', 'w-100']
 				},
 				this.renderInputGroup()
 			);
@@ -125,4 +154,4 @@ export class InputGroup<P extends InputGroupProperties = InputGroupProperties> e
 	}
 }
 
-export default InputGroup;
+export default class InputGroup extends InputGroupBase<InputGroupProperties> {}

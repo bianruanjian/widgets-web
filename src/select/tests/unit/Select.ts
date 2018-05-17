@@ -4,7 +4,8 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Select, { SelectProperties } from './../../index';
-import { Label } from '../../../label';
+import Label from '../../../label';
+import * as css from './../../styles/select.m.css';
 
 describe('Select', () => {
 	const defaultProperties: SelectProperties = {
@@ -69,7 +70,7 @@ describe('Select', () => {
 					disabled: false,
 					required: false,
 					readOnly: false,
-					classes: ['form-control', undefined]
+					classes: [css.root, 'form-control', undefined]
 				},
 				[]
 			)
@@ -89,7 +90,7 @@ describe('Select', () => {
 					disabled: false,
 					required: false,
 					readOnly: false,
-					classes: ['', 'form-control', undefined]
+					classes: [css.root, '', 'form-control', undefined]
 				},
 				[]
 			)
@@ -114,6 +115,7 @@ describe('Select', () => {
 					required: true,
 					readOnly: true,
 					classes: [
+						css.root,
 						'disabled',
 						'form-control-sm',
 						'form-control',

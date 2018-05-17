@@ -1,5 +1,5 @@
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import {
@@ -21,7 +21,7 @@ import {
 import { v, w } from '@dojo/widget-core/d';
 
 import * as css from './styles/textarea.m.css';
-import { Label } from '../label';
+import Label from '../label';
 import { Focus } from '@dojo/widget-core/meta/Focus';
 
 /**
@@ -35,7 +35,8 @@ export interface TextareaProperties
 		FloatProperties,
 		FormProperties,
 		MessageProperties,
-		DisplayProperties {
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -95,7 +96,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Textarea<P extends TextareaProperties = TextareaProperties> extends ThemedBase<P> {
+export class TextareaBase<P extends TextareaProperties = TextareaProperties> extends ThemedBase<P> {
 	protected renderTextarea(): DNode {
 		const {
 			widgetId,
@@ -113,7 +114,9 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			shouldFocus,
 			plainText,
 			noResize,
-			display
+			display,
+			label,
+			labelPosition
 		} = this.properties;
 
 		const cssClasses: string[] = [];
@@ -147,6 +150,31 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
+		if (label && labelPosition && labelPosition === 'left') {
+			return v('textarea', {
+				id: widgetId,
+				key: 'textarea',
+				name,
+				value,
+				rows,
+				cols,
+				placeholder,
+				disabled: disabled === true || disabled === 'true',
+				required: required === true || required === 'true',
+				readOnly: readOnly === true || readOnly === 'true',
+				maxlength: maxLength ? maxLength : null,
+				minlength: minLength ? minLength : null,
+				classes: [
+					...cssClasses,
+					...getSpacingClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexItemClasses,
+					...getFloatClass(this.properties)
+				],
+				styles: cssStyles
+			});
+		}
+
 		return v('textarea', {
 			id: widgetId,
 			key: 'textarea',
@@ -161,6 +189,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			maxlength: maxLength ? maxLength : null,
 			minlength: minLength ? minLength : null,
 			classes: [
+				this.theme(css.root),
 				...cssClasses,
 				...getSpacingClasses(this.properties),
 				display ? getDisplayClass(this.properties) : undefined,
@@ -206,7 +235,7 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 			return v(
 				'div',
 				{
-					classes: ['form-group', 'form-check-inline', 'w-100']
+					classes: [this.theme(css.root), 'form-group', 'form-check-inline', 'w-100']
 				},
 				this.renderTextareaWrapper()
 			);
@@ -216,4 +245,4 @@ export class Textarea<P extends TextareaProperties = TextareaProperties> extends
 	}
 }
 
-export default Textarea;
+export default class Textarea extends TextareaBase<TextareaProperties> {}

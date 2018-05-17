@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -25,7 +25,8 @@ export interface ListItemProperties
 	extends DisplayProperties,
 		FlexContainerProperties,
 		TextProperties,
-		ColorsProperties {
+		ColorsProperties,
+		ThemedProperties {
 	widgetId?: string;
 	active?: boolean | string;
 	disabled?: boolean | string;
@@ -63,7 +64,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class ListItem<P extends ListItemProperties = ListItemProperties> extends ThemedBase<P> {
+export class ListItemBase<P extends ListItemProperties = ListItemProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		const { widgetId, active, disabled, appearance, display } = this.properties;
 
@@ -80,6 +81,7 @@ export class ListItem<P extends ListItemProperties = ListItemProperties> extends
 				key: 'list-item',
 				disabled: disabled === true || disabled === 'true',
 				classes: [
+					this.theme(css.root),
 					'list-group-item',
 					appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 					disabled === true || disabled === 'true' ? 'disabled' : undefined,
@@ -97,4 +99,4 @@ export class ListItem<P extends ListItemProperties = ListItemProperties> extends
 	}
 }
 
-export default ListItem;
+export default class ListItem extends ListItemBase<ListItemProperties> {}

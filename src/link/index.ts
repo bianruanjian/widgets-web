@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -34,7 +34,8 @@ export interface LinkProperties
 		DisplayProperties,
 		FlexItemProperties,
 		TextProperties,
-		ColorsProperties {
+		ColorsProperties,
+		ThemedProperties {
 	widgetId?: string;
 	href?: string;
 	target?: string;
@@ -85,7 +86,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
+export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		let { widgetId, href, target, value, isListItem = false, appearance, display } = this.properties;
 
@@ -108,6 +109,7 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 				target,
 				classes: isListItem
 					? [
+							this.theme(css.root),
 							'list-group-item',
 							'list-group-item-action',
 							...getSpacingClasses(this.properties),
@@ -118,6 +120,7 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 							...getTextDecorationClass(this.properties)
 					  ]
 					: [
+							this.theme(css.root),
 							...getSpacingClasses(this.properties),
 							display ? getDisplayClass(this.properties) : undefined,
 							...flexItemClasses,
@@ -132,4 +135,4 @@ export class Link<P extends LinkProperties = LinkProperties> extends ThemedBase<
 	}
 }
 
-export default Link;
+export default class Link extends LinkBase<LinkProperties> {}

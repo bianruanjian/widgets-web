@@ -4,6 +4,7 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Footer, { FooterProperties } from './../../index';
+import * as css from './../../styles/footer.m.css';
 
 describe('Footer', () => {
 	const defaultProperties: FooterProperties = {
@@ -51,7 +52,7 @@ describe('Footer', () => {
 				{
 					id: undefined,
 					key: 'footer',
-					classes: [undefined]
+					classes: [css.root, undefined]
 				},
 				[]
 			)
@@ -66,7 +67,7 @@ describe('Footer', () => {
 				{
 					id: undefined,
 					key: 'footer',
-					classes: [undefined]
+					classes: [css.root, undefined]
 				},
 				[]
 			)
@@ -82,6 +83,7 @@ describe('Footer', () => {
 					id: 'random-id',
 					key: 'footer',
 					classes: [
+						css.root,
 						'my-0',
 						'mx-1',
 						'py-0',

@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
@@ -30,7 +30,12 @@ export const sizeMap: { [key: string]: string } = {
  * Properties that can be set on icon components
  *
  */
-export interface IconProperties extends SpacingProperties, FlexItemProperties, ColorsProperties, DisplayProperties {
+export interface IconProperties
+	extends SpacingProperties,
+		FlexItemProperties,
+		ColorsProperties,
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 	value?: string;
 	size?: string;
@@ -71,7 +76,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<P> {
+export class IconBase<P extends IconProperties = IconProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, size, alt, title, display } = this.properties;
 
@@ -110,7 +115,7 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 				key: 'icon',
 				alt,
 				title,
-				classes: iconClasses
+				classes: [this.theme(css.root), ...iconClasses]
 			});
 		}
 
@@ -119,17 +124,17 @@ export class Icon<P extends IconProperties = IconProperties> extends ThemedBase<
 			{
 				id: widgetId,
 				key: 'icon',
-				classes: cssClasses,
+				classes: [this.theme(css.root), ...cssClasses],
 				title
 			},
 			[
 				v('i', {
 					alt,
-					classes: [value ? (value as string) : '', size ? sizeMap[size as string] : '']
+					classes: [value ? (value as string) : undefined, size ? sizeMap[size as string] : undefined]
 				})
 			]
 		);
 	}
 }
 
-export default Icon;
+export default class Icon extends IconBase<IconProperties> {}

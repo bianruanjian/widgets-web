@@ -3,9 +3,10 @@ const { describe, it } = intern.getInterface('bdd');
 import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
-import { GridColumn, GridColumnProperties } from './../../index';
+import GridColumn, { GridColumnProperties } from './../../index';
 import * as css from '../../../common/base.m.css';
 import { textDecorationMap } from '../../../common/util';
+import * as cssGridColumn from './../../styles/grid-column.m.css';
 
 describe('GridColumn', () => {
 	let defaultProperties: GridColumnProperties = {
@@ -89,7 +90,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', undefined],
+					classes: [cssGridColumn.root, 'col', undefined],
 					styles: {}
 				},
 				[]
@@ -105,7 +106,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', 'rounded-0', undefined],
+					classes: [cssGridColumn.root, 'col', 'rounded-0', undefined],
 					styles: {}
 				},
 				[]
@@ -123,6 +124,7 @@ describe('GridColumn', () => {
 					id: 'random-id',
 					key: 'grid-column',
 					classes: [
+						cssGridColumn.root,
 						'col-2',
 						'offset-1',
 						'border',
@@ -167,7 +169,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', undefined, css[textDecorationClass as baseCssType]],
+					classes: [cssGridColumn.root, 'col', undefined, css[textDecorationClass as baseCssType]],
 					styles: {}
 				},
 				[]
@@ -181,7 +183,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', undefined, css[textDecorationClass as baseCssType]],
+					classes: [cssGridColumn.root, 'col', undefined, css[textDecorationClass as baseCssType]],
 					styles: {}
 				},
 				[]
@@ -197,7 +199,7 @@ describe('GridColumn', () => {
 				{
 					id: undefined,
 					key: 'grid-column',
-					classes: ['col', 'offset-0', undefined],
+					classes: [cssGridColumn.root, 'col', 'offset-0', undefined],
 					styles: {}
 				},
 				[]

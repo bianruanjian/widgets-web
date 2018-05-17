@@ -3,7 +3,8 @@ const { describe, it } = intern.getInterface('bdd');
 import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
-import { View, ViewProperties } from './../../index';
+import View, { ViewProperties } from './../../index';
+import * as css from './../../styles/view.m.css';
 
 describe('View', () => {
 	let defaultProperties: ViewProperties = {
@@ -76,12 +77,14 @@ describe('View', () => {
 
 	it('should construct view', () => {
 		const h = harness(() => w(View, {}));
-		h.expect(() => v('div', { id: undefined, key: 'view', classes: [undefined], styles: {} }, []));
+		h.expect(() => v('div', { id: undefined, key: 'view', classes: [css.root, undefined], styles: {} }, []));
 	});
 
 	it('default properties', () => {
 		const h = harness(() => w(View, defaultProperties));
-		h.expect(() => v('div', { id: undefined, key: 'view', classes: ['rounded-0', undefined], styles: {} }));
+		h.expect(() =>
+			v('div', { id: undefined, key: 'view', classes: [css.root, 'rounded-0', undefined], styles: {} })
+		);
 	});
 
 	it('custom properties', () => {
@@ -91,6 +94,7 @@ describe('View', () => {
 				id: 'random-id',
 				key: 'view',
 				classes: [
+					css.root,
 					'border',
 					'border-primary',
 					'rounded-top',
@@ -127,7 +131,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['border-left', 'border-top', undefined],
+				classes: [css.root, 'border-left', 'border-top', undefined],
 				styles: {}
 			})
 		);
@@ -136,7 +140,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['border', undefined],
+				classes: [css.root, 'border', undefined],
 				styles: {}
 			})
 		);
@@ -148,7 +152,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['mt-1', 'mb-2', 'ml-4', 'mr-3', undefined],
+				classes: [css.root, 'mt-1', 'mb-2', 'ml-4', 'mr-3', undefined],
 				styles: {}
 			})
 		);
@@ -157,7 +161,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['my-1', undefined],
+				classes: [css.root, 'my-1', undefined],
 				styles: {}
 			})
 		);
@@ -166,7 +170,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['mx-1', undefined],
+				classes: [css.root, 'mx-1', undefined],
 				styles: {}
 			})
 		);
@@ -175,7 +179,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['m-1', undefined],
+				classes: [css.root, 'm-1', undefined],
 				styles: {}
 			})
 		);
@@ -187,7 +191,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['pt-1', 'pb-2', 'pl-4', 'pr-3', undefined],
+				classes: [css.root, 'pt-1', 'pb-2', 'pl-4', 'pr-3', undefined],
 				styles: {}
 			})
 		);
@@ -196,7 +200,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['py-1', undefined],
+				classes: [css.root, 'py-1', undefined],
 				styles: {}
 			})
 		);
@@ -205,7 +209,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['px-1', undefined],
+				classes: [css.root, 'px-1', undefined],
 				styles: {}
 			})
 		);
@@ -214,7 +218,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['p-1', undefined],
+				classes: [css.root, 'p-1', undefined],
 				styles: {}
 			})
 		);
@@ -226,7 +230,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['text-truncate', undefined],
+				classes: [css.root, 'text-truncate', undefined],
 				styles: {
 					maxWidth: '50px'
 				}
@@ -237,7 +241,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['text-truncate', undefined],
+				classes: [css.root, 'text-truncate', undefined],
 				styles: {
 					maxWidth: '50%'
 				}
@@ -251,7 +255,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: [undefined],
+				classes: [css.root, undefined],
 				styles: {}
 			})
 		);
@@ -260,7 +264,7 @@ describe('View', () => {
 			v('div', {
 				id: undefined,
 				key: 'view',
-				classes: ['text-nowrap', undefined],
+				classes: [css.root, 'text-nowrap', undefined],
 				styles: {
 					width: '5rem'
 				}

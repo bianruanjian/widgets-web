@@ -4,6 +4,7 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Icon, { IconProperties } from './../../index';
+import * as css from './../../styles/icon.m.css';
 
 describe('Icon', () => {
 	const defaultProperties: IconProperties = {
@@ -53,7 +54,7 @@ describe('Icon', () => {
 				key: 'icon',
 				alt: undefined,
 				title: undefined,
-				classes: []
+				classes: [css.root]
 			})
 		);
 	});
@@ -66,7 +67,7 @@ describe('Icon', () => {
 				key: 'icon',
 				alt: undefined,
 				title: undefined,
-				classes: ['fas fa-smile', '']
+				classes: [css.root, 'fas fa-smile', '']
 			})
 		);
 	});
@@ -80,6 +81,7 @@ describe('Icon', () => {
 					id: 'random-id',
 					key: 'icon',
 					classes: [
+						css.root,
 						'my-0',
 						'mx-1',
 						'py-0',

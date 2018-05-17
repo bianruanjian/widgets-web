@@ -1,6 +1,6 @@
 import { v, w } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import {
@@ -21,7 +21,7 @@ import {
 } from '../common/util';
 
 import * as css from './styles/radio.m.css';
-import { Label } from '../label';
+import Label from '../label';
 
 /**
  * @type RadioProperties
@@ -34,7 +34,8 @@ export interface RadioProperties
 		FloatProperties,
 		FormProperties,
 		MessageProperties,
-		DisplayProperties {
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -79,7 +80,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBase<P> {
+export class RadioBase<P extends RadioProperties = RadioProperties> extends ThemedBase<P> {
 	protected renderRadio(): DNode {
 		let { widgetId, name, value, checked, disabled, readOnly } = this.properties;
 
@@ -124,6 +125,7 @@ export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBa
 			{
 				key: 'radio',
 				classes: [
+					this.theme(css.root),
 					'form-check',
 					size ? formSizeMap[size as string] : undefined,
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
@@ -138,4 +140,4 @@ export class Radio<P extends RadioProperties = RadioProperties> extends ThemedBa
 	}
 }
 
-export default Radio;
+export default class Radio extends RadioBase<RadioProperties> {}

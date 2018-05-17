@@ -1,6 +1,6 @@
 import { v, w } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import Focus from '@dojo/widget-core/meta/Focus';
@@ -12,7 +12,7 @@ import {
 	MessageProperties,
 	DisplayProperties
 } from '../common/interfaces';
-import { Label } from '../label';
+import Label from '../label';
 import {
 	getSpacingClasses,
 	getFlexItemClasses,
@@ -36,7 +36,8 @@ export interface TextInputProperties
 		FlexItemProperties,
 		FloatProperties,
 		MessageProperties,
-		DisplayProperties {
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 	name?: string;
 	type?: TextInputType;
@@ -96,7 +97,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: ['onInput', 'onChange']
 })
 @theme(css)
-export class TextInput<P extends TextInputProperties = TextInputProperties> extends ThemedBase<P, null> {
+export class TextInputBase<P extends TextInputProperties = TextInputProperties> extends ThemedBase<P, null> {
 	private _onInput(event: Event) {
 		event.stopPropagation();
 		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
@@ -123,7 +124,9 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			size,
 			shouldFocus,
 			plainText,
-			display
+			display,
+			label,
+			labelPosition
 		} = this.properties;
 
 		const cssClasses: string[] = [];
@@ -156,6 +159,35 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
+		if (label && labelPosition && labelPosition === 'left') {
+			return v(
+				'input',
+				{
+					id: widgetId,
+					key: 'text-input',
+					name,
+					type: type && type !== 'default' ? type : '',
+					value,
+					placeholder,
+					disabled: disabled === true || disabled === 'true',
+					required: required === true || required === 'true',
+					readOnly: readOnly === true || readOnly === 'true',
+					maxlength: maxLength ? `${maxLength}` : null,
+					minlength: minLength ? `${minLength}` : null,
+					classes: [
+						...cssClasses,
+						...getSpacingClasses(this.properties),
+						display ? getDisplayClass(this.properties) : undefined,
+						...flexItemClasses,
+						...getFloatClass(this.properties)
+					],
+					oninput: this._onInput,
+					onchange: this._onChange
+				},
+				[]
+			);
+		}
+
 		return v(
 			'input',
 			{
@@ -171,6 +203,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 				maxlength: maxLength ? `${maxLength}` : null,
 				minlength: minLength ? `${minLength}` : null,
 				classes: [
+					this.theme(css.root),
 					...cssClasses,
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
@@ -217,6 +250,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			'div',
 			{
 				classes: [
+					this.theme(css.root),
 					'custom-file',
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
@@ -265,7 +299,7 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 			return v(
 				'div',
 				{
-					classes: ['form-group', 'form-check-inline', 'w-100']
+					classes: [this.theme(css.root), 'form-group', 'form-check-inline', 'w-100']
 				},
 				this.renderTextInput()
 			);
@@ -275,4 +309,4 @@ export class TextInput<P extends TextInputProperties = TextInputProperties> exte
 	}
 }
 
-export default TextInput;
+export default class TextInput extends TextInputBase<TextInputProperties> {}

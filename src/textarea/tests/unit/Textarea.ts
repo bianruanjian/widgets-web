@@ -4,7 +4,8 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Textarea, { TextareaProperties } from './../../index';
-import { Label } from '../../../label';
+import Label from '../../../label';
+import * as css from './../../styles/textarea.m.css';
 
 describe('Textarea', () => {
 	const defaultProperties: TextareaProperties = {
@@ -81,7 +82,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['form-control', undefined],
+				classes: [css.root, 'form-control', undefined],
 				styles: {}
 			}),
 			null
@@ -105,7 +106,7 @@ describe('Textarea', () => {
 				readOnly: false,
 				maxlength: null,
 				minlength: null,
-				classes: ['', 'form-control', undefined],
+				classes: [css.root, '', 'form-control', undefined],
 				styles: {}
 			}),
 			null
@@ -138,6 +139,7 @@ describe('Textarea', () => {
 				maxlength: 5,
 				minlength: 5,
 				classes: [
+					css.root,
 					'disabled',
 					'form-control-sm',
 					'form-control-plaintext',

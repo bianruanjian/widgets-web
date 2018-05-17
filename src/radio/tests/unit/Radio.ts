@@ -4,7 +4,8 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import Radio, { RadioProperties } from './../../index';
-import { Label } from '../../../label';
+import Label from '../../../label';
+import * as css from './../../styles/radio.m.css';
 
 describe('Radio', () => {
 	const defaultProperties: RadioProperties = {
@@ -62,7 +63,7 @@ describe('Radio', () => {
 				'div',
 				{
 					key: 'radio',
-					classes: ['form-check', undefined, 'form-check-inline', undefined]
+					classes: [css.root, 'form-check', undefined, 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -89,7 +90,7 @@ describe('Radio', () => {
 				'div',
 				{
 					key: 'radio',
-					classes: ['form-check', '', 'form-check-inline', undefined]
+					classes: [css.root, 'form-check', '', 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -117,6 +118,7 @@ describe('Radio', () => {
 				{
 					key: 'radio',
 					classes: [
+						css.root,
 						'form-check',
 						'form-control-sm',
 						undefined,

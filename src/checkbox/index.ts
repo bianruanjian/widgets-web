@@ -1,6 +1,6 @@
 import { v, w } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import {
@@ -21,7 +21,7 @@ import {
 } from '../common/util';
 
 import * as css from './styles/checkbox.m.css';
-import { Label } from '../label';
+import Label from '../label';
 
 /**
  * @type CheckboxProperties
@@ -34,7 +34,8 @@ export interface CheckboxProperties
 		FloatProperties,
 		FormProperties,
 		MessageProperties,
-		DisplayProperties {
+		DisplayProperties,
+		ThemedProperties {
 	widgetId?: string;
 	name?: string;
 	value?: string;
@@ -80,7 +81,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends ThemedBase<P> {
+export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> extends ThemedBase<P> {
 	protected renderCheckbox(): DNode {
 		let { widgetId, name, value, checked, disabled, required, readOnly } = this.properties;
 
@@ -126,6 +127,7 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 			{
 				key: 'checkbox',
 				classes: [
+					this.theme(css.root),
 					'form-check',
 					size ? formSizeMap[size as string] : undefined,
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
@@ -140,4 +142,4 @@ export class Checkbox<P extends CheckboxProperties = CheckboxProperties> extends
 	}
 }
 
-export default Checkbox;
+export default class Checkbox extends CheckboxBase<CheckboxProperties> {}

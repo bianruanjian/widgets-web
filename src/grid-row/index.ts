@@ -1,6 +1,6 @@
 import { v } from '@dojo/widget-core/d';
 import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -23,7 +23,8 @@ export interface GridRowProperties
 	extends SpacingProperties,
 		DisplayProperties,
 		FlexContainerProperties,
-		FlexItemProperties {
+		FlexItemProperties,
+		ThemedProperties {
 	widgetId?: string;
 	gutters?: boolean | string;
 }
@@ -58,7 +59,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class GridRow<P extends GridRowProperties = GridRowProperties> extends ThemedBase<P> {
+export class GridRowBase<P extends GridRowProperties = GridRowProperties> extends ThemedBase<P> {
 	private _getGuttersClasses() {
 		let { gutters } = this.properties;
 
@@ -88,6 +89,7 @@ export class GridRow<P extends GridRowProperties = GridRowProperties> extends Th
 				id: widgetId,
 				key: 'grid-row',
 				classes: [
+					this.theme(css.root),
 					'row',
 					...this._getGuttersClasses(),
 					...getSpacingClasses(this.properties),
@@ -101,4 +103,4 @@ export class GridRow<P extends GridRowProperties = GridRowProperties> extends Th
 	}
 }
 
-export default GridRow;
+export default class GridRow extends GridRowBase<GridRowProperties> {}

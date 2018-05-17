@@ -4,10 +4,14 @@ import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 
 import ListGroup, { ListGroupProperties } from './../../index';
-import { Button } from '../../../button';
-import { ListItem } from '../../../list-item';
-import { Link } from '../../../link';
+import Button from '../../../button';
+import ListItem from '../../../list-item';
+import Link from '../../../link';
 import { VNode } from '@dojo/widget-core/interfaces';
+import * as cssButton from './../../../button/styles/button.m.css';
+import * as cssLink from './../../../link/styles/link.m.css';
+import * as css from './../../styles/list-group.m.css';
+import * as cssListItem from './../../../list-item/styles/list-item.m.css';
 
 describe('ListGroup', () => {
 	const defaultProperties: ListGroupProperties = {
@@ -43,7 +47,7 @@ describe('ListGroup', () => {
 				{
 					id: undefined,
 					key: 'list-group',
-					classes: ['list-group', undefined]
+					classes: [css.root, 'list-group', undefined]
 				},
 				[]
 			)
@@ -58,7 +62,7 @@ describe('ListGroup', () => {
 				{
 					id: undefined,
 					key: 'list-group',
-					classes: ['list-group', undefined]
+					classes: [css.root, 'list-group', undefined]
 				},
 				[]
 			)
@@ -73,7 +77,7 @@ describe('ListGroup', () => {
 				{
 					id: 'random-id',
 					key: 'list-group',
-					classes: ['list-group', 'list-group-flush', 'my-0', 'mx-1', 'py-0', 'px-1']
+					classes: [css.root, 'list-group', 'list-group-flush', 'my-0', 'mx-1', 'py-0', 'px-1']
 				},
 				[]
 			)
@@ -89,7 +93,7 @@ describe('ListGroup', () => {
 				{
 					id: undefined,
 					key: 'list-group',
-					classes: ['list-group', undefined]
+					classes: [css.root, 'list-group', undefined]
 				},
 				[
 					v(
@@ -97,7 +101,7 @@ describe('ListGroup', () => {
 						{
 							id: undefined,
 							key: 'button',
-							classes: ['btn', undefined, undefined, undefined, undefined],
+							classes: [cssButton.root, 'btn', undefined, undefined, undefined, undefined],
 							disabled: false,
 							type: undefined,
 							onclick: () => {}
@@ -118,11 +122,11 @@ describe('ListGroup', () => {
 				{
 					id: undefined,
 					key: 'list-group',
-					classes: ['list-group', undefined]
+					classes: [css.root, 'list-group', undefined]
 				},
 				[
 					v('a', {
-						classes: [undefined],
+						classes: [cssLink.root, undefined],
 						href: undefined,
 						id: undefined,
 						key: 'link',
@@ -143,11 +147,11 @@ describe('ListGroup', () => {
 				{
 					id: undefined,
 					key: 'list-group',
-					classes: ['list-group', undefined]
+					classes: [css.root, 'list-group', undefined]
 				},
 				[
 					v('li', {
-						classes: ['list-group-item', undefined, undefined, undefined, undefined],
+						classes: [cssListItem.root, 'list-group-item', undefined, undefined, undefined, undefined],
 						disabled: false,
 						id: undefined,
 						key: 'list-item',
@@ -168,7 +172,7 @@ describe('ListGroup', () => {
 				{
 					id: undefined,
 					key: 'list-group',
-					classes: ['list-group', undefined]
+					classes: [css.root, 'list-group', undefined]
 				},
 				[
 					v(
@@ -176,7 +180,7 @@ describe('ListGroup', () => {
 						{
 							id: undefined,
 							key: 'button',
-							classes: ['btn', undefined, undefined, undefined, undefined],
+							classes: [cssButton.root, 'btn', undefined, undefined, undefined, undefined],
 							disabled: false,
 							type: undefined,
 							onclick: () => {}
@@ -184,7 +188,7 @@ describe('ListGroup', () => {
 						[]
 					),
 					v('li', {
-						classes: ['list-group-item', undefined, undefined, undefined, undefined],
+						classes: [cssListItem.root, 'list-group-item', undefined, undefined, undefined, undefined],
 						disabled: false,
 						id: undefined,
 						key: 'list-item',

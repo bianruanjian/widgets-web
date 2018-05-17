@@ -2,7 +2,8 @@ const { describe, it } = intern.getInterface('bdd');
 import { w, v } from '@dojo/widget-core/d';
 import harness from '@dojo/test-extras/harness';
 import Checkbox, { CheckboxProperties } from './../../index';
-import { Label } from '../../../label';
+import Label from '../../../label';
+import * as css from './../../styles/checkbox.m.css';
 
 describe('Checkbox', () => {
 	const defaultProperties: CheckboxProperties = {
@@ -62,7 +63,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: ['form-check', undefined, 'form-check-inline', undefined]
+					classes: [css.root, 'form-check', undefined, 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -90,7 +91,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: ['form-check', '', 'form-check-inline', undefined]
+					classes: [css.root, 'form-check', '', 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -119,6 +120,7 @@ describe('Checkbox', () => {
 				{
 					key: 'checkbox',
 					classes: [
+						css.root,
 						'form-check',
 						'form-control-sm',
 						undefined,
