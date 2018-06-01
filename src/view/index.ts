@@ -11,7 +11,9 @@ import {
 	TextProperties,
 	FlexContainerProperties,
 	FlexItemProperties,
-	DisplayProperties
+	DisplayProperties,
+	ColorsProperties,
+	FloatProperties
 } from '../common/interfaces';
 import {
 	getSpacingClasses,
@@ -20,7 +22,9 @@ import {
 	getTextStyles,
 	getFlexContainerClasses,
 	getFlexItemClasses,
-	getDisplayClass
+	getDisplayClass,
+	getColorsClasses,
+	getFloatClass
 } from '../common/util';
 
 import * as css from './styles/view.m.css';
@@ -37,7 +41,9 @@ export interface ViewProperties
 		DisplayProperties,
 		FlexContainerProperties,
 		FlexItemProperties,
-		ThemedProperties {
+		ThemedProperties,
+		ColorsProperties,
+		FloatProperties {
 	widgetId?: string;
 	maxWidth?: number | string;
 }
@@ -79,7 +85,10 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'flexWrap',
 		'alignContent',
 		'alignSelf',
-		'order'
+		'order',
+		'textColor',
+		'backgroundColor',
+		'float'
 	],
 	properties: [],
 	events: []
@@ -127,7 +136,9 @@ export class ViewBase<P extends ViewProperties = ViewProperties> extends ThemedB
 					...getTextClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
 					...flexContainerClasses,
-					...flexItemClasses
+					...flexItemClasses,
+					...getColorsClasses(this.properties),
+					...getFloatClass(this.properties)
 				],
 				styles: { ...getTextStyles(this.properties), ...this._getMaxWidthStyles() }
 			},
