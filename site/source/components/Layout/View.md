@@ -46,6 +46,8 @@ tags:
 1. [Text](../Utilities/Text.html)
 1. [Display](../Utilities/Display.html)
 1. [Flex](../Utilities/Flex.html)
+1. [Colors](../Utilities/Colors.html)
+1. [Float](../Utilities/Float.html)
 
 ## 属性
 

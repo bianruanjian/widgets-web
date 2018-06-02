@@ -37,7 +37,10 @@ describe('View', () => {
 		flexWrap: 'default',
 		alignContent: 'default',
 		alignSelf: 'default',
-		order: 'default'
+		order: 'default',
+		textColor: 'default',
+		backgroundColor: 'default',
+		float: 'default'
 	};
 
 	let customProperties: ViewProperties = {
@@ -72,7 +75,10 @@ describe('View', () => {
 		flexWrap: 'nowrap',
 		alignContent: 'start',
 		alignSelf: 'start',
-		order: 0
+		order: 0,
+		textColor: 'primary',
+		backgroundColor: 'primary',
+		float: 'left'
 	};
 
 	it('should construct view', () => {
@@ -115,7 +121,10 @@ describe('View', () => {
 					'flex-nowrap',
 					'align-content-start',
 					'align-self-start',
-					'order-0'
+					'order-0',
+					'text-primary',
+					'bg-primary',
+					'float-left'
 				],
 				styles: {
 					maxWidth: '40px',
