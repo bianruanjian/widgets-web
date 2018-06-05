@@ -18,7 +18,7 @@ export interface BadgeProperties extends SpacingProperties, FlexItemProperties, 
 	widgetId?: string;
 	value?: string;
 	appearance?: string;
-	pill?: boolean;
+	pill?: boolean | string;
 	href?: string;
 	target?: string;
 }
@@ -66,7 +66,7 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 			cssClasses.push(`badge-${appearance}`);
 		}
 
-		if (pill) {
+		if (pill === true || pill === 'true') {
 			cssClasses.push('badge-pill');
 		}
 
