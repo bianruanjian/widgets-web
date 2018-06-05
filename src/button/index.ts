@@ -33,7 +33,7 @@ export interface ButtonProperties extends ThemedProperties {
 	active?: boolean | string;
 	href?: string;
 	target?: string;
-	isListItem?: boolean | string; // 当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
+	isListItem?: boolean; // 当将 Button 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
 	onClick?(): void;
 }
 
@@ -76,7 +76,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 			active,
 			href,
 			target,
-			isListItem
+			isListItem = false
 		} = this.properties;
 		const children: any[] = value ? [value, ...this.children] : this.children;
 		let sizeClass: string = sizeMap[size as string];
@@ -94,25 +94,22 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 					key: 'button',
 					href: `${href}`,
 					target,
-					classes:
-						isListItem === true || isListItem === 'true'
-							? [
-									this.theme(css.root),
-									'list-group-item',
-									'list-group-item-action',
-									appearance && appearance !== 'default'
-										? `list-group-item-${appearance}`
-										: undefined,
-									active === true || active === 'true' ? 'active' : undefined
-							  ]
-							: [
-									this.theme(css.root),
-									'btn',
-									appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
-									sizeClass !== '' ? sizeClass : undefined,
-									fluid === true || fluid === 'true' ? 'btn-block' : undefined,
-									active === true || active === 'true' ? 'active' : undefined
-							  ],
+					classes: isListItem
+						? [
+								this.theme(css.root),
+								'list-group-item',
+								'list-group-item-action',
+								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ]
+						: [
+								this.theme(css.root),
+								'btn',
+								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
+								sizeClass !== '' ? sizeClass : undefined,
+								fluid === true || fluid === 'true' ? 'btn-block' : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ],
 					role: 'button'
 				},
 				children
@@ -123,25 +120,22 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 				{
 					id: widgetId,
 					key: 'button',
-					classes:
-						isListItem === true || isListItem === 'true'
-							? [
-									this.theme(css.root),
-									'list-group-item',
-									'list-group-item-action',
-									appearance && appearance !== 'default'
-										? `list-group-item-${appearance}`
-										: undefined,
-									active === true || active === 'true' ? 'active' : undefined
-							  ]
-							: [
-									this.theme(css.root),
-									'btn',
-									appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
-									sizeClass !== '' ? sizeClass : undefined,
-									fluid === true || fluid === 'true' ? 'btn-block' : undefined,
-									active === true || active === 'true' ? 'active' : undefined
-							  ],
+					classes: isListItem
+						? [
+								this.theme(css.root),
+								'list-group-item',
+								'list-group-item-action',
+								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ]
+						: [
+								this.theme(css.root),
+								'btn',
+								appearance && appearance !== 'default' ? `btn-${appearance}` : undefined,
+								sizeClass !== '' ? sizeClass : undefined,
+								fluid === true || fluid === 'true' ? 'btn-block' : undefined,
+								active === true || active === 'true' ? 'active' : undefined
+						  ],
 					disabled: disabled === true || disabled === 'true',
 					type: type,
 					onclick: this._onClick

@@ -41,7 +41,7 @@ export interface LinkProperties
 	target?: string;
 	value?: string;
 	// 当将 Link 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
-	isListItem?: boolean | string;
+	isListItem?: boolean;
 	// 在实现层面，list-group-item-xx 是同时设置了背景颜色和字体颜色，
 	// 但是 Link 部件只单独提供了 backgroundColor 和 textColor 两个属性，
 	// 没有提供可同时设置此两个颜色的属性，增加一个 appearance 属性，
@@ -88,7 +88,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let { widgetId, href, target, value, isListItem, appearance, display } = this.properties;
+		let { widgetId, href, target, value, isListItem = false, appearance, display } = this.properties;
 
 		if (target) {
 			target = targetMap[target as string] || target;
@@ -107,28 +107,27 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 				key: 'link',
 				href,
 				target,
-				classes:
-					isListItem === true || isListItem === 'true'
-						? [
-								this.theme(css.root),
-								'list-group-item',
-								'list-group-item-action',
-								...getSpacingClasses(this.properties),
-								display ? getDisplayClass(this.properties) : undefined,
-								...flexItemClasses,
-								...getTextClasses(this.properties),
-								appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
-								...getTextDecorationClass(this.properties)
-						  ]
-						: [
-								this.theme(css.root),
-								...getSpacingClasses(this.properties),
-								display ? getDisplayClass(this.properties) : undefined,
-								...flexItemClasses,
-								...getTextClasses(this.properties),
-								...getColorsClasses(this.properties),
-								...getTextDecorationClass(this.properties)
-						  ],
+				classes: isListItem
+					? [
+							this.theme(css.root),
+							'list-group-item',
+							'list-group-item-action',
+							...getSpacingClasses(this.properties),
+							display ? getDisplayClass(this.properties) : undefined,
+							...flexItemClasses,
+							...getTextClasses(this.properties),
+							appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
+							...getTextDecorationClass(this.properties)
+					  ]
+					: [
+							this.theme(css.root),
+							...getSpacingClasses(this.properties),
+							display ? getDisplayClass(this.properties) : undefined,
+							...flexItemClasses,
+							...getTextClasses(this.properties),
+							...getColorsClasses(this.properties),
+							...getTextDecorationClass(this.properties)
+					  ],
 				styles: getTextStyles(this.properties)
 			},
 			value ? [value, ...this.children] : this.children
