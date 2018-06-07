@@ -109,16 +109,6 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 			iconClasses.push(sizeMap[size as string]);
 		}
 
-		if (cssClasses.length === 0 || (cssClasses.length === 1 && cssClasses[0] === '')) {
-			return v('i', {
-				id: widgetId,
-				key: 'icon',
-				alt,
-				title,
-				classes: [this.theme(css.root), ...iconClasses]
-			});
-		}
-
 		return v(
 			'span',
 			{
