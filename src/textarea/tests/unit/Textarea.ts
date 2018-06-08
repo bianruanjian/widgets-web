@@ -83,7 +83,9 @@ describe('Textarea', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['form-control', undefined, css.root],
-				styles: {}
+				styles: {
+					resize: 'both'
+				}
 			}),
 			null
 		]);
@@ -107,7 +109,9 @@ describe('Textarea', () => {
 				maxlength: null,
 				minlength: null,
 				classes: ['', 'form-control', undefined, css.root],
-				styles: {}
+				styles: {
+					resize: 'both'
+				}
 			}),
 			null
 		]);
