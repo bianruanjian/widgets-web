@@ -99,16 +99,6 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 			...getColorsClasses(this.properties)
 		];
 
-		const iconClasses: string[] = [];
-
-		if (value) {
-			iconClasses.push(value as string);
-		}
-
-		if (size) {
-			iconClasses.push(sizeMap[size as string]);
-		}
-
 		return v(
 			'span',
 			{
