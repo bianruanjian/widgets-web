@@ -23,7 +23,8 @@ describe('Label', () => {
 					id: undefined,
 					key: 'label',
 					for: undefined,
-					classes: [css.root]
+					classes: [css.root],
+					styles: { whiteSpace: 'nowrap' }
 				},
 				[]
 			)
@@ -39,7 +40,8 @@ describe('Label', () => {
 					id: 'random-id',
 					key: 'label',
 					for: 'id',
-					classes: [css.root, 'test']
+					classes: [css.root, 'test'],
+					styles: { whiteSpace: 'nowrap' }
 				},
 				['label']
 			)

@@ -43,7 +43,8 @@ export class LabelBase<P extends LabelProperties = LabelProperties> extends Them
 				id: widgetId,
 				key: 'label',
 				for: forId,
-				classes: classes ? [this.theme(css.root), ...(classes as string[])] : [this.theme(css.root)]
+				classes: classes ? [this.theme(css.root), ...(classes as string[])] : [this.theme(css.root)],
+				styles: { whiteSpace: 'nowrap' }
 			},
 			value ? [value, ...this.children] : this.children
 		);
