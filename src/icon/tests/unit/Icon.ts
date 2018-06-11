@@ -49,26 +49,50 @@ describe('Icon', () => {
 	it('should construct Icon', () => {
 		const h = harness(() => w(Icon, {}));
 		h.expect(() =>
-			v('i', {
-				id: undefined,
-				key: 'icon',
-				alt: undefined,
-				title: undefined,
-				classes: [css.root]
-			})
+			v(
+				'span',
+				{
+					id: undefined,
+					key: 'icon',
+					classes: [css.root, ''],
+					title: undefined
+				},
+				[
+					v(
+						'i',
+						{
+							alt: undefined,
+							classes: [undefined, undefined]
+						},
+						[]
+					)
+				]
+			)
 		);
 	});
 
 	it('default properties', () => {
 		const h = harness(() => w(Icon, defaultProperties));
 		h.expect(() =>
-			v('i', {
-				id: undefined,
-				key: 'icon',
-				alt: undefined,
-				title: undefined,
-				classes: [css.root, 'fas fa-smile', '']
-			})
+			v(
+				'span',
+				{
+					id: undefined,
+					key: 'icon',
+					classes: [css.root, ''],
+					title: undefined
+				},
+				[
+					v(
+						'i',
+						{
+							alt: undefined,
+							classes: ['fas fa-smile', '']
+						},
+						[]
+					)
+				]
+			)
 		);
 	});
 

@@ -23,7 +23,7 @@ describe('Label', () => {
 					id: undefined,
 					key: 'label',
 					for: undefined,
-					classes: [css.root]
+					classes: [css.root, css.fontDirection]
 				},
 				[]
 			)
@@ -39,7 +39,7 @@ describe('Label', () => {
 					id: 'random-id',
 					key: 'label',
 					for: 'id',
-					classes: [css.root, 'test']
+					classes: [css.root, css.fontDirection, 'test']
 				},
 				['label']
 			)

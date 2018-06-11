@@ -142,6 +142,8 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 
 		if (noResize === true || noResize === 'true') {
 			cssStyles.resize = 'none';
+		} else {
+			cssStyles.resize = 'both';
 		}
 
 		let flexItemClasses: string[] = [];
