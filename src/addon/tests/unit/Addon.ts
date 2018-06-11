@@ -28,7 +28,7 @@ describe('Addon', () => {
 					key: 'addon',
 					classes: [css.root, 'input-group-prepend']
 				},
-				[v('div', {})]
+				[v('div', { classes: [] })]
 			)
 		);
 	});
@@ -115,7 +115,7 @@ describe('Addon', () => {
 					classes: [css.root, 'input-group-prepend']
 				},
 				[
-					v('div', {}, [
+					v('div', { classes: [] }, [
 						v(
 							'button',
 							{

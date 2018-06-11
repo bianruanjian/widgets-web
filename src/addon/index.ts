@@ -48,7 +48,7 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 				v(
 					'span',
 					{
-						classes: ['input-group-text']
+						classes: ['input-group-text', ...getColorsClasses(this.properties)]
 					},
 					[value]
 				)
@@ -65,9 +65,11 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 				return existCheckboxOrRadio;
 			});
 			if (existCheckboxOrRadio) {
-				children.push(v('div', { classes: ['input-group-text'] }, this.children));
+				children.push(
+					v('div', { classes: ['input-group-text', ...getColorsClasses(this.properties)] }, this.children)
+				);
 			} else {
-				children.push(v('div', {}, this.children));
+				children.push(v('div', { classes: getColorsClasses(this.properties) }, this.children));
 			}
 		}
 
@@ -76,7 +78,7 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 			{
 				id: widgetId,
 				key: 'addon',
-				classes: [this.theme(css.root), cssClass, ...getColorsClasses(this.properties)]
+				classes: [this.theme(css.root), cssClass]
 			},
 			children
 		);
