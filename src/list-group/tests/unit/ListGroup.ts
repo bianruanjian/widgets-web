@@ -106,7 +106,7 @@ describe('ListGroup', () => {
 							type: undefined,
 							onclick: () => {}
 						},
-						[]
+						['按钮']
 					)
 				]
 			)
@@ -185,7 +185,7 @@ describe('ListGroup', () => {
 							type: undefined,
 							onclick: () => {}
 						},
-						[]
+						['按钮']
 					),
 					v('li', {
 						classes: [cssListItem.root, 'list-group-item', undefined, undefined, undefined, undefined],
