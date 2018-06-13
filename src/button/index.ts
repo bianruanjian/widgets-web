@@ -78,7 +78,11 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 			target,
 			isListItem = false
 		} = this.properties;
-		const children: any[] = value ? [value, ...this.children] : this.children;
+
+		if (this.children.length === 0) {
+			this.children.push(value || '按钮');
+		}
+
 		let sizeClass: string = sizeMap[size as string];
 
 		if (target) {
@@ -112,7 +116,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 						  ],
 					role: 'button'
 				},
-				children
+				this.children
 			);
 		} else {
 			return v(
@@ -140,7 +144,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 					type: type,
 					onclick: this._onClick
 				},
-				children
+				this.children
 			);
 		}
 	}
