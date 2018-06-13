@@ -76,6 +76,10 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
+		if (this.children.length === 0) {
+			this.children.push(value);
+		}
+
 		return v(
 			tag,
 			{
@@ -92,7 +96,7 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 				href,
 				target
 			},
-			value ? [value] : this.children
+			this.children
 		);
 	}
 }

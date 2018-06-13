@@ -1,5 +1,5 @@
 import { v, w } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, VNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -88,6 +88,28 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 			classes.push(this.theme(css.root) as string);
 		}
 
+		// 属性 position 需要结合子部件的位置来实现效果，故在此由程序根据 position 的值来自动调整子部件的位置
+		const prependChildren: VNode[] = [];
+		const otherChildren: VNode[] = [];
+		const appendChildren: VNode[] = [];
+		this.children.forEach((child, index) => {
+			if (child) {
+				const childKey = (child as VNode).properties.key;
+				const position = (child as VNode).properties.position;
+
+				if (childKey === 'addon') {
+					if (position && position === 'append') {
+						appendChildren.push(child as VNode);
+					} else {
+						prependChildren.push(child as VNode);
+					}
+				} else {
+					otherChildren.push(child as VNode);
+				}
+			}
+		});
+		const children: VNode[] = [...prependChildren, ...otherChildren, ...appendChildren];
+
 		return [
 			label
 				? w(Label, {
@@ -102,7 +124,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 					key: 'input-group',
 					classes
 				},
-				this.children
+				children
 			)
 		];
 	}
