@@ -88,6 +88,26 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 			classes.push(this.theme(css.root) as string);
 		}
 
+		return [
+			label
+				? w(Label, {
+						value: label,
+						classes: ['col-form-label', 'mr-3']
+				  })
+				: null,
+			v(
+				'div',
+				{
+					id: widgetId,
+					key: 'input-group',
+					classes
+				},
+				this.reOrder()
+			)
+		];
+	}
+
+	protected reOrder() {
 		// 属性 position 需要结合子部件的位置来实现效果，故在此由程序根据 position 的值来自动调整子部件的位置
 		const prependChildren: VNode[] = [];
 		const otherChildren: VNode[] = [];
@@ -108,25 +128,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 				}
 			}
 		});
-		const children: VNode[] = [...prependChildren, ...otherChildren, ...appendChildren];
-
-		return [
-			label
-				? w(Label, {
-						value: label,
-						classes: ['col-form-label', 'mr-3']
-				  })
-				: null,
-			v(
-				'div',
-				{
-					id: widgetId,
-					key: 'input-group',
-					classes
-				},
-				children
-			)
-		];
+		return [...prependChildren, ...otherChildren, ...appendChildren];
 	}
 
 	protected render(): DNode | DNode[] {
