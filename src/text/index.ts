@@ -74,6 +74,10 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 			tag = type as string;
 		}
 
+		if (this.children.length === 0) {
+			this.children.push(value);
+		}
+
 		return v(
 			tag,
 			{
@@ -91,7 +95,7 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 					...getTextStyles(this.properties)
 				}
 			},
-			value ? [...this.children, ...[value]] : this.children
+			this.children
 		);
 	}
 }

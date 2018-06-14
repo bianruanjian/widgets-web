@@ -100,6 +100,10 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
+		if (this.children.length === 0) {
+			this.children.push(value);
+		}
+
 		return v(
 			'a',
 			{
@@ -130,7 +134,7 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 					  ],
 				styles: getTextStyles(this.properties)
 			},
-			value ? [value, ...this.children] : this.children
+			this.children
 		);
 	}
 }
