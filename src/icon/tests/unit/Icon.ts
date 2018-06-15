@@ -54,17 +54,24 @@ describe('Icon', () => {
 				{
 					id: undefined,
 					key: 'icon',
-					classes: [css.root, ''],
+					classes: [css.root, '', 'd-inline-block'],
 					title: undefined
 				},
 				[
 					v(
-						'i',
+						'svg',
 						{
+							classes: ['svg-inline--fa'],
+							fill: 'currentColor',
 							alt: undefined,
-							classes: [undefined, undefined]
+							width: '1em',
+							height: '1em'
 						},
-						[]
+						[
+							v('use', {
+								href: '#undefined'
+							})
+						]
 					)
 				]
 			)
@@ -79,17 +86,24 @@ describe('Icon', () => {
 				{
 					id: undefined,
 					key: 'icon',
-					classes: [css.root, ''],
+					classes: [css.root, '', 'd-inline-block', ''],
 					title: undefined
 				},
 				[
 					v(
-						'i',
+						'svg',
 						{
+							classes: ['svg-inline--fa'],
+							fill: 'currentColor',
 							alt: undefined,
-							classes: ['fas fa-smile', '']
+							width: '1em',
+							height: '1em'
 						},
-						[]
+						[
+							v('use', {
+								href: '#fas fa-smile'
+							})
+						]
 					)
 				]
 			)
@@ -114,18 +128,26 @@ describe('Icon', () => {
 						'align-self-start',
 						'order-0',
 						'text-primary',
-						'bg-primary'
+						'bg-primary',
+						'fa-xs'
 					],
 					title: 'smile'
 				},
 				[
 					v(
-						'i',
+						'svg',
 						{
+							classes: ['svg-inline--fa'],
+							fill: 'currentColor',
 							alt: 'alt',
-							classes: ['fas fa-smile', 'fa-xs']
+							width: '1em',
+							height: '1em'
 						},
-						[]
+						[
+							v('use', {
+								href: '#fas fa-smile'
+							})
+						]
 					)
 				]
 			)

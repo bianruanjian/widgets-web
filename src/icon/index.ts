@@ -46,8 +46,13 @@ export interface IconProperties
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 /**
- * 若使用该部件需要先引入 fontawesome 的 js 文件（SVG with JavaScript）
- * 如：<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+ * 1. 若使用该部件需要在 package.json 文件中引入 svg-injector(https://github.com/tanem/svg-injector) 依赖或在 html 页面引入 svg-injector.js(https://cdnjs.com/libraries/svg-injector) 文件
+ * 1. 从 https://github.com/FortAwesome/Font-Awesome/tree/master/advanced-options/svg-sprites 中下载 fa-brands.svg, fa-regular.svg, fa-solid.svg 到所在项目中，
+ *    这三个 sprite 文件嵌入到 html 中之后， 会出现 id 相同的情况，因此当前的处理方式是修改三个文件中的 id
+ * 		在 fa-brands.svg 中的 id 前添加 fab-；
+ *		在 fa-regular.svg 中的 id 前添加 far-；
+ *		在 fa-solid.svg 中的 id 前添加 fas-;
+ * 1. 使用 svg-injector 导入 fa-brands.svg, fa-regular.svg, fa-solid.svg 三个文件。
  */
 @customElement<IconProperties>({
 	tag: 'db-icon',
@@ -80,7 +85,7 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, size, alt, title, display } = this.properties;
 
-		let flexItemClasses: string[] = [];
+		let flexItemClasses: string[] = ['d-inline-block'];
 
 		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
@@ -99,6 +104,10 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 			...getColorsClasses(this.properties)
 		];
 
+		if (size) {
+			cssClasses.push(sizeMap[size as string]);
+		}
+
 		return v(
 			'span',
 			{
@@ -108,10 +117,21 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 				title
 			},
 			[
-				v('i', {
-					alt,
-					classes: [value ? (value as string) : undefined, size ? sizeMap[size as string] : undefined]
-				})
+				v(
+					'svg',
+					{
+						classes: ['svg-inline--fa'],
+						fill: 'currentColor',
+						alt,
+						width: '1em',
+						height: '1em'
+					},
+					[
+						v('use', {
+							href: `#${value}`
+						})
+					]
+				)
 			]
 		);
 	}

@@ -7,16 +7,25 @@ tags:
 ---
 
 图标
+{% raw %}
+  <img class="inject-me" src="fontawesome/fa-brands.svg">
+  <img class="inject-me" src="fontawesome/fa-regular.svg">
+  <img class="inject-me" src="fontawesome/fa-solid.svg">
+  <script>
+        var mySVGsToInject = document.querySelectorAll('img.inject-me');
+        SVGInjector(mySVGsToInject);
+  </script>
+{% endraw %}
 
 ## 基本用法
 
 {% raw %}
-<db-icon value="far fa-smile" alt="smile" title="微笑"></db-icon>
-<db-icon value="far fa-smile" alt="smile" title="微笑" size="large"></db-icon>
+<db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+<db-icon value="far-smile" alt="smile" title="微笑" size="large"></db-icon>
 {% endraw %}
 ```html
-<db-icon value="far fa-smile" alt="smile" title="微笑"></db-icon>
-<db-icon value="far fa-smile" alt="smile" title="微笑" size="large"></db-icon>
+<db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+<db-icon value="far-smile" alt="smile" title="微笑" size="large"></db-icon>
 ```
 
 ## 通用属性
@@ -31,7 +40,7 @@ tags:
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
-| value | 值 | far fa-smile | | string |
+| value | 值 | far-smile | | string |
 | size | 尺寸 | default | extraSmall, small, large, 2x-10x, default | string |
 | alt | 替代文本 | | | string |
 | title | 提示文本 | | | string |
