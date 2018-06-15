@@ -46,8 +46,7 @@ export interface IconProperties
 export const ThemedBase = ThemedMixin(WidgetBase);
 
 /**
- * 若使用该部件需要先引入 fontawesome 的 js 文件（SVG with JavaScript）
- * 如：<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+ * 若使用该部件需要要在 package.json 中引入 svg-injector 依赖
  */
 @customElement<IconProperties>({
 	tag: 'db-icon',
@@ -80,7 +79,7 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, size, alt, title, display } = this.properties;
 
-		let flexItemClasses: string[] = [];
+		let flexItemClasses: string[] = ['d-inline-block'];
 
 		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
@@ -99,6 +98,10 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 			...getColorsClasses(this.properties)
 		];
 
+		if (size) {
+			cssClasses.push(sizeMap[size as string]);
+		}
+
 		return v(
 			'span',
 			{
@@ -108,10 +111,21 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 				title
 			},
 			[
-				v('i', {
-					alt,
-					classes: [value ? (value as string) : undefined, size ? sizeMap[size as string] : undefined]
-				})
+				v(
+					'svg',
+					{
+						classes: ['svg-inline--fa'],
+						fill: 'currentColor',
+						alt,
+						width: '1em',
+						height: '1em'
+					},
+					[
+						v('use', {
+							href: `#${value}`
+						})
+					]
+				)
 			]
 		);
 	}
