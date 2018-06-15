@@ -76,9 +76,11 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 			tag = type as string;
 		}
 
-		let children: DNode[] = [value, ...this.children];
+		let children: DNode[] = [];
 		if (this.children.length > 0 && (valueAfter === true || valueAfter === 'true')) {
 			children = [...this.children, value];
+		} else {
+			children = [value, ...this.children];
 		}
 
 		return v(
