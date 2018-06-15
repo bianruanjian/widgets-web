@@ -55,7 +55,7 @@ describe('Badge', () => {
 					href: undefined,
 					target: undefined
 				},
-				[]
+				[undefined]
 			)
 		);
 	});
@@ -72,7 +72,7 @@ describe('Badge', () => {
 					href: undefined,
 					target: 'self'
 				},
-				[]
+				[undefined]
 			)
 		);
 	});

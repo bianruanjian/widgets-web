@@ -22,6 +22,7 @@ import * as css from './styles/text.m.css';
 export interface TextWidgetProperties extends SpacingProperties, TextProperties, ColorsProperties, ThemedProperties {
 	widgetId?: string;
 	value?: string;
+	valueAfter?: boolean | string;
 	type?: string;
 }
 
@@ -33,6 +34,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	attributes: [
 		'widgetId',
 		'value',
+		'valueAfter',
 		'type',
 		'marginTop',
 		'marginBottom',
@@ -58,7 +60,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let { widgetId, value, type } = this.properties;
+		let { widgetId, value, valueAfter, type } = this.properties;
 
 		let tag: string;
 		let cssClasses: string[] = [];
@@ -72,6 +74,13 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 			cssClasses.push('lead');
 		} else {
 			tag = type as string;
+		}
+
+		let children: DNode[] = [];
+		if (this.children.length > 0 && (valueAfter === true || valueAfter === 'true')) {
+			children = [...this.children, value];
+		} else {
+			children = [value, ...this.children];
 		}
 
 		return v(
@@ -91,7 +100,7 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 					...getTextStyles(this.properties)
 				}
 			},
-			value ? [...this.children, ...[value]] : this.children
+			children
 		);
 	}
 }

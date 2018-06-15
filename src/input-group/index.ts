@@ -1,5 +1,5 @@
 import { v, w } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { DNode, VNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
@@ -102,9 +102,34 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 					key: 'input-group',
 					classes
 				},
-				this.children
+				this.reOrderChildren()
 			)
 		];
+	}
+
+	protected reOrderChildren() {
+		// 属性 position 需要结合子部件的位置来实现效果，故在此由程序根据 position 的值来自动调整子部件的位置
+		const prependChildren: VNode[] = [];
+		const inputChildren: VNode[] = [];
+		const appendChildren: VNode[] = [];
+		this.children.forEach((child, index) => {
+			if (child) {
+				const childNode = child as VNode;
+				const childKey = childNode.properties.key;
+				const position = childNode.properties.position;
+
+				if (childKey === 'addon') {
+					if (position && position === 'append') {
+						appendChildren.push(childNode);
+					} else {
+						prependChildren.push(childNode);
+					}
+				} else {
+					inputChildren.push(childNode);
+				}
+			}
+		});
+		return [...prependChildren, ...inputChildren, ...appendChildren];
 	}
 
 	protected render(): DNode | DNode[] {

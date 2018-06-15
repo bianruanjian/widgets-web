@@ -68,7 +68,7 @@ describe('Link', () => {
 					classes: [cssLink.root, undefined],
 					styles: {}
 				},
-				[]
+				[undefined]
 			)
 		);
 	});
@@ -86,7 +86,7 @@ describe('Link', () => {
 					classes: [cssLink.root, undefined],
 					styles: {}
 				},
-				[]
+				[undefined]
 			)
 		);
 	});
@@ -143,7 +143,7 @@ describe('Link', () => {
 					classes: [cssLink.root, 'list-group-item', 'list-group-item-action', undefined, undefined],
 					styles: {}
 				},
-				[]
+				[undefined]
 			)
 		);
 	});

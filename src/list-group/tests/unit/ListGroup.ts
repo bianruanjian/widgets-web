@@ -125,14 +125,18 @@ describe('ListGroup', () => {
 					classes: [css.root, 'list-group', undefined]
 				},
 				[
-					v('a', {
-						classes: [cssLink.root, undefined],
-						href: undefined,
-						id: undefined,
-						key: 'link',
-						styles: {},
-						target: undefined
-					})
+					v(
+						'a',
+						{
+							classes: [cssLink.root, undefined],
+							href: undefined,
+							id: undefined,
+							key: 'link',
+							styles: {},
+							target: undefined
+						},
+						[undefined]
+					)
 				]
 			)
 		);
