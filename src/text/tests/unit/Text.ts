@@ -6,6 +6,7 @@ import { textDecorationMap } from '../../../common/util';
 
 import * as css from '../../../common/base.m.css';
 import * as cssText from './../../styles/text.m.css';
+import Badge from '../../../badge';
 
 describe('Text', () => {
 	let defaultProperties: TextWidgetProperties = {
@@ -32,6 +33,7 @@ describe('Text', () => {
 	let customProperties: TextWidgetProperties = {
 		widgetId: 'random-id',
 		value: 'test',
+		valueAfter: true,
 		type: 'h1',
 		marginTop: '0',
 		marginBottom: '0',
@@ -133,6 +135,24 @@ describe('Text', () => {
 					styles: {}
 				},
 				[undefined]
+			)
+		);
+	});
+
+	it('text with children and valueAfter is true', () => {
+		const h = harness(() =>
+			w(Text, { value: 'val', valueAfter: true }, [w(Badge, { value: 'val' }), w(Badge, { value: '1' })])
+		);
+		h.expect(() =>
+			v(
+				'span',
+				{
+					id: undefined,
+					key: 'text',
+					classes: [cssText.root],
+					styles: {}
+				},
+				[w(Badge, { value: 'val' }), w(Badge, { value: '1' }), 'val']
 			)
 		);
 	});
