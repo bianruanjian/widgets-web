@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="widgets-web">
 <meta property="og:description" content="文本 基本用法value   1&amp;lt;db-text widgetId=&quot;id&quot; value=&quot;text&quot;&amp;gt;&amp;lt;/db-text&amp;gt; type            12345678910&amp;lt;db-text value=&quot;h1&quot; type=&quot;h1&quot;&amp;gt;&amp;lt;/db-text&amp;gt;&amp;lt;db-text value=&quot;h2&quot; type=&quot;h2&quot;&amp;gt;&amp;lt;/db-te">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-13T03:51:26.514Z">
+<meta property="og:updated_time" content="2018-06-15T02:16:06.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Text">
 <meta name="twitter:description" content="文本 基本用法value   1&amp;lt;db-text widgetId=&quot;id&quot; value=&quot;text&quot;&amp;gt;&amp;lt;/db-text&amp;gt; type            12345678910&amp;lt;db-text value=&quot;h1&quot; type=&quot;h1&quot;&amp;gt;&amp;lt;/db-text&amp;gt;&amp;lt;db-text value=&quot;h2&quot; type=&quot;h2&quot;&amp;gt;&amp;lt;/db-te">
@@ -218,16 +218,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Form/Textarea.html">
-                    Textarea
+                <a href="/widgets-web/components/Form/TextInput.html">
+                    TextInput
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/widgets-web/components/Form/TextInput.html">
-                    TextInput
+                <a href="/widgets-web/components/Form/Textarea.html">
+                    Textarea
                 </a>
             </li>
         
@@ -266,14 +266,6 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Layout/GridRow.html">
-                    GridRow
-                </a>
-            </li>
-        
-            <li
-                
-            >
                 <a href="/widgets-web/components/Layout/GridColumn.html">
                     GridColumn
                 </a>
@@ -290,8 +282,8 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Layout/View.html">
-                    View
+                <a href="/widgets-web/components/Layout/GridRow.html">
+                    GridRow
                 </a>
             </li>
         
@@ -300,6 +292,14 @@
             >
                 <a href="/widgets-web/components/Layout/ListItem.html">
                     ListItem
+                </a>
+            </li>
+        
+            <li
+                
+            >
+                <a href="/widgets-web/components/Layout/View.html">
+                    View
                 </a>
             </li>
         
@@ -338,16 +338,8 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Spacing.html">
-                    Spacing
-                </a>
-            </li>
-        
-            <li
-                
-            >
-                <a href="/widgets-web/components/Utilities/Text.html">
-                    Text
+                <a href="/widgets-web/components/Utilities/Flex.html">
+                    Flex
                 </a>
             </li>
         
@@ -362,8 +354,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Flex.html">
-                    Flex
+                <a href="/widgets-web/components/Utilities/Spacing.html">
+                    Spacing
+                </a>
+            </li>
+        
+            <li
+                
+            >
+                <a href="/widgets-web/components/Utilities/Text.html">
+                    Text
                 </a>
             </li>
         
@@ -443,6 +443,13 @@
 <td>string</td>
 </tr>
 <tr>
+<td>valueAfter</td>
+<td>文本后置</td>
+<td>false</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
 <td>type</td>
 <td>内容类型</td>
 <td></td>
@@ -451,6 +458,9 @@
 </tr>
 </tbody>
 </table>
+<ol>
+<li><code>valueAfter</code> 描述所有子部件与 <code>value</code> 的排列顺序。如果 <code>Text</code> 中包含子部件，则使用此属性控制 <code>value</code> 与所有子部件的顺序，默认 <code>value</code> 在前，所有子部件在后，将 <code>valueAfter</code> 设置为 <code>true</code> 之后，则所有子部件在前，<code>value</code> 在后。</li>
+</ol>
 
       
     </div>
