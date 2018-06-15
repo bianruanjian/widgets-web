@@ -25,7 +25,7 @@ describe('Label', () => {
 					for: undefined,
 					classes: [css.root, css.fontDirection]
 				},
-				[]
+				[undefined]
 			)
 		);
 	});

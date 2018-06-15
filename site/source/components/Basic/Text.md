@@ -58,3 +58,6 @@ tags:
 | widgetId | 标识 | | | string |
 | value | 值 | 文本 | | string |
 | type | 内容类型 | | h1(一级标题), h2(二级标题), h3(三级标题), h4(四级标题), h5(五级标题), h6(六级标题), p(段落), text(纯文本), lead(突出式段落), small(小文本) | string |
+| valueAfter | 文本后置 | false | true, false | boolean |
+
+1. `valueAfter` 描述所有子部件与 value 的排列顺序。如果 `Text` 中包含子部件，则使用此属性控制 `value` 与所有子部件的顺序，默认 `value` 在前，所有子部件在后，将 `valueAfter` 设置为 `true` 之后，则所有子部件在前，文本在后。

@@ -63,7 +63,7 @@ describe('Text', () => {
 					classes: [cssText.root],
 					styles: {}
 				},
-				[]
+				[undefined]
 			)
 		);
 	});
@@ -79,7 +79,7 @@ describe('Text', () => {
 					classes: [cssText.root],
 					styles: {}
 				},
-				[]
+				[undefined]
 			)
 		);
 	});
@@ -132,7 +132,7 @@ describe('Text', () => {
 					classes: [cssText.root, 'lead'],
 					styles: {}
 				},
-				[]
+				[undefined]
 			)
 		);
 	});
