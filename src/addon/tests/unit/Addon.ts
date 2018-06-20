@@ -126,7 +126,7 @@ describe('Addon', () => {
 								type: undefined,
 								onclick: () => {}
 							},
-							['按钮']
+							[undefined]
 						)
 					])
 				]

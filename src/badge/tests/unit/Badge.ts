@@ -5,6 +5,7 @@ import harness from '@dojo/test-extras/harness';
 
 import Badge, { BadgeProperties } from './../../index';
 import * as css from './../../styles/badge.m.css';
+import Text from '../../../text';
 
 describe('Badge', () => {
 	const defaultProperties: BadgeProperties = {
@@ -26,6 +27,7 @@ describe('Badge', () => {
 	const customProperties: BadgeProperties = {
 		widgetId: 'random-id',
 		value: 'val',
+		valuePosition: 'left',
 		appearance: 'primary',
 		pill: true,
 		href: 'https://badge.com',
@@ -102,6 +104,23 @@ describe('Badge', () => {
 					target: 'iframeId'
 				},
 				['val']
+			)
+		);
+	});
+
+	it('valuePosition is left', () => {
+		const h = harness(() => w(Badge, { value: 'val', valuePosition: 'left' }, [w(Text, { value: 'abc' })]));
+		h.expect(() =>
+			v(
+				'span',
+				{
+					id: undefined,
+					key: 'badge',
+					classes: [css.root, 'badge', undefined],
+					href: undefined,
+					target: undefined
+				},
+				['val', w(Text, { value: 'abc' })]
 			)
 		);
 	});

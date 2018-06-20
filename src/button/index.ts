@@ -25,6 +25,7 @@ export const targetMap: { [key: string]: string } = {
 export interface ButtonProperties extends ThemedProperties {
 	widgetId?: string;
 	value?: string;
+	valuePosition?: string;
 	appearance?: string;
 	size?: string;
 	disabled?: boolean | string;
@@ -44,6 +45,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	attributes: [
 		'widgetId',
 		'value',
+		'valuePosition',
 		'appearance',
 		'size',
 		'disabled',
@@ -64,10 +66,53 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 		this.properties.onClick && this.properties.onClick();
 	}
 
+	protected renderChildren(): DNode[] {
+		let { value, valuePosition } = this.properties;
+
+		if (!value || value === '') {
+			return this.children;
+		}
+
+		if (!valuePosition || valuePosition === '') {
+			return [...this.children, value];
+		}
+
+		if (valuePosition === 'left') {
+			return [value, ...this.children];
+		}
+
+		if (valuePosition === 'top') {
+			return [
+				v(
+					'span',
+					{
+						classes: ['d-block']
+					},
+					[value]
+				),
+				...this.children
+			];
+		}
+
+		if (valuePosition === 'bottom') {
+			return [
+				...this.children,
+				v(
+					'span',
+					{
+						classes: ['d-block']
+					},
+					[value]
+				)
+			];
+		}
+
+		return [...this.children, value];
+	}
+
 	protected render(): DNode | DNode[] {
 		let {
 			widgetId,
-			value,
 			appearance,
 			size,
 			disabled,
@@ -79,15 +124,13 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 			isListItem = false
 		} = this.properties;
 
-		if (this.children.length === 0) {
-			this.children.push(value || '按钮');
-		}
-
 		let sizeClass: string = sizeMap[size as string];
 
 		if (target) {
 			target = targetMap[target as string] || target;
 		}
+
+		const children: DNode[] = this.renderChildren();
 
 		if (href) {
 			// 使用a标签
@@ -116,7 +159,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 						  ],
 					role: 'button'
 				},
-				this.children
+				children
 			);
 		} else {
 			return v(
@@ -144,7 +187,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 					type: type,
 					onclick: this._onClick
 				},
-				this.children
+				children
 			);
 		}
 	}

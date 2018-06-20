@@ -10,6 +10,16 @@ tags:
 
 ## 基本用法
 
+{% raw %}
+  <img class="inject-me" src="fontawesome/fa-brands.svg">
+  <img class="inject-me" src="fontawesome/fa-regular.svg">
+  <img class="inject-me" src="fontawesome/fa-solid.svg">
+  <script>
+        var mySVGsToInject = document.querySelectorAll('img.inject-me');
+        SVGInjector(mySVGsToInject);
+  </script>
+{% endraw %}
+
 ### 填充
 
 {% raw %}
@@ -132,12 +142,37 @@ tags:
 <db-button appearance="link" active="true" value="超链接" href="#"></db-button>
 ```
 
+### 值位置
+
+{% raw %}
+<db-button value="right" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
+<db-button value="left" valuePosition="left" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
+<db-button value="top" valuePosition="top" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
+<db-button value="bottom" valuePosition="bottom" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
+{% endraw %}
+
+```html
+<db-button value="right" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
+<db-button value="left" valuePosition="left" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
+<db-button value="top" valuePosition="top" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
+<db-button value="bottom" valuePosition="bottom" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
+```
+
 ## 属性
 
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
 | value | 值 | 按钮 | | string |
+| valuePosition | 值位置 | right | left, top, right, bottom | string |
 | appearance | 外观 | default | primary, secondary, success, danger, warning, info, light, dark, link, outline-primary, outline-secondary, outline-success, outline-danger, outline-warning, outline-info, outline-light, outline-dark, default | string |
 | size | 尺寸 | default | small, default, large | string |
 | disabled | 失效 | false | true, false | boolean |

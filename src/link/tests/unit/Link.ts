@@ -6,6 +6,7 @@ import { textDecorationMap } from '../../../common/util';
 
 import * as css from '../../../common/base.m.css';
 import * as cssLink from './../../styles/link.m.css';
+import Text from '../../../text';
 
 describe('Link', () => {
 	const defaultProperties: LinkProperties = {
@@ -144,6 +145,24 @@ describe('Link', () => {
 					styles: {}
 				},
 				[undefined]
+			)
+		);
+	});
+
+	it('valuePosition is left', () => {
+		const h = harness(() => w(Link, { value: 'val', valuePosition: 'left' }, [w(Text, { value: 'abc' })]));
+		h.expect(() =>
+			v(
+				'a',
+				{
+					id: undefined,
+					key: 'link',
+					href: undefined,
+					target: undefined,
+					classes: [cssLink.root, undefined],
+					styles: {}
+				},
+				['val', w(Text, { value: 'abc' })]
 			)
 		);
 	});

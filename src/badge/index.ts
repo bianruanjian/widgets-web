@@ -17,6 +17,7 @@ import * as css from './styles/badge.m.css';
 export interface BadgeProperties extends SpacingProperties, FlexItemProperties, DisplayProperties, ThemedProperties {
 	widgetId?: string;
 	value?: string;
+	valuePosition?: string;
 	appearance?: string;
 	pill?: boolean | string;
 	href?: string;
@@ -31,6 +32,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	attributes: [
 		'widgetId',
 		'value',
+		'valuePosition',
 		'appearance',
 		'pill',
 		'href',
@@ -53,7 +55,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId, value, appearance, pill, href, target, display } = this.properties;
+		const { widgetId, value, valuePosition, appearance, pill, href, target, display } = this.properties;
 
 		let tag: string = 'span';
 		const cssClasses: string[] = [];
@@ -76,8 +78,12 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		if (this.children.length === 0) {
-			this.children.push(value);
+		let children: DNode[];
+
+		if (value && valuePosition && valuePosition === 'left') {
+			children = [value, ...this.children];
+		} else {
+			children = [...this.children, value];
 		}
 
 		return v(
@@ -96,7 +102,7 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 				href,
 				target
 			},
-			this.children
+			children
 		);
 	}
 }
