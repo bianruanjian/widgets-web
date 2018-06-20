@@ -66,27 +66,22 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 		this.properties.onClick && this.properties.onClick();
 	}
 
-	protected render(): DNode | DNode[] {
-		let {
-			widgetId,
-			value,
-			valuePosition,
-			appearance,
-			size,
-			disabled,
-			type,
-			fluid,
-			active,
-			href,
-			target,
-			isListItem = false
-		} = this.properties;
+	protected renderChildren(): DNode[] {
+		let { value, valuePosition } = this.properties;
 
 		let children: DNode[];
 
-		if (value && valuePosition && valuePosition === 'left') {
+		if (!value || value === '') {
+			return this.children;
+		}
+
+		if (!valuePosition || valuePosition === '') {
+			return [...this.children, value];
+		}
+
+		if (valuePosition === 'left') {
 			children = [value, ...this.children];
-		} else if (value && valuePosition && valuePosition === 'top') {
+		} else if (valuePosition === 'top') {
 			children = [
 				v(
 					'span',
@@ -97,7 +92,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 				),
 				...this.children
 			];
-		} else if (value && valuePosition && valuePosition === 'bottom') {
+		} else if (valuePosition === 'bottom') {
 			children = [
 				...this.children,
 				v(
@@ -112,11 +107,30 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 			children = [...this.children, value];
 		}
 
+		return children;
+	}
+
+	protected render(): DNode | DNode[] {
+		let {
+			widgetId,
+			appearance,
+			size,
+			disabled,
+			type,
+			fluid,
+			active,
+			href,
+			target,
+			isListItem = false
+		} = this.properties;
+
 		let sizeClass: string = sizeMap[size as string];
 
 		if (target) {
 			target = targetMap[target as string] || target;
 		}
+
+		const children: DNode[] = this.renderChildren();
 
 		if (href) {
 			// 使用a标签
