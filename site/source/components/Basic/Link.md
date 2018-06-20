@@ -33,3 +33,6 @@ tags:
 | href | 链接地址 | | | string |
 | target | 目标 | self | self, blank, {iframeId} | string |
 | value | 值 | | | string |
+| valuePosition | 值位置 | right | left, right | string |
+
+1. `valuePosition` 描述所有子部件与 `value` 的排列顺序。如果 `Link` 中包含子部件，则使用此属性控制 `value` 与所有子部件的顺序，默认所有子部件在前，`value` 在后，将 `valuePosition` 设置为 `left` 之后，则`value` 在前，所有子部件在后。

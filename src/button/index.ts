@@ -25,6 +25,7 @@ export const targetMap: { [key: string]: string } = {
 export interface ButtonProperties extends ThemedProperties {
 	widgetId?: string;
 	value?: string;
+	valuePosition?: string;
 	appearance?: string;
 	size?: string;
 	disabled?: boolean | string;
@@ -44,6 +45,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	attributes: [
 		'widgetId',
 		'value',
+		'valuePosition',
 		'appearance',
 		'size',
 		'disabled',
@@ -68,6 +70,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 		let {
 			widgetId,
 			value,
+			valuePosition,
 			appearance,
 			size,
 			disabled,
@@ -79,8 +82,34 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 			isListItem = false
 		} = this.properties;
 
-		if (this.children.length === 0) {
-			this.children.push(value || '按钮');
+		let children: DNode[];
+
+		if (value && valuePosition && valuePosition === 'left') {
+			children = [value, ...this.children];
+		} else if (value && valuePosition && valuePosition === 'top') {
+			children = [
+				v(
+					'span',
+					{
+						classes: ['d-block']
+					},
+					[value]
+				),
+				...this.children
+			];
+		} else if (value && valuePosition && valuePosition === 'top') {
+			children = [
+				...this.children,
+				v(
+					'span',
+					{
+						classes: ['d-block']
+					},
+					[value]
+				)
+			];
+		} else {
+			children = [...this.children, value];
 		}
 
 		let sizeClass: string = sizeMap[size as string];
@@ -116,7 +145,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 						  ],
 					role: 'button'
 				},
-				this.children
+				children
 			);
 		} else {
 			return v(
@@ -144,7 +173,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 					type: type,
 					onclick: this._onClick
 				},
-				this.children
+				children
 			);
 		}
 	}

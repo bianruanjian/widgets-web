@@ -40,6 +40,7 @@ export interface LinkProperties
 	href?: string;
 	target?: string;
 	value?: string;
+	valuePosition?: string;
 	// 当将 Link 作为 ListGroup 的子部件时，要设置 isListItem 为 true, 默认为 false
 	isListItem?: boolean;
 	// 在实现层面，list-group-item-xx 是同时设置了背景颜色和字体颜色，
@@ -59,6 +60,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'href',
 		'target',
 		'value',
+		'valuePosition',
 		'isListItem',
 		'appearance',
 		'marginTop',
@@ -88,7 +90,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		let { widgetId, href, target, value, isListItem = false, appearance, display } = this.properties;
+		let { widgetId, href, target, value, valuePosition, isListItem = false, appearance, display } = this.properties;
 
 		if (target) {
 			target = targetMap[target as string] || target;
@@ -100,8 +102,12 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		if (this.children.length === 0) {
-			this.children.push(value);
+		let children: DNode[];
+
+		if (value && valuePosition && valuePosition === 'left') {
+			children = [value, ...this.children];
+		} else {
+			children = [...this.children, value];
 		}
 
 		return v(
@@ -134,7 +140,7 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 					  ],
 				styles: getTextStyles(this.properties)
 			},
-			this.children
+			children
 		);
 	}
 }

@@ -37,10 +37,6 @@ export class LabelBase<P extends LabelProperties = LabelProperties> extends Them
 			classes = [classes];
 		}
 
-		if (this.children.length === 0) {
-			this.children.push(value);
-		}
-
 		return v(
 			'label',
 			{
@@ -51,7 +47,7 @@ export class LabelBase<P extends LabelProperties = LabelProperties> extends Them
 					? [this.theme(css.root), css.fontDirection, ...(classes as string[])]
 					: [this.theme(css.root), css.fontDirection]
 			},
-			this.children
+			[value, ...this.children]
 		);
 	}
 }

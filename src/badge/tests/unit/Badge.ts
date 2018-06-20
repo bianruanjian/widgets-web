@@ -26,6 +26,7 @@ describe('Badge', () => {
 	const customProperties: BadgeProperties = {
 		widgetId: 'random-id',
 		value: 'val',
+		valuePosition: 'left',
 		appearance: 'primary',
 		pill: true,
 		href: 'https://badge.com',

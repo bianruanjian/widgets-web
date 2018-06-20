@@ -138,6 +138,7 @@ tags:
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
 | value | 值 | 按钮 | | string |
+| valuePosition | 值位置 | right | left, top, right, bottom | string |
 | appearance | 外观 | default | primary, secondary, success, danger, warning, info, light, dark, link, outline-primary, outline-secondary, outline-success, outline-danger, outline-warning, outline-info, outline-light, outline-dark, default | string |
 | size | 尺寸 | default | small, default, large | string |
 | disabled | 失效 | false | true, false | boolean |
