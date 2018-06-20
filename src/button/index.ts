@@ -97,7 +97,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 				),
 				...this.children
 			];
-		} else if (value && valuePosition && valuePosition === 'top') {
+		} else if (value && valuePosition && valuePosition === 'bottom') {
 			children = [
 				...this.children,
 				v(
