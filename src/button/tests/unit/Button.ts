@@ -5,6 +5,7 @@ import harness from '@dojo/test-extras/harness';
 
 import Button, { ButtonProperties } from './../../index';
 import * as css from './../../styles/button.m.css';
+import Text from '../../../text';
 
 describe('Button', () => {
 	const defaultProperties: ButtonProperties = {
@@ -104,6 +105,33 @@ describe('Button', () => {
 					onclick: () => {}
 				},
 				[undefined]
+			)
+		);
+	});
+
+	it('valuePosition is top', () => {
+		const h = harness(() => w(Button, { value: 'val', valuePosition: 'top' }, [w(Text, { value: 'abc' })]));
+		h.expect(() =>
+			v(
+				'button',
+				{
+					id: undefined,
+					key: 'button',
+					classes: [css.root, 'btn', undefined, undefined, undefined, undefined],
+					disabled: false,
+					type: undefined,
+					onclick: () => {}
+				},
+				[
+					v(
+						'span',
+						{
+							classes: ['d-block']
+						},
+						['val']
+					),
+					w(Text, { value: 'abc' })
+				]
 			)
 		);
 	});
