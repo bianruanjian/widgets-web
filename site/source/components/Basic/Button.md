@@ -10,6 +10,16 @@ tags:
 
 ## 基本用法
 
+{% raw %}
+  <img class="inject-me" src="fontawesome/fa-brands.svg">
+  <img class="inject-me" src="fontawesome/fa-regular.svg">
+  <img class="inject-me" src="fontawesome/fa-solid.svg">
+  <script>
+        var mySVGsToInject = document.querySelectorAll('img.inject-me');
+        SVGInjector(mySVGsToInject);
+  </script>
+{% endraw %}
+
 ### 填充
 
 {% raw %}
@@ -135,17 +145,25 @@ tags:
 ### 值位置
 
 {% raw %}
-<db-button value="-right" appearance="primary"><db-link value="link"></db-link></db-button>
-<db-button value="left-" valuePosition="left" appearance="primary"><db-link value="link"></db-link></db-button>
-<db-button value="top" valuePosition="top" appearance="primary"><db-link value="link"></db-link></db-button>
-<db-button value="bottom" valuePosition="bottom" appearance="primary"><db-link value="link"></db-link></db-button>
+<db-button value="right" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
+<db-button value="left" valuePosition="left" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
+<db-button value="top" valuePosition="top" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
+<db-button value="bottom" valuePosition="bottom" appearance="light"><db-icon value="far-smile" alt="smile" title="微笑"></db-icon></db-button>
 {% endraw %}
 
 ```html
-<db-button value="right" appearance="primary"><db-link value="link"></db-link></db-button>
-<db-button value="left" valuePosition="left" appearance="primary"><db-link value="link"></db-link></db-button>
-<db-button value="top" valuePosition="top" appearance="primary"><db-link value="link"></db-link></db-button>
-<db-button value="bottom" valuePosition="bottom" appearance="primary"><db-link value="link"></db-link></db-button>
+<db-button value="right" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
+<db-button value="left" valuePosition="left" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
+<db-button value="top" valuePosition="top" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
+<db-button value="bottom" valuePosition="bottom" appearance="light">
+    <db-icon value="far-smile" alt="smile" title="微笑"></db-icon>
+</db-button>
 ```
 
 ## 属性
