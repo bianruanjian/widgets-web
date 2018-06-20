@@ -69,8 +69,6 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 	protected renderChildren(): DNode[] {
 		let { value, valuePosition } = this.properties;
 
-		let children: DNode[];
-
 		if (!value || value === '') {
 			return this.children;
 		}
@@ -80,9 +78,11 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 		}
 
 		if (valuePosition === 'left') {
-			children = [value, ...this.children];
-		} else if (valuePosition === 'top') {
-			children = [
+			return [value, ...this.children];
+		}
+
+		if (valuePosition === 'top') {
+			return [
 				v(
 					'span',
 					{
@@ -92,8 +92,10 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 				),
 				...this.children
 			];
-		} else if (valuePosition === 'bottom') {
-			children = [
+		}
+
+		if (valuePosition === 'bottom') {
+			return [
 				...this.children,
 				v(
 					'span',
@@ -103,11 +105,9 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 					[value]
 				)
 			];
-		} else {
-			children = [...this.children, value];
 		}
 
-		return children;
+		return [...this.children, value];
 	}
 
 	protected render(): DNode | DNode[] {
