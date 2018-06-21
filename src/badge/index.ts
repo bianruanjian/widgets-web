@@ -4,8 +4,8 @@ import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/T
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { SpacingProperties, FlexItemProperties, DisplayProperties } from '../common/interfaces';
-import { getSpacingClasses, getFlexItemClasses, getDisplayClass } from '../common/util';
+import { SpacingProperties } from '../common/interfaces';
+import { getSpacingClasses } from '../common/util';
 
 import * as css from './styles/badge.m.css';
 
@@ -14,7 +14,7 @@ import * as css from './styles/badge.m.css';
  *
  * Properties that can be set on badge components
  */
-export interface BadgeProperties extends SpacingProperties, FlexItemProperties, DisplayProperties, ThemedProperties {
+export interface BadgeProperties extends SpacingProperties, ThemedProperties {
 	widgetId?: string;
 	value?: string;
 	valuePosition?: string;
@@ -44,10 +44,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingTop',
 		'paddingBottom',
 		'paddingLeft',
-		'paddingRight',
-		'alignSelf',
-		'order',
-		'display'
+		'paddingRight'
 	],
 	properties: [],
 	events: []
@@ -55,7 +52,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId, value, valuePosition, appearance, pill, href, target, display } = this.properties;
+		const { widgetId, value, valuePosition, appearance, pill, href, target } = this.properties;
 
 		let tag: string = 'span';
 		const cssClasses: string[] = [];
@@ -72,12 +69,6 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 			cssClasses.push('badge-pill');
 		}
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		let children: DNode[];
 
 		if (value && valuePosition && valuePosition === 'left') {
@@ -91,14 +82,7 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 			{
 				id: widgetId,
 				key: 'badge',
-				classes: [
-					this.theme(css.root),
-					'badge',
-					...cssClasses,
-					...getSpacingClasses(this.properties),
-					display ? getDisplayClass(this.properties) : undefined,
-					...flexItemClasses
-				],
+				classes: [this.theme(css.root), 'badge', ...cssClasses, ...getSpacingClasses(this.properties)],
 				href,
 				target
 			},

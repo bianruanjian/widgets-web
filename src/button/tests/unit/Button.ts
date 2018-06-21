@@ -44,7 +44,7 @@ describe('Button', () => {
 					type: undefined,
 					onclick: () => {}
 				},
-				[undefined]
+				[]
 			)
 		);
 	});
@@ -62,7 +62,7 @@ describe('Button', () => {
 					type: 'button',
 					onclick: () => {}
 				},
-				[undefined]
+				[]
 			)
 		);
 	});
@@ -104,7 +104,7 @@ describe('Button', () => {
 					type: undefined,
 					onclick: () => {}
 				},
-				[undefined]
+				[]
 			)
 		);
 	});

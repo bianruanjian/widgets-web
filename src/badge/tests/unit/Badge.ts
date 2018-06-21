@@ -18,10 +18,7 @@ describe('Badge', () => {
 		marginRight: 'default',
 		paddingTop: 'default',
 		paddingBottom: 'default',
-		paddingLeft: 'default',
-		alignSelf: 'default',
-		order: 'default',
-		display: 'default'
+		paddingLeft: 'default'
 	};
 
 	const customProperties: BadgeProperties = {
@@ -39,10 +36,7 @@ describe('Badge', () => {
 		paddingTop: '0',
 		paddingBottom: '0',
 		paddingLeft: '1',
-		paddingRight: '1',
-		alignSelf: 'start',
-		order: 0,
-		display: 'flex'
+		paddingRight: '1'
 	};
 
 	it('should construct Badge', () => {
@@ -53,7 +47,7 @@ describe('Badge', () => {
 				{
 					id: undefined,
 					key: 'badge',
-					classes: [css.root, 'badge', undefined],
+					classes: [css.root, 'badge'],
 					href: undefined,
 					target: undefined
 				},
@@ -70,7 +64,7 @@ describe('Badge', () => {
 				{
 					id: undefined,
 					key: 'badge',
-					classes: [css.root, 'badge', undefined],
+					classes: [css.root, 'badge'],
 					href: undefined,
 					target: 'self'
 				},
@@ -87,19 +81,7 @@ describe('Badge', () => {
 				{
 					id: 'random-id',
 					key: 'badge',
-					classes: [
-						css.root,
-						'badge',
-						'badge-primary',
-						'badge-pill',
-						'my-0',
-						'mx-1',
-						'py-0',
-						'px-1',
-						'd-flex',
-						'align-self-start',
-						'order-0'
-					],
+					classes: [css.root, 'badge', 'badge-primary', 'badge-pill', 'my-0', 'mx-1', 'py-0', 'px-1'],
 					href: 'https://badge.com',
 					target: 'iframeId'
 				},
@@ -116,7 +98,7 @@ describe('Badge', () => {
 				{
 					id: undefined,
 					key: 'badge',
-					classes: [css.root, 'badge', undefined],
+					classes: [css.root, 'badge'],
 					href: undefined,
 					target: undefined
 				},
