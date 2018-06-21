@@ -8,6 +8,7 @@ import { SpacingProperties } from '../common/interfaces';
 import { getSpacingClasses } from '../common/util';
 
 import * as css from './styles/badge.m.css';
+import { targetMap } from '../button';
 
 /**
  * @type BadgeProperties
@@ -52,13 +53,17 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
 	protected render(): DNode | DNode[] {
-		const { widgetId, value, valuePosition, appearance, pill, href, target } = this.properties;
+		let { widgetId, value, valuePosition, appearance, pill, href, target } = this.properties;
 
 		let tag: string = 'span';
 		const cssClasses: string[] = [];
 
 		if (href) {
 			tag = 'a';
+		}
+
+		if (target) {
+			target = targetMap[target as string] || target;
 		}
 
 		if (appearance && appearance !== 'default') {
