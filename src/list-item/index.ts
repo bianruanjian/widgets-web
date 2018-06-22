@@ -65,6 +65,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class ListItemBase<P extends ListItemProperties = ListItemProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'list-item';
+	}
 	protected render(): DNode | DNode[] {
 		const { widgetId, active, disabled, appearance, display } = this.properties;
 
@@ -78,7 +81,7 @@ export class ListItemBase<P extends ListItemProperties = ListItemProperties> ext
 			'li',
 			{
 				id: widgetId,
-				key: 'list-item',
+				key: this.getKey(),
 				disabled: disabled === true || disabled === 'true',
 				classes: [
 					this.theme(css.root),

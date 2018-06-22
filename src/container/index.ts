@@ -28,6 +28,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class ContainerBase<P extends ContainerProperties = ContainerProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'container';
+	}
 	protected render(): DNode | DNode[] {
 		let { widgetId, fluid } = this.properties;
 
@@ -37,7 +40,7 @@ export class ContainerBase<P extends ContainerProperties = ContainerProperties> 
 			'div',
 			{
 				id: widgetId,
-				key: 'container',
+				key: this.getKey(),
 				classes: [this.theme(css.root), cssClass]
 			},
 			this.children

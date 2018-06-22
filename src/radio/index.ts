@@ -81,6 +81,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class RadioBase<P extends RadioProperties = RadioProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'radio';
+	}
 	protected renderRadio(): DNode {
 		let { widgetId, name, value, checked, disabled, readOnly } = this.properties;
 
@@ -113,17 +116,10 @@ export class RadioBase<P extends RadioProperties = RadioProperties> extends Them
 			children = children.reverse();
 		}
 		children.push(renderMessageNode(this.properties));
-
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		return v(
 			'div',
 			{
-				key: 'radio',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					'form-check',
@@ -131,7 +127,7 @@ export class RadioBase<P extends RadioProperties = RadioProperties> extends Them
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
-					...flexItemClasses,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
 					...getFloatClass(this.properties)
 				]
 			},

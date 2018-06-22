@@ -178,12 +178,12 @@ describe('TextInput', () => {
 			v(
 				'div',
 				{
+					key: 'text-input',
 					classes: [css.root, 'custom-file', undefined]
 				},
 				[
 					v('input', {
 						id: undefined,
-						key: 'text-input',
 						name: undefined,
 						type: 'file',
 						disabled: false,

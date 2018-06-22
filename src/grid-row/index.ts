@@ -60,6 +60,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class GridRowBase<P extends GridRowProperties = GridRowProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'grid-row';
+	}
 	private _getGuttersClasses() {
 		let { gutters } = this.properties;
 
@@ -76,18 +79,16 @@ export class GridRowBase<P extends GridRowProperties = GridRowProperties> extend
 		let { widgetId, display } = this.properties;
 
 		let flexContainerClasses: string[] = [];
-		let flexItemClasses: string[] = [];
 
 		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
-			flexItemClasses = getFlexItemClasses(this.properties);
 		}
 
 		return v(
 			'div',
 			{
 				id: widgetId,
-				key: 'grid-row',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					'row',
@@ -95,7 +96,7 @@ export class GridRowBase<P extends GridRowProperties = GridRowProperties> extend
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
 					...flexContainerClasses,
-					...flexItemClasses
+					...getFlexItemClasses(this.properties)
 				]
 			},
 			this.children

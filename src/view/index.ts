@@ -95,6 +95,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class ViewBase<P extends ViewProperties = ViewProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'view';
+	}
 	private _getMaxWidthStyles() {
 		let { maxWidth } = this.properties;
 
@@ -117,18 +120,16 @@ export class ViewBase<P extends ViewProperties = ViewProperties> extends ThemedB
 		let { widgetId, display } = this.properties;
 
 		let flexContainerClasses: string[] = [];
-		let flexItemClasses: string[] = [];
 
 		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
-			flexItemClasses = getFlexItemClasses(this.properties);
 		}
 
 		return v(
 			'div',
 			{
 				id: widgetId,
-				key: 'view',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					...getBorderClasses(this.properties),
@@ -136,7 +137,7 @@ export class ViewBase<P extends ViewProperties = ViewProperties> extends ThemedB
 					...getTextClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
 					...flexContainerClasses,
-					...flexItemClasses,
+					...getFlexItemClasses(this.properties),
 					...getColorsClasses(this.properties),
 					...getFloatClass(this.properties)
 				],

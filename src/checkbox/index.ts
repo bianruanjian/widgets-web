@@ -82,6 +82,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'checkbox';
+	}
 	protected renderCheckbox(): DNode {
 		let { widgetId, name, value, checked, disabled, required, readOnly } = this.properties;
 
@@ -116,16 +119,10 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 		}
 		children.push(renderMessageNode(this.properties));
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		return v(
 			'div',
 			{
-				key: 'checkbox',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					'form-check',
@@ -133,7 +130,7 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
-					...flexItemClasses,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
 					...getFloatClass(this.properties)
 				]
 			},

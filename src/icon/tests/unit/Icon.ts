@@ -54,7 +54,7 @@ describe('Icon', () => {
 				{
 					id: undefined,
 					key: 'icon',
-					classes: [css.root, '', 'd-inline-block'],
+					classes: [css.root, 'd-inline-block', ''],
 					title: undefined
 				},
 				[
@@ -86,7 +86,7 @@ describe('Icon', () => {
 				{
 					id: undefined,
 					key: 'icon',
-					classes: [css.root, '', 'd-inline-block', ''],
+					classes: [css.root, 'd-inline-block', '', ''],
 					title: undefined
 				},
 				[
@@ -120,6 +120,7 @@ describe('Icon', () => {
 					key: 'icon',
 					classes: [
 						css.root,
+						'd-inline-block',
 						'my-0',
 						'mx-1',
 						'py-0',

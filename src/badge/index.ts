@@ -52,6 +52,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'badge';
+	}
 	protected render(): DNode | DNode[] {
 		let { widgetId, value, valuePosition, appearance, pill, href, target } = this.properties;
 
@@ -86,7 +89,7 @@ export class BadgeBase<P extends BadgeProperties = BadgeProperties> extends Them
 			tag,
 			{
 				id: widgetId,
-				key: 'badge',
+				key: this.getKey(),
 				classes: [this.theme(css.root), 'badge', ...cssClasses, ...getSpacingClasses(this.properties)],
 				href,
 				target

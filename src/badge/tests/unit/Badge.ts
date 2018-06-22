@@ -66,7 +66,7 @@ describe('Badge', () => {
 					key: 'badge',
 					classes: [css.root, 'badge'],
 					href: undefined,
-					target: 'self'
+					target: '_self'
 				},
 				[undefined]
 			)

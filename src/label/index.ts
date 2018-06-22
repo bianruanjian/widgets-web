@@ -30,6 +30,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class LabelBase<P extends LabelProperties = LabelProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'label';
+	}
 	protected render(): DNode | DNode[] {
 		let { widgetId, value, forId, classes } = this.properties;
 
@@ -41,7 +44,7 @@ export class LabelBase<P extends LabelProperties = LabelProperties> extends Them
 			'label',
 			{
 				id: widgetId,
-				key: 'label',
+				key: this.getKey(),
 				for: forId,
 				classes: classes
 					? [this.theme(css.root), css.fontDirection, ...(classes as string[])]

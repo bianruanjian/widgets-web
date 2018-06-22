@@ -98,6 +98,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextInputBase<P extends TextInputProperties = TextInputProperties> extends ThemedBase<P, null> {
+	protected getKey() {
+		return 'text-input';
+	}
 	private _onInput(event: Event) {
 		event.stopPropagation();
 		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
@@ -108,7 +111,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		this.properties.onChange && this.properties.onChange((event.target as HTMLInputElement).value);
 	}
 
-	protected renderInput(): DNode {
+	protected renderInput(key: string | undefined): DNode {
 		let {
 			widgetId,
 			name,
@@ -153,19 +156,16 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 			cssClasses.push('form-control');
 		}
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
-		let classes = [
-			...cssClasses,
-			...getSpacingClasses(this.properties),
-			display ? getDisplayClass(this.properties) : undefined,
-			...flexItemClasses,
-			...getFloatClass(this.properties)
-		];
+		let classes =
+			key === undefined
+				? cssClasses
+				: [
+						...cssClasses,
+						...getSpacingClasses(this.properties),
+						display ? getDisplayClass(this.properties) : undefined,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
+						...getFloatClass(this.properties)
+				  ];
 
 		if (!(label && labelPosition && labelPosition === 'left')) {
 			classes.push(this.theme(css.root) as string);
@@ -175,7 +175,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 			'input',
 			{
 				id: widgetId,
-				key: 'text-input',
+				key,
 				name,
 				type: type && type !== 'default' ? type : '',
 				value,
@@ -193,7 +193,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		);
 	}
 
-	protected renderTextInput(): DNode[] {
+	protected renderTextInput(key: string | undefined): DNode[] {
 		const { widgetId, label } = this.properties;
 
 		return [
@@ -208,7 +208,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 						[]
 				  )
 				: null,
-			this.renderInput(),
+			this.renderInput(key),
 			renderMessageNode(this.properties)
 		];
 	}
@@ -216,28 +216,22 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 	protected renderFileInput(): DNode {
 		const { widgetId, label, disabled, name, display } = this.properties;
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		return v(
 			'div',
 			{
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					'custom-file',
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
-					...flexItemClasses,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
 					...getFloatClass(this.properties)
 				]
 			},
 			[
 				v('input', {
 					id: widgetId,
-					key: 'text-input',
 					name,
 					type: 'file',
 					disabled: disabled === true || disabled === 'true',
@@ -257,7 +251,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 	}
 
 	protected render(): DNode | DNode[] {
-		const { type, label, labelPosition } = this.properties;
+		const { type, label, labelPosition, display } = this.properties;
 
 		if (type && type === 'file') {
 			return this.renderFileInput();
@@ -275,13 +269,23 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 			return v(
 				'div',
 				{
-					classes: [this.theme(css.root), 'form-group', 'form-check-inline', 'w-100']
+					key: this.getKey(),
+					classes: [
+						this.theme(css.root),
+						'form-group',
+						'form-check-inline',
+						'w-100',
+						...getSpacingClasses(this.properties),
+						display ? getDisplayClass(this.properties) : undefined,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
+						...getFloatClass(this.properties)
+					]
 				},
-				this.renderTextInput()
+				this.renderTextInput(undefined)
 			);
 		}
 
-		return this.renderTextInput();
+		return this.renderTextInput(this.getKey());
 	}
 }
 

@@ -50,6 +50,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class FooterBase<P extends FooterProperties = FooterProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'footer';
+	}
 	protected render(): DNode | DNode[] {
 		const { widgetId, display } = this.properties;
 
@@ -63,7 +66,7 @@ export class FooterBase<P extends FooterProperties = FooterProperties> extends T
 			'div',
 			{
 				id: widgetId,
-				key: 'footer',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					...getSpacingClasses(this.properties),

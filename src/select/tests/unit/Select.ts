@@ -123,6 +123,8 @@ describe('Select', () => {
 						'py-0',
 						'px-1',
 						'd-table',
+						'align-self-start',
+						'order-0',
 						'float-none',
 						css.root
 					]

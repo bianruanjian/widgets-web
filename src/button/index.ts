@@ -61,6 +61,10 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'button';
+	}
+
 	private _onClick(event: MouseEvent) {
 		event.stopPropagation();
 		this.properties.onClick && this.properties.onClick();
@@ -138,7 +142,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 				'a',
 				{
 					id: widgetId,
-					key: 'button',
+					key: this.getKey(),
 					href: `${href}`,
 					target,
 					classes: isListItem
@@ -166,7 +170,7 @@ export class ButtonBase<P extends ButtonProperties = ButtonProperties> extends T
 				'button',
 				{
 					id: widgetId,
-					key: 'button',
+					key: this.getKey(),
 					classes: isListItem
 						? [
 								this.theme(css.root),
