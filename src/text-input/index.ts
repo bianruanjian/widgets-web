@@ -134,8 +134,12 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 
 		const cssClasses: string[] = [];
 
+		if (key === undefined) {
+			key = 'focus';
+		}
+
 		if (shouldFocus) {
-			this.meta(Focus).set('text-input');
+			this.meta(Focus).set(key);
 		}
 
 		if (password === true || password === 'true') {
@@ -157,7 +161,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		}
 
 		let classes =
-			key === undefined
+			key === 'focus'
 				? cssClasses
 				: [
 						...cssClasses,

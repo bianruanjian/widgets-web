@@ -125,8 +125,12 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		const cssClasses: string[] = [];
 		let cssStyles: any = {};
 
+		if (key === undefined) {
+			key = 'focus';
+		}
+
 		if (shouldFocus) {
-			this.meta(Focus).set('textarea');
+			this.meta(Focus).set(key);
 		}
 
 		if (disabled === true || disabled === 'true') {
