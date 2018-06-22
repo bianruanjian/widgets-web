@@ -59,6 +59,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'text';
+	}
 	protected render(): DNode | DNode[] {
 		let { widgetId, value, valuePosition, type } = this.properties;
 
@@ -87,7 +90,7 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 			tag,
 			{
 				id: widgetId,
-				key: 'text',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					...cssClasses,

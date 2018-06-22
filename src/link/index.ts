@@ -89,17 +89,14 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'link';
+	}
 	protected render(): DNode | DNode[] {
 		let { widgetId, href, target, value, valuePosition, isListItem = false, appearance, display } = this.properties;
 
 		if (target) {
 			target = targetMap[target as string] || target;
-		}
-
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
 		let children: DNode[];
@@ -114,7 +111,7 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 			'a',
 			{
 				id: widgetId,
-				key: 'link',
+				key: this.getKey(),
 				href,
 				target,
 				classes: isListItem
@@ -124,7 +121,7 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 							'list-group-item-action',
 							...getSpacingClasses(this.properties),
 							display ? getDisplayClass(this.properties) : undefined,
-							...flexItemClasses,
+							...getFlexItemClasses(this.properties as FlexItemProperties),
 							...getTextClasses(this.properties),
 							appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 							...getTextDecorationClass(this.properties)
@@ -133,7 +130,7 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 							this.theme(css.root),
 							...getSpacingClasses(this.properties),
 							display ? getDisplayClass(this.properties) : undefined,
-							...flexItemClasses,
+							...getFlexItemClasses(this.properties as FlexItemProperties),
 							...getTextClasses(this.properties),
 							...getColorsClasses(this.properties),
 							...getTextDecorationClass(this.properties)

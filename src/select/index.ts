@@ -89,6 +89,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class SelectBase<P extends SelectProperties = SelectProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'select';
+	}
 	protected renderSelect(key: string | undefined): DNode {
 		const {
 			widgetId,
@@ -140,12 +143,6 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 			//TODO: 发送请求，获取数据，暂时不处理
 		}
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		let classes =
 			key === undefined
 				? cssClasses
@@ -153,7 +150,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 						...cssClasses,
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 				  ];
 
@@ -208,15 +205,10 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 		 * 现在使用 第二种实现，当有更好的实现时，再完善此处代码。
 		 */
 		if (label && labelPosition && labelPosition === 'left') {
-			let flexItemClasses: string[] = [];
-
-			if (display && (display === 'flex' || display === 'inlineFlex')) {
-				flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-			}
 			return v(
 				'div',
 				{
-					key: 'select',
+					key: this.getKey(),
 					classes: [
 						this.theme(css.root),
 						'form-group',
@@ -224,7 +216,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 						'w-100',
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 					]
 				},
@@ -232,7 +224,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 			);
 		}
 
-		return this.renderSelectWrapper('select');
+		return this.renderSelectWrapper(this.getKey());
 	}
 }
 

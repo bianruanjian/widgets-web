@@ -30,6 +30,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'list-group';
+	}
 	protected render(): DNode | DNode[] {
 		const { widgetId, flush } = this.properties;
 		let tag: string = 'ul';
@@ -58,7 +61,7 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 			tag,
 			{
 				id: widgetId,
-				key: 'list-group',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					'list-group',

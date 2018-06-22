@@ -82,14 +82,11 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class IconBase<P extends IconProperties = IconProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'icon';
+	}
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, size, alt, title, display } = this.properties;
-
-		let flexItemClasses: string[] = ['d-inline-block'];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
 
 		let displayClass = getDisplayClass(this.properties);
 
@@ -98,9 +95,10 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 		}
 
 		const cssClasses: string[] = [
+			'd-inline-block',
 			...getSpacingClasses(this.properties),
 			display ? displayClass : '',
-			...flexItemClasses,
+			...getFlexItemClasses(this.properties as FlexItemProperties),
 			...getColorsClasses(this.properties)
 		];
 
@@ -112,7 +110,7 @@ export class IconBase<P extends IconProperties = IconProperties> extends ThemedB
 			'span',
 			{
 				id: widgetId,
-				key: 'icon',
+				key: this.getKey(),
 				classes: [this.theme(css.root), ...cssClasses],
 				title
 			},

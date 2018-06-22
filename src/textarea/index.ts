@@ -97,6 +97,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextareaBase<P extends TextareaProperties = TextareaProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'textarea';
+	}
 	protected renderTextarea(key: string | undefined): DNode {
 		const {
 			widgetId,
@@ -146,12 +149,6 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 			cssStyles.resize = 'both';
 		}
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		let classes =
 			key === undefined
 				? cssClasses
@@ -159,7 +156,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 						...cssClasses,
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 				  ];
 
@@ -217,15 +214,10 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		 * 现在使用 第二种实现，当有更好的实现时，再完善此处代码。
 		 */
 		if (label && labelPosition && labelPosition === 'left') {
-			let flexItemClasses: string[] = [];
-
-			if (display && (display === 'flex' || display === 'inlineFlex')) {
-				flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-			}
 			return v(
 				'div',
 				{
-					key: 'textarea',
+					key: this.getKey(),
 					classes: [
 						this.theme(css.root),
 						'form-group',
@@ -233,7 +225,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 						'w-100',
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 					]
 				},
@@ -241,7 +233,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 			);
 		}
 
-		return this.renderTextareaWrapper('textarea');
+		return this.renderTextareaWrapper(this.getKey());
 	}
 }
 

@@ -60,6 +60,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class InputGroupBase<P extends InputGroupProperties = InputGroupProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'input-group';
+	}
 	protected renderInputGroup(key: string | undefined): DNode[] {
 		const { widgetId, size, label, display, labelPosition } = this.properties;
 
@@ -67,12 +70,6 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 
 		if (size && size !== 'default') {
 			sizeClass = `input-group-${sizeMap[size as string]}`;
-		}
-
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
 		let classes =
@@ -83,7 +80,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 						sizeClass,
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 				  ];
 
@@ -147,15 +144,10 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 		 * 现在使用 第二种实现，当有更好的实现时，再完善此处代码。
 		 */
 		if (label && labelPosition && labelPosition === 'left') {
-			let flexItemClasses: string[] = [];
-
-			if (display && (display === 'flex' || display === 'inlineFlex')) {
-				flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-			}
 			return v(
 				'div',
 				{
-					key: 'input-group',
+					key: this.getKey(),
 					classes: [
 						this.theme(css.root),
 						'form-group',
@@ -163,7 +155,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 						'w-100',
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 					]
 				},
@@ -171,7 +163,7 @@ export class InputGroupBase<P extends InputGroupProperties = InputGroupPropertie
 			);
 		}
 
-		return this.renderInputGroup('input-group');
+		return this.renderInputGroup(this.getKey());
 	}
 }
 

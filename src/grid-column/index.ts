@@ -89,6 +89,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class GridColumnBase<P extends GridColumnProperties = GridColumnProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'grid-column';
+	}
 	private _getClasses(): string[] {
 		let { offset, colspan } = this.properties;
 
@@ -111,18 +114,16 @@ export class GridColumnBase<P extends GridColumnProperties = GridColumnPropertie
 		let { widgetId, display } = this.properties;
 
 		let flexContainerClasses: string[] = [];
-		let flexItemClasses: string[] = [];
 
 		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
-			flexItemClasses = getFlexItemClasses(this.properties);
 		}
 
 		return v(
 			'div',
 			{
 				id: widgetId,
-				key: 'grid-column',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					...this._getClasses(),
@@ -131,7 +132,7 @@ export class GridColumnBase<P extends GridColumnProperties = GridColumnPropertie
 					...getTextClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
 					...flexContainerClasses,
-					...flexItemClasses,
+					...getFlexItemClasses(this.properties),
 					...getTextDecorationClass(this.properties)
 				],
 				styles: {

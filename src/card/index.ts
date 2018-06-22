@@ -71,6 +71,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class CardBase<P extends CardProperties = CardProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'card';
+	}
 	private _getStyles() {
 		const { width, height } = this.properties;
 
@@ -106,7 +109,7 @@ export class CardBase<P extends CardProperties = CardProperties> extends ThemedB
 			'div',
 			{
 				id: widgetId,
-				key: 'card',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					'card',

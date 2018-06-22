@@ -55,6 +55,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class ImageBase<P extends ImageProperties = ImageProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'image';
+	}
 	private _getImgClasses(): string[] {
 		let { fluid, thumbnail, alignment } = this.properties;
 		const cssClasses: string[] = [];
@@ -109,7 +112,7 @@ export class ImageBase<P extends ImageProperties = ImageProperties> extends Them
 			'img',
 			{
 				id: widgetId,
-				key: 'image',
+				key: this.getKey(),
 				src,
 				alt,
 				classes: [

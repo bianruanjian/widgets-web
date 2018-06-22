@@ -98,6 +98,9 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextInputBase<P extends TextInputProperties = TextInputProperties> extends ThemedBase<P, null> {
+	protected getKey() {
+		return 'text-input';
+	}
 	private _onInput(event: Event) {
 		event.stopPropagation();
 		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
@@ -153,12 +156,6 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 			cssClasses.push('form-control');
 		}
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		let classes =
 			key === undefined
 				? cssClasses
@@ -166,7 +163,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 						...cssClasses,
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 				  ];
 
@@ -219,22 +216,16 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 	protected renderFileInput(): DNode {
 		const { widgetId, label, disabled, name, display } = this.properties;
 
-		let flexItemClasses: string[] = [];
-
-		if (display && (display === 'flex' || display === 'inlineFlex')) {
-			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-		}
-
 		return v(
 			'div',
 			{
-				key: 'text-input',
+				key: this.getKey(),
 				classes: [
 					this.theme(css.root),
 					'custom-file',
 					...getSpacingClasses(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
-					...flexItemClasses,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
 					...getFloatClass(this.properties)
 				]
 			},
@@ -275,16 +266,10 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		 * 现在使用 第二种实现，当有更好的实现时，再完善此处代码。
 		 */
 		if (label && labelPosition && labelPosition === 'left') {
-			let flexItemClasses: string[] = [];
-
-			if (display && (display === 'flex' || display === 'inlineFlex')) {
-				flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
-			}
-
 			return v(
 				'div',
 				{
-					key: 'text-input',
+					key: this.getKey(),
 					classes: [
 						this.theme(css.root),
 						'form-group',
@@ -292,7 +277,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 						'w-100',
 						...getSpacingClasses(this.properties),
 						display ? getDisplayClass(this.properties) : undefined,
-						...flexItemClasses,
+						...getFlexItemClasses(this.properties as FlexItemProperties),
 						...getFloatClass(this.properties)
 					]
 				},
@@ -300,7 +285,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 			);
 		}
 
-		return this.renderTextInput('text-input');
+		return this.renderTextInput(this.getKey());
 	}
 }
 

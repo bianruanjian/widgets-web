@@ -33,6 +33,10 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class AddonBase<P extends AddonProperties = AddonProperties> extends ThemedBase<P> {
+	protected getKey() {
+		return 'addon';
+	}
+
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, position } = this.properties;
 
@@ -77,7 +81,7 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 			'div',
 			{
 				id: widgetId,
-				key: 'addon',
+				key: this.getKey(),
 				classes: [this.theme(css.root), cssClass]
 			},
 			children
