@@ -89,7 +89,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class SelectBase<P extends SelectProperties = SelectProperties> extends ThemedBase<P> {
-	protected renderSelect(): DNode {
+	protected renderSelect(key: string | undefined): DNode {
 		const {
 			widgetId,
 			name,
@@ -146,13 +146,16 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 			flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
 		}
 
-		let classes = [
-			...cssClasses,
-			...getSpacingClasses(this.properties),
-			display ? getDisplayClass(this.properties) : undefined,
-			...flexItemClasses,
-			...getFloatClass(this.properties)
-		];
+		let classes =
+			key === undefined
+				? cssClasses
+				: [
+						...cssClasses,
+						...getSpacingClasses(this.properties),
+						display ? getDisplayClass(this.properties) : undefined,
+						...flexItemClasses,
+						...getFloatClass(this.properties)
+				  ];
 
 		if (!(label && labelPosition && labelPosition === 'left')) {
 			classes.push(this.theme(css.root) as string);
@@ -162,7 +165,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 			'select',
 			{
 				id: widgetId,
-				key: 'select',
+				key,
 				name,
 				disabled: disabled === true || disabled === 'true',
 				required: required === true || required === 'true',
@@ -173,7 +176,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 		);
 	}
 
-	protected renderSelectWrapper(): DNode[] {
+	protected renderSelectWrapper(key: string | undefined): DNode[] {
 		const { widgetId, label } = this.properties;
 
 		return [
@@ -188,13 +191,13 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 						[]
 				  )
 				: null,
-			this.renderSelect(),
+			this.renderSelect(key),
 			renderMessageNode(this.properties)
 		];
 	}
 
 	protected render(): DNode | DNode[] {
-		const { label, labelPosition } = this.properties;
+		const { label, labelPosition, display } = this.properties;
 
 		/**
 		 * bootstrap 中有三种 inline 实现：
@@ -205,16 +208,31 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 		 * 现在使用 第二种实现，当有更好的实现时，再完善此处代码。
 		 */
 		if (label && labelPosition && labelPosition === 'left') {
+			let flexItemClasses: string[] = [];
+
+			if (display && (display === 'flex' || display === 'inlineFlex')) {
+				flexItemClasses = getFlexItemClasses(this.properties as FlexItemProperties);
+			}
 			return v(
 				'div',
 				{
-					classes: [this.theme(css.root), 'form-group', 'form-check-inline', 'w-100']
+					key: 'select',
+					classes: [
+						this.theme(css.root),
+						'form-group',
+						'form-check-inline',
+						'w-100',
+						...getSpacingClasses(this.properties),
+						display ? getDisplayClass(this.properties) : undefined,
+						...flexItemClasses,
+						...getFloatClass(this.properties)
+					]
 				},
-				this.renderSelectWrapper()
+				this.renderSelectWrapper(undefined)
 			);
 		}
 
-		return this.renderSelectWrapper();
+		return this.renderSelectWrapper('select');
 	}
 }
 
