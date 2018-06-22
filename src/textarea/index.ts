@@ -154,7 +154,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		}
 
 		let classes =
-			key === undefined
+			key === 'focus'
 				? cssClasses
 				: [
 						...cssClasses,
