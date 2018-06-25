@@ -97,10 +97,13 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextareaBase<P extends TextareaProperties = TextareaProperties> extends ThemedBase<P> {
+	private _focusableInputKey: string = 'focusableInput';
+
 	protected getKey() {
 		return 'textarea';
 	}
-	protected renderTextarea(key: string | undefined): DNode {
+
+	protected renderTextarea(key: string): DNode {
 		const {
 			widgetId,
 			name,
@@ -126,7 +129,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		let cssStyles: any = {};
 
 		if (shouldFocus) {
-			this.meta(Focus).set('textarea');
+			this.meta(Focus).set(key);
 		}
 
 		if (disabled === true || disabled === 'true') {
@@ -150,7 +153,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		}
 
 		let classes =
-			key === undefined
+			key === this._focusableInputKey
 				? cssClasses
 				: [
 						...cssClasses,
@@ -182,7 +185,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		});
 	}
 
-	protected renderTextareaWrapper(key: string | undefined): DNode[] {
+	protected renderTextareaWrapper(key: string): DNode[] {
 		const { widgetId, label } = this.properties;
 
 		return [
@@ -229,7 +232,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 						...getFloatClass(this.properties)
 					]
 				},
-				this.renderTextareaWrapper(undefined)
+				this.renderTextareaWrapper(this._focusableInputKey)
 			);
 		}
 

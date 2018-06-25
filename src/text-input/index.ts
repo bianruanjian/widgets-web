@@ -98,9 +98,12 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextInputBase<P extends TextInputProperties = TextInputProperties> extends ThemedBase<P, null> {
+	private _focusableInputKey: string = 'focusableInput';
+
 	protected getKey() {
 		return 'text-input';
 	}
+
 	private _onInput(event: Event) {
 		event.stopPropagation();
 		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
@@ -111,7 +114,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		this.properties.onChange && this.properties.onChange((event.target as HTMLInputElement).value);
 	}
 
-	protected renderInput(key: string | undefined): DNode {
+	protected renderInput(key: string): DNode {
 		let {
 			widgetId,
 			name,
@@ -135,7 +138,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		const cssClasses: string[] = [];
 
 		if (shouldFocus) {
-			this.meta(Focus).set('text-input');
+			this.meta(Focus).set(key);
 		}
 
 		if (password === true || password === 'true') {
@@ -157,7 +160,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		}
 
 		let classes =
-			key === undefined
+			key === this._focusableInputKey
 				? cssClasses
 				: [
 						...cssClasses,
@@ -193,7 +196,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 		);
 	}
 
-	protected renderTextInput(key: string | undefined): DNode[] {
+	protected renderTextInput(key: string): DNode[] {
 		const { widgetId, label } = this.properties;
 
 		return [
@@ -281,7 +284,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 						...getFloatClass(this.properties)
 					]
 				},
-				this.renderTextInput(undefined)
+				this.renderTextInput(this._focusableInputKey)
 			);
 		}
 
