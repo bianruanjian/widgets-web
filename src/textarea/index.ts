@@ -128,7 +128,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 		const cssClasses: string[] = [];
 		let cssStyles: any = {};
 
-		if (shouldFocus) {
+		if (shouldFocus === true || shouldFocus === 'true') {
 			this.meta(Focus).set(key);
 		}
 

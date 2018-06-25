@@ -137,7 +137,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 
 		const cssClasses: string[] = [];
 
-		if (shouldFocus) {
+		if (shouldFocus === true || shouldFocus === 'true') {
 			this.meta(Focus).set(key);
 		}
 
