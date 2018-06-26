@@ -4,6 +4,7 @@ import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/T
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
+import uuid from '@dojo/core/uuid';
 import Label from '../label';
 import {
 	SpacingProperties,
@@ -89,12 +90,20 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class SelectBase<P extends SelectProperties = SelectProperties> extends ThemedBase<P> {
+	private _uuid: string;
+
 	protected getKey() {
 		return 'select';
 	}
+
+	constructor() {
+		super();
+		this._uuid = uuid();
+	}
+
 	protected renderSelect(key: string | undefined): DNode {
 		const {
-			widgetId,
+			widgetId = this._uuid,
 			name,
 			value,
 			disabled,
@@ -174,7 +183,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 	}
 
 	protected renderSelectWrapper(key: string | undefined): DNode[] {
-		const { widgetId, label } = this.properties;
+		const { widgetId = this._uuid, label } = this.properties;
 
 		return [
 			label

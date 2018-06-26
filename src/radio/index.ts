@@ -3,6 +3,7 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+import uuid from '@dojo/core/uuid';
 import {
 	SpacingProperties,
 	FlexItemProperties,
@@ -81,11 +82,19 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class RadioBase<P extends RadioProperties = RadioProperties> extends ThemedBase<P> {
+	private _uuid: string;
+
 	protected getKey() {
 		return 'radio';
 	}
+
+	constructor() {
+		super();
+		this._uuid = uuid();
+	}
+
 	protected renderRadio(): DNode {
-		let { widgetId, name, value, checked, disabled, readOnly } = this.properties;
+		let { widgetId = this._uuid, name, value, checked, disabled, readOnly } = this.properties;
 
 		const cssClasses: string[] = [];
 
@@ -106,7 +115,7 @@ export class RadioBase<P extends RadioProperties = RadioProperties> extends Them
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId, label, size, labelAfter, fluid, display } = this.properties;
+		const { widgetId = this._uuid, label, size, labelAfter, fluid, display } = this.properties;
 
 		let children: DNode[] = [
 			this.renderRadio(),

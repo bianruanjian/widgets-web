@@ -2,6 +2,7 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+import uuid from '@dojo/core/uuid';
 import {
 	SpacingProperties,
 	FlexItemProperties,
@@ -98,14 +99,20 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class TextareaBase<P extends TextareaProperties = TextareaProperties> extends ThemedBase<P> {
 	private _focusableInputKey: string = 'focusableInput';
+	private _uuid: string;
 
 	protected getKey() {
 		return 'textarea';
 	}
 
+	constructor() {
+		super();
+		this._uuid = uuid();
+	}
+
 	protected renderTextarea(key: string): DNode {
 		const {
-			widgetId,
+			widgetId = this._uuid,
 			name,
 			value,
 			rows,
@@ -186,7 +193,7 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 	}
 
 	protected renderTextareaWrapper(key: string): DNode[] {
-		const { widgetId, label } = this.properties;
+		const { widgetId = this._uuid, label } = this.properties;
 
 		return [
 			label
