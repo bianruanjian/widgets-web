@@ -3,6 +3,7 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+import uuid from '@dojo/core/uuid';
 import {
 	SpacingProperties,
 	FlexItemProperties,
@@ -82,11 +83,19 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> extends ThemedBase<P> {
+	private _uuid: string;
+
 	protected getKey() {
 		return 'checkbox';
 	}
+
+	constructor() {
+		super();
+		this._uuid = uuid();
+	}
+
 	protected renderCheckbox(): DNode {
-		let { widgetId, name, value, checked, disabled, required, readOnly } = this.properties;
+		let { widgetId = this._uuid, name, value, checked, disabled, required, readOnly } = this.properties;
 
 		const cssClasses: string[] = [];
 
@@ -108,7 +117,7 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId, label, size, labelAfter, fluid, display } = this.properties;
+		const { widgetId = this._uuid, label, size, labelAfter, fluid, display } = this.properties;
 
 		let children: DNode[] = [
 			this.renderCheckbox(),

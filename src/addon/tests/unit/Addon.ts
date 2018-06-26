@@ -1,7 +1,6 @@
 const { describe, it } = intern.getInterface('bdd');
 
 import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
 
 import Addon, { AddonProperties } from './../../index';
 import Checkbox from '../../../checkbox';
@@ -10,8 +9,11 @@ import Button from '../../../button/index';
 import * as css from './../../styles/addon.m.css';
 import * as cssButton from './../../../button/styles/button.m.css';
 import * as cssCheckbox from './../../../checkbox/styles/checkbox.m.css';
+import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
 
 describe('Addon', () => {
+	const harness = createHarness([compareWidgetId]);
+
 	const customProperties: AddonProperties = {
 		widgetId: 'random-id',
 		value: 'prepare',
@@ -83,7 +85,7 @@ describe('Addon', () => {
 								[
 									v('input', {
 										type: 'checkbox',
-										id: undefined,
+										id: '',
 										name: undefined,
 										value: undefined,
 										checked: false,

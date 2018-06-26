@@ -3,6 +3,7 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
+import uuid from '@dojo/core/uuid';
 import Focus from '@dojo/widget-core/meta/Focus';
 import {
 	SpacingProperties,
@@ -99,9 +100,15 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @theme(css)
 export class TextInputBase<P extends TextInputProperties = TextInputProperties> extends ThemedBase<P, null> {
 	private _focusableInputKey: string = 'focusableInput';
+	private _uuid: string;
 
 	protected getKey() {
 		return 'text-input';
+	}
+
+	constructor() {
+		super();
+		this._uuid = uuid();
 	}
 
 	private _onInput(event: Event) {
@@ -116,7 +123,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 
 	protected renderInput(key: string): DNode {
 		let {
-			widgetId,
+			widgetId = this._uuid,
 			name,
 			type,
 			value,
@@ -197,7 +204,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 	}
 
 	protected renderTextInput(key: string): DNode[] {
-		const { widgetId, label } = this.properties;
+		const { widgetId = this._uuid, label } = this.properties;
 
 		return [
 			label
@@ -217,7 +224,7 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 	}
 
 	protected renderFileInput(): DNode {
-		const { widgetId, label, disabled, name, display } = this.properties;
+		const { widgetId = this._uuid, label, disabled, name, display } = this.properties;
 
 		return v(
 			'div',

@@ -1,11 +1,13 @@
 const { describe, it } = intern.getInterface('bdd');
 import { v, w } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
 import TextInput, { TextInputProperties } from './../../index';
 import Label from './../../../label/index';
 import * as css from './../../styles/text-input.m.css';
+import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
 
 describe('TextInput', () => {
+	const harness = createHarness([compareWidgetId]);
+
 	const defaultProperties: TextInputProperties = {
 		type: 'default',
 		password: false,
@@ -74,7 +76,7 @@ describe('TextInput', () => {
 		h.expect(() => [
 			null,
 			v('input', {
-				id: undefined,
+				id: '',
 				key: 'text-input',
 				name: undefined,
 				type: '',
@@ -98,7 +100,7 @@ describe('TextInput', () => {
 		h.expect(() => [
 			null,
 			v('input', {
-				id: undefined,
+				id: '',
 				key: 'text-input',
 				name: undefined,
 				type: '',
@@ -183,7 +185,7 @@ describe('TextInput', () => {
 				},
 				[
 					v('input', {
-						id: undefined,
+						id: '',
 						name: undefined,
 						type: 'file',
 						disabled: false,

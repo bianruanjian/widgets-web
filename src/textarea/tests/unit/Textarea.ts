@@ -1,13 +1,15 @@
 const { describe, it } = intern.getInterface('bdd');
 
 import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
 
 import Textarea, { TextareaProperties } from './../../index';
 import Label from '../../../label';
 import * as css from './../../styles/textarea.m.css';
+import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
 
 describe('Textarea', () => {
+	const harness = createHarness([compareWidgetId]);
+
 	const defaultProperties: TextareaProperties = {
 		size: 'default',
 		placeholderAppearance: 'default',
@@ -70,7 +72,7 @@ describe('Textarea', () => {
 		h.expect(() => [
 			null,
 			v('textarea', {
-				id: undefined,
+				id: '',
 				key: 'textarea',
 				name: undefined,
 				value: undefined,
@@ -96,7 +98,7 @@ describe('Textarea', () => {
 		h.expect(() => [
 			null,
 			v('textarea', {
-				id: undefined,
+				id: '',
 				key: 'textarea',
 				name: undefined,
 				value: undefined,
