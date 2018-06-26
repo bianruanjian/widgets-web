@@ -1,11 +1,13 @@
 const { describe, it } = intern.getInterface('bdd');
 import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
 import Checkbox, { CheckboxProperties } from './../../index';
 import Label from '../../../label';
 import * as css from './../../styles/checkbox.m.css';
+import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
 
 describe('Checkbox', () => {
+	const harness = createHarness([compareWidgetId]);
+
 	const defaultProperties: CheckboxProperties = {
 		widgetId: '1',
 		checked: false,
@@ -58,7 +60,7 @@ describe('Checkbox', () => {
 	};
 
 	it('should construct Checkbox', () => {
-		const h = harness(() => w(Checkbox, { widgetId: '1' }));
+		const h = harness(() => w(Checkbox, {}));
 		h.expect(() =>
 			v(
 				'div',
@@ -69,7 +71,7 @@ describe('Checkbox', () => {
 				[
 					v('input', {
 						type: 'checkbox',
-						id: '1',
+						id: '',
 						name: undefined,
 						value: undefined,
 						checked: false,
@@ -97,7 +99,7 @@ describe('Checkbox', () => {
 				[
 					v('input', {
 						type: 'checkbox',
-						id: '1',
+						id: '',
 						name: undefined,
 						value: undefined,
 						checked: false,

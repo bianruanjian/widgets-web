@@ -1,15 +1,16 @@
 const { describe, it } = intern.getInterface('bdd');
 
 import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
 
 import Select, { SelectProperties } from './../../index';
 import Label from '../../../label';
 import * as css from './../../styles/select.m.css';
+import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
 
 describe('Select', () => {
+	const harness = createHarness([compareWidgetId]);
+
 	const defaultProperties: SelectProperties = {
-		widgetId: '1',
 		disabled: false,
 		required: false,
 		readOnly: false,
@@ -59,13 +60,13 @@ describe('Select', () => {
 	};
 
 	it('should construct Select', () => {
-		const h = harness(() => w(Select, { widgetId: '1' }));
+		const h = harness(() => w(Select, {}));
 		h.expect(() => [
 			null,
 			v(
 				'select',
 				{
-					id: '1',
+					id: '',
 					key: 'select',
 					name: undefined,
 					disabled: false,
@@ -85,7 +86,7 @@ describe('Select', () => {
 			v(
 				'select',
 				{
-					id: '1',
+					id: '',
 					key: 'select',
 					name: undefined,
 					disabled: false,

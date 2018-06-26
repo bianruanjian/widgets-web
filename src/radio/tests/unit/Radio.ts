@@ -1,15 +1,16 @@
 const { describe, it } = intern.getInterface('bdd');
 
 import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
 
 import Radio, { RadioProperties } from './../../index';
 import Label from '../../../label';
 import * as css from './../../styles/radio.m.css';
+import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
 
 describe('Radio', () => {
+	const harness = createHarness([compareWidgetId]);
+
 	const defaultProperties: RadioProperties = {
-		widgetId: '1',
 		checked: false,
 		labelAfter: true,
 		disabled: false,
@@ -58,7 +59,7 @@ describe('Radio', () => {
 	};
 
 	it('should construct Radio', () => {
-		const h = harness(() => w(Radio, { widgetId: '1' }));
+		const h = harness(() => w(Radio, {}));
 		h.expect(() =>
 			v(
 				'div',
@@ -69,7 +70,7 @@ describe('Radio', () => {
 				[
 					v('input', {
 						type: 'radio',
-						id: '1',
+						id: '',
 						name: undefined,
 						value: undefined,
 						checked: false,
@@ -96,7 +97,7 @@ describe('Radio', () => {
 				[
 					v('input', {
 						type: 'radio',
-						id: '1',
+						id: '',
 						name: undefined,
 						value: undefined,
 						checked: false,

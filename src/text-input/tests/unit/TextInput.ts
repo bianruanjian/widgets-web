@@ -1,13 +1,14 @@
 const { describe, it } = intern.getInterface('bdd');
 import { v, w } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
 import TextInput, { TextInputProperties } from './../../index';
 import Label from './../../../label/index';
 import * as css from './../../styles/text-input.m.css';
+import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
 
 describe('TextInput', () => {
+	const harness = createHarness([compareWidgetId]);
+
 	const defaultProperties: TextInputProperties = {
-		widgetId: 'random-id',
 		type: 'default',
 		password: false,
 		placeholderAppearance: 'default',
@@ -71,11 +72,11 @@ describe('TextInput', () => {
 	};
 
 	it('should construct TextInput', () => {
-		const h = harness(() => w(TextInput, { widgetId: '1' }));
+		const h = harness(() => w(TextInput, {}));
 		h.expect(() => [
 			null,
 			v('input', {
-				id: '1',
+				id: '',
 				key: 'text-input',
 				name: undefined,
 				type: '',
@@ -99,7 +100,7 @@ describe('TextInput', () => {
 		h.expect(() => [
 			null,
 			v('input', {
-				id: 'random-id',
+				id: '',
 				key: 'text-input',
 				name: undefined,
 				type: '',
@@ -174,7 +175,7 @@ describe('TextInput', () => {
 	});
 
 	it('type is file', () => {
-		const h = harness(() => w(TextInput, { widgetId: '1', type: 'file' }));
+		const h = harness(() => w(TextInput, { type: 'file' }));
 		h.expect(() =>
 			v(
 				'div',
@@ -184,7 +185,7 @@ describe('TextInput', () => {
 				},
 				[
 					v('input', {
-						id: '1',
+						id: '',
 						name: undefined,
 						type: 'file',
 						disabled: false,
