@@ -9,6 +9,7 @@ import * as css from './../../styles/textarea.m.css';
 
 describe('Textarea', () => {
 	const defaultProperties: TextareaProperties = {
+		widgetId: '1',
 		size: 'default',
 		placeholderAppearance: 'default',
 		required: false,
@@ -66,11 +67,11 @@ describe('Textarea', () => {
 	};
 
 	it('should construct Textarea', () => {
-		const h = harness(() => w(Textarea, {}));
+		const h = harness(() => w(Textarea, { widgetId: '1' }));
 		h.expect(() => [
 			null,
 			v('textarea', {
-				id: undefined,
+				id: '1',
 				key: 'textarea',
 				name: undefined,
 				value: undefined,
@@ -96,7 +97,7 @@ describe('Textarea', () => {
 		h.expect(() => [
 			null,
 			v('textarea', {
-				id: undefined,
+				id: '1',
 				key: 'textarea',
 				name: undefined,
 				value: undefined,

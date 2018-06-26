@@ -7,6 +7,7 @@ import * as css from './../../styles/text-input.m.css';
 
 describe('TextInput', () => {
 	const defaultProperties: TextInputProperties = {
+		widgetId: 'random-id',
 		type: 'default',
 		password: false,
 		placeholderAppearance: 'default',
@@ -70,11 +71,11 @@ describe('TextInput', () => {
 	};
 
 	it('should construct TextInput', () => {
-		const h = harness(() => w(TextInput, {}));
+		const h = harness(() => w(TextInput, { widgetId: '1' }));
 		h.expect(() => [
 			null,
 			v('input', {
-				id: undefined,
+				id: '1',
 				key: 'text-input',
 				name: undefined,
 				type: '',
@@ -98,7 +99,7 @@ describe('TextInput', () => {
 		h.expect(() => [
 			null,
 			v('input', {
-				id: undefined,
+				id: 'random-id',
 				key: 'text-input',
 				name: undefined,
 				type: '',
@@ -173,7 +174,7 @@ describe('TextInput', () => {
 	});
 
 	it('type is file', () => {
-		const h = harness(() => w(TextInput, { type: 'file' }));
+		const h = harness(() => w(TextInput, { widgetId: '1', type: 'file' }));
 		h.expect(() =>
 			v(
 				'div',
@@ -183,7 +184,7 @@ describe('TextInput', () => {
 				},
 				[
 					v('input', {
-						id: undefined,
+						id: '1',
 						name: undefined,
 						type: 'file',
 						disabled: false,

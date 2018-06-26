@@ -7,6 +7,7 @@ import * as css from './../../styles/checkbox.m.css';
 
 describe('Checkbox', () => {
 	const defaultProperties: CheckboxProperties = {
+		widgetId: '1',
 		checked: false,
 		labelAfter: true,
 		disabled: false,
@@ -57,7 +58,7 @@ describe('Checkbox', () => {
 	};
 
 	it('should construct Checkbox', () => {
-		const h = harness(() => w(Checkbox, {}));
+		const h = harness(() => w(Checkbox, { widgetId: '1' }));
 		h.expect(() =>
 			v(
 				'div',
@@ -68,7 +69,7 @@ describe('Checkbox', () => {
 				[
 					v('input', {
 						type: 'checkbox',
-						id: undefined,
+						id: '1',
 						name: undefined,
 						value: undefined,
 						checked: false,
@@ -96,7 +97,7 @@ describe('Checkbox', () => {
 				[
 					v('input', {
 						type: 'checkbox',
-						id: undefined,
+						id: '1',
 						name: undefined,
 						value: undefined,
 						checked: false,

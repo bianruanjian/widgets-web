@@ -9,6 +9,7 @@ import * as css from './../../styles/radio.m.css';
 
 describe('Radio', () => {
 	const defaultProperties: RadioProperties = {
+		widgetId: '1',
 		checked: false,
 		labelAfter: true,
 		disabled: false,
@@ -57,7 +58,7 @@ describe('Radio', () => {
 	};
 
 	it('should construct Radio', () => {
-		const h = harness(() => w(Radio, {}));
+		const h = harness(() => w(Radio, { widgetId: '1' }));
 		h.expect(() =>
 			v(
 				'div',
@@ -68,7 +69,7 @@ describe('Radio', () => {
 				[
 					v('input', {
 						type: 'radio',
-						id: undefined,
+						id: '1',
 						name: undefined,
 						value: undefined,
 						checked: false,
@@ -95,7 +96,7 @@ describe('Radio', () => {
 				[
 					v('input', {
 						type: 'radio',
-						id: undefined,
+						id: '1',
 						name: undefined,
 						value: undefined,
 						checked: false,

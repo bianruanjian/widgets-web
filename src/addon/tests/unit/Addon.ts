@@ -57,7 +57,7 @@ describe('Addon', () => {
 	});
 
 	it('child is checkbox or radio', () => {
-		const checkboxH = harness(() => w(Checkbox, {}));
+		const checkboxH = harness(() => w(Checkbox, { widgetId: '1' }));
 		const h = harness(() => w(Addon, {}, [checkboxH.getRender() as VNode]));
 		h.expect(() =>
 			v(
@@ -83,7 +83,7 @@ describe('Addon', () => {
 								[
 									v('input', {
 										type: 'checkbox',
-										id: undefined,
+										id: '1',
 										name: undefined,
 										value: undefined,
 										checked: false,

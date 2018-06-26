@@ -9,6 +9,7 @@ import * as css from './../../styles/select.m.css';
 
 describe('Select', () => {
 	const defaultProperties: SelectProperties = {
+		widgetId: '1',
 		disabled: false,
 		required: false,
 		readOnly: false,
@@ -58,13 +59,13 @@ describe('Select', () => {
 	};
 
 	it('should construct Select', () => {
-		const h = harness(() => w(Select, {}));
+		const h = harness(() => w(Select, { widgetId: '1' }));
 		h.expect(() => [
 			null,
 			v(
 				'select',
 				{
-					id: undefined,
+					id: '1',
 					key: 'select',
 					name: undefined,
 					disabled: false,
@@ -84,7 +85,7 @@ describe('Select', () => {
 			v(
 				'select',
 				{
-					id: undefined,
+					id: '1',
 					key: 'select',
 					name: undefined,
 					disabled: false,
