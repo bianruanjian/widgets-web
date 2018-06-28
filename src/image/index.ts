@@ -58,7 +58,7 @@ export class ImageBase<P extends ImageProperties = ImageProperties> extends Them
 	protected getKey() {
 		return 'image';
 	}
-	private _getImgClasses(): string[] {
+	protected getImgClasses(): string[] {
 		let { fluid, thumbnail, alignment } = this.properties;
 		const cssClasses: string[] = [];
 		if (fluid === true || fluid === 'true') {
@@ -81,7 +81,7 @@ export class ImageBase<P extends ImageProperties = ImageProperties> extends Them
 		return cssClasses;
 	}
 
-	private _getImgStyles() {
+	protected getImgStyles() {
 		let { width, height } = this.properties;
 
 		let cssStyles: any = {};
@@ -117,12 +117,12 @@ export class ImageBase<P extends ImageProperties = ImageProperties> extends Them
 				alt,
 				classes: [
 					this.theme(css.root),
-					...this._getImgClasses(),
+					...this.getImgClasses(),
 					...getBorderClasses(this.properties),
 					...getSpacingClasses(this.properties)
 				],
 				styles: {
-					...this._getImgStyles()
+					...this.getImgStyles()
 				}
 			},
 			this.children
