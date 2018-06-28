@@ -33,12 +33,11 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 	protected getKey() {
 		return 'list-group';
 	}
-	protected render(): DNode | DNode[] {
-		const { widgetId, flush } = this.properties;
+
+	protected checkChildrenType(): string {
 		let tag: string = 'ul';
 		let existListItem: boolean = false;
 		let existButtonOrLink: boolean = false;
-
 		this.children.forEach((child, index) => {
 			if (child) {
 				const childKey = (child as VNode).properties.key;
@@ -56,6 +55,13 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 		if (existButtonOrLink && existListItem) {
 			console.error('ListItem and Button/Link can not be allowed at the same time in the ListGroup widget');
 		}
+
+		return tag;
+	}
+
+	protected render(): DNode | DNode[] {
+		const { widgetId, flush } = this.properties;
+		const tag = this.checkChildrenType();
 
 		return v(
 			tag,
