@@ -34,7 +34,7 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 		return 'list-group';
 	}
 
-	protected checkChildrenType(): string {
+	protected getTagNameByChildNode(): string {
 		let tag: string = 'ul';
 		let existListItem: boolean = false;
 		let existButtonOrLink: boolean = false;
@@ -61,7 +61,7 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 
 	protected render(): DNode | DNode[] {
 		const { widgetId, flush } = this.properties;
-		const tag = this.checkChildrenType();
+		const tag = this.getTagNameByChildNode();
 
 		return v(
 			tag,
