@@ -13,14 +13,14 @@ tags:
 ### gutters
 
 {% raw %}
-<div class="container" style="max-length: 90%">
+<div class="container" style="max-width: 90%">
     <div id="row" class="bg-primary border" >
         <div class="bg-success text-light m-2" style="height:30px">存在间隔</div>
     </div>
 </div>
 {% endraw %}
 {% raw %}
-<div class="container" style="max-length: 90%">
+<div class="container" style="max-width: 90%">
     <div id="row" class="bg-primary border">
         <div class="bg-success text-light my-2" style="height:30px">不存在间隔</div>
     </div>
