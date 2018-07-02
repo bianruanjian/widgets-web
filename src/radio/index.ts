@@ -117,13 +117,37 @@ export class RadioBase<P extends RadioProperties = RadioProperties> extends Them
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId = this._uuid, label, size, labelAfter, fluid, display, isInAddon = false } = this.properties;
+		const {
+			widgetId = this._uuid,
+			label,
+			size,
+			labelAfter,
+			fluid,
+			display,
+			value,
+			checked,
+			disabled,
+			readOnly,
+			isInAddon = false
+		} = this.properties;
 
 		if (isInAddon) {
 			return v('input', {
 				id: widgetId,
 				key: this.getKey(),
-				type: 'radio'
+				type: 'radio',
+				name,
+				value,
+				checked: checked === true || checked === 'true',
+				disabled: disabled === true || disabled === 'true',
+				readOnly: readOnly === true || readOnly === 'true',
+				classes: [
+					size ? formSizeMap[size as string] : undefined,
+					...getSpacingClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
+					...getFloatClass(this.properties)
+				]
 			});
 		}
 

@@ -119,13 +119,39 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId = this._uuid, label, size, labelAfter, fluid, display, isInAddon = false } = this.properties;
+		const {
+			widgetId = this._uuid,
+			label,
+			size,
+			labelAfter,
+			fluid,
+			display,
+			value,
+			checked,
+			disabled,
+			required,
+			readOnly,
+			isInAddon = false
+		} = this.properties;
 
 		if (isInAddon) {
 			return v('input', {
 				id: widgetId,
 				key: this.getKey(),
-				type: 'checkbox'
+				type: 'checkbox',
+				name,
+				value,
+				checked: checked === true || checked === 'true',
+				disabled: disabled === true || disabled === 'true',
+				required: required === true || required === 'true',
+				readOnly: readOnly === true || readOnly === 'true',
+				classes: [
+					size ? formSizeMap[size as string] : undefined,
+					...getSpacingClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
+					...getFloatClass(this.properties)
+				]
 			});
 		}
 
