@@ -66,7 +66,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: [css.root, 'form-check', 'mr-0', undefined, 'form-check-inline', undefined]
+					classes: [css.root, 'form-check', undefined, 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -94,7 +94,7 @@ describe('Checkbox', () => {
 				'div',
 				{
 					key: 'checkbox',
-					classes: [css.root, 'form-check', 'mr-0', '', 'form-check-inline', undefined]
+					classes: [css.root, 'form-check', '', 'form-check-inline', undefined]
 				},
 				[
 					v('input', {
@@ -125,7 +125,6 @@ describe('Checkbox', () => {
 					classes: [
 						css.root,
 						'form-check',
-						'mr-0',
 						'form-control-sm',
 						undefined,
 						'my-0',

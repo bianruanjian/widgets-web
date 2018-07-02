@@ -76,14 +76,7 @@ describe('Addon', () => {
 								'div',
 								{
 									key: 'checkbox',
-									classes: [
-										cssCheckbox.root,
-										'form-check',
-										'mr-0',
-										undefined,
-										'form-check-inline',
-										undefined
-									]
+									classes: [cssCheckbox.root, 'form-check', undefined, 'form-check-inline', undefined]
 								},
 								[
 									v('input', {
