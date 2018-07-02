@@ -45,6 +45,7 @@ export interface RadioProperties
 	labelAfter?: boolean | string;
 	fluid?: boolean | string;
 	size?: string;
+	isInAddon?: boolean; // 当将 Radio 作为 Addon 的子部件时，要设置 isInAddon 为 true, 默认为 false
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -64,6 +65,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'size',
 		'invalidMessage',
 		'validMessage',
+		'isInAddon',
 		'marginTop',
 		'marginBottom',
 		'marginLeft',
@@ -115,7 +117,39 @@ export class RadioBase<P extends RadioProperties = RadioProperties> extends Them
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId = this._uuid, label, size, labelAfter, fluid, display } = this.properties;
+		const {
+			widgetId = this._uuid,
+			label,
+			size,
+			labelAfter,
+			fluid,
+			display,
+			value,
+			checked,
+			disabled,
+			readOnly,
+			isInAddon = false
+		} = this.properties;
+
+		if (isInAddon) {
+			return v('input', {
+				id: widgetId,
+				key: this.getKey(),
+				type: 'radio',
+				name,
+				value,
+				checked: checked === true || checked === 'true',
+				disabled: disabled === true || disabled === 'true',
+				readOnly: readOnly === true || readOnly === 'true',
+				classes: [
+					size ? formSizeMap[size as string] : undefined,
+					...getSpacingClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
+					...getFloatClass(this.properties)
+				]
+			});
+		}
 
 		let children: DNode[] = [
 			this.renderRadio(),

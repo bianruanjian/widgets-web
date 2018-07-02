@@ -45,6 +45,7 @@ export interface CheckboxProperties
 	labelAfter?: boolean | string;
 	fluid?: boolean | string;
 	size?: string;
+	isInAddon?: boolean; // 当将 Checkbox 作为 Addon 的子部件时，要设置 isInAddon 为 true, 默认为 false
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -65,6 +66,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'size',
 		'invalidMessage',
 		'validMessage',
+		'isInAddon',
 		'marginTop',
 		'marginBottom',
 		'marginLeft',
@@ -117,7 +119,41 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 	}
 
 	protected render(): DNode | DNode[] {
-		const { widgetId = this._uuid, label, size, labelAfter, fluid, display } = this.properties;
+		const {
+			widgetId = this._uuid,
+			label,
+			size,
+			labelAfter,
+			fluid,
+			display,
+			value,
+			checked,
+			disabled,
+			required,
+			readOnly,
+			isInAddon = false
+		} = this.properties;
+
+		if (isInAddon) {
+			return v('input', {
+				id: widgetId,
+				key: this.getKey(),
+				type: 'checkbox',
+				name,
+				value,
+				checked: checked === true || checked === 'true',
+				disabled: disabled === true || disabled === 'true',
+				required: required === true || required === 'true',
+				readOnly: readOnly === true || readOnly === 'true',
+				classes: [
+					size ? formSizeMap[size as string] : undefined,
+					...getSpacingClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...getFlexItemClasses(this.properties as FlexItemProperties),
+					...getFloatClass(this.properties)
+				]
+			});
+		}
 
 		let children: DNode[] = [
 			this.renderCheckbox(),

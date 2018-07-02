@@ -37,16 +37,26 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 		return 'addon';
 	}
 
+	protected isCheckboxOrRadio(node: VNode): boolean {
+		const childKey = node.properties.key;
+		if (childKey === 'checkbox' || childKey === 'radio') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	protected render(): DNode | DNode[] {
 		const { widgetId, value, position } = this.properties;
 
-		let cssClass: string = 'input-group-prepend';
+		let cssClass: string[] = ['input-group-prepend'];
 
 		if (position && position === 'append') {
-			cssClass = 'input-group-append';
+			cssClass = ['input-group-append'];
 		}
 
-		const children: any[] = [];
+		let children: DNode[] = [];
+
 		if (value) {
 			children.push(
 				v(
@@ -58,22 +68,19 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 				)
 			);
 		} else {
-			let existCheckboxOrRadio: boolean = false;
-			find(this.children, (child: DNode) => {
+			const checkboxOrRadioNode = find(this.children, (child: DNode) => {
 				if (child) {
-					const childKey = (child as VNode).properties.key;
-					if (childKey === 'checkbox' || childKey === 'radio') {
-						existCheckboxOrRadio = true;
-					}
+					return this.isCheckboxOrRadio(child as VNode);
 				}
-				return existCheckboxOrRadio;
+				return false;
 			});
-			if (existCheckboxOrRadio) {
+			if (checkboxOrRadioNode) {
 				children.push(
 					v('div', { classes: ['input-group-text', ...getColorsClasses(this.properties)] }, this.children)
 				);
 			} else {
-				children.push(v('div', { classes: getColorsClasses(this.properties) }, this.children));
+				cssClass = cssClass.concat(getColorsClasses(this.properties));
+				children = this.children;
 			}
 		}
 
@@ -82,7 +89,7 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 			{
 				id: widgetId,
 				key: this.getKey(),
-				classes: [this.theme(css.root), cssClass]
+				classes: [this.theme(css.root), ...cssClass]
 			},
 			children
 		);
