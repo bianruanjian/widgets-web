@@ -23,15 +23,11 @@ describe('Addon', () => {
 	it('should construct Addon', () => {
 		const h = harness(() => w(Addon, {}));
 		h.expect(() =>
-			v(
-				'div',
-				{
-					id: undefined,
-					key: 'addon',
-					classes: [css.root, 'input-group-prepend']
-				},
-				[v('div', { classes: [] })]
-			)
+			v('div', {
+				id: undefined,
+				key: 'addon',
+				classes: [css.root, 'input-group-prepend']
+			})
 		);
 	});
 
@@ -80,7 +76,14 @@ describe('Addon', () => {
 								'div',
 								{
 									key: 'checkbox',
-									classes: [cssCheckbox.root, 'form-check', undefined, 'form-check-inline', undefined]
+									classes: [
+										cssCheckbox.root,
+										'form-check',
+										'mr-0',
+										undefined,
+										'form-check-inline',
+										undefined
+									]
 								},
 								[
 									v('input', {
@@ -117,20 +120,18 @@ describe('Addon', () => {
 					classes: [css.root, 'input-group-prepend']
 				},
 				[
-					v('div', { classes: [] }, [
-						v(
-							'button',
-							{
-								id: undefined,
-								key: 'button',
-								classes: [cssButton.root, 'btn', undefined, undefined, undefined, undefined],
-								disabled: false,
-								type: undefined,
-								onclick: () => {}
-							},
-							[]
-						)
-					])
+					v(
+						'button',
+						{
+							id: undefined,
+							key: 'button',
+							classes: [cssButton.root, 'btn', undefined, undefined, undefined, undefined],
+							disabled: false,
+							type: undefined,
+							onclick: () => {}
+						},
+						[]
+					)
 				]
 			)
 		);

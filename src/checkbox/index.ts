@@ -135,6 +135,7 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 				classes: [
 					this.theme(css.root),
 					'form-check',
+					'mr-0',
 					size ? formSizeMap[size as string] : undefined,
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
 					...getSpacingClasses(this.properties),

@@ -37,16 +37,10 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 		return 'addon';
 	}
 
-	protected render(): DNode | DNode[] {
-		const { widgetId, value, position } = this.properties;
+	protected renderChildren() {
+		const { value } = this.properties;
 
-		let cssClass: string = 'input-group-prepend';
-
-		if (position && position === 'append') {
-			cssClass = 'input-group-append';
-		}
-
-		const children: any[] = [];
+		let children: any[] = [];
 		if (value) {
 			children.push(
 				v(
@@ -73,8 +67,26 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 					v('div', { classes: ['input-group-text', ...getColorsClasses(this.properties)] }, this.children)
 				);
 			} else {
-				children.push(v('div', { classes: getColorsClasses(this.properties) }, this.children));
+				children = this.children;
 			}
+		}
+
+		return children;
+	}
+
+	protected render(): DNode | DNode[] {
+		const { widgetId, position } = this.properties;
+
+		let cssClass: string[] = ['input-group-prepend'];
+
+		if (position && position === 'append') {
+			cssClass = ['input-group-append'];
+		}
+
+		const children = this.renderChildren();
+
+		if (children === this.children) {
+			cssClass = cssClass.concat(getColorsClasses(this.properties));
 		}
 
 		return v(
@@ -82,7 +94,7 @@ export class AddonBase<P extends AddonProperties = AddonProperties> extends Them
 			{
 				id: widgetId,
 				key: this.getKey(),
-				classes: [this.theme(css.root), cssClass]
+				classes: [this.theme(css.root), ...cssClass]
 			},
 			children
 		);

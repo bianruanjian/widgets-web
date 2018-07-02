@@ -132,6 +132,7 @@ export class RadioBase<P extends RadioProperties = RadioProperties> extends Them
 				classes: [
 					this.theme(css.root),
 					'form-check',
+					'mr-0',
 					size ? formSizeMap[size as string] : undefined,
 					fluid === true || fluid === 'true' ? undefined : 'form-check-inline',
 					...getSpacingClasses(this.properties),
