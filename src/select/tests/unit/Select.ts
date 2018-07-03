@@ -5,10 +5,10 @@ import { w, v } from '@dojo/widget-core/d';
 import Select, { SelectProperties } from './../../index';
 import Label from '../../../label';
 import * as css from './../../styles/select.m.css';
-import { compareWidgetId, createHarness } from '../../../common/tests/test-helpers';
+import { compareWidgetId, compareKey, createHarness } from '../../../common/tests/test-helpers';
 
 describe('Select', () => {
-	const harness = createHarness([compareWidgetId]);
+	const harness = createHarness([compareWidgetId, compareKey]);
 
 	const defaultProperties: SelectProperties = {
 		disabled: false,
@@ -135,6 +135,7 @@ describe('Select', () => {
 					v(
 						'option',
 						{
+							key: '',
 							value: 'value1',
 							selected: false
 						},
@@ -143,6 +144,7 @@ describe('Select', () => {
 					v(
 						'option',
 						{
+							key: '',
 							value: 'value2',
 							selected: true
 						},

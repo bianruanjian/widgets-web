@@ -140,6 +140,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 				return v(
 					'option',
 					{
+						key: index + uuid(),
 						value: option[valueField],
 						selected: option[valueField] === value
 					},

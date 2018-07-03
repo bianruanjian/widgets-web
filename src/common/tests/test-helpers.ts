@@ -8,6 +8,12 @@ export const compareWidgetId = {
 	comparator: isStringComparator
 };
 
+export const compareKey = {
+	selector: '*',
+	property: 'key',
+	comparator: isStringComparator
+};
+
 export const createHarness = (globalCompares: CustomComparator[]) => {
 	return (renderFunction: () => WNode<WidgetBaseInterface>, compares: CustomComparator[] = []) => {
 		return harness(renderFunction, [...globalCompares, ...compares]);
