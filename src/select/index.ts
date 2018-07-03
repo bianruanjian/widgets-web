@@ -141,7 +141,7 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 					'option',
 					{
 						value: option[valueField],
-						selected: value && value === option[valueField]
+						selected: option[valueField] === value
 					},
 					[option[labelField]]
 				);
