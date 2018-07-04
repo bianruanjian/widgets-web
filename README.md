@@ -7,7 +7,7 @@
 
 Widgets-web 是一套响应式、语义化的 UI 部件库，基于 dojo 2 的 [widget-core](https://github.com/dojo/widget-core) 和 [bootstrap 4](https://getbootstrap.com/) 构建。
 
-部件可供界面开发人员直接使用（[参考部件使用手册](https://bianruanjian.github.io/widgets-web/components/)），也可集成到[编软件平台](www.bianruanjian.com)的界面设计器中。
+部件可供界面开发人员直接使用（[参考部件使用手册](https://bianruanjian.github.io/widgets-web/components/)），也可集成到[编软件平台](https://bianruanjian.com)的界面设计器中。
 
 ## 如何使用
 
