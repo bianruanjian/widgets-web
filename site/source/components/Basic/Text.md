@@ -50,6 +50,8 @@ tags:
 1. [Spacing](../Utilities/Spacing.html)
 1. [Text](../Utilities/Text.html)
 1. [Colors](../Utilities/Colors.html)
+1. [Display](../Utilities/Display.html)
+1. [Flex](../Utilities/Flex.html)
 
 ## 属性
 

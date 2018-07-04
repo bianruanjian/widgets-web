@@ -26,7 +26,16 @@ describe('Text', () => {
 		truncate: 'default',
 		wrap: 0,
 		textColor: 'default',
-		backgroundColor: 'default'
+		backgroundColor: 'default',
+		display: 'default',
+		flexDirection: 'default',
+		reverse: false,
+		justifyItems: 'default',
+		alignItems: 'default',
+		flexWrap: 'default',
+		alignContent: 'default',
+		alignSelf: 'default',
+		order: 'default'
 	};
 
 	let customProperties: TextWidgetProperties = {
@@ -49,7 +58,16 @@ describe('Text', () => {
 		truncate: 40,
 		wrap: 1,
 		textColor: 'primary',
-		backgroundColor: 'primary'
+		backgroundColor: 'primary',
+		display: 'flex',
+		flexDirection: 'row',
+		reverse: true,
+		justifyItems: 'start',
+		alignItems: 'start',
+		flexWrap: 'nowrap',
+		alignContent: 'start',
+		alignSelf: 'start',
+		order: 0
 	};
 
 	it('should construct text', () => {
@@ -60,7 +78,7 @@ describe('Text', () => {
 				{
 					id: undefined,
 					key: 'text',
-					classes: [cssText.root],
+					classes: [cssText.root, undefined],
 					styles: {}
 				},
 				[undefined]
@@ -76,7 +94,7 @@ describe('Text', () => {
 				{
 					id: undefined,
 					key: 'text',
-					classes: [cssText.root],
+					classes: [cssText.root, undefined],
 					styles: {}
 				},
 				[undefined]
@@ -109,7 +127,15 @@ describe('Text', () => {
 						'text-nowrap',
 						css[textDecorationClass as baseCssType],
 						'text-primary',
-						'bg-primary'
+						'bg-primary',
+						'd-flex',
+						'flex-row-reverse',
+						'justify-content-start',
+						'align-items-start',
+						'flex-nowrap',
+						'align-content-start',
+						'align-self-start',
+						'order-0'
 					],
 					styles: {
 						maxWidth: '40px',
@@ -129,7 +155,7 @@ describe('Text', () => {
 				{
 					id: undefined,
 					key: 'text',
-					classes: [cssText.root, 'lead'],
+					classes: [cssText.root, 'lead', undefined],
 					styles: {}
 				},
 				[undefined]
@@ -145,7 +171,7 @@ describe('Text', () => {
 				{
 					id: undefined,
 					key: 'text',
-					classes: [cssText.root],
+					classes: [cssText.root, undefined],
 					styles: {}
 				},
 				['val', w(Text, { value: 'abc' })]
