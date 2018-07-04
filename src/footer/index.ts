@@ -2,10 +2,17 @@ import { DNode } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
-import { SpacingProperties, FlexContainerProperties, DisplayProperties } from '../common/interfaces';
+import { SpacingProperties, FlexContainerProperties, DisplayProperties, TextProperties } from '../common/interfaces';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
 import { v } from '@dojo/widget-core/d';
-import { getSpacingClasses, getFlexContainerClasses, getDisplayClass } from '../common/util';
+import {
+	getSpacingClasses,
+	getFlexContainerClasses,
+	getDisplayClass,
+	getTextClasses,
+	getTextDecorationClass,
+	getTextStyles
+} from '../common/util';
 
 import * as css from './styles/footer.m.css';
 
@@ -16,6 +23,7 @@ import * as css from './styles/footer.m.css';
  */
 export interface FooterProperties
 	extends SpacingProperties,
+		TextProperties,
 		FlexContainerProperties,
 		DisplayProperties,
 		ThemedProperties {
@@ -37,6 +45,13 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'paddingBottom',
 		'paddingLeft',
 		'paddingRight',
+		'fontWeight',
+		'fontItalic',
+		'textDecoration',
+		'alignment',
+		'transform',
+		'truncate',
+		'wrap',
 		'display',
 		'flexDirection',
 		'reverse',
@@ -70,9 +85,12 @@ export class FooterBase<P extends FooterProperties = FooterProperties> extends T
 				classes: [
 					this.theme(css.root),
 					...getSpacingClasses(this.properties),
+					...getTextClasses(this.properties),
+					...getTextDecorationClass(this.properties),
 					display ? getDisplayClass(this.properties) : undefined,
 					...flexContainerClasses
-				]
+				],
+				styles: getTextStyles(this.properties)
 			},
 			this.children
 		);

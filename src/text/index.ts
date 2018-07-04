@@ -4,13 +4,23 @@ import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/T
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { customElement } from '@dojo/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { SpacingProperties, TextProperties, ColorsProperties } from '../common/interfaces';
+import {
+	SpacingProperties,
+	TextProperties,
+	ColorsProperties,
+	DisplayProperties,
+	FlexContainerProperties,
+	FlexItemProperties
+} from '../common/interfaces';
 import {
 	getSpacingClasses,
 	getTextClasses,
 	getTextDecorationClass,
 	getColorsClasses,
-	getTextStyles
+	getTextStyles,
+	getFlexContainerClasses,
+	getDisplayClass,
+	getFlexItemClasses
 } from '../common/util';
 
 import * as css from './styles/text.m.css';
@@ -19,7 +29,14 @@ import * as css from './styles/text.m.css';
  *
  * Properties that can be set on text components
  */
-export interface TextWidgetProperties extends SpacingProperties, TextProperties, ColorsProperties, ThemedProperties {
+export interface TextWidgetProperties
+	extends SpacingProperties,
+		TextProperties,
+		ColorsProperties,
+		DisplayProperties,
+		FlexContainerProperties,
+		FlexItemProperties,
+		ThemedProperties {
 	widgetId?: string;
 	value?: string;
 	valuePosition?: boolean | string;
@@ -52,7 +69,16 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'truncate',
 		'wrap',
 		'textColor',
-		'backgroundColor'
+		'backgroundColor',
+		'display',
+		'flexDirection',
+		'reverse',
+		'justifyItems',
+		'alignItems',
+		'flexWrap',
+		'alignContent',
+		'alignSelf',
+		'order'
 	],
 	properties: [],
 	events: []
@@ -63,7 +89,7 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 		return 'text';
 	}
 	protected render(): DNode | DNode[] {
-		let { widgetId, value, valuePosition, type } = this.properties;
+		let { widgetId, value, valuePosition, type, display } = this.properties;
 
 		let tag: string;
 		let cssClasses: string[] = [];
@@ -86,6 +112,12 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 			children = [...this.children, value];
 		}
 
+		let flexContainerClasses: string[] = [];
+
+		if (display && (display === 'flex' || display === 'inlineFlex')) {
+			flexContainerClasses = getFlexContainerClasses(this.properties);
+		}
+
 		return v(
 			tag,
 			{
@@ -97,7 +129,10 @@ export class TextBase<P extends TextWidgetProperties = TextWidgetProperties> ext
 					...getSpacingClasses(this.properties),
 					...getTextClasses(this.properties),
 					...getTextDecorationClass(this.properties),
-					...getColorsClasses(this.properties)
+					...getColorsClasses(this.properties),
+					display ? getDisplayClass(this.properties) : undefined,
+					...flexContainerClasses,
+					...getFlexItemClasses(this.properties)
 				],
 				styles: {
 					...getTextStyles(this.properties)
