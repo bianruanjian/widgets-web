@@ -202,4 +202,27 @@ describe('ListGroup', () => {
 			)
 		);
 	});
+	it('orientation is horizontal', () => {
+		const listItemH = harness(() => w(ListItem, { isHorizontal: true }));
+		const h = harness(() => w(ListGroup, { orientation: 'horizontal' }, [listItemH.getRender() as VNode]));
+		h.expect(() =>
+			v(
+				'ul',
+				{
+					id: undefined,
+					key: 'list-group',
+					classes: [css.root, 'list-inline']
+				},
+				[
+					v('li', {
+						classes: [cssListItem.root, 'list-inline-item', undefined, undefined],
+						disabled: false,
+						id: undefined,
+						key: 'list-item',
+						styles: {}
+					})
+				]
+			)
+		);
+	});
 });

@@ -31,6 +31,7 @@ export interface ListItemProperties
 	active?: boolean | string;
 	disabled?: boolean | string;
 	appearance?: string;
+	isHorizontal?: boolean | string;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -43,6 +44,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'active',
 		'disabled',
 		'appearance',
+		'isHorizontal',
 		'display',
 		'flexDirection',
 		'reverse',
@@ -69,12 +71,35 @@ export class ListItemBase<P extends ListItemProperties = ListItemProperties> ext
 		return 'list-item';
 	}
 	protected render(): DNode | DNode[] {
-		const { widgetId, active, disabled, appearance, display } = this.properties;
+		const { widgetId, active, disabled, appearance, display, isHorizontal } = this.properties;
 
 		let flexContainerClasses: string[] = [];
 
 		if (display && (display === 'flex' || display === 'inlineFlex')) {
 			flexContainerClasses = getFlexContainerClasses(this.properties);
+		}
+
+		if (isHorizontal === true || isHorizontal === 'true') {
+			return v(
+				'li',
+				{
+					id: widgetId,
+					key: this.getKey(),
+					disabled: disabled === true || disabled === 'true',
+					classes: [
+						this.theme(css.root),
+						'list-inline-item',
+						appearance && appearance !== 'default' ? `bg-${appearance}` : undefined,
+						display ? getDisplayClass(this.properties) : undefined,
+						...flexContainerClasses,
+						...getTextClasses(this.properties),
+						...getTextDecorationClass(this.properties),
+						...getColorsClasses(this.properties)
+					],
+					styles: getTextStyles(this.properties)
+				},
+				this.children
+			);
 		}
 
 		return v(
