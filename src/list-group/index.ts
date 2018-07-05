@@ -17,6 +17,7 @@ import * as css from './styles/list-group.m.css';
 export interface ListGroupProperties extends SpacingProperties, ThemedProperties {
 	widgetId?: string;
 	flush?: boolean | string;
+	orientation?: string;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -24,7 +25,19 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 @customElement<ListGroupProperties>({
 	tag: 'db-list-group',
 	childType: CustomElementChildType.NODE,
-	attributes: ['widgetId', 'flush'],
+	attributes: [
+		'widgetId',
+		'flush',
+		'orientation',
+		'marginTop',
+		'marginBottom',
+		'marginLeft',
+		'marginRight',
+		'paddingTop',
+		'paddingBottom',
+		'paddingLeft',
+		'paddingRight'
+	],
 	properties: [],
 	events: []
 })
@@ -59,8 +72,25 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 		return tag;
 	}
 
+	protected renderChildren(): DNode[] {
+		return this.children;
+	}
+
 	protected render(): DNode | DNode[] {
-		const { widgetId, flush } = this.properties;
+		const { widgetId, flush, orientation } = this.properties;
+
+		if (orientation === 'horizontal') {
+			return v(
+				'ul',
+				{
+					id: widgetId,
+					key: this.getKey(),
+					classes: [this.theme(css.root), 'list-inline', ...getSpacingClasses(this.properties)]
+				},
+				this.renderChildren()
+			);
+		}
+
 		const tag = this.getTagNameByChildNode();
 
 		return v(
