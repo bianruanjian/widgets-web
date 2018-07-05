@@ -31,7 +31,7 @@ export interface ListItemProperties
 	active?: boolean | string;
 	disabled?: boolean | string;
 	appearance?: string;
-	isHorizontal?: boolean | string;
+	orientation?: string;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -44,7 +44,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'active',
 		'disabled',
 		'appearance',
-		'isHorizontal',
+		'orientation',
 		'display',
 		'flexDirection',
 		'reverse',
@@ -71,7 +71,7 @@ export class ListItemBase<P extends ListItemProperties = ListItemProperties> ext
 		return 'list-item';
 	}
 	protected render(): DNode | DNode[] {
-		const { widgetId, active, disabled, appearance, display, isHorizontal } = this.properties;
+		const { widgetId, active, disabled, appearance, display, orientation = 'vertical' } = this.properties;
 
 		let flexContainerClasses: string[] = [];
 
@@ -79,7 +79,7 @@ export class ListItemBase<P extends ListItemProperties = ListItemProperties> ext
 			flexContainerClasses = getFlexContainerClasses(this.properties);
 		}
 
-		if (isHorizontal === true || isHorizontal === 'true') {
+		if (orientation === 'horizontal') {
 			return v(
 				'li',
 				{
@@ -89,7 +89,7 @@ export class ListItemBase<P extends ListItemProperties = ListItemProperties> ext
 					classes: [
 						this.theme(css.root),
 						'list-inline-item',
-						appearance && appearance !== 'default' ? `bg-${appearance}` : undefined,
+						appearance && appearance !== 'default' ? `list-group-item-${appearance}` : undefined,
 						display ? getDisplayClass(this.properties) : undefined,
 						...flexContainerClasses,
 						...getTextClasses(this.properties),

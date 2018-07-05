@@ -203,7 +203,7 @@ describe('ListGroup', () => {
 		);
 	});
 	it('orientation is horizontal', () => {
-		const listItemH = harness(() => w(ListItem, { isHorizontal: true }));
+		const listItemH = harness(() => w(ListItem, { orientation: 'horizontal' }));
 		const h = harness(() => w(ListGroup, { orientation: 'horizontal' }, [listItemH.getRender() as VNode]));
 		h.expect(() =>
 			v(

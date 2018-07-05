@@ -72,7 +72,7 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 		return tag;
 	}
 
-	protected transmitPropertyToChildren(): DNode[] {
+	protected renderChildren(): DNode[] {
 		return this.children;
 	}
 
@@ -87,7 +87,7 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 					key: this.getKey(),
 					classes: [this.theme(css.root), 'list-inline', ...getSpacingClasses(this.properties)]
 				},
-				this.transmitPropertyToChildren()
+				this.renderChildren()
 			);
 		}
 
