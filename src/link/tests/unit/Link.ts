@@ -64,7 +64,7 @@ describe('Link', () => {
 				{
 					id: undefined,
 					key: 'link',
-					href: undefined,
+					href: '#',
 					target: undefined,
 					classes: [cssLink.root, undefined],
 					styles: {}
@@ -82,7 +82,7 @@ describe('Link', () => {
 				{
 					id: undefined,
 					key: 'link',
-					href: undefined,
+					href: '#',
 					target: '_self',
 					classes: [cssLink.root, undefined],
 					styles: {}
@@ -139,7 +139,7 @@ describe('Link', () => {
 				{
 					id: undefined,
 					key: 'link',
-					href: undefined,
+					href: '#',
 					target: undefined,
 					classes: [cssLink.root, 'list-group-item', 'list-group-item-action', undefined, undefined],
 					styles: {}
@@ -157,7 +157,7 @@ describe('Link', () => {
 				{
 					id: undefined,
 					key: 'link',
-					href: undefined,
+					href: '#',
 					target: undefined,
 					classes: [cssLink.root, undefined],
 					styles: {}
