@@ -40,9 +40,24 @@ tags:
 </db-container>
 ```
 
+最大宽度
+
+{% raw %}
+<div style="background-color:white;height:100px;border: 1px solid;">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue; max-width:90%" class="container mt-1">最大宽度 90%</div>
+</div>
+{% endraw %}
+
+```html
+<db-container maxWidth="90%">
+    最大宽度 90%
+</db-container>
+```
+
 ## 属性
 
 | 名称 | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId| 标识 | | | string |
 | fluid | 水平铺满 | false | true, false | boolean |
+| maxWidth | 最大宽度 | | 数字, 百分数 | number/string |

@@ -13,20 +13,22 @@ describe('Container', () => {
 			v('div', {
 				id: undefined,
 				key: 'container',
-				classes: [css.root, 'container']
+				classes: [css.root, 'container'],
+				styles: {}
 			})
 		);
 	});
 
 	it('custom properties', () => {
-		const h = harness(() => w(Container, { widgetId: 'random-id', fluid: true }));
+		const h = harness(() => w(Container, { widgetId: 'random-id', fluid: true, maxWidth: '10' }));
 		h.expect(() =>
 			v(
 				'div',
 				{
 					id: 'random-id',
 					key: 'container',
-					classes: [css.root, 'container-fluid']
+					classes: [css.root, 'container-fluid'],
+					styles: { maxWidth: '10px' }
 				},
 				[]
 			)
@@ -41,7 +43,8 @@ describe('Container', () => {
 				{
 					id: undefined,
 					key: 'container',
-					classes: [css.root, 'container']
+					classes: [css.root, 'container'],
+					styles: {}
 				},
 				['Content']
 			)

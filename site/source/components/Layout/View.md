@@ -54,6 +54,6 @@ tags:
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | widgetId | 标识 | | | string |
-| maxWidth | 最大宽度 | | | number/undefined |
+| maxWidth | 最大宽度 | | 数字, 百分数 | number/string |
 
 1. `maxWidth`属性的值为数字时，设置最大宽度；不设置值时铺满全屏。
