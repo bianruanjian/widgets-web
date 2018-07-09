@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="widgets-web">
 <meta property="og:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 基本用法固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏                铺满全屏        123&amp;lt;db-container fluidWidth=&quot;true&quot;&amp;gt;铺满全屏&amp;lt;/db-container&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-09T01:38:33.802Z">
+<meta property="og:updated_time" content="2018-07-09T07:00:30.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Container">
 <meta name="twitter:description" content="页面布局容器，可按固定的宽度居中显示，或铺满全屏。 基本用法固定宽度       水平居中   123&amp;lt;db-container&amp;gt;    水平居中&amp;lt;/db-container&amp;gt; 铺满全屏                铺满全屏        123&amp;lt;db-container fluidWidth=&quot;true&quot;&amp;gt;铺满全屏&amp;lt;/db-container&amp;gt;">
@@ -107,16 +107,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Basic/Addon.html">
-                    Addon
+                <a href="/widgets-web/components/Basic/Badge.html">
+                    Badge
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/widgets-web/components/Basic/Badge.html">
-                    Badge
+                <a href="/widgets-web/components/Basic/Addon.html">
+                    Addon
                 </a>
             </li>
         
@@ -195,16 +195,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Form/InputGroup.html">
-                    InputGroup
+                <a href="/widgets-web/components/Form/Radio.html">
+                    Radio
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/widgets-web/components/Form/Radio.html">
-                    Radio
+                <a href="/widgets-web/components/Form/InputGroup.html">
+                    InputGroup
                 </a>
             </li>
         
@@ -219,16 +219,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Form/TextInput.html">
-                    TextInput
+                <a href="/widgets-web/components/Form/Textarea.html">
+                    Textarea
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/widgets-web/components/Form/Textarea.html">
-                    Textarea
+                <a href="/widgets-web/components/Form/TextInput.html">
+                    TextInput
                 </a>
             </li>
         
@@ -249,18 +249,18 @@
             </li>
         
             <li
-                class="active" 
-            >
-                <a href="/widgets-web/components/Layout/Container.html">
-                    Container
-                </a>
-            </li>
-        
-            <li
                 
             >
                 <a href="/widgets-web/components/Layout/Footer.html">
                     Footer
+                </a>
+            </li>
+        
+            <li
+                class="active" 
+            >
+                <a href="/widgets-web/components/Layout/Container.html">
+                    Container
                 </a>
             </li>
         
@@ -315,16 +315,16 @@
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Border.html">
-                    Border
+                <a href="/widgets-web/components/Utilities/Colors.html">
+                    Colors
                 </a>
             </li>
         
             <li
                 
             >
-                <a href="/widgets-web/components/Utilities/Colors.html">
-                    Colors
+                <a href="/widgets-web/components/Utilities/Border.html">
+                    Border
                 </a>
             </li>
         
@@ -412,6 +412,13 @@
 </div>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span> <span class="attr">fluidWidth</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">铺满全屏</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最大宽度</p>
+
+<div style="background-color:white;height:100px;border: 1px solid;">
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue; max-width:90%" class="container mt-1">最大宽度 90%</div>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-container</span> <span class="attr">maxWidth</span>=<span class="string">"90%"</span>&gt;</span></span><br><span class="line">    最大宽度 90%</span><br><span class="line"><span class="tag">&lt;/<span class="name">db-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
 <thead>
 <tr>
@@ -436,6 +443,13 @@
 <td>false</td>
 <td>true, false</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td>maxWidth</td>
+<td>最大宽度</td>
+<td></td>
+<td>数字, 百分数</td>
+<td>number/string</td>
 </tr>
 </tbody>
 </table>
