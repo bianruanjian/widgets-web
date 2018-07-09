@@ -47,6 +47,8 @@ export class ContainerBase<P extends ContainerProperties = ContainerProperties> 
 			} else {
 				maxWidthStyles.maxWidth = `${maxWidth}px`;
 			}
+		} else {
+			maxWidthStyles.maxWidth = undefined;
 		}
 
 		return maxWidthStyles;
