@@ -129,7 +129,7 @@ describe('ListGroup', () => {
 						'a',
 						{
 							classes: [cssLink.root, undefined],
-							href: undefined,
+							href: '#',
 							id: undefined,
 							key: 'link',
 							styles: {},

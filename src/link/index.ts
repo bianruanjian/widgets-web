@@ -95,6 +95,8 @@ export class LinkBase<P extends LinkProperties = LinkProperties> extends ThemedB
 	protected render(): DNode | DNode[] {
 		let { widgetId, href, target, value, valuePosition, isListItem = false, appearance, display } = this.properties;
 
+		href = href || '#';
+
 		if (target) {
 			target = targetMap[target as string] || target;
 		}
