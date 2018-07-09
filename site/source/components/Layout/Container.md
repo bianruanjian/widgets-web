@@ -40,17 +40,17 @@ tags:
 </db-container>
 ```
 
-限定宽度
+最大宽度
 
 {% raw %}
 <div style="background-color:white;height:100px;border: 1px solid;">
-    <div style="background-color:#80bdff;height:90%; border: 1px solid blue; max-width:90%" class="container mt-1">水平居中</div>
+    <div style="background-color:#80bdff;height:90%; border: 1px solid blue; max-width:90%" class="container mt-1">最大宽度 90%</div>
 </div>
 {% endraw %}
 
 ```html
 <db-container maxWidth="90%">
-    水平居中
+    最大宽度 90%
 </db-container>
 ```
 
