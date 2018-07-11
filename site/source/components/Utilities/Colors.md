@@ -14,5 +14,5 @@ tags:
 
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| textColor | 文本颜色 | default | primary, secondary, success, danger, warning, info, light, dark, white, default | string |
-| backgroundColor | 背景色 | default | primary, secondary, success, danger, warning, info, light, dark, white, default | string |
+| textColor | 文本颜色 | default | primary, secondary, success, danger, warning, info, light, dark, white, muted, default | string |
+| backgroundColor | 背景色 | default | primary, secondary, success, danger, warning, info, light, dark, white, transparent, default | string |
