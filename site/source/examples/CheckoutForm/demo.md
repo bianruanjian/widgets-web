@@ -6,5 +6,5 @@ footer: false
 ---
 
 {% raw %}
-<my-app></my-app>
+<checkout-app></checkout-app>
 {% endraw %}
