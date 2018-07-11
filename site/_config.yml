@@ -32,6 +32,8 @@ exclude:
 
 components_dir: components
 
+examples_dir: examples
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
