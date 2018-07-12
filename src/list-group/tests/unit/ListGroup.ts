@@ -100,6 +100,7 @@ describe('ListGroup', () => {
 						'button',
 						{
 							id: undefined,
+							isListItem: true,
 							key: 'button',
 							classes: [cssButton.root, 'btn', undefined, undefined, undefined, undefined],
 							disabled: false,
@@ -131,6 +132,7 @@ describe('ListGroup', () => {
 							classes: [cssLink.root, undefined],
 							href: '#',
 							id: undefined,
+							isListItem: true,
 							key: 'link',
 							styles: {},
 							target: undefined
@@ -186,6 +188,7 @@ describe('ListGroup', () => {
 							key: 'button',
 							classes: [cssButton.root, 'btn', undefined, undefined, undefined, undefined],
 							disabled: false,
+							isListItem: true,
 							type: undefined,
 							onclick: () => {}
 						},
@@ -219,6 +222,7 @@ describe('ListGroup', () => {
 						disabled: false,
 						id: undefined,
 						key: 'list-item',
+						orientation: 'horizontal',
 						styles: {}
 					})
 				]
