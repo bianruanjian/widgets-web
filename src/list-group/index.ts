@@ -53,11 +53,13 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 		let existButtonOrLink: boolean = false;
 		this.children.forEach((child, index) => {
 			if (child) {
-				const childKey = (child as VNode).properties.key;
+				const childNode = child as VNode;
+				const childKey = childNode.properties.key;
 
 				if (childKey === 'link' || childKey === 'button') {
 					tag = 'div';
 					existButtonOrLink = true;
+					(childNode.properties as any).isListItem = true;
 				}
 				if (childKey === 'list-item') {
 					existListItem = true;
@@ -73,6 +75,17 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 	}
 
 	protected renderChildren(): DNode[] {
+		const { orientation } = this.properties;
+		this.children.forEach((child, index) => {
+			if (child) {
+				const childNode = child as VNode;
+				const childKey = childNode.properties.key;
+
+				if (childKey === 'list-item' && orientation === 'horizontal') {
+					(childNode.properties as any).orientation = 'horizontal';
+				}
+			}
+		});
 		return this.children;
 	}
 

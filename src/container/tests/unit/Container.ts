@@ -14,7 +14,9 @@ describe('Container', () => {
 				id: undefined,
 				key: 'container',
 				classes: [css.root, 'container'],
-				styles: {}
+				styles: {
+					maxWidth: undefined
+				}
 			})
 		);
 	});
@@ -44,7 +46,9 @@ describe('Container', () => {
 					id: undefined,
 					key: 'container',
 					classes: [css.root, 'container'],
-					styles: {}
+					styles: {
+						maxWidth: undefined
+					}
 				},
 				['Content']
 			)
