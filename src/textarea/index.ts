@@ -1,8 +1,10 @@
-import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { customElement } from '@dojo/widget-core/decorators/customElement';
-import uuid from '@dojo/core/uuid';
+import { DNode } from '@dojo/framework/widget-core/interfaces';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/framework/widget-core/mixins/Themed';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
+import { v, w } from '@dojo/framework/widget-core/d';
+import { Focus } from '@dojo/framework/widget-core/meta/Focus';
+import uuid from '@dojo/framework/core/uuid';
 import {
 	SpacingProperties,
 	FlexItemProperties,
@@ -19,11 +21,9 @@ import {
 	renderMessageNode,
 	getDisplayClass
 } from '../common/util';
-import { v, w } from '@dojo/widget-core/d';
 
 import * as css from './styles/textarea.m.css';
 import Label from '../label';
-import { Focus } from '@dojo/widget-core/meta/Focus';
 
 /**
  * @type TextareaProperties

@@ -1,6 +1,6 @@
 const { describe, it } = intern.getInterface('bdd');
-import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
+import { w, v } from '@dojo/framework/widget-core/d';
+import harness from '@dojo/framework/testing/harness';
 import Card, { CardProperties } from './../../index';
 
 import * as css from '../../../common/base.m.css';

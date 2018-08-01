@@ -1,11 +1,11 @@
-import { endsWith } from '@dojo/shim/string';
-import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { customElement } from '@dojo/widget-core/decorators/customElement';
+import { endsWith } from '@dojo/framework/shim/string';
+import { DNode } from '@dojo/framework/widget-core/interfaces';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/framework/widget-core/mixins/Themed';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
 import { SpacingProperties, TextProperties, ColorsProperties, BorderProperties } from '../common/interfaces';
-import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
-import { v } from '@dojo/widget-core/d';
+import { CustomElementChildType } from '@dojo/framework/widget-core/registerCustomElement';
+import { v } from '@dojo/framework/widget-core/d';
 import {
 	getSpacingClasses,
 	getTextClasses,

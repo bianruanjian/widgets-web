@@ -1,5 +1,5 @@
-import { v } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
+import { v } from '@dojo/framework/widget-core/d';
+import { DNode } from '@dojo/framework/widget-core/interfaces';
 import {
 	SpacingProperties,
 	FlexContainerProperties,

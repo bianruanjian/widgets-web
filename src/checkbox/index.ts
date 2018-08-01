@@ -1,9 +1,9 @@
-import { v, w } from '@dojo/widget-core/d';
-import { DNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { customElement } from '@dojo/widget-core/decorators/customElement';
-import uuid from '@dojo/core/uuid';
+import { v, w } from '@dojo/framework/widget-core/d';
+import { DNode } from '@dojo/framework/widget-core/interfaces';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/framework/widget-core/mixins/Themed';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
+import uuid from '@dojo/framework/core/uuid';
 import {
 	SpacingProperties,
 	FlexItemProperties,

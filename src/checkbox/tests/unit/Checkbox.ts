@@ -1,5 +1,5 @@
 const { describe, it } = intern.getInterface('bdd');
-import { w, v } from '@dojo/widget-core/d';
+import { w, v } from '@dojo/framework/widget-core/d';
 import Checkbox, { CheckboxProperties } from './../../index';
 import Label from '../../../label';
 import * as css from './../../styles/checkbox.m.css';

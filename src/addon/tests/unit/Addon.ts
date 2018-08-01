@@ -1,10 +1,10 @@
 const { describe, it } = intern.getInterface('bdd');
 
-import { w, v } from '@dojo/widget-core/d';
+import { w, v } from '@dojo/framework/widget-core/d';
 
 import Addon, { AddonProperties } from './../../index';
 import Checkbox from '../../../checkbox';
-import { VNode } from '@dojo/widget-core/interfaces';
+import { VNode } from '@dojo/framework/widget-core/interfaces';
 import Button from '../../../button/index';
 import * as css from './../../styles/addon.m.css';
 import * as cssButton from './../../../button/styles/button.m.css';

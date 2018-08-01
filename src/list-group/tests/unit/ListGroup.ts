@@ -1,13 +1,13 @@
 const { describe, it } = intern.getInterface('bdd');
 
-import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
+import { w, v } from '@dojo/framework/widget-core/d';
+import { VNode } from '@dojo/framework/widget-core/interfaces';
+import harness from '@dojo/framework/testing/harness';
 
 import ListGroup, { ListGroupProperties } from './../../index';
 import Button from '../../../button';
 import ListItem from '../../../list-item';
 import Link from '../../../link';
-import { VNode } from '@dojo/widget-core/interfaces';
 import * as cssButton from './../../../button/styles/button.m.css';
 import * as cssLink from './../../../link/styles/link.m.css';
 import * as css from './../../styles/list-group.m.css';

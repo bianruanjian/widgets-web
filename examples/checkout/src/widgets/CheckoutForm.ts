@@ -1,6 +1,6 @@
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { WidgetProperties } from '@dojo/widget-core/interfaces';
-import { w } from '@dojo/widget-core/d';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { WidgetProperties } from '@dojo/framework/widget-core/interfaces';
+import { w } from '@dojo/framework/widget-core/d';
 import Container from 'widgets-web/container/index';
 import View from 'widgets-web/view/index';
 import Image from 'widgets-web/image/index';

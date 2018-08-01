@@ -1,5 +1,5 @@
-import { CustomComparator, harness } from '@dojo/test-extras/harness';
-import { WidgetBaseInterface, WNode } from '@dojo/widget-core/interfaces';
+import { CustomComparator, harness } from '@dojo/framework/testing/harness';
+import { WidgetBaseInterface, WNode } from '@dojo/framework/widget-core/interfaces';
 
 export const isStringComparator = (value: any) => typeof value === 'string';
 export const compareWidgetId = {
