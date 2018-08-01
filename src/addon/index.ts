@@ -1,10 +1,10 @@
-import { v } from '@dojo/widget-core/d';
-import { find } from '@dojo/shim/array';
-import { DNode, VNode } from '@dojo/widget-core/interfaces';
-import { ThemedMixin, theme, ThemedProperties } from '@dojo/widget-core/mixins/Themed';
-import { WidgetBase } from '@dojo/widget-core/WidgetBase';
-import { customElement } from '@dojo/widget-core/decorators/customElement';
-import { CustomElementChildType } from '@dojo/widget-core/registerCustomElement';
+import { v } from '@dojo/framework/widget-core/d';
+import { find } from '@dojo/framework/shim/array';
+import { DNode, VNode } from '@dojo/framework/widget-core/interfaces';
+import { ThemedMixin, theme, ThemedProperties } from '@dojo/framework/widget-core/mixins/Themed';
+import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
+import { CustomElementChildType } from '@dojo/framework/widget-core/registerCustomElement';
 import { ColorsProperties } from '../common/interfaces';
 import { getColorsClasses } from '../common/util';
 

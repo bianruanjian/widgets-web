@@ -1,5 +1,5 @@
-import { WidgetProperties } from '@dojo/widget-core/interfaces';
-import { DimensionResults } from '@dojo/widget-core/meta/Dimensions';
+import { WidgetProperties } from '@dojo/framework/widget-core/interfaces';
+import { DimensionResults } from '@dojo/framework/widget-core/meta/Dimensions';
 
 /**
  * @type UIWidget

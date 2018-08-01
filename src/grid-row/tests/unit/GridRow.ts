@@ -1,7 +1,7 @@
 const { describe, it } = intern.getInterface('bdd');
 
-import { w, v } from '@dojo/widget-core/d';
-import harness from '@dojo/test-extras/harness';
+import { w, v } from '@dojo/framework/widget-core/d';
+import harness from '@dojo/framework/testing/harness';
 
 import GridRow, { GridRowProperties } from './../../index';
 import * as css from './../../styles/grid-row.m.css';

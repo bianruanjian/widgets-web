@@ -1,5 +1,5 @@
 const { describe, it } = intern.getInterface('bdd');
-import { v, w } from '@dojo/widget-core/d';
+import { v, w } from '@dojo/framework/widget-core/d';
 import TextInput, { TextInputProperties } from './../../index';
 import Label from './../../../label/index';
 import * as css from './../../styles/text-input.m.css';

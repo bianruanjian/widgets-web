@@ -1,6 +1,6 @@
 const { describe, it } = intern.getInterface('bdd');
 
-import { w, v } from '@dojo/widget-core/d';
+import { w, v } from '@dojo/framework/widget-core/d';
 
 import Select, { SelectProperties } from './../../index';
 import Label from '../../../label';
