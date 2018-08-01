@@ -4,6 +4,7 @@
   "scripts": {
     "build-widgets": "dojo build widget",
     "build": "npm run build-widgets",
+    "install": "cd site && npm i",
     "serve": "grunt webserv",
     "precommit": "lint-staged",
     "prettier": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'"
