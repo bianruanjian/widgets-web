@@ -87,7 +87,8 @@ describe('Textarea', () => {
 				classes: ['form-control', undefined, css.root],
 				styles: {
 					resize: 'both'
-				}
+				},
+				oninput: () => {}
 			}),
 			null
 		]);
@@ -113,7 +114,8 @@ describe('Textarea', () => {
 				classes: ['', 'form-control', undefined, css.root],
 				styles: {
 					resize: 'both'
-				}
+				},
+				oninput: () => {}
 			}),
 			null
 		]);
@@ -160,7 +162,8 @@ describe('Textarea', () => {
 				],
 				styles: {
 					resize: 'none'
-				}
+				},
+				oninput: () => {}
 			}),
 			v(
 				'div',

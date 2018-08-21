@@ -53,7 +53,7 @@ export interface TextInputProperties
 	plainText?: boolean | string;
 	maxLength?: number;
 	minLength?: number;
-	onInput?(value: string): void;
+	onInput?(value?: string | number | boolean): void;
 	onChange?(value: string): void;
 }
 
@@ -99,6 +99,16 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextInputBase<P extends TextInputProperties = TextInputProperties> extends ThemedBase<P, null> {
+	private _onInput(event: Event) {
+		event.stopPropagation();
+		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
+	}
+
+	private _onChange(event: Event) {
+		event.stopPropagation();
+		this.properties.onChange && this.properties.onChange((event.target as HTMLInputElement).value);
+	}
+
 	private _focusableInputKey: string = 'focusableInput';
 	private _uuid: string;
 
@@ -109,16 +119,6 @@ export class TextInputBase<P extends TextInputProperties = TextInputProperties> 
 	constructor() {
 		super();
 		this._uuid = uuid();
-	}
-
-	private _onInput(event: Event) {
-		event.stopPropagation();
-		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
-	}
-
-	private _onChange(event: Event) {
-		event.stopPropagation();
-		this.properties.onChange && this.properties.onChange((event.target as HTMLInputElement).value);
 	}
 
 	protected renderInput(key: string): DNode {

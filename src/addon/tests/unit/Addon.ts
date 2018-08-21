@@ -88,7 +88,8 @@ describe('Addon', () => {
 										disabled: false,
 										required: false,
 										readOnly: false,
-										classes: ['form-check-input']
+										classes: ['form-check-input'],
+										onclick: () => {}
 									}),
 									null,
 									null

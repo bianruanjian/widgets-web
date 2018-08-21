@@ -81,3 +81,9 @@ tags:
 | minLength | 最小字符个数 | | | number |
 | invalidMessage | 无效提示 | | | string |
 | validMessage | 有效提示 | | | string |
+
+## 事件
+
+| 名称  | 参数 | 描述 |
+| ----- | ------ | ----- |
+| onInput | `value: string | number | boolean` 用户输入的值 | 输入时触发 |

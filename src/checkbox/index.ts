@@ -46,6 +46,7 @@ export interface CheckboxProperties
 	fluid?: boolean | string;
 	size?: string;
 	isInAddon?: boolean; // 当将 Checkbox 作为 Addon 的子部件时，要设置 isInAddon 为 true, 默认为 false
+	onClick?(value: string, checked: boolean): void;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -81,10 +82,16 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'float'
 	],
 	properties: [],
-	events: []
+	events: ['onClick']
 })
 @theme(css)
 export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> extends ThemedBase<P> {
+	private _onClick(event: MouseEvent) {
+		event.stopPropagation();
+		const radio = event.target as HTMLInputElement;
+		this.properties.onClick && this.properties.onClick(radio.value, radio.checked);
+	}
+
 	private _uuid: string;
 
 	protected getKey() {
@@ -114,7 +121,8 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 			disabled: disabled === true || disabled === 'true',
 			required: required === true || required === 'true',
 			readOnly: readOnly === true || readOnly === 'true',
-			classes: ['form-check-input']
+			classes: ['form-check-input'],
+			onclick: this._onClick
 		});
 	}
 
@@ -151,7 +159,8 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 					display ? getDisplayClass(this.properties) : undefined,
 					...getFlexItemClasses(this.properties as FlexItemProperties),
 					...getFloatClass(this.properties)
-				]
+				],
+				onclick: this._onClick
 			});
 		}
 
