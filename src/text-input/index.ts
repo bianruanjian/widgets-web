@@ -53,7 +53,7 @@ export interface TextInputProperties
 	plainText?: boolean | string;
 	maxLength?: number;
 	minLength?: number;
-	onInput?(value: string): void;
+	onInput?(value?: string | number | boolean): void;
 	onChange?(value: string): void;
 }
 

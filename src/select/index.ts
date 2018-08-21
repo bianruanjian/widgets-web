@@ -49,6 +49,7 @@ export interface SelectProperties
 	valueField?: string;
 	dataPath?: string;
 	size?: string;
+	onInput?(value?: string | number | boolean): void;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -86,7 +87,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'float'
 	],
 	properties: [],
-	events: []
+	events: ['onInput']
 })
 @theme(css)
 export class SelectBase<P extends SelectProperties = SelectProperties> extends ThemedBase<P> {
@@ -99,6 +100,11 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 	constructor() {
 		super();
 		this._uuid = uuid();
+	}
+
+	private _onInput(event: Event) {
+		event.stopPropagation();
+		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
 	}
 
 	protected renderSelect(key: string | undefined): DNode {
@@ -177,7 +183,8 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 				disabled: disabled === true || disabled === 'true',
 				required: required === true || required === 'true',
 				readOnly: readOnly === true || readOnly === 'true',
-				classes
+				classes,
+				oninput: this._onInput
 			},
 			children
 		);

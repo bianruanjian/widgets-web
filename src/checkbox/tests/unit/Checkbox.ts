@@ -78,7 +78,8 @@ describe('Checkbox', () => {
 						disabled: false,
 						required: false,
 						readOnly: false,
-						classes: ['form-check-input']
+						classes: ['form-check-input'],
+						onclick: () => {}
 					}),
 					null,
 					null
@@ -106,7 +107,8 @@ describe('Checkbox', () => {
 						disabled: false,
 						required: false,
 						readOnly: false,
-						classes: ['form-check-input']
+						classes: ['form-check-input'],
+						onclick: () => {}
 					}),
 					null,
 					null
@@ -152,7 +154,8 @@ describe('Checkbox', () => {
 						disabled: true,
 						required: true,
 						readOnly: true,
-						classes: ['form-check-input']
+						classes: ['form-check-input'],
+						onclick: () => {}
 					}),
 					v(
 						'div',

@@ -53,6 +53,7 @@ export interface TextareaProperties
 	plainText?: boolean | string;
 	maxLength?: number;
 	minLength?: number;
+	onInput?(value?: string | number | boolean): void;
 }
 
 export const ThemedBase = ThemedMixin(WidgetBase);
@@ -94,7 +95,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'float'
 	],
 	properties: [],
-	events: []
+	events: ['onInput']
 })
 @theme(css)
 export class TextareaBase<P extends TextareaProperties = TextareaProperties> extends ThemedBase<P> {
@@ -108,6 +109,11 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 	constructor() {
 		super();
 		this._uuid = uuid();
+	}
+
+	private _onInput(event: Event) {
+		event.stopPropagation();
+		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
 	}
 
 	protected renderTextarea(key: string): DNode {
@@ -188,7 +194,8 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 			maxlength: maxLength ? maxLength : null,
 			minlength: minLength ? minLength : null,
 			classes,
-			styles: cssStyles
+			styles: cssStyles,
+			oninput: this._onInput
 		});
 	}
 

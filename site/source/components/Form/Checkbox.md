@@ -74,3 +74,9 @@ tags:
 | validMessage | 有效提示 | | | string |
 
 1. `fluid` 为 `false` 时对应 bootstrap 中的 `.form-check-inline`
+
+## 事件
+
+| 名称  | 参数 | 描述 |
+| ----- | ------ | ----- |
+| onClick | | 点击时触发 |

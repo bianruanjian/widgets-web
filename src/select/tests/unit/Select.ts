@@ -72,7 +72,8 @@ describe('Select', () => {
 					disabled: false,
 					required: false,
 					readOnly: false,
-					classes: ['form-control', undefined, css.root]
+					classes: ['form-control', undefined, css.root],
+					oninput: () => {}
 				},
 				[]
 			)
@@ -92,7 +93,8 @@ describe('Select', () => {
 					disabled: false,
 					required: false,
 					readOnly: false,
-					classes: ['', 'form-control', undefined, css.root]
+					classes: ['', 'form-control', undefined, css.root],
+					oninput: () => {}
 				},
 				[]
 			)
@@ -129,7 +131,8 @@ describe('Select', () => {
 						'order-0',
 						'float-none',
 						css.root
-					]
+					],
+					oninput: () => {}
 				},
 				[
 					v(
