@@ -79,4 +79,4 @@ tags:
 
 | 名称  | 参数 | 描述 |
 | ----- | ------ | ----- |
-| onClick | | 点击时触发 |
+| onClick | `value: string` 部件的值； `checked: boolean` 是否选中。 | 单击事件 |

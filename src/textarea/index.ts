@@ -99,6 +99,11 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class TextareaBase<P extends TextareaProperties = TextareaProperties> extends ThemedBase<P> {
+	private _onInput(event: Event) {
+		event.stopPropagation();
+		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
+	}
+
 	private _focusableInputKey: string = 'focusableInput';
 	private _uuid: string;
 
@@ -109,11 +114,6 @@ export class TextareaBase<P extends TextareaProperties = TextareaProperties> ext
 	constructor() {
 		super();
 		this._uuid = uuid();
-	}
-
-	private _onInput(event: Event) {
-		event.stopPropagation();
-		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
 	}
 
 	protected renderTextarea(key: string): DNode {

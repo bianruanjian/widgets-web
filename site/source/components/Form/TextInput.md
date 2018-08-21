@@ -116,8 +116,8 @@ invalidMessage="error" shouldFocus="true"></db-text-input>
 
 | 名称  | 参数 | 描述 |
 | ----- | ------ | ----- |
-| onInput | | 输入时触发 |
-| onChange | | 修改后触发 |
+| onInput | `value: string | number | boolean` 用户输入的值 | 输入时触发 |
+| onChange | `value: string` 用户输入的值 | 修改后触发 |
 
 ## 待讨论
 

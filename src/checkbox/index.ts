@@ -86,6 +86,12 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> extends ThemedBase<P> {
+	private _onClick(event: MouseEvent) {
+		event.stopPropagation();
+		const radio = event.target as HTMLInputElement;
+		this.properties.onClick && this.properties.onClick(radio.value, radio.checked);
+	}
+
 	private _uuid: string;
 
 	protected getKey() {
@@ -95,12 +101,6 @@ export class CheckboxBase<P extends CheckboxProperties = CheckboxProperties> ext
 	constructor() {
 		super();
 		this._uuid = uuid();
-	}
-
-	private _onClick(event: MouseEvent) {
-		event.stopPropagation();
-		const radio = event.target as HTMLInputElement;
-		this.properties.onClick && this.properties.onClick(radio.value, radio.checked);
 	}
 
 	protected renderCheckbox(): DNode {

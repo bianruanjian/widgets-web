@@ -86,4 +86,4 @@ tags:
 
 | 名称  | 参数 | 描述 |
 | ----- | ------ | ----- |
-| onInput | | 输入时触发 |
+| onInput | `value: string | number | boolean` 用户输入的值 | 输入时触发 |

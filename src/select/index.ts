@@ -91,6 +91,11 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 })
 @theme(css)
 export class SelectBase<P extends SelectProperties = SelectProperties> extends ThemedBase<P> {
+	private _onInput(event: Event) {
+		event.stopPropagation();
+		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
+	}
+
 	private _uuid: string;
 
 	protected getKey() {
@@ -100,11 +105,6 @@ export class SelectBase<P extends SelectProperties = SelectProperties> extends T
 	constructor() {
 		super();
 		this._uuid = uuid();
-	}
-
-	private _onInput(event: Event) {
-		event.stopPropagation();
-		this.properties.onInput && this.properties.onInput((event.target as HTMLInputElement).value);
 	}
 
 	protected renderSelect(key: string | undefined): DNode {
