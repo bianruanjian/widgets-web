@@ -21,16 +21,28 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	private _openKeys = new Set<string>();
 
 	private _requestOpen(key: string) {
+		const { onRequestOpen } = this.properties;
 		this._openKeys.add(key);
+		onRequestOpen && onRequestOpen(key);
 		this.invalidate();
 	}
 
 	private _requestClose(key: string) {
+		const { onRequestClose } = this.properties;
 		this._openKeys.delete(key);
+		onRequestClose && onRequestClose(key);
 		this.invalidate();
 	}
 
 	protected render(): DNode {
+		if (!this._openKeys.size) {
+			const { openKeys } = this.properties;
+			if (openKeys) {
+				(openKeys as string[]).forEach((openKey) => {
+					this._openKeys.add(openKey);
+				});
+			}
+		}
 		return w(
 			AccordionPaneBase,
 			{
