@@ -5,19 +5,19 @@
   
 
   
-  <title>Flex | widgets-web</title>
+  <title>SplitPane | widgets-web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Flex 布局 基本用法公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, fals">
+  <meta name="description" content="滑动条面板部件 属性   名称 说明 默认值 可选值 值类型     direction 布局方向 column row, column string   size 主面板的大小 100  number   collapseWidth 触发折叠的宽度 600  number     size、 collapseWidth 属性值的计量单位是 px  事件   名称 参数 描述     onColl">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Flex">
-<meta property="og:url" content="https://bianruanjian.github.io/components/Utilities/Flex.html">
+<meta property="og:title" content="SplitPane">
+<meta property="og:url" content="https://bianruanjian.github.io/components/Layout/SplitPane.html">
 <meta property="og:site_name" content="widgets-web">
-<meta property="og:description" content="Flex 布局 基本用法公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, fals">
+<meta property="og:description" content="滑动条面板部件 属性   名称 说明 默认值 可选值 值类型     direction 布局方向 column row, column string   size 主面板的大小 100  number   collapseWidth 触发折叠的宽度 600  number     size、 collapseWidth 属性值的计量单位是 px  事件   名称 参数 描述     onColl">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-09-12T03:17:04.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flex">
-<meta name="twitter:description" content="Flex 布局 基本用法公共属性 将 Display 中的display属性值设置为flex或flexInline时可以使用 flex 相关功能。  属性Flex container   名称 说明 默认值 可选值 值类型     flexDirection 主轴方向 default row, column, default string   reverse 翻转 false true, fals">
+<meta name="twitter:title" content="SplitPane">
+<meta name="twitter:description" content="滑动条面板部件 属性   名称 说明 默认值 可选值 值类型     direction 布局方向 column row, column string   size 主面板的大小 100  number   collapseWidth 触发折叠的宽度 600  number     size、 collapseWidth 属性值的计量单位是 px  事件   名称 参数 描述     onColl">
   
   
     <link rel="icon" href="/favicon.png">
@@ -299,7 +299,7 @@
             </li>
         
             <li
-                
+                class="active" 
             >
                 <a href="/widgets-web/components/Layout/SplitPane.html">
                     SplitPane
@@ -355,7 +355,7 @@
             </li>
         
             <li
-                class="active" 
+                
             >
                 <a href="/widgets-web/components/Utilities/Flex.html">
                     Flex
@@ -397,7 +397,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Flex
+      SplitPane
     </h1>
   
 
@@ -405,93 +405,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Flex 布局</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h2 id="公共属性"><a href="#公共属性" class="headerlink" title="公共属性"></a>公共属性</h2><ol>
-<li>将 <a href="../Utilities/Display.html">Display</a> 中的<code>display</code>属性值设置为<code>flex</code>或<code>flexInline</code>时可以使用 flex 相关功能。</li>
+        <p>滑动条面板部件</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>默认值</th>
+<th>可选值</th>
+<th>值类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>布局方向</td>
+<td>column</td>
+<td>row, column</td>
+<td>string</td>
+</tr>
+<tr>
+<td>size</td>
+<td>主面板的大小</td>
+<td>100</td>
+<td></td>
+<td>number</td>
+</tr>
+<tr>
+<td>collapseWidth</td>
+<td>触发折叠的宽度</td>
+<td>600</td>
+<td></td>
+<td>number</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><code>size</code>、 <code>collapseWidth</code> 属性值的计量单位是 <code>px</code></li>
 </ol>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="Flex-container"><a href="#Flex-container" class="headerlink" title="Flex container"></a>Flex container</h3><table>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><table>
 <thead>
 <tr>
 <th>名称</th>
-<th>说明</th>
-<th>默认值</th>
-<th>可选值</th>
-<th>值类型</th>
+<th>参数</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>flexDirection</td>
-<td>主轴方向</td>
-<td>default</td>
-<td>row, column, default</td>
-<td>string</td>
+<td>onCollapse</td>
+<td>是否已折叠</td>
+<td>折叠时或取消折叠时触发</td>
 </tr>
 <tr>
-<td>reverse</td>
-<td>翻转</td>
-<td>false</td>
-<td>true, false</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>justifyItems</td>
-<td>主轴排列方式</td>
-<td>default</td>
-<td>start, end, center, between, around, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>alignItems</td>
-<td>侧轴排列方式</td>
-<td>default</td>
-<td>start, end, center, baseline, stretch, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>flexWrap</td>
-<td>换行</td>
-<td>default</td>
-<td>nowrap, wrap, reverseWrap, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>alignContent</td>
-<td>多轴排列方式</td>
-<td>default</td>
-<td>start, end, center, around, stretch, default</td>
-<td>string</td>
+<td>onResize</td>
+<td>主面板的大小</td>
+<td>当拖拽分割线时，更新主面板的大小值</td>
 </tr>
 </tbody>
 </table>
-<h3 id="Flex-item"><a href="#Flex-item" class="headerlink" title="Flex item"></a>Flex item</h3><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>说明</th>
-<th>默认值</th>
-<th>可选值</th>
-<th>值类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alignSelf</td>
-<td>侧轴排列方式</td>
-<td>default</td>
-<td>start, end, center, baseline, stretch, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>order</td>
-<td>排序</td>
-<td>default</td>
-<td>0~12, default</td>
-<td>number/string</td>
-</tr>
-</tbody>
-</table>
-<p>当前部件是容器时可以使用 Flex container 相关属性，否则只能使用 Flex item 相关属性。</p>
 
       
     </div>
