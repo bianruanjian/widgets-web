@@ -20,3 +20,6 @@ import '../../src/list-group/tests/unit/ListGroup';
 import '../../src/list-item/tests/unit/ListItem';
 import '../../src/radio/tests/unit/Radio';
 import '../../src/select/tests/unit/Select';
+import '../../src/split-pane/tests/unit/SplitPane';
+import '../../src/accordion-pane/tests/unit/AccordionPane';
+import '../../src/tab-controller/tests/unit/TabController';

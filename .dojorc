@@ -25,7 +25,10 @@
 			"src/list-group",
 			"src/list-item",
 			"src/radio",
-			"src/select"
+			"src/select",
+			"src/split-pane",
+			"src/accordion-pane",
+			"src/tab-controller"
 		]
 	}
 }
