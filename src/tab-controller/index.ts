@@ -6,7 +6,7 @@ import { TabControllerBase, TabControllerProperties } from '@dojo/widgets/tab-co
 import { w } from '@dojo/framework/widget-core/d';
 
 @customElement<TabControllerProperties>({
-	tag: 'dojo-tab-controller',
+	tag: 'db-tab-controller',
 	properties: ['theme', 'aria', 'extraClasses', 'activeIndex'],
 	attributes: ['alignButtons'],
 	events: ['onRequestTabChange', 'onRequestTabClose']
@@ -17,6 +17,7 @@ export class TabControllerWidgetBase extends TabControllerBase<TabControllerProp
 		return 'tab-controller';
 	}
 
+	// -1 表示用户未设置值
 	private _activeIndex: number = -1;
 
 	private _requestTabChange(index: number, key: string) {

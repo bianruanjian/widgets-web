@@ -12,8 +12,8 @@ tags:
 
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| closeable | 是否可关闭 | | true, false | boolean |
-| disabled | 是否不可用 | | true, false | boolean |
+| closeable | 是否可关闭 | false | true, false | boolean |
+| disabled | 是否可激活 | false | true, false | boolean |
 | widgetId | 主键 | | | string |
 | key | key | | | string |
 | label | 显示标题 | | | string |
