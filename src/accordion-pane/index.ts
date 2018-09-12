@@ -35,7 +35,7 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	}
 
 	protected render(): DNode {
-		// 当 _openKeys为空时，从传递来的 TitlePane key 数组取值
+		// 当 _openKeys 为空时，从传递来的 TitlePane key 数组取值
 		if (this._openKeys.size === 0) {
 			const { openKeys = [] } = this.properties;
 			openKeys.forEach((openKey) => {
