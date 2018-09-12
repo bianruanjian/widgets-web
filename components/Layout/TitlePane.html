@@ -5,19 +5,19 @@
   
 
   
-  <title>Badge | widgets-web</title>
+  <title>TitlePane | widgets-web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="徽章 基本用法Example Example heading  1&amp;lt;db-text type=&quot;h4&quot; value=&quot;Example heading&quot;&amp;gt;&amp;lt;db-badge value=&quot;New&quot; appearance=&quot;secondary&quot;&amp;gt;&amp;lt;/db-badge&amp;gt;&amp;lt;/db-text&amp;gt; button         123&amp;lt;db-button v">
+  <meta name="description" content="标题面板部件 属性   名称 说明 默认值 可选值 值类型     closeable 是否可关闭 true true, false boolean   headingLevel 为标题的 dom 节点设置 aria-level 属性   number   open 是否打开 true true, false boolean   title 标题   string    事件   名称 参数 描述">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Badge">
-<meta property="og:url" content="https://bianruanjian.github.io/components/Basic/Badge.html">
+<meta property="og:title" content="TitlePane">
+<meta property="og:url" content="https://bianruanjian.github.io/components/Layout/TitlePane.html">
 <meta property="og:site_name" content="widgets-web">
-<meta property="og:description" content="徽章 基本用法Example Example heading  1&amp;lt;db-text type=&quot;h4&quot; value=&quot;Example heading&quot;&amp;gt;&amp;lt;db-badge value=&quot;New&quot; appearance=&quot;secondary&quot;&amp;gt;&amp;lt;/db-badge&amp;gt;&amp;lt;/db-text&amp;gt; button         123&amp;lt;db-button v">
+<meta property="og:description" content="标题面板部件 属性   名称 说明 默认值 可选值 值类型     closeable 是否可关闭 true true, false boolean   headingLevel 为标题的 dom 节点设置 aria-level 属性   number   open 是否打开 true true, false boolean   title 标题   string    事件   名称 参数 描述">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-12T08:37:41.711Z">
+<meta property="og:updated_time" content="2018-09-12T08:37:41.719Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Badge">
-<meta name="twitter:description" content="徽章 基本用法Example Example heading  1&amp;lt;db-text type=&quot;h4&quot; value=&quot;Example heading&quot;&amp;gt;&amp;lt;db-badge value=&quot;New&quot; appearance=&quot;secondary&quot;&amp;gt;&amp;lt;/db-badge&amp;gt;&amp;lt;/db-text&amp;gt; button         123&amp;lt;db-button v">
+<meta name="twitter:title" content="TitlePane">
+<meta name="twitter:description" content="标题面板部件 属性   名称 说明 默认值 可选值 值类型     closeable 是否可关闭 true true, false boolean   headingLevel 为标题的 dom 节点设置 aria-level 属性   number   open 是否打开 true true, false boolean   title 标题   string    事件   名称 参数 描述">
   
   
     <link rel="icon" href="/favicon.png">
@@ -115,7 +115,7 @@
             </li>
         
             <li
-                class="active" 
+                
             >
                 <a href="/widgets-web/components/Basic/Badge.html">
                     Badge
@@ -275,7 +275,7 @@
             </li>
         
             <li
-                
+                class="active" 
             >
                 <a href="/widgets-web/components/Layout/TitlePane.html">
                     TitlePane
@@ -437,7 +437,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Badge
+      TitlePane
     </h1>
   
 
@@ -445,32 +445,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>徽章</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3>
-<h4>Example heading<db-badge value="New" appearance="secondary"></db-badge></h4>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-text</span> <span class="attr">type</span>=<span class="string">"h4"</span> <span class="attr">value</span>=<span class="string">"Example heading"</span>&gt;</span><span class="tag">&lt;<span class="name">db-badge</span> <span class="attr">value</span>=<span class="string">"New"</span> <span class="attr">appearance</span>=<span class="string">"secondary"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-badge</span>&gt;</span><span class="tag">&lt;/<span class="name">db-text</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3>
-<db-button value="Notifications " appearance="primary">
-    <db-badge value="4" appearance="light" pill="true"></db-badge>
-</db-button>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-button</span> <span class="attr">value</span>=<span class="string">"Notifications "</span> <span class="attr">appearance</span>=<span class="string">"primary"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">db-badge</span> <span class="attr">value</span>=<span class="string">"4"</span> <span class="attr">appearance</span>=<span class="string">"light"</span> <span class="attr">pill</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-badge</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">db-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Contextual-variations"><a href="#Contextual-variations" class="headerlink" title="Contextual variations"></a>Contextual variations</h3>
-<db-badge value="warning" appearance="warning"></db-badge>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-badge</span> <span class="attr">value</span>=<span class="string">"warning"</span> <span class="attr">appearance</span>=<span class="string">"warning"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-badge</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Pill-badges"><a href="#Pill-badges" class="headerlink" title="Pill badges"></a>Pill badges</h3>
-<db-badge value="warning" appearance="warning" pill="true"></db-badge>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-badge</span> <span class="attr">value</span>=<span class="string">"warning"</span> <span class="attr">appearance</span>=<span class="string">"warning"</span> <span class="attr">pill</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-badge</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3>
-<db-badge value="baidu" appearance="warning" marginbottom="3" pill="true" href="https://wwww.baidu.com" target="blank"></db-badge>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">db-badge</span> <span class="attr">value</span>=<span class="string">"baidu"</span> <span class="attr">appearance</span>=<span class="string">"warning"</span> <span class="attr">pill</span>=<span class="string">"true"</span> <span class="attr">href</span>=<span class="string">"https://wwww.baidu.com"</span> <span class="attr">target</span>=<span class="string">"blank"</span>&gt;</span><span class="tag">&lt;/<span class="name">db-badge</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="通用属性"><a href="#通用属性" class="headerlink" title="通用属性"></a>通用属性</h2><ol>
-<li><a href="../Utilities/Spacing.html">Spacing</a></li>
-</ol>
+        <p>标题面板部件</p>
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><table>
 <thead>
 <tr>
@@ -483,59 +458,56 @@
 </thead>
 <tbody>
 <tr>
-<td>widgetId</td>
-<td>标识</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>value</td>
-<td>值</td>
-<td></td>
-<td></td>
-<td>string</td>
-</tr>
-<tr>
-<td>valuePosition</td>
-<td>值位置</td>
-<td>right</td>
-<td>left, right</td>
-<td>string</td>
-</tr>
-<tr>
-<td>appearance</td>
-<td>外观</td>
-<td>default</td>
-<td>primary, secondary, success, danger, warning, info, light, dark, default</td>
-<td>string</td>
-</tr>
-<tr>
-<td>pill</td>
-<td>椭圆</td>
-<td>false</td>
+<td>closeable</td>
+<td>是否可关闭</td>
+<td>true</td>
 <td>true, false</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td>href</td>
-<td>链接地址</td>
+<td>headingLevel</td>
+<td>为标题的 dom 节点设置 <code>aria-level</code> 属性</td>
 <td></td>
 <td></td>
-<td>string</td>
+<td>number</td>
 </tr>
 <tr>
-<td>target</td>
-<td>目标</td>
-<td>self</td>
-<td>self, blank, {iframeId}</td>
+<td>open</td>
+<td>是否打开</td>
+<td>true</td>
+<td>true, false</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+<td></td>
+<td></td>
 <td>string</td>
 </tr>
 </tbody>
 </table>
-<ol>
-<li><code>valuePosition</code> 描述所有子部件与 <code>value</code> 的排列顺序。如果 <code>Badge</code> 中包含子部件，则使用此属性控制 <code>value</code> 与所有子部件的顺序，默认所有子部件在前，<code>value</code> 在后，将 <code>valuePosition</code> 设置为 <code>left</code> 之后，则<code>value</code> 在前，所有子部件在后。</li>
-</ol>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onRequestClose</td>
+<td>TitlePane key</td>
+<td>关闭 TitlePane 时触发</td>
+</tr>
+<tr>
+<td>onRequestOpen</td>
+<td>TitlePane key</td>
+<td>打开 TitlePane 时触发</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
