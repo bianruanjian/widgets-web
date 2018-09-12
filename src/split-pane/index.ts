@@ -6,7 +6,7 @@ import { theme } from '@dojo/framework/widget-core/mixins/Themed';
 import { w } from '@dojo/framework/widget-core/d';
 
 @customElement<SplitPaneProperties>({
-	tag: 'dojo-split-pane',
+	tag: 'db-split-pane',
 	properties: ['theme', 'extraClasses', 'size', 'collapseWidth'],
 	attributes: ['direction'],
 	events: ['onCollapse', 'onResize']
@@ -17,7 +17,7 @@ export class SplitPaneWidgetBase extends SplitPaneBase<SplitPaneProperties> {
 		return 'split-pane';
 	}
 
-	private _size = 100;
+	private _size: number = 0;
 
 	private onResize(size: number) {
 		const { onResize } = this.properties;
@@ -26,20 +26,17 @@ export class SplitPaneWidgetBase extends SplitPaneBase<SplitPaneProperties> {
 		this.invalidate();
 	}
 
-	private _onCollapse(collapsed: boolean) {
-		const { onCollapse } = this.properties;
-		onCollapse && onCollapse(collapsed);
-		this.invalidate();
-	}
-
 	protected render(): DNode {
+		if (!this._size) {
+			const { size } = this.properties;
+			this._size = size as number;
+		}
 		return w(
 			SplitPaneBase,
 			{
 				...this.properties,
 				size: this._size,
-				onResize: this.onResize,
-				onCollapse: this._onCollapse
+				onResize: this.onResize
 			},
 			this.children
 		);

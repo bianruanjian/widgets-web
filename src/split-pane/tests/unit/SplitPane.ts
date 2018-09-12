@@ -10,9 +10,8 @@ describe('SplitPane', () => {
 		const h = harness(() => w(SplitPane, {}));
 		h.expect(() =>
 			w(SplitPaneBase, {
-				size: 100,
-				onResize: () => {},
-				onCollapse: () => {}
+				size: undefined,
+				onResize: () => {}
 			})
 		);
 	});

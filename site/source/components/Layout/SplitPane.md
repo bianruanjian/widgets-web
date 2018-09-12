@@ -13,14 +13,14 @@ tags:
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
 | direction | 布局方向 | column | row, column | string |
-| size | 主窗口的大小 | 100 | | number |
-| collapseWidth | 折叠成滑动条的最大宽度 | 600 | | number |
+| size | 主面板的大小 | 100 | | number |
+| collapseWidth | 触发折叠的宽度 | 600 | | number |
 
-1. `size`属性值的计量单位是`px`
+1. `size`、 `collapseWidth` 属性值的计量单位是 `px`
 
 ## 事件
 
 | 名称  | 参数 | 描述 |
 | ----- | ------ | ----- |
 | onCollapse | 是否已折叠 | 折叠时或取消折叠时触发 |
-| onResize | 主窗口的大小 | 当拖拽分割线时，更新主窗口的大小值 |
+| onResize | 主面板的大小 | 当拖拽分割线时，更新主面板的大小值 |
