@@ -37,7 +37,7 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	protected render(): DNode {
 		if (this._openKeys.size > 0) {
 			const { openKeys = [] } = this.properties;
-			(openKeys as string[]).forEach((openKey) => {
+			openKeys.forEach((openKey) => {
 				this._openKeys.add(openKey);
 			});
 		}
