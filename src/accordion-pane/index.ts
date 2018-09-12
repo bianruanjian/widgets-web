@@ -8,7 +8,7 @@ import { from } from '@dojo/framework/shim/array';
 import { Set } from '@dojo/framework/shim/Set';
 
 @customElement<AccordionPaneProperties>({
-	tag: 'dojo-accordion-pane',
+	tag: 'db-accordion-pane',
 	properties: ['openKeys', 'theme', 'extraClasses'],
 	events: ['onRequestClose', 'onRequestOpen']
 })
