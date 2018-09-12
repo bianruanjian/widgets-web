@@ -35,13 +35,11 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	}
 
 	protected render(): DNode {
-		if (!this._openKeys.size) {
-			const { openKeys } = this.properties;
-			if (openKeys) {
-				(openKeys as string[]).forEach((openKey) => {
-					this._openKeys.add(openKey);
-				});
-			}
+		if (this._openKeys.size > 0) {
+			const { openKeys = [] } = this.properties;
+			(openKeys as string[]).forEach((openKey) => {
+				this._openKeys.add(openKey);
+			});
 		}
 		return w(
 			AccordionPaneBase,

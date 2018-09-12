@@ -12,7 +12,7 @@ tags:
 
 | 名称  | 说明 | 默认值 | 可选值 | 值类型 |
 | ----- | ------ | ----- | ----- | --------- |
-| openKeys | 显示应该被打开的 TitlePane key 数组 | | | string[] |
+| openKeys | 处于打开状态的 TitlePane 部件的 key | | | string[] |
 
 ## 事件
 
