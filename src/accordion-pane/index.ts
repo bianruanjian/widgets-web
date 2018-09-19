@@ -19,6 +19,7 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	}
 
 	private _openKeys = new Set<string>();
+	private _isInitData: boolean = true;
 
 	private _requestOpen(key: string) {
 		const { onRequestOpen } = this.properties;
@@ -35,12 +36,13 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	}
 
 	protected render(): DNode {
-		// 当 _openKeys 为空时，从传递来的 TitlePane key 数组取值
-		if (this._openKeys.size === 0) {
+		// 确保 _openKeys 只在初始化时赋值，取传递来的 TitlePane key 数组值
+		if (this._isInitData) {
 			const { openKeys = [] } = this.properties;
 			openKeys.forEach((openKey) => {
 				this._openKeys.add(openKey);
 			});
+			this._isInitData = false;
 		}
 
 		return w(
