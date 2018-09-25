@@ -19,7 +19,7 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	}
 
 	private _openKeys = new Set<string>();
-	private _isInitData: boolean = true;
+	private _openKeysFromProperties: string[] = [];
 
 	private _requestOpen(key: string) {
 		const { onRequestOpen } = this.properties;
@@ -35,14 +35,30 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 		this.invalidate();
 	}
 
+	private _openKyesIsModifiedByProperties(openKeysFromProperties: string[]) {
+		if (this._openKeysFromProperties.length !== openKeysFromProperties.length) {
+			return true;
+		}
+
+		for (let i = 0; i < openKeysFromProperties.length; i++) {
+			if (this._openKeysFromProperties[i] !== openKeysFromProperties[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	protected render(): DNode {
-		// 确保 _openKeys 只在初始化时赋值，取传递来的 TitlePane key 数组值
-		if (this._isInitData) {
-			const { openKeys = [] } = this.properties;
+		// 用户修改 openKeys 默认值时,要给 this._openKeys 重新赋值
+		const { openKeys = [] } = this.properties;
+		// 判断是否为用户修改 openKeys 默认值操作
+		if (this._openKyesIsModifiedByProperties(openKeys)) {
+			this._openKeys.clear();
 			openKeys.forEach((openKey) => {
 				this._openKeys.add(openKey);
 			});
-			this._isInitData = false;
+			this._openKeysFromProperties = openKeys;
 		}
 
 		return w(

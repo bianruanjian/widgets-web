@@ -17,8 +17,14 @@ export class TabControllerWidgetBase extends TabControllerBase<TabControllerProp
 		return 'tab-controller';
 	}
 
-	// -1 表示用户未设置值
-	private _activeIndex: number = -1;
+	// 通过 this.properties 传入的 _activeIndexFromProperties 会赋给该变量。
+	// -1 表示 properties 中没有传入 activeIndex 的值
+	private _activeIndexFromProperties: number = -1;
+
+	// 通过 onRequestXXX 事件修改的值会赋给该变量；
+	// render 方法中只使用该变量来重绘部件，
+	// 所以如果通过 this.properties 修改了 _activeIndexFromProperties 后也要同步修改此变量。
+	private _activeIndex: number = 0;
 
 	private _requestTabChange(index: number, key: string) {
 		const { onRequestTabChange } = this.properties;
@@ -28,8 +34,10 @@ export class TabControllerWidgetBase extends TabControllerBase<TabControllerProp
 	}
 
 	render(): DNode {
-		if (this._activeIndex === -1) {
-			const { activeIndex = 0 } = this.properties;
+		const { activeIndex = -1 } = this.properties;
+
+		if (this._activeIndexFromProperties !== activeIndex) {
+			this._activeIndexFromProperties = activeIndex;
 			this._activeIndex = activeIndex;
 		}
 
