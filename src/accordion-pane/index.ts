@@ -35,16 +35,17 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 		this.invalidate();
 	}
 
-	private _openKyesIsModifiedByProperties(openKeys: string[]) {
-		if (this._openKeysFromProperties.length !== openKeys.length) {
+	private _openKyesIsModifiedByProperties(openKeysFromProperties: string[]) {
+		if (this._openKeysFromProperties.length !== openKeysFromProperties.length) {
 			return true;
-		} else {
-			for (let i = 0; i < openKeys.length; i++) {
-				if (this._openKeysFromProperties[i] !== openKeys[i]) {
-					return true;
-				}
+		}
+
+		for (let i = 0; i < openKeysFromProperties.length; i++) {
+			if (this._openKeysFromProperties[i] !== openKeysFromProperties[i]) {
+				return true;
 			}
 		}
+
 		return false;
 	}
 
