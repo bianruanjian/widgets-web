@@ -19,7 +19,7 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	}
 
 	private _openKeys = new Set<string>();
-	private oldOpenKeyArray: string[] = [];
+	private _requestOpenKeyArray: string[] = [];
 
 	private _requestOpen(key: string) {
 		const { onRequestOpen } = this.properties;
@@ -40,11 +40,11 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 		const { openKeys = [] } = this.properties;
 		// 判断是否为用户修改 openKeys 默认值操作
 		let isNotSameOpenKeys: boolean = false;
-		if (this.oldOpenKeyArray.length !== openKeys.length) {
+		if (this._requestOpenKeyArray.length !== openKeys.length) {
 			isNotSameOpenKeys = true;
 		} else {
 			for (let i = 0; i < openKeys.length; i++) {
-				if (this.oldOpenKeyArray[i] !== openKeys[i]) {
+				if (this._requestOpenKeyArray[i] !== openKeys[i]) {
 					isNotSameOpenKeys = true;
 					break;
 				}
@@ -55,7 +55,7 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 			openKeys.forEach((openKey) => {
 				this._openKeys.add(openKey);
 			});
-			this.oldOpenKeyArray = openKeys;
+			this._requestOpenKeyArray = openKeys;
 		}
 
 		return w(
