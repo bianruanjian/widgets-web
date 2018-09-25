@@ -19,7 +19,7 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 	}
 
 	private _openKeys = new Set<string>();
-	private _requestOpenKeyArray: string[] = [];
+	private _openKeysFromProperties: string[] = [];
 
 	private _requestOpen(key: string) {
 		const { onRequestOpen } = this.properties;
@@ -35,27 +35,29 @@ export class AccordionPaneWidgetBase extends AccordionPaneBase<AccordionPaneProp
 		this.invalidate();
 	}
 
+	private _openKyesIsModifiedByProperties(openKeys: string[]) {
+		if (this._openKeysFromProperties.length !== openKeys.length) {
+			return true;
+		} else {
+			for (let i = 0; i < openKeys.length; i++) {
+				if (this._openKeysFromProperties[i] !== openKeys[i]) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	protected render(): DNode {
 		// 用户修改 openKeys 默认值时,要给 this._openKeys 重新赋值
 		const { openKeys = [] } = this.properties;
 		// 判断是否为用户修改 openKeys 默认值操作
-		let isNotSameOpenKeys: boolean = false;
-		if (this._requestOpenKeyArray.length !== openKeys.length) {
-			isNotSameOpenKeys = true;
-		} else {
-			for (let i = 0; i < openKeys.length; i++) {
-				if (this._requestOpenKeyArray[i] !== openKeys[i]) {
-					isNotSameOpenKeys = true;
-					break;
-				}
-			}
-		}
-		if (isNotSameOpenKeys) {
-			this._openKeys = new Set<string>();
+		if (this._openKyesIsModifiedByProperties(openKeys)) {
+			this._openKeys.clear();
 			openKeys.forEach((openKey) => {
 				this._openKeys.add(openKey);
 			});
-			this._requestOpenKeyArray = openKeys;
+			this._openKeysFromProperties = openKeys;
 		}
 
 		return w(
