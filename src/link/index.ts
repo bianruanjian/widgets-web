@@ -61,7 +61,6 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'target',
 		'value',
 		'valuePosition',
-		'isListItem',
 		'appearance',
 		'marginTop',
 		'marginBottom',

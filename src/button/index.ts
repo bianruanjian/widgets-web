@@ -53,8 +53,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'fluid',
 		'active',
 		'href',
-		'target',
-		'isListItem'
+		'target'
 	],
 	properties: [],
 	events: ['onClick']
