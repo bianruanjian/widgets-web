@@ -1,5 +1,6 @@
 import { v } from '@dojo/framework/widget-core/d';
-import { DNode, VNode } from '@dojo/framework/widget-core/interfaces';
+import { assign } from '@dojo/framework/shim/object';
+import { DNode, WNode } from '@dojo/framework/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/framework/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
 import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
@@ -8,6 +9,9 @@ import { SpacingProperties } from '../common/interfaces';
 import { getSpacingClasses } from '../common/util';
 
 import * as css from './styles/list-group.m.css';
+import Button from '../button';
+import ListItem from '../list-item';
+import Link from '../link';
 
 /**
  * @type ListGroupProperties
@@ -42,7 +46,7 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 	events: []
 })
 @theme(css)
-export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> extends ThemedBase<P> {
+export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> extends ThemedBase<P, WNode<Button|ListItem|Link>> {
 	protected getKey() {
 		return 'list-group';
 	}
@@ -53,7 +57,7 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 		let existButtonOrLink: boolean = false;
 		this.children.forEach((child, index) => {
 			if (child) {
-				const childKey = (child as VNode).properties.key;
+				const childKey = child.properties.key;
 
 				if (childKey === 'link' || childKey === 'button') {
 					tag = 'div';
@@ -73,7 +77,12 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 	}
 
 	protected renderChildren(): DNode[] {
-		return this.children;
+		return this.children.map((child)=>{
+			assign(child!.properties, {
+				isListItem: true
+			});
+			return child;
+		});
 	}
 
 	protected render(): DNode | DNode[] {
@@ -105,7 +114,7 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 					...getSpacingClasses(this.properties)
 				]
 			},
-			this.children
+			this.renderChildren()
 		);
 	}
 }
