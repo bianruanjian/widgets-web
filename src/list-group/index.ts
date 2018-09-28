@@ -77,9 +77,11 @@ export class ListGroupBase<P extends ListGroupProperties = ListGroupProperties> 
 	}
 
 	protected renderChildren(): DNode[] {
+		const { orientation } = this.properties;
 		return this.children.map((child)=>{
 			assign(child!.properties, {
-				isListItem: true
+				isListItem: true,
+				orientation
 			});
 			return child;
 		});

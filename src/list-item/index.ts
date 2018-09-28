@@ -44,7 +44,6 @@ export const ThemedBase = ThemedMixin(WidgetBase);
 		'active',
 		'disabled',
 		'appearance',
-		'orientation',
 		'display',
 		'flexDirection',
 		'reverse',
