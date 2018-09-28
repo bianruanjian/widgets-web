@@ -171,9 +171,9 @@ export class CheckoutFormBase extends WidgetBase<WidgetProperties> {
 			w(Footer, { marginTop: '5', marginBottom: '5', paddingTop: '5', alignment: 'center' }, [
 				w(Text, { type: 'p', marginBottom: '1', value: '© 2017-2018 Company Name', textColor: 'secondary' }),
 				w(ListGroup, { orientation: 'horizontal' }, [
-					w(ListItem, { orientation: 'horizontal' }, [w(Link, { value: 'Privacy' })]),
-					w(ListItem, { orientation: 'horizontal' }, [w(Link, { value: 'Terms' })]),
-					w(ListItem, { orientation: 'horizontal' }, [w(Link, { value: 'Support' })])
+					w(ListItem, { }, [w(Link, { value: 'Privacy' })]),
+					w(ListItem, { }, [w(Link, { value: 'Terms' })]),
+					w(ListItem, { }, [w(Link, { value: 'Support' })])
 				])
 			])
 		]);
