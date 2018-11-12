@@ -1,6 +1,6 @@
 {
   "name": "widgets-web",
-  "version": "0.0.7",
+  "version": "0.0.10-pre",
   "scripts": {
     "build-widgets": "dojo build widget",
     "build": "npm run build-widgets",
