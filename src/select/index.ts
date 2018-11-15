@@ -4,7 +4,7 @@ import { ThemedMixin, theme, ThemedProperties } from '@dojo/framework/widget-cor
 import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
 import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
 import { CustomElementChildType } from '@dojo/framework/widget-core/registerCustomElement';
-import uuid from '@dojo/framework/core/uuid';
+import {uuid} from '@dojo/framework/core/util';
 import Label from '../label';
 import {
 	SpacingProperties,

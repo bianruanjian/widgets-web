@@ -4,7 +4,7 @@ import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
 import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
 import { v, w } from '@dojo/framework/widget-core/d';
 import { Focus } from '@dojo/framework/widget-core/meta/Focus';
-import uuid from '@dojo/framework/core/uuid';
+import {uuid} from '@dojo/framework/core/util';
 import {
 	SpacingProperties,
 	FlexItemProperties,
