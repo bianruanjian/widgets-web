@@ -3,7 +3,7 @@ import { DNode } from '@dojo/framework/widget-core/interfaces';
 import { ThemedMixin, theme, ThemedProperties } from '@dojo/framework/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
 import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
-import uuid from '@dojo/framework/core/uuid';
+import {uuid} from '@dojo/framework/core/util';
 import Focus from '@dojo/framework/widget-core/meta/Focus';
 import {
 	SpacingProperties,
